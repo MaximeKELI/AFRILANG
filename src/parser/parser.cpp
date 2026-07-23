@@ -1186,6 +1186,90 @@ std::unique_ptr<StatementNode> Parser::parseRaiseStatement() {
     return node;
 }
 
+Parser::MatchPattern Parser::parseMatchPattern() {
+    MatchPattern p;
+    if (match(TokenType::Nothing)) {
+        p.caseKind = MatchArmNode::CaseKind::OptionalNothing;
+        return p;
+    }
+    if (match(TokenType::ErrorKw)) {
+        p.caseKind = MatchArmNode::CaseKind::ResultError;
+        std::string bind;
+        if (matchName(bind)) p.bindNames.push_back(bind);
+        return p;
+    }
+    if (matchOneOf(TokenType::True, TokenType::Yes)) {
+        p.caseKind = MatchArmNode::CaseKind::Bool;
+        p.caseName = "true";
+        return p;
+    }
+    if (matchOneOf(TokenType::False, TokenType::No)) {
+        p.caseKind = MatchArmNode::CaseKind::Bool;
+        p.caseName = "false";
+        return p;
+    }
+    if (match(TokenType::StringLiteral)) {
+        p.caseKind = MatchArmNode::CaseKind::Text;
+        p.caseName = previous().lexeme;
+        while (match(TokenType::Or)) {
+            p.orValues.push_back(consume(TokenType::StringLiteral,
+                "Chaine attendue apres 'or'").lexeme);
+        }
+        return p;
+    }
+    if (match(TokenType::NumberLiteral)) {
+        p.caseName = previous().lexeme;
+        if (match(TokenType::To)) {
+            p.caseKind = MatchArmNode::CaseKind::Range;
+            p.rangeLow = p.caseName;
+            p.caseName.clear();
+            p.rangeHigh = consume(TokenType::NumberLiteral,
+                "Nombre attendu apres 'to'").lexeme;
+        } else {
+            p.caseKind = MatchArmNode::CaseKind::Number;
+            while (match(TokenType::Or)) {
+                p.orValues.push_back(consume(TokenType::NumberLiteral,
+                    "Nombre attendu apres 'or'").lexeme);
+            }
+        }
+        return p;
+    }
+    std::string name;
+    if (!matchName(name)) {
+        error("Motif de cas attendu apres 'case'");
+    }
+    if (name == "_") {
+        p.caseKind = MatchArmNode::CaseKind::Wildcard;
+        return p;
+    }
+    p.caseName = name;
+    if (recordNames_.count(name) && check(TokenType::With)) {
+        p.caseKind = MatchArmNode::CaseKind::Record;
+        consume(TokenType::With, "'with' attendu");
+        do {
+            p.bindNames.push_back(consumeName("Nom de champ attendu").lexeme);
+        } while (match(TokenType::Comma));
+        return p;
+    }
+    if (match(TokenType::With)) {
+        do {
+            p.bindNames.push_back(consumeName("Nom de liaison attendu apres 'with'").lexeme);
+        } while (match(TokenType::Comma));
+        return p;
+    }
+    // Liaison directe pour les motifs contextuels 'ok'/'value' (Result/optionnel).
+    std::string bind;
+    if ((name == "ok" || name == "value") && matchName(bind)) {
+        p.bindNames.push_back(bind);
+        return p;
+    }
+    // Or-patterns sur des cas enum : case A or B ...
+    while (match(TokenType::Or)) {
+        p.orValues.push_back(consumeName("Nom de cas attendu apres 'or'").lexeme);
+    }
+    return p;
+}
+
 std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
     auto subject = parseExpression();
     std::vector<MatchArmNode> arms;
@@ -1200,27 +1284,13 @@ std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
         } else {
             consume(TokenType::Case, "'case' attendu dans match");
             MatchArmNode arm;
-            if (match(TokenType::StringLiteral)) {
-                arm.caseKind = MatchArmNode::CaseKind::Text;
-                arm.caseName = previous().lexeme;
-            } else if (match(TokenType::NumberLiteral)) {
-                arm.caseKind = MatchArmNode::CaseKind::Number;
-                arm.caseName = previous().lexeme;
-            } else {
-                const Token& caseToken = consumeName("Nom de cas attendu");
-                arm.caseName = caseToken.lexeme;
-                if (recordNames_.count(arm.caseName) && check(TokenType::With)) {
-                    arm.caseKind = MatchArmNode::CaseKind::Record;
-                    consume(TokenType::With, "'with' attendu");
-                    do {
-                        arm.bindNames.push_back(consumeName("Nom de champ attendu").lexeme);
-                    } while (match(TokenType::Comma));
-                } else if (match(TokenType::With)) {
-                    do {
-                        arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
-                    } while (match(TokenType::Comma));
-                }
-            }
+            MatchPattern p = parseMatchPattern();
+            arm.caseKind = p.caseKind;
+            arm.caseName = std::move(p.caseName);
+            arm.bindNames = std::move(p.bindNames);
+            arm.orValues = std::move(p.orValues);
+            arm.rangeLow = std::move(p.rangeLow);
+            arm.rangeHigh = std::move(p.rangeHigh);
             if (match(TokenType::If)) {
                 arm.guard = parseExpression();
             }
@@ -1262,27 +1332,13 @@ std::unique_ptr<ExpressionNode> Parser::parseMatchExpression() {
         } else {
             consume(TokenType::Case, "'case' attendu dans match");
             MatchExprArmNode arm;
-            if (match(TokenType::StringLiteral)) {
-                arm.caseKind = MatchArmNode::CaseKind::Text;
-                arm.caseName = previous().lexeme;
-            } else if (match(TokenType::NumberLiteral)) {
-                arm.caseKind = MatchArmNode::CaseKind::Number;
-                arm.caseName = previous().lexeme;
-            } else {
-                const Token& caseToken = consumeName("Nom de cas attendu");
-                arm.caseName = caseToken.lexeme;
-                if (recordNames_.count(arm.caseName) && check(TokenType::With)) {
-                    arm.caseKind = MatchArmNode::CaseKind::Record;
-                    consume(TokenType::With, "'with' attendu");
-                    do {
-                        arm.bindNames.push_back(consumeName("Nom de champ attendu").lexeme);
-                    } while (match(TokenType::Comma));
-                } else if (match(TokenType::With)) {
-                    do {
-                        arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
-                    } while (match(TokenType::Comma));
-                }
-            }
+            MatchPattern p = parseMatchPattern();
+            arm.caseKind = p.caseKind;
+            arm.caseName = std::move(p.caseName);
+            arm.bindNames = std::move(p.bindNames);
+            arm.orValues = std::move(p.orValues);
+            arm.rangeLow = std::move(p.rangeLow);
+            arm.rangeHigh = std::move(p.rangeHigh);
             if (match(TokenType::If)) {
                 arm.guard = parseExpression();
             }

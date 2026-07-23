@@ -81,6 +81,16 @@ private:
     std::unique_ptr<StatementNode> parseMatchStatement();
     std::unique_ptr<ExpressionNode> parseMatchExpression();
     bool startsMatchArmStatement() const;
+    // Motif d'un bras de match, partage entre la forme statement et expression.
+    struct MatchPattern {
+        MatchArmNode::CaseKind caseKind = MatchArmNode::CaseKind::Enum;
+        std::string caseName;
+        std::vector<std::string> bindNames;
+        std::vector<std::string> orValues;
+        std::string rangeLow;
+        std::string rangeHigh;
+    };
+    MatchPattern parseMatchPattern();
     std::unique_ptr<StatementNode> parseReturnStatement();
     std::unique_ptr<StatementNode> parseAssertStatement();
     std::unique_ptr<StatementNode> parseAskStatement();
