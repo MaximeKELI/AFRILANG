@@ -177,6 +177,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/src/co
   /home/admin20/AFRILANG/include/afrilang/security.hpp \
   /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
   /home/admin20/AFRILANG/include/afrilang/stdlib_catalog.hpp \
+  /home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /home/admin20/AFRILANG/include/afrilang/target.hpp \
   /home/admin20/AFRILANG/include/afrilang/types.hpp \
   /usr/include/alloca.h \
@@ -7361,10 +7362,6 @@ CMakeFiles/afrilang.dir/main.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 
-/usr/include/x86_64-linux-gnu/c++/15/bits/atomic_word.h:
-
-/usr/include/c++/15/bits/locale_facets_nonio.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
@@ -8049,6 +8046,14 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.o:
 
 /usr/include/x86_64-linux-gnu/asm/sockios.h:
 
+/usr/include/x86_64-linux-gnu/c++/15/bits/atomic_word.h:
+
+/usr/include/c++/15/bits/locale_facets_nonio.h:
+
+/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
+
+/home/admin20/AFRILANG/include/afrilang/parser.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/c++io.h:
@@ -8088,10 +8093,6 @@ CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o:
 /home/admin20/AFRILANG/include/afrilang/formatter.hpp:
 
 /home/admin20/AFRILANG/src/utils/utf8.cpp:
-
-/home/admin20/AFRILANG/include/afrilang/parser.hpp:
-
-/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
 
 /usr/include/c++/15/bits/uses_allocator_args.h:
 

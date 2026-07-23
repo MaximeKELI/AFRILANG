@@ -160,4 +160,33 @@ inline std::vector<std::string> flatMapText(
     return out;
 }
 
+inline std::vector<double> uniqueNumbers(const std::vector<double>& items) {
+    std::vector<double> out;
+    for (double v : items) {
+        bool seen = false;
+        for (double u : out) {
+            if (u == v) {
+                seen = true;
+                break;
+            }
+        }
+        if (!seen) out.push_back(v);
+    }
+    return out;
+}
+
+inline std::vector<double> takeNumbers(const std::vector<double>& items, double n) {
+    if (n <= 0) return {};
+    const std::size_t count = static_cast<std::size_t>(n);
+    if (count >= items.size()) return items;
+    return std::vector<double>(items.begin(), items.begin() + static_cast<std::ptrdiff_t>(count));
+}
+
+inline std::vector<double> dropNumbers(const std::vector<double>& items, double n) {
+    if (n <= 0) return items;
+    const std::size_t count = static_cast<std::size_t>(n);
+    if (count >= items.size()) return {};
+    return std::vector<double>(items.begin() + static_cast<std::ptrdiff_t>(count), items.end());
+}
+
 } // namespace afrilang::runtime::collections

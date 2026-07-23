@@ -1,3 +1,6 @@
+import "std/collections"
+use collections
+
 test "list length and at"
     create xs = [10, 20, 30]
     assert length of xs is equal to 3
@@ -14,4 +17,16 @@ test "map and filter"
     create big = filter each x in xs where x is greater than 2
     assert length of big is equal to 2
     assert big at 0 is equal to 3
+end
+
+test "unique take drop"
+    create xs = list of 1, 2, 2, 3, 1
+    create u = uniqueNumbers(xs)
+    assert length of u is equal to 3
+    create t = takeNumbers(xs, 2)
+    assert length of t is equal to 2
+    assert t at 0 is equal to 1
+    create d = dropNumbers(xs, 3)
+    assert length of d is equal to 2
+    assert d at 0 is equal to 3
 end

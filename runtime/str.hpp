@@ -1,6 +1,7 @@
 #pragma once
 
 #include <initializer_list>
+#include <cctype>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -79,6 +80,35 @@ inline std::string join(const std::vector<std::string>& parts, const std::string
         out << parts[i];
     }
     return out.str();
+}
+
+inline bool startsWith(const std::string& text, const std::string& prefix) {
+    return text.size() >= prefix.size() && text.compare(0, prefix.size(), prefix) == 0;
+}
+
+inline bool endsWith(const std::string& text, const std::string& suffix) {
+    return text.size() >= suffix.size() &&
+           text.compare(text.size() - suffix.size(), suffix.size(), suffix) == 0;
+}
+
+inline std::string toUpper(const std::string& text) {
+    std::string out = text;
+    for (char& c : out) {
+        c = static_cast<char>(std::toupper(static_cast<unsigned char>(c)));
+    }
+    return out;
+}
+
+inline std::string toLower(const std::string& text) {
+    std::string out = text;
+    for (char& c : out) {
+        c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+    }
+    return out;
+}
+
+inline double byteLen(const std::string& text) {
+    return static_cast<double>(text.size());
 }
 
 } // namespace afrilang::runtime::str

@@ -78,7 +78,8 @@ jobs:
             ./build/afrilang run "packages/$p/tests/smoke.afr"
           done
           ./build/afrilang run tests/specs/module_name_collision.afr
-          for p in math strx urlx queryx; do
+          ./build/afrilang run tests/specs/module_result.afr
+          for p in math strx urlx queryx bannerx; do
             ./build/afrilang pkg verify "$p"
           done
           rm -rf examples/apps/pkg_transitive/vendor examples/apps/pkg_transitive/afrilang.lock
@@ -87,6 +88,18 @@ jobs:
           grep -q 'name = "urlx"' afrilang.lock
           "$ROOT/build/afrilang" run src/main.afr
           cd "$ROOT"
+          rm -rf examples/apps/pkg_banner_only/vendor examples/apps/pkg_banner_only/afrilang.lock
+          cd examples/apps/pkg_banner_only
+          "$ROOT/build/afrilang" pkg install
+          grep -q 'name = "flagx"' afrilang.lock
+          "$ROOT/build/afrilang" run src/main.afr
+          cd "$ROOT"
+          # catalog isolation: core-only program must not pull simple_libs.hpp
+          printf '%s\n' 'import "std/math"' 'use math' 'say abs(1)' > /tmp/afr_core_only.afr
+          "$ROOT/build/afrilang" run /tmp/afr_core_only.afr
+          ! grep -q 'simple_libs.hpp' /tmp/afr_core_only.generated.cpp 2>/dev/null
+          ! grep -q 'simple_libs.hpp' afr_core_only.generated.cpp 2>/dev/null || true
+          test ! -f afr_core_only.generated.cpp || ! grep -q 'simple_libs.hpp' afr_core_only.generated.cpp
 
       - name: LSP diagnostic smoke test
         run: python3 scripts/test_lsp_diag.py

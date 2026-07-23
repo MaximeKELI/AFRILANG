@@ -1,0 +1,8 @@
+name = "pkg_banner_only"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/pkg_banner_only"
+description = "bannerx only — flagx arrives transitively"
+
+[dependencies]
+bannerx = "0.1.0"

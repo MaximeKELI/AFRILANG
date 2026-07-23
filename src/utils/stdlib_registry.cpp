@@ -281,6 +281,8 @@ void StdlibRegistry::injectFsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("isDir", {{"path", "text"}}, "bool"));
     fns.push_back(makeStubFunction("readText", {{"path", "text"}}, "text"));
     fns.push_back(makeStubFunction("writeText", {{"path", "text"}, {"content", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("copyFile", {{"from", "text"}, {"to", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("renameFile", {{"from", "text"}, {"to", "text"}}, "bool"));
     injectModule(program, "fs", std::move(fns));
 }
 
@@ -300,6 +302,11 @@ void StdlibRegistry::injectStrModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("replace", {{"text", "text"}, {"from", "text"}, {"to", "text"}}, "text"));
     fns.push_back(makeStubFunction("split", {{"text", "text"}, {"sep", "text"}}, "list text"));
     fns.push_back(makeStubFunction("join", {{"parts", "list text"}, {"sep", "text"}}, "text"));
+    fns.push_back(makeStubFunction("startsWith", {{"text", "text"}, {"prefix", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("endsWith", {{"text", "text"}, {"suffix", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("toUpper", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("toLower", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("byteLen", {{"text", "text"}}, "number"));
     injectModule(program, "str", std::move(fns));
 }
 
@@ -613,6 +620,9 @@ void StdlibRegistry::injectCollectionsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("reduceText", {{"items", "list text"}, {"fn", "function text, text to text"}, {"initial", "text"}}, "text"));
     fns.push_back(makeStubFunction("flatMapNumbers", {{"items", "list number"}, {"fn", "function number to list number"}}, "list number"));
     fns.push_back(makeStubFunction("flatMapText", {{"items", "list text"}, {"fn", "function text to list text"}}, "list text"));
+    fns.push_back(makeStubFunction("uniqueNumbers", {{"items", "list number"}}, "list number"));
+    fns.push_back(makeStubFunction("takeNumbers", {{"items", "list number"}, {"n", "number"}}, "list number"));
+    fns.push_back(makeStubFunction("dropNumbers", {{"items", "list number"}, {"n", "number"}}, "list number"));
     injectModule(program, "collections", std::move(fns));
 }
 

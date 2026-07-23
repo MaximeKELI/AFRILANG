@@ -12,7 +12,8 @@ if [[ -z "${AFRILANG_PKG_SIGN_KEY:-}" ]]; then
   echo "Set AFRILANG_PKG_SIGN_KEY to the Ed25519 private key hex (see SECURITY.md)." >&2
   exit 1
 fi
-PKGS=(math strx flagx urlx queryx percentx listx jsonx semverx)
+PKGS=(math strx flagx urlx queryx percentx listx jsonx semverx
+      bannerx clampx checkx csvx textx pathx envx numcheck fmt cli)
 for p in "${PKGS[@]}"; do
   echo "signing $p ..."
   "$AFR" pkg sign "$p" "$AFRILANG_PKG_SIGN_KEY"

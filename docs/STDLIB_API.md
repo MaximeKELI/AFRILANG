@@ -2,6 +2,9 @@
 
 Documentation prioritaire des backends réels (`runtime/*.hpp`).  
 Les catalogues générés (`stdlib/m/`, `stdlib/c/`, stubs massifs) restent expérimentaux.
+Ils ne sont **inclus au link** (`simple_libs.hpp` / `medium_libs.hpp` / `complex_libs.hpp`)
+que si un module catalogue est réellement importé via `std/...` (pas pour le core legacy,
+pas pour un paquet utilisateur homonyme).
 
 Voir aussi `CORE_STDLIB.md` et `afrilang test --specs`.
 
@@ -16,6 +19,9 @@ Voir aussi `CORE_STDLIB.md` et `afrilang test --specs`.
 | `replace(text, from, to)` | Remplacement global |
 | `split(text, sep)` | Découpe en liste |
 | `join(parts, sep)` | Jointure |
+| `startsWith` / `endsWith` | Préfixe / suffixe |
+| `toUpper` / `toLower` | Casse ASCII |
+| `byteLen(text)` | Longueur octets |
 | `toString(...)` | Conversion |
 
 Tests : `tests/stdlib/str.afr`
@@ -173,6 +179,7 @@ Tests : `tests/stdlib/thread.afr`
 | `listDir` / `makeDir` / `removeFile` / `fileSize` | Contenu / taille |
 | `exists` / `isFile` / `isDir` | Prédicats |
 | `readText` / `writeText` | Lecture / écriture texte |
+| `copyFile` / `renameFile` | Copie / renommage |
 
 Tests : `tests/stdlib/fs.afr`
 

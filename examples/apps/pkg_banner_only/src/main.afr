@@ -1,0 +1,9 @@
+import "pkg/bannerx/bannerx.afr"
+import "pkg/flagx/flagx.afr"
+
+use bannerx
+use flagx
+
+create args = list of "--title", "P7"
+say line(title("banner", flagValue(args, "--title")))
+say box("ok")

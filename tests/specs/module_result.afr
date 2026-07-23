@@ -1,0 +1,29 @@
+module Parse
+    function positive(n number) returns number or error
+        if n is less than 1 then
+            return error "bad"
+        end
+        return n
+    end
+
+    function orZero(r number or error) returns number
+        if r is error then
+            return 0
+        end
+        return r.value
+    end
+end
+
+use Parse
+
+test "module result ok"
+    create r = positive(4)
+    assert (r is error) is equal to false
+    assert r.value is equal to 4
+end
+
+test "module result err and param"
+    assert positive(0) is error
+    assert orZero(positive(0)) is equal to 0
+    assert orZero(positive(9)) is equal to 9
+end

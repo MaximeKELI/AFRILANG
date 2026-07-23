@@ -14,3 +14,17 @@ test "fs isDir"
     assert isDir("/tmp") is equal to true
     assert isFile("/tmp") is equal to false
 end
+
+test "fs copy and rename"
+    create src = "/tmp/afrilang_fs_p7_src.txt"
+    create mid = "/tmp/afrilang_fs_p7_mid.txt"
+    create dst = "/tmp/afrilang_fs_p7_dst.txt"
+    assert writeText(src, "p7") is equal to true
+    assert copyFile(src, mid) is equal to true
+    assert readText(mid) is equal to "p7"
+    assert renameFile(mid, dst) is equal to true
+    assert exists(dst) is equal to true
+    assert exists(mid) is equal to false
+    assert removeFile(src) is equal to true
+    assert removeFile(dst) is equal to true
+end

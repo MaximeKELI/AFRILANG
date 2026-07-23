@@ -16,3 +16,11 @@ test "replace substitutes"
     create r = replace("aa-bb-aa", "aa", "xx")
     assert r is equal to "xx-bb-xx"
 end
+
+test "starts ends case length"
+    assert startsWith("afrilang", "afri") is equal to true
+    assert endsWith("afrilang", "lang") is equal to true
+    assert toUpper("Ab") is equal to "AB"
+    assert toLower("Ab") is equal to "ab"
+    assert byteLen("abc") is equal to 3
+end

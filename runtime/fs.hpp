@@ -71,6 +71,18 @@ inline bool writeText(const std::string& path, const std::string& content) {
     return true;
 }
 
+inline bool copyFile(const std::string& from, const std::string& to) {
+    std::error_code ec;
+    std::filesystem::copy_file(from, to, std::filesystem::copy_options::overwrite_existing, ec);
+    return !ec;
+}
+
+inline bool renameFile(const std::string& from, const std::string& to) {
+    std::error_code ec;
+    std::filesystem::rename(from, to, ec);
+    return !ec;
+}
+
 } // namespace fs
 } // namespace runtime
 } // namespace afrilang

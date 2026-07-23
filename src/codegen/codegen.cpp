@@ -5,9 +5,9 @@
 #include "afrilang/sandbox.hpp"
 #include "afrilang/security.hpp"
 #include "afrilang/stdlib_catalog.hpp"
+#include "afrilang/stdlib_registry.hpp"
 #include "afrilang/medium_catalog.hpp"
 #include "afrilang/complex_catalog.hpp"
-
 #include <cstdlib>
 #include <cctype>
 #include <cstdint>
@@ -523,9 +523,16 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "email") needsEmail = true;
         if (module->name == "uuid") needsUuid = true;
         if (module->name == "unicode") needsUnicode = true;
-        if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
-        if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
-        if (complexCatalogIsComplexModule(module->name)) needsComplexLibs = true;
+        // Catalog mega-headers only when an injected *catalog* module is used —
+        // never for legacy core, never for user packages that share a catalog name.
+        if (module->isStdlibInjected) {
+            if (stdlibCatalogIsSimpleModule(module->name) &&
+                !StdlibRegistry::isLegacyStdlibModule(module->name)) {
+                needsSimpleLibs = true;
+            }
+            if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
+            if (complexCatalogIsComplexModule(module->name)) needsComplexLibs = true;
+        }
         if (module->name == "async") { /* async.hpp via usesAsync */ }
     }
     for (const auto& modName : semantic_.usedModules) {
