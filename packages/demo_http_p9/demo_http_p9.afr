@@ -1,0 +1,20 @@
+import "std/web"
+use web
+
+module demo_http_p9
+    function makeRouter() returns int
+        create router = createRouter()
+        addRoute(router, "GET", "/", "ok")
+        addRoute(router, "GET", "/health", "healthy")
+        return router
+    end
+
+    function serveOnce(port number) returns number
+        create router = makeRouter()
+        return httpServeOnceRouted(port, router)
+    end
+
+    function routeGet(router int, path text) returns text
+        return dispatch(router, "GET", path)
+    end
+end

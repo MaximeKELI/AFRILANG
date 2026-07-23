@@ -1,0 +1,6 @@
+name = "demo_http_p9"
+version = "0.1.0"
+description = "Paquet AFRILANG demo_http_p9"
+main = "demo_http_p9.afr"
+license = "MIT"
+tags = ["http", "net"]

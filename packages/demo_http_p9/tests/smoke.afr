@@ -1,0 +1,10 @@
+import "pkg/demo_http_p9/demo_http_p9.afr"
+
+use demo_http_p9
+
+test "router routes"
+    create router = makeRouter()
+    assert routeGet(router, "/") is equal to "ok"
+    assert routeGet(router, "/health") is equal to "healthy"
+    assert routeGet(router, "/missing") is equal to ""
+end
