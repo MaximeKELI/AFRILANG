@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Sign a representative blessed subset. Requires AFRILANG_PKG_SIGN_KEY (64-byte hex private key).
 # Public key must be listed in packages/trusted_keys.json.
+# Prefer scripts/sign_blessed_all.sh to sign every blessed package (P8 supply-chain gate).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 AFR="${ROOT}/build/afrilang"
@@ -20,3 +21,4 @@ for p in "${PKGS[@]}"; do
 done
 "$AFR" pkg reindex
 echo "done. verify with: afrilang pkg verify <name>"
+echo "tip: bash scripts/sign_blessed_all.sh  # sign every blessed package"

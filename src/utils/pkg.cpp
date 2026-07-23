@@ -78,12 +78,41 @@ std::string PkgRegistry::registryPublishUrl() {
 int PkgRegistry::syncRemoteRegistry(const std::string& afrilangRoot) {
     const std::string url = registryUrl();
     std::cout << "Synchronisation du registre: " << url << "\n";
-    const std::string body = afrilang::runtime::http::httpGet(url);
+    std::string body;
+    std::string sourceLabel = url;
+
+    if (url.rfind("file://", 0) == 0) {
+        const fs::path filePath = url.substr(7);
+        std::ifstream in(filePath);
+        if (in) {
+            std::ostringstream buf;
+            buf << in.rdbuf();
+            body = buf.str();
+        }
+    } else {
+        body = afrilang::runtime::http::httpGet(url);
+    }
+
+    if (body.empty()) {
+        const fs::path bundled =
+            fs::path(afrilangRoot) / "packages" / "remote-index.bundled.json";
+        std::ifstream in(bundled);
+        if (in) {
+            std::ostringstream buf;
+            buf << in.rdbuf();
+            body = buf.str();
+            sourceLabel = bundled.string() + " (fallback bundlé)";
+            std::cout << "URL distante indisponible — utilisation du fallback bundlé.\n";
+        }
+    }
+
     if (body.empty()) {
         std::cerr << "Erreur: impossible de télécharger l'index distant.\n";
-        std::cerr << "Définissez AFRILANG_REGISTRY_URL ou vérifiez la connexion.\n";
+        std::cerr << "Définissez AFRILANG_REGISTRY_URL (http(s) ou file://) ou placez "
+                     "packages/remote-index.bundled.json.\n";
         return 1;
     }
+
     const fs::path indexPath = fs::path(afrilangRoot) / "packages" / "remote-index.json";
     fs::create_directories(indexPath.parent_path());
     std::ofstream out(indexPath);
@@ -92,7 +121,7 @@ int PkgRegistry::syncRemoteRegistry(const std::string& afrilangRoot) {
     for (std::size_t i = 0; i < body.size(); ++i) {
         if (body.compare(i, 13, "\"blessed\":true") == 0) ++blessedCount;
     }
-    std::cout << "Index distant enregistré: " << indexPath;
+    std::cout << "Index distant enregistré: " << indexPath << " ← " << sourceLabel;
     if (blessedCount > 0) {
         std::cout << " (" << blessedCount << " paquets blessed)";
     }
@@ -985,9 +1014,23 @@ static LockedPackage installRegistryPackage(const std::string& projectDir,
                           << "' (aucune clé de confiance ne valide la signature).\n";
                 fs::remove_all(dst);
                 return locked;
-            case SigCheck::NoSignature:
-                // Compat ascendante : paquet non signé ou aucune clé de confiance.
+            case SigCheck::NoSignature: {
+                // Blessed packages require a verifiable Ed25519 signature when
+                // trusted keys are configured (supply-chain gate).
+                const bool isBlessed =
+                    loadBlessedNames(afrilangRoot).count(packageName) > 0 || info.blessed ||
+                    meta.blessed;
+                const auto keys = loadTrustedKeys(afrilangRoot);
+                if (isBlessed && !keys.empty()) {
+                    std::cerr << "Erreur: paquet blessed '" << packageName
+                              << "' non signé (signature Ed25519 obligatoire).\n";
+                    std::cerr << "Astuce: afrilang pkg sign " << packageName
+                              << " <clé>  puis  afrilang pkg reindex\n";
+                    fs::remove_all(dst);
+                    return locked;
+                }
                 break;
+            }
         }
     }
 

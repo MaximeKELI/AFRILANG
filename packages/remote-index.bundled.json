@@ -1,0 +1,610 @@
+{
+  "registry": "afrilang-local-bundle",
+  "version": 1,
+  "packages": [
+    {
+      "name": "backoff",
+      "version": "0.1.0",
+      "description": "Retry/backoff delay helpers",
+      "method": "local",
+      "sha256": "4f4caf1f0916d0cf722e967c39fe95a7d8fc7f3face23db7161552013e5e0441",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "cli",
+        "util"
+      ],
+      "sig": "edd02c46770b80bfde5bc468574010aec4886529d763f70db0f9a31905ab9ee47deb3ca197d871095b9c0685b0f85752545da8711a2a2a51e32f2bba6bccd500"
+    },
+    {
+      "name": "bannerx",
+      "version": "0.1.0",
+      "description": "CLI banners and boxes",
+      "method": "local",
+      "sha256": "0f0601a4fd3314c63636fe51ae488271a82e4c55a57198ad05baf096287703b3",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "cli",
+        "text"
+      ],
+      "sig": "ebda1ab85086fc17d48dd22825cb1d45e6b25424d3942ea379db1b79bac33921c814b5abd59ff5012a8d377802d5eab28117739a83ccd56dbc25200c213e8307"
+    },
+    {
+      "name": "checkx",
+      "version": "0.1.0",
+      "description": "Validation helpers",
+      "method": "local",
+      "sha256": "72f0701832c8298408ace163b33eb21d97ebcfc15a4e14029e3011afe7edc374",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "validate",
+        "text"
+      ],
+      "sig": "27c91302679960e5d275e6bc5010ef32c2fcd64668db41c1799660bd69586cb3c443a4618d49ec5350e81abe2e460aba88f6eb981ebc84e7b20cfe19b2f24d04"
+    },
+    {
+      "name": "clampx",
+      "version": "0.1.0",
+      "description": "Clamp numeric values",
+      "method": "local",
+      "sha256": "83335258eee9300aa05fb72296f12d3d7d69f4c1182e90623c072268a836a1fb",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math"
+      ],
+      "sig": "2c548c755dbce0b2bc08b3623a02a35ca774dc6bf0bbd6df41708b2803d4265f8a56eb7de85720aa295ebd11ff4a1cf238fc535b2c8086f15245102cfed3e50c"
+    },
+    {
+      "name": "cli",
+      "version": "0.1.0",
+      "description": "CLI helpers (colors, banners)",
+      "method": "local",
+      "sha256": "61fff7e08ae0a18da0f82dcb250015a3baacb71d623e2dd7bf53981df4fc9f94",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "cli"
+      ],
+      "sig": "dca344c4d6c6e0f21c6cf04fc3881f729eac5cd21dd291e92ab8c9c4544643391de8be6c621f7ba4b6f39f8cddbd37c39c566b6276b5938b3a11bfd1796f4108"
+    },
+    {
+      "name": "colors",
+      "version": "0.1.0",
+      "description": "ANSI color helpers",
+      "method": "local",
+      "sha256": "d158caf7aca3a75394ef06f4b634b94aacdd5e9533210ee4866d956d927d6bb7",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "cli",
+        "text"
+      ],
+      "sig": "bb70628ce2bb37d5b4498849da9cb10145ff7a94b46850403427aa2e3f1a9b67d03381dc4aaceb4c075fd25fbe84bea246108040c956c6e341b3e2b5c8db0f09"
+    },
+    {
+      "name": "config",
+      "version": "0.1.0",
+      "description": "Simple config helpers",
+      "method": "local",
+      "sha256": "b840e5c264a4bc480333b42765a843fc1d8bb1cc3890e55667cccf5afaf3f7eb",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "config",
+        "text"
+      ],
+      "sig": "e8ba5a0f671abd5884dd1f429cf8b91cc613c015740c27759b1bf2d2a6f769891b19a048956388c6d8d10618efc6dead1a27d9324aca1c92c179a32d1370da0a"
+    },
+    {
+      "name": "csvx",
+      "version": "0.1.0",
+      "description": "CSV text helpers (escape, join row)",
+      "method": "local",
+      "sha256": "ef7f271e59bd683cec96c584be5bfdc518dfebff561e68b9ec9a065c3081bcf2",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "format",
+        "text"
+      ],
+      "sig": "9d8908789fa13665346993ddfa3f2bbc5f2e374fa7a87b04eeccf4f6e5842304489df7c92c0d531838edec6483d9950d8c80882459903e5478ce467e9fd1040c"
+    },
+    {
+      "name": "datetime",
+      "version": "0.1.0",
+      "description": "Date/time helpers",
+      "method": "local",
+      "sha256": "51be8a53b4e0c5dd2bddf0480c04b2d8b617e46325f84d4ee0f0495385a07ebf",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "time"
+      ],
+      "sig": "3cf1b32dc72bd1b2d3584c4ebc7cc8dea1b48a9e970b8d088a79390661e60a0c763889666a404bbcf2880d62c8db72a108c9a2dfa87232a9c162eea92ba69505"
+    },
+    {
+      "name": "envx",
+      "version": "0.1.0",
+      "description": "Env-line helpers (parse KEY=VALUE)",
+      "method": "local",
+      "sha256": "7ef68f74de68a088572c344b3f66543746726a35d8efc2f8aa9d06e06b8e3d6f",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "env",
+        "cli"
+      ],
+      "sig": "9a0cc79abfa946c92a5f88f6e007a13cd4d242732e948de9985b9dce0f3e5343972438627c1058c396aee21259aff07982448ff3e841ffd25230ff04370f7c01"
+    },
+    {
+      "name": "finance",
+      "version": "0.1.0",
+      "description": "Simple financial helpers (interest, discount, percent)",
+      "method": "local",
+      "sha256": "edcffdeadb4b9c1d586db6d2c94cf09b153bccb9c284543243195429e671c848",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math",
+        "finance"
+      ],
+      "sig": "67e5dab9ff9a04746cb6ebf22216f382f136ce2491228fbd82027e97118dbea055080f95a2001754ddbc58f10556cb6ce18bf07afc3c9a3f00132245e6b19208"
+    },
+    {
+      "name": "flagx",
+      "version": "0.1.0",
+      "description": "CLI flag helpers on args list",
+      "method": "local",
+      "sha256": "778c21e402bbabb7a65576c405f1c2cec8f5d397dc95adf83e1090089169e732",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "cli"
+      ],
+      "sig": "c0b10d21f912c8046f68b2d5a9398f4ed803a087d3ab3957d317d24a77923f168f1e8d18120f1fe16a417b088936572b181ef93636083ea8d536a6f0ed23f007"
+    },
+    {
+      "name": "fmt",
+      "version": "0.1.0",
+      "description": "Formatting helpers",
+      "method": "local",
+      "sha256": "139f5639115fc22ae2fc5e788a847b051f48c8924a8862e6381a8c35a35ca30d",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "text",
+        "fmt"
+      ],
+      "sig": "07d27077a561da6c6bd57ed02ff01ceb5dce7cf62d54de70cb9091e5e313dccaa259b086baf6bd1b95fa705435b1395c63a8d25ade02f66d10df238cd7c2490a"
+    },
+    {
+      "name": "geometry",
+      "version": "0.1.0",
+      "description": "Basic 2D/3D geometry area and volume helpers",
+      "method": "local",
+      "sha256": "1dc81da0a2b142ebad330978d79f0ef622ba1a04871eefe6baf326f0f99003da",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math",
+        "geometry"
+      ],
+      "sig": "8c572f5be8882e3cb101647e36305383e335d6cb55ce85cdf40e1e9ddfc7d2916ada5a0977de13fb3f6259b669c0930f6ec28af755c153883e82949467f8860e"
+    },
+    {
+      "name": "inix",
+      "version": "0.1.0",
+      "description": "INI text helpers (section, keyValue)",
+      "method": "local",
+      "sha256": "b3bad2e0b779c424abff7a56e1c72b7ddbbbfa449d0a6096af8a81f260cc2fdd",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "format",
+        "config"
+      ],
+      "sig": "17970dfa3557576264e9e367d3291c5daf855436dcc00f6c1618d8072acc3c52f12a17440258bed5b1ef6535c23a90904fd5079d9493136d557038ec31fa730e"
+    },
+    {
+      "name": "iterx",
+      "version": "0.1.0",
+      "description": "Utilitaires plages / somme",
+      "method": "local",
+      "sha256": "0f364749487356819072cc897ec1c1a973b067391e528d353d8af584942bae6a",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "collections",
+        "math"
+      ],
+      "sig": "97eced2d84b57165a4522856b07e12c7ee6bec624c7b8705ef313b4b933c9d815a9678f844ed806ca42f4ad699b46352d5241a245caa9c3ad03cd55213347b02"
+    },
+    {
+      "name": "jsonx",
+      "version": "0.1.0",
+      "description": "JSON text helpers (quote, object, array)",
+      "method": "local",
+      "sha256": "32c4d507d85a3841a0f3a969297aa6a4c40beff39cd022e3dad6e49560d6795d",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "format",
+        "text"
+      ],
+      "sig": "2bb4484ba93cd3173a1ec6c48640796bd286a38f3a70617adf19def22afa588d3eeefbe7799444a4d62451d87819476e5defec89add8d8deedecb78405811e09"
+    },
+    {
+      "name": "listx",
+      "version": "0.1.0",
+      "description": "List helpers (first, last, size)",
+      "method": "local",
+      "sha256": "cf01261c3b60afdbc59d9bd9d24d94db7e94395b55d3b6402bc2c2b1bb47e9eb",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "collections"
+      ],
+      "sig": "84e86ce505a4f6887d9ba693bbee866d8f5d67b1b48896a075b61daf51c260bd24e9607ba46af9eb44b5c989e373dcc20dde2a56b258465ef496f8ffe1c3d70e"
+    },
+    {
+      "name": "logx",
+      "version": "0.1.0",
+      "description": "Log textuel simple (niveaux + say)",
+      "method": "local",
+      "sha256": "651fa1e2bd801ae1d9f751f1e8cfee7a4b34c9217a7509e129489c7372eba72a",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "cli",
+        "text"
+      ],
+      "sig": "380b9a6819d920a9c739c3a240053bc7318dc050921cb29b1204a0c2aff726d485663bd6a19417d7717dbee10b5a3f02a9ead510b0afe094434ad5c2c1e2c406"
+    },
+    {
+      "name": "mapx",
+      "version": "0.1.0",
+      "description": "Map-like text pairs (entry, getOr)",
+      "method": "local",
+      "sha256": "0c52ade892d380dc7a72a5c2b4df68594640af0f3b83344fcfda83f77df91fb8",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "collections"
+      ],
+      "sig": "622b43759ae81769ba3206374a982ad75f235c418e3c89ab5998f3b82606c383ec4d044bc673e6717f58b906651e15cefce088d24b7c13a4d41fa37faf290805"
+    },
+    {
+      "name": "math",
+      "version": "0.1.0",
+      "description": "Basic math utilities (square, pi, twice)",
+      "method": "local",
+      "sha256": "9960a73aa7bb5ae344ebac12a64ec71521b9ea401f32dad15e3285d5ea5b21be",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math"
+      ],
+      "sig": "eaa84b8e1ff14ccf65f10eea1d350c1d45571f2b4686d11af99f4a791f18785c46ac57f2a2eecd6a165e56ca32e46ee89019580e3a5e791bd610267330dee005"
+    },
+    {
+      "name": "mathx",
+      "version": "0.1.0",
+      "description": "Extra integer math helpers (gcd, lcm, prime, factorial)",
+      "method": "local",
+      "sha256": "d1d25b281eccb455bb1b72b86d9ff4eaabb38ccac824da2a16823c71adb9be82",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math"
+      ],
+      "sig": "59859b884b6778f8333957bae2acf19142e1f8e2dcb9724411083fe980898751458c2dffb720002def6a904156757b9d9425081006ab9981d9d18593e6c2f609"
+    },
+    {
+      "name": "numcheck",
+      "version": "0.1.0",
+      "description": "Numeric predicates (even, odd, sign, range)",
+      "method": "local",
+      "sha256": "414875bc331d6b601b0530d6b981a551a90c146fbef3bbb6dd080d54e6f3ed56",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math"
+      ],
+      "sig": "b76a2bf5b301c2bac66d16f6fe5e06135407e79898535a8c15e4521023715c8a58a52e5cb7836364ae14392186c49ae7a28272603ccd80f33c915f3aab70f80d"
+    },
+    {
+      "name": "optionx",
+      "version": "0.1.0",
+      "description": "Helpers optionnel (orElse wrappers)",
+      "method": "local",
+      "sha256": "e42f3bd0104d1ce11f2c703fbcd5491dbb226a86c4ec6fc177fe0cfa0b8e8cf1",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "lib"
+      ],
+      "sig": "ba8865073b6c75361fdfad6ee31d8616f00212bb10fdc06e77aebcae7a6aad98dc833ba14952897a7a3d89b9c0b3968b26412ca09ea483aa57cfe1c802cba909"
+    },
+    {
+      "name": "padx",
+      "version": "0.1.0",
+      "description": "Pad text left/right",
+      "method": "local",
+      "sha256": "4daedbcaad2bf6f29fd7d27c85c3119a6d9e109d2d3595ce502488459adbef84",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "text"
+      ],
+      "sig": "990e38bef0baf3822a0e1564be8ce0ae5b3cf82068822254f6f336898e9ce161f929ee28c412be491ebd0c3f684042ec3878c14670f4a4add7d3d50cdc0b2804"
+    },
+    {
+      "name": "pathx",
+      "version": "0.1.0",
+      "description": "Path helpers (join, basename, isAbsolute)",
+      "method": "local",
+      "sha256": "080556a1674982e2b51752bafc65cb065dd492ac6a42c72811a37b89acfa782b",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "path"
+      ],
+      "sig": "fd63dbc9abd47c039ea40c9bf3b218cbfaa66f9c05517021a74768afddd29af9ca25121e240e74dbba5fc2eb3744fd099929ed576482a1da7faf040fda3f1b03"
+    },
+    {
+      "name": "percentx",
+      "version": "0.1.0",
+      "description": "Percent helpers",
+      "method": "local",
+      "sha256": "27037d9d5dc250e5c8b5808c5b059e78827b3d800f0ee58a2829d96aa44b22f9",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math"
+      ],
+      "sig": "08f4ebf4dc60da7af1e823cbb393fd0a0510a36d16b1bb7cdce8906c76ad91edfd2e82dbd8ad55ba0ce66d7acf32dd19d6ab6d0f4d715d12283f3f6f72c72408"
+    },
+    {
+      "name": "queryx",
+      "version": "0.1.0",
+      "description": "URL query string helpers",
+      "method": "local",
+      "sha256": "c18dcb062f08d4340688493f84a5c925b0ceffbf0dd30348fd3cc452167c9f02",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "net",
+        "url"
+      ],
+      "sig": "90c5127681310da96825ee385a3ca572390ee1f7bd6f98c1bd76eb3e84e68217ad1ff3afc1780b7afebafdcc443d038057283b8356da429e8cf62b82e620c003"
+    },
+    {
+      "name": "ratiox",
+      "version": "0.1.0",
+      "description": "Ratio helpers",
+      "method": "local",
+      "sha256": "b418667dad4ad0b05c9092544d64ee96531af2c3c2bcd1bffeef0f0bc2b6dd39",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math"
+      ],
+      "sig": "28a3b73664b6eff620e39de3c3726ec7b78d10a63507edea61c3d4ca148446fc73d37c4b64dc7c58a796c9dba0a951d8966c60796ccc0323546a1e1a55ddba04"
+    },
+    {
+      "name": "resultx",
+      "version": "0.1.0",
+      "description": "Helpers Result (parsePositive, valueOr)",
+      "method": "local",
+      "sha256": "71bc9a229662888c82d159d063c7e92f954806f0746f361b3a20fbd8249282c6",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "lib"
+      ],
+      "sig": "0fd85fe872f47e189d6ef81c5ce94a98fe8ecb8c26f2db2fb5d4951eabe117de5b3f6d23c2a654bed28d9949153d13981e5024bdd1914cdbfcee0bb8d0a71d0f"
+    },
+    {
+      "name": "semverx",
+      "version": "0.1.0",
+      "description": "Semantic version compare and compatibility checks",
+      "method": "local",
+      "sha256": "23046aaaf0feccb78b88962a751917909597d7311e634cdf9d19fcaeb812484e",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "util",
+        "semver"
+      ],
+      "sig": "915e4f477a4b1810b2d513e71521297e6ae1b177a68cd31359fe8f287d80b5dd6f2ea7c23ffe4d2ca6efb0d6b568afba9225dff49ef56787f1ed7f919e76d802"
+    },
+    {
+      "name": "slicekit",
+      "version": "0.1.0",
+      "description": "Text slice helpers via std/str",
+      "method": "local",
+      "sha256": "b73d2fd3bb6ffb1b1e58d2b0a7064d50c24ce1cf37dc65959f9d41ce075eca46",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "text",
+        "collections"
+      ],
+      "sig": "5b1f93e3dca7208c9daeb798e6c4d38fd9932fa27ce6709a4fd0e778c8acf12aceb26936621bc7e22efaec2daaed18a7d511e63f442452f0bdf835c1a4207607"
+    },
+    {
+      "name": "stopwatch",
+      "version": "0.1.0",
+      "description": "Textual tick counter / elapsed ticks",
+      "method": "local",
+      "sha256": "85ad443175ad25de4e54d3c65d8f557b4458eb1936a5f250800c97a15d838fa5",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "time"
+      ],
+      "sig": "a197250d475d9cc57506b680e86d82cd7ac9f04d5a0654e9603394e40929b7a392e0042a33566b0e43b059ddc60eb601dcefb970c70099f629c07275cecd870e"
+    },
+    {
+      "name": "strings",
+      "version": "0.1.0",
+      "description": "String helpers (replicate, upper, lower)",
+      "method": "local",
+      "sha256": "1a7a1291414a3a220639473da5e06a15cf755fa32d3f164f11f0368ca8ff5b47",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "text"
+      ],
+      "sig": "e4401b7f214f03c64be8565c3a082debbfa627cd8149d2cf42e70ced3720ae3e04d1fa6124ee2e5626ad77c441ad6cf7b29088cfd6794a1fd5a64ed278e22100"
+    },
+    {
+      "name": "strx",
+      "version": "0.1.0",
+      "description": "String helpers (empty, join3, repeat)",
+      "method": "local",
+      "sha256": "6957236fb2ceba26ada1371fa83c6c64b4551874a988b3992d7680c84c436ffe",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "text"
+      ],
+      "sig": "9fdd49ac35959d0d0dc0944afeba1eb5f477e087412460f5210c860e2e7e0683d02bc15f3a2bf196a46c510f50dbf2d8b3d93f53d8f5636bac4167fd04bfd108"
+    },
+    {
+      "name": "tablex",
+      "version": "0.1.0",
+      "description": "ASCII table helpers",
+      "method": "local",
+      "sha256": "0368eda9889d2a22fcaa28542d334f5e86aa98b75ba428153bde1f999f971b77",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "cli",
+        "text"
+      ],
+      "sig": "a1e21278ca4a4b392885c4f37a02979ed9fc8d1eb9f169997d66329f1f4ac8a976fad680f2b2475f78e3c51b13dca63bf547a7f1a0f369943c765f67fa0b590f"
+    },
+    {
+      "name": "temperature",
+      "version": "0.1.0",
+      "description": "Temperature unit conversions",
+      "method": "local",
+      "sha256": "e7035353acf5456ad428dcf44ee2be1d51ffc1df0817dd9986b3e676d31d60dc",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "math",
+        "science"
+      ],
+      "sig": "ac9ca475b57ae7be127add3fdba3caa14712a5e1e655047ca884a08b4503d4e3ca16089ee98c628c69dda551a6874c51cf20db7537b6cee9921d257626bc5b01"
+    },
+    {
+      "name": "testing",
+      "version": "0.1.0",
+      "description": "Lightweight test helpers",
+      "method": "local",
+      "sha256": "50776179dab87b86c11749ffaed5712ac10a918a3e2d44edf1aced91064bb216",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "test"
+      ],
+      "sig": "e5840e327bf0bc092638b8a5e4e3fa1d02ca35b90146cb07b014abefcbf0bebf1e0c2c8ef575a310238dd31e51760ed8dba25b3d13c2eb11e9b89088248bcb0c"
+    },
+    {
+      "name": "textx",
+      "version": "0.1.0",
+      "description": "Text helpers (blank, nonEmpty, label)",
+      "method": "local",
+      "sha256": "b39bbfdc4bf28c09f34be5466656b8bf929c4b89944126bd0fd489792eab6061",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "text"
+      ],
+      "sig": "717a1e5a13deab59381dee4240771c14937cb758ce354bafb45af7b3a52f4c3497c6bfd08ea9258e950d8b286213a3260365162e8cc394c3b2b6c568bc792f07"
+    },
+    {
+      "name": "timespan",
+      "version": "0.1.0",
+      "description": "Time duration conversions",
+      "method": "local",
+      "sha256": "b6099278b9726f35c62bab9d59c1bc92770021a3891a72f19499c5e6d4cc915d",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "time"
+      ],
+      "sig": "653c750994959fe2cf950ab5591679ef21ac8da8cbc67cc11e2cf5ef3742e6ea74d81e71878aaaf81ef5c0908f01a6da5d2a13a3e8714e6c4ff25a81f5150e0c"
+    },
+    {
+      "name": "urlx",
+      "version": "0.1.0",
+      "description": "URL text helpers",
+      "method": "local",
+      "sha256": "1f9f55b5f95d5d7f059f7e6d73460bd7a4c796e6c9ec8674fec0f5955dd9bd60",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "net",
+        "url"
+      ],
+      "sig": "3421a72c5b6920ddcfb136024e8a157814d514f18dcc0a679fb6f9482f006d7acbefe3a21c2e957fa2b69af20a4aececb146230885a2867aea5da773b20fdc09"
+    },
+    {
+      "name": "uuid",
+      "version": "0.1.0",
+      "description": "UUID helpers",
+      "method": "local",
+      "sha256": "d76c1553e432e7f828e609e63d4bc1fd424eb592077768b082f5a875c5c642a3",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "util"
+      ],
+      "sig": "333899bba8d93e343c6d586be58148dbd64c45d185d4b18704c87bc63dea5527a04d701f3227ed98ab256ae94171e8bd3a6125e723b06cbfd15ce375c4dc6b08"
+    },
+    {
+      "name": "validate",
+      "version": "0.1.0",
+      "description": "Validation helpers",
+      "method": "local",
+      "sha256": "1b360580efbd57d2974f156d6fcade08054fc7b4bd9e8a0a4ccba86fa5e3bd52",
+      "blessed": true,
+      "license": "MIT",
+      "tags": [
+        "text",
+        "validate"
+      ],
+      "sig": "9e009101754a2c5ffcd245129d1ece7d00d708b749f57d20e84e6850a6fd5f14565e1d3c0764c75a3b94c5f85fd9eed53cd0860dc522bae25c8e88a241cc4f01"
+    },
+    {
+      "name": "ma_lib",
+      "version": "0.1.0",
+      "description": "Paquet AFRILANG ma_lib",
+      "method": "local",
+      "sha256": "47e2471582fe0555dee088264e9595acdb37472e4b88ea2b705ec55b329520d3",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "lib"
+      ]
+    },
+    {
+      "name": "w2smoke",
+      "version": "0.1.0",
+      "description": "Paquet AFRILANG w2smoke",
+      "method": "local",
+      "sha256": "ad70fbe192b866589b03f35377cbf55a43abc156c452ce1a0938028523aeab70",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "test"
+      ]
+    }
+  ]
+}

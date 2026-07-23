@@ -99,6 +99,45 @@ inline std::string httpOkResponse(const std::string& body) {
     return out.str();
 }
 
+inline std::string httpResponse(double statusCode, const std::string& body) {
+    const int code = static_cast<int>(statusCode);
+    const char* reason = "OK";
+    if (code == 404) reason = "Not Found";
+    else if (code == 400) reason = "Bad Request";
+    else if (code == 500) reason = "Internal Server Error";
+    else if (code != 200) reason = "Response";
+    std::ostringstream out;
+    out << "HTTP/1.1 " << code << " " << reason << "\r\n"
+        << "Content-Type: text/plain; charset=utf-8\r\n"
+        << "Content-Length: " << body.size() << "\r\n"
+        << "Connection: close\r\n\r\n"
+        << body;
+    return out.str();
+}
+
+inline std::string httpRequestMethod(const std::string& raw) {
+    const std::size_t sp = raw.find(' ');
+    if (sp == std::string::npos || sp == 0) return {};
+    return raw.substr(0, sp);
+}
+
+inline std::string httpRequestPath(const std::string& raw) {
+    const std::size_t sp1 = raw.find(' ');
+    if (sp1 == std::string::npos) return {};
+    const std::size_t sp2 = raw.find(' ', sp1 + 1);
+    if (sp2 == std::string::npos) return {};
+    std::string target = raw.substr(sp1 + 1, sp2 - sp1 - 1);
+    const std::size_t q = target.find('?');
+    if (q != std::string::npos) target = target.substr(0, q);
+    return target.empty() ? "/" : target;
+}
+
+inline std::string httpRequestBody(const std::string& raw) {
+    const std::size_t sep = raw.find("\r\n\r\n");
+    if (sep == std::string::npos) return {};
+    return raw.substr(sep + 4);
+}
+
 // Serve a fixed body forever (blocking). Returns 0 normally, -1 on listen error.
 inline double httpServe(double port, const std::string& body) {
     const double lf = tcpListen(port);
@@ -124,6 +163,31 @@ inline double httpServeOnce(double port, const std::string& body) {
     }
     (void)tcpRead(c, 65536);
     tcpWrite(c, httpOkResponse(body));
+    tcpClose(c);
+    tcpClose(lf);
+    return 0;
+}
+
+/** Serve one request using a callback: body = handler(method, path, body). Empty → 404. */
+template <typename Handler>
+inline double httpServeOnceHandler(double port, Handler&& handler) {
+    const double lf = tcpListen(port);
+    if (lf < 0) return -1;
+    const double c = tcpAccept(lf);
+    if (c < 0) {
+        tcpClose(lf);
+        return -1;
+    }
+    const std::string raw = tcpRead(c, 65536);
+    const std::string method = httpRequestMethod(raw);
+    const std::string path = httpRequestPath(raw);
+    const std::string reqBody = httpRequestBody(raw);
+    const std::string outBody = handler(method, path, reqBody);
+    if (outBody.empty()) {
+        tcpWrite(c, httpResponse(404, "not found"));
+    } else {
+        tcpWrite(c, httpOkResponse(outBody));
+    }
     tcpClose(c);
     tcpClose(lf);
     return 0;

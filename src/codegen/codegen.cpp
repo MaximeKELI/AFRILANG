@@ -561,6 +561,9 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         out << "#include \"thread.hpp\"\n";
         linkLibraries_.insert("-pthread");
     }
+    if (needsWeb && !wasmBuild) {
+        linkLibraries_.insert("-pthread");
+    }
     if (needsThread && wasmBuild) {
         out << "#include \"thread.hpp\"\n";
     }
@@ -3576,6 +3579,10 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
             out << "afrilang::runtime::web::addRouteId(router, method, path, body);\n";
         } else if (func.name == "dispatch") {
             out << "return afrilang::runtime::web::dispatchId(router, method, path);\n";
+        } else if (func.name == "httpServeOnceRouted") {
+            out << "return afrilang::runtime::web::httpServeOnceRouted(port, router);\n";
+        } else if (func.name == "httpRoundTripRouted") {
+            out << "return afrilang::runtime::web::httpRoundTripRouted(port, router, method, path);\n";
         }
     } else if (moduleName == "bigint") {
         if (func.name == "fromInt") {
@@ -3675,6 +3682,8 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     if (usesComplexCatalog && !wasmBuild) {
         args.push_back("-Wno-unused-parameter");
         args.push_back("-Wno-unused-variable");
+        // Opt-in gate for the ~19MB complex catalog runtime blob.
+        args.push_back("-DAFRILANG_ENABLE_COMPLEX_LIBS=1");
     }
     if (!wasmBuild) {
         args.push_back("-fstack-protector-strong");

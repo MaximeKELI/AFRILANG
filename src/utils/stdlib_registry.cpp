@@ -666,6 +666,14 @@ void StdlibRegistry::injectWebModule(ProgramNode& program) {
                                                 {"path", "text"}, {"body", "text"}}, ""));
     fns.push_back(makeStubFunction("dispatch", {{"router", "int"}, {"method", "text"},
                                                 {"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpServeOnceRouted", {{"port", "number"}, {"router", "int"}},
+                                   "number"));
+    fns.push_back(makeStubFunction("httpRoundTripRouted",
+                                   {{"port", "number"},
+                                    {"router", "int"},
+                                    {"method", "text"},
+                                    {"path", "text"}},
+                                   "text"));
     injectModule(program, "web", std::move(fns));
 }
 
@@ -1063,6 +1071,11 @@ void StdlibRegistry::injectNetModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("tcpRead", {{"fd", "number"}, {"maxBytes", "number"}}, "text"));
     fns.push_back(makeStubFunction("tcpListen", {{"port", "number"}}, "number"));
     fns.push_back(makeStubFunction("tcpAccept", {{"listenFd", "number"}}, "number"));
+    fns.push_back(makeStubFunction("httpOkResponse", {{"body", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpResponse", {{"statusCode", "number"}, {"body", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpRequestMethod", {{"raw", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpRequestPath", {{"raw", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpRequestBody", {{"raw", "text"}}, "text"));
     fns.push_back(makeStubFunction("httpServe", {{"port", "number"}, {"body", "text"}}, "number"));
     fns.push_back(makeStubFunction("httpServeOnce", {{"port", "number"}, {"body", "text"}}, "number"));
     fns.push_back(makeStubFunction("httpServeTlsOnce", {{"port", "number"}, {"certFile", "text"}, {"keyFile", "text"}, {"body", "text"}}, "number"));

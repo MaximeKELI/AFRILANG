@@ -108,7 +108,10 @@ Tests : `tests/stdlib/process.afr`
 ## `std/net`
 
 TCP : `tcpConnect`, `tcpListen`, `tcpAccept`, `tcpRead`, `tcpWrite`, `tcpClose`.  
-HTTP : `httpServe` (bloquant), `httpServeOnce`, `httpServeTlsOnce` (cert/key PEM, OpenSSL).
+HTTP : `httpServe` (bloquant), `httpServeOnce`, parse (`httpRequestMethod` /
+`httpRequestPath` / `httpRequestBody`), `httpServeTlsOnce` (cert/key PEM, OpenSSL).
+Routage : module `web` — `createRouter` / `addRoute` / `dispatch` /
+`httpServeOnceRouted` / `httpRoundTripRouted` (tests).
 
 Tests : `tests/stdlib/net.afr` (listen/connect ; pas de serveur bloquant en CI).
 

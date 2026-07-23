@@ -1,0 +1,24 @@
+test "map literal get and length"
+    create scores = map of "alice" to 95, "bob" to 88, "carol" to 91
+    assert scores at "alice" is equal to 95
+    assert length of scores is equal to 3
+end
+
+test "map set and empty"
+    create scores = map of "alice" to 95
+    set scores at "dave" = 76
+    assert scores at "dave" is equal to 76
+    assert length of scores is equal to 2
+
+    create emptyMap = empty map text to number
+    assert length of emptyMap is equal to 0
+end
+
+test "map for each"
+    create scores = map of "a" to 1, "b" to 2
+    create sum = 0
+    for each name, score in scores do
+        set sum = sum + score
+    end
+    assert sum is equal to 3
+end

@@ -71,11 +71,19 @@ afrilang pkg install
 afrilang pkg update
 ```
 
+`pkg sync` utilise `AFRILANG_REGISTRY_URL` (http(s) ou `file://`). Si l’URL est
+indisponible, AFRILANG bascule sur
+[`packages/remote-index.bundled.json`](../packages/remote-index.bundled.json)
+(index local des paquets du dépôt, y compris blessed + signatures).
+
+Les paquets **blessed** exigent une signature Ed25519 vérifiable
+(`packages/signatures.json` + `trusted_keys.json`) à l’install.
+
 Si le paquet n’est pas dans `packages/<name>` mais apparaît dans l’index avec
 `"method":"git"` + `"url"`, AFRILANG clone comme **Nimble** (cache sous
 `packages/.cache/`).
 
-Voir le modèle : [`packages/remote-index.example.json`](../packages/remote-index.example.json).
+Voir aussi : [`packages/remote-index.example.json`](../packages/remote-index.example.json).
 
 ### Semver
 

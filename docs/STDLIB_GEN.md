@@ -16,7 +16,13 @@ La stdlib AFRILANG (~7971 modules) est générée à partir de scripts Python et
 > dans `include/afrilang/complex_catalog.hpp` ↔ `CATALOG_JSON_VERSION` dans
 > `scripts/gen_catalog_lib.py`) détecte tout décalage binaire/catalogue.
 >
-> Résolution du chemin : `AFRILANG_CATALOG` → `AFRILANG_HOME/share/...` → arbre source
+> Runtime C++ associé : `runtime/complex_libs.hpp` est un **stub** qui inclut
+> `runtime/optional/complex_libs.hpp` (~19 Mo) uniquement si
+> `-DAFRILANG_ENABLE_COMPLEX_LIBS=1` (passé automatiquement par le compilateur
+> lorsqu'un module `std/c/*` injecté est utilisé). Une install mince peut supprimer
+> `runtime/optional/`.
+>
+> Résolution du chemin catalogue JSON : `AFRILANG_CATALOG` → `AFRILANG_HOME/share/...` → arbre source
 > (build) → préfixe d'install → relatif à l'exécutable.
 
 ## Packs numérotés (500 modules)

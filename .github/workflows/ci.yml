@@ -57,10 +57,15 @@ jobs:
           ../build/afrilang pkg install
           grep -q 'source = "path"' afrilang.lock
           cd ..
-          # remote-index merge into search
-          cp packages/remote-index.example.json packages/remote-index.json
+          # remote-index: bundled registry path (file://) + search merge
+          ./build/afrilang pkg sync
+          test -f packages/remote-index.json
+          ./build/afrilang pkg search math | grep -q math
+          export AFRILANG_REGISTRY_URL="file://$PWD/packages/remote-index.example.json"
+          ./build/afrilang pkg sync
           ./build/afrilang pkg search example_remote | grep -q example_remote
           rm -f packages/remote-index.json
+          unset AFRILANG_REGISTRY_URL
           rm -rf smoke_app smoke_lib path_app local_dep
 
       - name: Blessed packages smoke (subset)
@@ -68,6 +73,18 @@ jobs:
           ./build/afrilang pkg reindex
           ./build/afrilang pkg search | grep -q '★'
           ./build/afrilang pkg search math | grep -q '#math'
+          # all blessed packages must be signed when trusted_keys are present
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          blessed = json.loads(Path("packages/blessed.json").read_text())
+          if isinstance(blessed, dict):
+              blessed = blessed.get("packages", [])
+          sigs = json.loads(Path("packages/signatures.json").read_text())
+          missing = [n for n in blessed if n not in sigs or not sigs[n]]
+          assert not missing, f"unsigned blessed: {missing}"
+          print(f"blessed signatures ok: {len(blessed)}")
+          PY
           ROOT="$PWD"
           rm -rf /tmp/demo_cli_p5
           ./build/afrilang pkg init /tmp/demo_cli_p5 --template cli
@@ -79,7 +96,9 @@ jobs:
           done
           ./build/afrilang run tests/specs/module_name_collision.afr
           ./build/afrilang run tests/specs/module_result.afr
-          for p in math strx urlx queryx bannerx; do
+          ./build/afrilang run tests/specs/maps.afr
+          ./build/afrilang run tests/stdlib/web.afr
+          for p in math strx urlx queryx bannerx datetime strings; do
             ./build/afrilang pkg verify "$p"
           done
           rm -rf examples/apps/pkg_transitive/vendor examples/apps/pkg_transitive/afrilang.lock
@@ -100,7 +119,11 @@ jobs:
           ./build/afrilang run /tmp/afr_core_only.afr
           test -f afr_core_only.generated.cpp
           ! grep -q 'simple_libs.hpp' afr_core_only.generated.cpp
-
+          # complex_libs quarantine: stub gate without include of optional blob for core
+          ! grep -q 'optional/complex_libs.hpp' afr_core_only.generated.cpp
+          test -f runtime/complex_libs.hpp
+          test -f runtime/optional/complex_libs.hpp
+          grep -q 'AFRILANG_ENABLE_COMPLEX_LIBS' runtime/complex_libs.hpp
       - name: LSP diagnostic smoke test
         run: python3 scripts/test_lsp_diag.py
 

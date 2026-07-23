@@ -1,0 +1,26 @@
+import "std/web"
+import "std/net"
+
+use web
+use net
+
+test "request parse method path body"
+    create raw = "POST /api/hi?x=1 HTTP/1.1\r\nHost: localhost\r\n\r\nhello"
+    assert httpRequestMethod(raw) is equal to "POST"
+    assert httpRequestPath(raw) is equal to "/api/hi"
+    assert httpRequestBody(raw) is equal to "hello"
+end
+
+test "router dispatch"
+    create router = createRouter()
+    addRoute(router, "GET", "/hello", "world")
+    assert dispatch(router, "GET", "/hello") is equal to "world"
+    assert dispatch(router, "GET", "/missing") is equal to ""
+end
+
+test "http round trip routed"
+    create router = createRouter()
+    addRoute(router, "GET", "/ping", "pong")
+    create body = httpRoundTripRouted(19876, router, "GET", "/ping")
+    assert body is equal to "pong"
+end
