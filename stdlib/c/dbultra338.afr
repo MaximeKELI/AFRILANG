@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module dbultra338
 
 function execSql(path text, sql text) returns bool

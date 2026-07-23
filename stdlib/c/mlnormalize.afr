@@ -1,24 +1,19 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module mlnormalize
 
-function normSum(v list number) returns number
+function l2Normalize(v list number) returns list number
 end
 
-function normMean(v list number) returns number
+function minMaxNormalize(v list number) returns list number
 end
 
-function normMin(v list number) returns number
+function zScore(v list number) returns list number
 end
 
-function normMax(v list number) returns number
+function l1Normalize(v list number) returns list number
 end
 
-function normVar(v list number) returns number
-end
-
-function normStd(v list number) returns number
-end
-
-function normNorm(v list number) returns list number
+function clip(v list number, lo number, hi number) returns list number
 end
 
 end

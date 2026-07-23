@@ -550,25 +550,22 @@
 
 `import "std/c/mlentropy"` · `use mlentropy`
 
-- `entrSum(v list number) → number`
-- `entrMean(v list number) → number`
-- `entrMin(v list number) → number`
-- `entrMax(v list number) → number`
-- `entrVar(v list number) → number`
-- `entrStd(v list number) → number`
-- `entrNorm(v list number) → list number`
+- `entropy(probs list number) → number`
+- `normalizeProbs(v list number) → list number`
+- `entropyBits(probs list number) → number`
+- `maxEntropy(n number) → number`
+- `crossEntropy(p list number, q list number) → number`
+- `perplexity(probs list number) → number`
 
 ## std/c/mlkldiv
 
 `import "std/c/mlkldiv"` · `use mlkldiv`
 
-- `kldiSum(v list number) → number`
-- `kldiMean(v list number) → number`
-- `kldiMin(v list number) → number`
-- `kldiMax(v list number) → number`
-- `kldiVar(v list number) → number`
-- `kldiStd(v list number) → number`
-- `kldiNorm(v list number) → list number`
+- `klDiv(p list number, q list number) → number`
+- `jsDiv(p list number, q list number) → number`
+- `klDivBits(p list number, q list number) → number`
+- `symmetricKl(p list number, q list number) → number`
+- `hellinger(p list number, q list number) → number`
 
 ## std/c/mlgradient
 
@@ -632,25 +629,21 @@
 
 `import "std/c/mlnormalize"` · `use mlnormalize`
 
-- `normSum(v list number) → number`
-- `normMean(v list number) → number`
-- `normMin(v list number) → number`
-- `normMax(v list number) → number`
-- `normVar(v list number) → number`
-- `normStd(v list number) → number`
-- `normNorm(v list number) → list number`
+- `l2Normalize(v list number) → list number`
+- `minMaxNormalize(v list number) → list number`
+- `zScore(v list number) → list number`
+- `l1Normalize(v list number) → list number`
+- `clip(v list number, lo number, hi number) → list number`
 
 ## std/c/mldistance
 
 `import "std/c/mldistance"` · `use mldistance`
 
-- `distSum(v list number) → number`
-- `distMean(v list number) → number`
-- `distMin(v list number) → number`
-- `distMax(v list number) → number`
-- `distVar(v list number) → number`
-- `distStd(v list number) → number`
-- `distNorm(v list number) → list number`
+- `euclidean(a list number, b list number) → number`
+- `manhattan(a list number, b list number) → number`
+- `chebyshev(a list number, b list number) → number`
+- `squaredEuclidean(a list number, b list number) → number`
+- `hamming(a list number, b list number) → number`
 
 ## std/c/mlcluster
 
@@ -668,13 +661,10 @@
 
 `import "std/c/mlnearest"` · `use mlnearest`
 
-- `nearSum(v list number) → number`
-- `nearMean(v list number) → number`
-- `nearMin(v list number) → number`
-- `nearMax(v list number) → number`
-- `nearVar(v list number) → number`
-- `nearStd(v list number) → number`
-- `nearNorm(v list number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `nearestDist(query list number, matrix list number, dims number) → number`
+- `knnIndices(query list number, matrix list number, dims number, k number) → list number`
+- `batchNearest(queries list number, matrix list number, dims number) → list number`
 
 ## std/c/mldecision
 

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module siminventory
 
 function inveSum(v list number) returns number

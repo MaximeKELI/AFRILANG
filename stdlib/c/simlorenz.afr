@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module simlorenz
 
 function loreSum(v list number) returns number

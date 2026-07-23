@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module graphcycle
 
 function detectCycleDirected(adj list number, n number) returns bool

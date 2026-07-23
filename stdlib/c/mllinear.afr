@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module mllinear
 
 function dot(a list number, b list number) returns number

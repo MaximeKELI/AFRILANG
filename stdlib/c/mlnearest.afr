@@ -1,24 +1,16 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module mlnearest
 
-function nearSum(v list number) returns number
+function nearestIdx(query list number, matrix list number, dims number) returns number
 end
 
-function nearMean(v list number) returns number
+function nearestDist(query list number, matrix list number, dims number) returns number
 end
 
-function nearMin(v list number) returns number
+function knnIndices(query list number, matrix list number, dims number, k number) returns list number
 end
 
-function nearMax(v list number) returns number
-end
-
-function nearVar(v list number) returns number
-end
-
-function nearStd(v list number) returns number
-end
-
-function nearNorm(v list number) returns list number
+function batchNearest(queries list number, matrix list number, dims number) returns list number
 end
 
 end

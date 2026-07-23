@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module tsma
 
 function sma(v list number, win number) returns list number

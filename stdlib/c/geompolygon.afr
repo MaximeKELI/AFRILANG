@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module geompolygon
 
 function polySum(v list number) returns number

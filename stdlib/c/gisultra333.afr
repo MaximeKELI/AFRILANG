@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module gisultra333
 
 function ndviRaster(nir list number, red list number) returns list number

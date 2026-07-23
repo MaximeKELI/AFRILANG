@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module geomhull
 
 function hullSum(v list number) returns number

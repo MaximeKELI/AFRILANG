@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module gamealphabeta
 
 function alphabeta(board list number, depth number, alpha number, beta number, maximizing bool) returns number

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module rasterultra466
 
 function boxBlur3(grid list number, w number, h number) returns list number

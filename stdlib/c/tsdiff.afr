@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module tsdiff
 
 function diff(v list number, order number) returns list number

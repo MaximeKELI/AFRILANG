@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module sigwavelet
 
 function waveSum(v list number) returns number

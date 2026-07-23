@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module csvrollup
 
 function rollSum(v list number) returns number

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module finoption
 
 function blackScholes(spot number, strike number, rate number, vol number, time number) returns number

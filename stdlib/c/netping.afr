@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module netping
 
 function pingLen(s text) returns number

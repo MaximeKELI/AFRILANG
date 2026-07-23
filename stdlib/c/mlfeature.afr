@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module mlfeature
 
 function featSum(v list number) returns number

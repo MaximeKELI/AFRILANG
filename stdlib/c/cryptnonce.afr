@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module cryptnonce
 
 function noncLen(s text) returns number

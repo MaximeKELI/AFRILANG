@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module datasci383
 
 function median(v list number) returns number

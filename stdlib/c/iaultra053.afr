@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module iaultra053
 
 function sigmoid(x number) returns number

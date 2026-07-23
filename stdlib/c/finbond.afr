@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module finbond
 
 function pv(face number, rate number, years number, coupon number) returns number

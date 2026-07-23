@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module statchi2
 
 function chi2Stat(observed list number, expected list number) returns number

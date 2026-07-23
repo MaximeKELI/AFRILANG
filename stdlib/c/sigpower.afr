@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module sigpower
 
 function poweSum(v list number) returns number

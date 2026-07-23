@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module cryptrot13
 
 function rot1Len(s text) returns number

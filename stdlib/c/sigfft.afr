@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module sigfft
 
 function dft(signal list number) returns list number

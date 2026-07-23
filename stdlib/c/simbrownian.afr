@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module simbrownian
 
 function browSum(v list number) returns number

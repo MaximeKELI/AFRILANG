@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module sigspline
 
 function spliSum(v list number) returns number

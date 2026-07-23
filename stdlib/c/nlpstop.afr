@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module nlpstop
 
 function stopLen(s text) returns number

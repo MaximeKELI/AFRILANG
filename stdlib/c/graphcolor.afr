@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module graphcolor
 
 function greedyColor(adj list number, n number) returns list number

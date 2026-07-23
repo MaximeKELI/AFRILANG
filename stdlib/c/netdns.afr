@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module netdns
 
 function dnsLen(s text) returns number

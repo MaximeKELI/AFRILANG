@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module statskew
 
 function skewness(v list number) returns number

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module cryptpbkdf
 
 function pbkdLen(s text) returns number

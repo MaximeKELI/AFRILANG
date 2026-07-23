@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module parseuri
 
 function scheme(uri text) returns text

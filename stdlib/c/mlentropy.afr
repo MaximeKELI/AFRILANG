@@ -1,24 +1,22 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module mlentropy
 
-function entrSum(v list number) returns number
+function entropy(probs list number) returns number
 end
 
-function entrMean(v list number) returns number
+function normalizeProbs(v list number) returns list number
 end
 
-function entrMin(v list number) returns number
+function entropyBits(probs list number) returns number
 end
 
-function entrMax(v list number) returns number
+function maxEntropy(n number) returns number
 end
 
-function entrVar(v list number) returns number
+function crossEntropy(p list number, q list number) returns number
 end
 
-function entrStd(v list number) returns number
-end
-
-function entrNorm(v list number) returns list number
+function perplexity(probs list number) returns number
 end
 
 end

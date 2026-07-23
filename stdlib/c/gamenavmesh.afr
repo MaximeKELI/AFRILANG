@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module gamenavmesh
 
 function pointInTri(px number, py number, ax number, ay number, bx number, by number, cx number, cy number) returns bool

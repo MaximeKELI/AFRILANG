@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module compbitpack
 
 function bitpackEncode(data list number) returns list number

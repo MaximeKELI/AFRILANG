@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module statmape
 
 function mape(actual list number, predicted list number) returns number

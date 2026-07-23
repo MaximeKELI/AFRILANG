@@ -1,24 +1,19 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module mldistance
 
-function distSum(v list number) returns number
+function euclidean(a list number, b list number) returns number
 end
 
-function distMean(v list number) returns number
+function manhattan(a list number, b list number) returns number
 end
 
-function distMin(v list number) returns number
+function chebyshev(a list number, b list number) returns number
 end
 
-function distMax(v list number) returns number
+function squaredEuclidean(a list number, b list number) returns number
 end
 
-function distVar(v list number) returns number
-end
-
-function distStd(v list number) returns number
-end
-
-function distNorm(v list number) returns list number
+function hamming(a list number, b list number) returns number
 end
 
 end

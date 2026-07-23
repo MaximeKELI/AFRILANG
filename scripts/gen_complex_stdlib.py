@@ -1609,39 +1609,36 @@ cx('mlpca', [
 ])
 
 cx('mlentropy', [
-    ('entrSum', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
-    ('entrMean', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size();'),
-    ('entrMin', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::min_element(v.begin(),v.end());'),
-    ('entrMax', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::max_element(v.begin(),v.end());'),
-    ('entrVar', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);}'),
-    ('entrStd', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));}'),
-    ('entrNorm', 'list number', [('v', 'list number')],
-     '{if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;}'),
+    ('entropy', 'number', [('probs', 'list number')],
+     '{double h=0;for(double p:probs)if(p>0)h-=p*std::log(p);return h;}'),
+    ('normalizeProbs', 'list number', [('v', 'list number')],
+     '{double s=0;for(double x:v)if(x>0)s+=x;std::vector<double> r;if(s<1e-12){for(std::size_t i=0;i<v.size();++i)r.push_back(0);return r;}'
+     'for(double x:v)r.push_back(x>0?x/s:0);return r;}'),
+    ('entropyBits', 'number', [('probs', 'list number')],
+     'return entropy(probs)/std::log(2.0);'),
+    ('maxEntropy', 'number', [('n', 'number')],
+     '{int k=static_cast<int>(n);return k<=1?0:std::log(static_cast<double>(k));}'),
+    ('crossEntropy', 'number', [('p', 'list number'), ('q', 'list number')],
+     '{if(p.size()!=q.size())return 1e18;double h=0;for(std::size_t i=0;i<p.size();++i)if(p[i]>0)h-=p[i]*std::log(q[i]+1e-12);return h;}'),
+    ('perplexity', 'number', [('probs', 'list number')],
+     'return std::exp(entropy(probs));'),
 ])
 
 cx('mlkldiv', [
-    ('kldiSum', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
-    ('kldiMean', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size();'),
-    ('kldiMin', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::min_element(v.begin(),v.end());'),
-    ('kldiMax', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::max_element(v.begin(),v.end());'),
-    ('kldiVar', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);}'),
-    ('kldiStd', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));}'),
-    ('kldiNorm', 'list number', [('v', 'list number')],
-     '{if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;}'),
+    ('klDiv', 'number', [('p', 'list number'), ('q', 'list number')],
+     '{if(p.size()!=q.size())return 1e18;double s=0;for(std::size_t i=0;i<p.size();++i)'
+     'if(p[i]>0)s+=p[i]*(std::log(p[i]+1e-12)-std::log(q[i]+1e-12));return s;}'),
+    ('jsDiv', 'number', [('p', 'list number'), ('q', 'list number')],
+     '{if(p.size()!=q.size())return 1e18;std::vector<double> m;for(std::size_t i=0;i<p.size();++i)m.push_back(0.5*(p[i]+q[i]));'
+     'return 0.5*klDiv(p,m)+0.5*klDiv(q,m);}'),
+    ('klDivBits', 'number', [('p', 'list number'), ('q', 'list number')],
+     'return klDiv(p,q)/std::log(2.0);'),
+    ('symmetricKl', 'number', [('p', 'list number'), ('q', 'list number')],
+     'return 0.5*(klDiv(p,q)+klDiv(q,p));'),
+    ('hellinger', 'number', [('p', 'list number'), ('q', 'list number')],
+     '{if(p.size()!=q.size())return 1e18;double s=0;for(std::size_t i=0;i<p.size();++i)'
+     '{double a=std::sqrt(std::max(0.0,p[i])),b=std::sqrt(std::max(0.0,q[i]));s+=(a-b)*(a-b);}return std::sqrt(s)/std::sqrt(2.0);}'),
 ])
-
 cx('mlgradient', [
     ('gradSum', 'number', [('v', 'list number')],
      'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
@@ -1677,18 +1674,25 @@ cx('mlsoftmax', [
 cx('mlperceptron', [
     ('predict', 'number', [('weights', 'list number'), ('features', 'list number'), ('bias', 'number')],
      '{double s=bias;for(std::size_t i=0;i<weights.size()&&i<features.size();++i)s+=weights[i]*features[i];return s>=0?1:0;}'),
+    # Returns [bias, w0, ..., wn-1] so all weights (and bias) can be restored.
     ('trainStep', 'list number', [('weights', 'list number'), ('bias', 'number'), ('features', 'list number'), ('label', 'number'), ('lr', 'number')],
-     '{auto w=weights;double b=bias,p=predict(w,features,b),err=label-p;for(std::size_t i=0;i<w.size()&&i<features.size();++i)w[i]+=lr*err*features[i];b+=lr*err;return std::vector<double>{b,w[0]};}'),
+     '{auto w=weights;double b=bias,p=predict(w,features,b),err=label-p;'
+     'for(std::size_t i=0;i<w.size()&&i<features.size();++i)w[i]+=lr*err*features[i];b+=lr*err;'
+     'std::vector<double> out;out.push_back(b);for(double x:w)out.push_back(x);return out;}'),
     ('accuracy', 'number', [('weights', 'list number'), ('bias', 'number'), ('X', 'list number'), ('y', 'list number'), ('dims', 'number')],
      '{int D=static_cast<int>(dims),n=static_cast<int>(y.size()),correct=0;for(int i=0;i<n;++i){std::vector<double> feat(X.begin()+i*D,X.begin()+(i+1)*D);if(predict(weights,feat,bias)==y[static_cast<std::size_t>(i)])++correct;}return n>0?static_cast<double>(correct)/n:0;}'),
     ('hingeLoss', 'number', [('weights', 'list number'), ('features', 'list number'), ('label', 'number'), ('bias', 'number')],
      '{double s=bias;for(std::size_t i=0;i<weights.size()&&i<features.size();++i)s+=weights[i]*features[i];return std::max(0.0,1-label*s);}'),
     ('initWeights', 'list number', [('size', 'number')],
      '{int n=static_cast<int>(size);std::vector<double> w;for(int i=0;i<n;++i)w.push_back(static_cast<double>(std::rand()%1000)/1000.0-0.5);return w;}'),
+    # Returns [bias, w0, ..., wn-1] (same layout as trainStep).
     ('trainEpoch', 'list number', [('weights', 'list number'), ('bias', 'number'), ('X', 'list number'), ('y', 'list number'), ('lr', 'number'), ('dims', 'number')],
-     '{auto w=weights;double b=bias;int D=static_cast<int>(dims);for(std::size_t i=0;i<y.size();++i){std::vector<double> feat(X.begin()+i*D,X.begin()+(i+1)*D);auto r=trainStep(w,b,feat,y[i],lr);b=r[0];if(!w.empty())w[0]=r[1];}return w;}'),
+     '{auto w=weights;double b=bias;int D=static_cast<int>(dims);'
+     'for(std::size_t i=0;i<y.size();++i){std::vector<double> feat(X.begin()+i*D,X.begin()+(i+1)*D);'
+     'auto r=trainStep(w,b,feat,y[i],lr);b=r[0];'
+     'for(std::size_t j=0;j<w.size()&&j+1<r.size();++j)w[j]=r[j+1];}'
+     'std::vector<double> out;out.push_back(b);for(double x:w)out.push_back(x);return out;}'),
 ])
-
 cx('mlcrossval', [
     ('crosSum', 'number', [('v', 'list number')],
      'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
@@ -1724,39 +1728,32 @@ cx('mlfeature', [
 ])
 
 cx('mlnormalize', [
-    ('normSum', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
-    ('normMean', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size();'),
-    ('normMin', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::min_element(v.begin(),v.end());'),
-    ('normMax', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::max_element(v.begin(),v.end());'),
-    ('normVar', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);}'),
-    ('normStd', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));}'),
-    ('normNorm', 'list number', [('v', 'list number')],
-     '{if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;}'),
+    ('l2Normalize', 'list number', [('v', 'list number')],
+     '{double n=0;for(double x:v)n+=x*x;n=std::sqrt(n);std::vector<double> r;if(n<1e-12)return v;for(double x:v)r.push_back(x/n);return r;}'),
+    ('minMaxNormalize', 'list number', [('v', 'list number')],
+     '{if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());'
+     'if(mx==mn)return std::vector<double>(v.size(),0.0);std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;}'),
+    ('zScore', 'list number', [('v', 'list number')],
+     '{if(v.empty())return v;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v){double d=x-m;s+=d*d;}'
+     'double sd=v.size()<2?1:std::sqrt(s/(v.size()-1));if(sd<1e-12)sd=1;std::vector<double> r;for(double x:v)r.push_back((x-m)/sd);return r;}'),
+    ('l1Normalize', 'list number', [('v', 'list number')],
+     '{double s=0;for(double x:v)s+=std::fabs(x);std::vector<double> r;if(s<1e-12)return v;for(double x:v)r.push_back(x/s);return r;}'),
+    ('clip', 'list number', [('v', 'list number'), ('lo', 'number'), ('hi', 'number')],
+     '{double a=lo,b=hi;if(a>b)std::swap(a,b);std::vector<double> r;for(double x:v)r.push_back(std::fmin(b,std::fmax(a,x)));return r;}'),
 ])
 
 cx('mldistance', [
-    ('distSum', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
-    ('distMean', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size();'),
-    ('distMin', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::min_element(v.begin(),v.end());'),
-    ('distMax', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::max_element(v.begin(),v.end());'),
-    ('distVar', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);}'),
-    ('distStd', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));}'),
-    ('distNorm', 'list number', [('v', 'list number')],
-     '{if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;}'),
+    ('euclidean', 'number', [('a', 'list number'), ('b', 'list number')],
+     '{if(a.size()!=b.size())return 0;double s=0;for(std::size_t i=0;i<a.size();++i){double d=a[i]-b[i];s+=d*d;}return std::sqrt(s);}'),
+    ('manhattan', 'number', [('a', 'list number'), ('b', 'list number')],
+     '{if(a.size()!=b.size())return 0;double s=0;for(std::size_t i=0;i<a.size();++i)s+=std::fabs(a[i]-b[i]);return s;}'),
+    ('chebyshev', 'number', [('a', 'list number'), ('b', 'list number')],
+     '{if(a.size()!=b.size())return 0;double m=0;for(std::size_t i=0;i<a.size();++i)m=std::max(m,std::fabs(a[i]-b[i]));return m;}'),
+    ('squaredEuclidean', 'number', [('a', 'list number'), ('b', 'list number')],
+     '{if(a.size()!=b.size())return 0;double s=0;for(std::size_t i=0;i<a.size();++i){double d=a[i]-b[i];s+=d*d;}return s;}'),
+    ('hamming', 'number', [('a', 'list number'), ('b', 'list number')],
+     '{if(a.size()!=b.size())return 0;double c=0;for(std::size_t i=0;i<a.size();++i)if(a[i]!=b[i])c+=1;return c;}'),
 ])
-
 cx('mlcluster', [
     ('clusSum', 'number', [('v', 'list number')],
      'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
@@ -1775,22 +1772,27 @@ cx('mlcluster', [
 ])
 
 cx('mlnearest', [
-    ('nearSum', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
-    ('nearMean', 'number', [('v', 'list number')],
-     'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size();'),
-    ('nearMin', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::min_element(v.begin(),v.end());'),
-    ('nearMax', 'number', [('v', 'list number')],
-     'return v.empty()?0:*std::max_element(v.begin(),v.end());'),
-    ('nearVar', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);}'),
-    ('nearStd', 'number', [('v', 'list number')],
-     '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));}'),
-    ('nearNorm', 'list number', [('v', 'list number')],
-     '{if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;}'),
+    ('nearestIdx', 'number', [('query', 'list number'), ('matrix', 'list number'), ('dims', 'number')],
+     '{int D=static_cast<int>(dims);if(D<=0||matrix.size()<static_cast<std::size_t>(D))return 0;'
+     'int n=static_cast<int>(matrix.size()/D);int best=0;double bd=1e18;'
+     'for(int i=0;i<n;++i){double dist=0;for(int d=0;d<D;++d){double diff=query[static_cast<std::size_t>(d)]-matrix[static_cast<std::size_t>(i*D+d)];dist+=diff*diff;}'
+     'if(dist<bd){bd=dist;best=i;}}return static_cast<double>(best);}'),
+    ('nearestDist', 'number', [('query', 'list number'), ('matrix', 'list number'), ('dims', 'number')],
+     '{int D=static_cast<int>(dims);if(D<=0||matrix.size()<static_cast<std::size_t>(D))return 0;'
+     'int n=static_cast<int>(matrix.size()/D);double bd=1e18;'
+     'for(int i=0;i<n;++i){double dist=0;for(int d=0;d<D;++d){double diff=query[static_cast<std::size_t>(d)]-matrix[static_cast<std::size_t>(i*D+d)];dist+=diff*diff;}'
+     'if(dist<bd)bd=dist;}return std::sqrt(bd);}'),
+    ('knnIndices', 'list number', [('query', 'list number'), ('matrix', 'list number'), ('dims', 'number'), ('k', 'number')],
+     '{int D=static_cast<int>(dims),K=static_cast<int>(k);if(D<=0||K<=0||matrix.size()<static_cast<std::size_t>(D))return std::vector<double>{};'
+     'int n=static_cast<int>(matrix.size()/D);std::vector<std::pair<double,int>> pairs;'
+     'for(int i=0;i<n;++i){double dist=0;for(int d=0;d<D;++d){double diff=query[static_cast<std::size_t>(d)]-matrix[static_cast<std::size_t>(i*D+d)];dist+=diff*diff;}'
+     'pairs.push_back({dist,i});}std::sort(pairs.begin(),pairs.end());if(K>n)K=n;std::vector<double> out;'
+     'for(int i=0;i<K;++i)out.push_back(static_cast<double>(pairs[static_cast<std::size_t>(i)].second));return out;}'),
+    ('batchNearest', 'list number', [('queries', 'list number'), ('matrix', 'list number'), ('dims', 'number')],
+     '{int D=static_cast<int>(dims);if(D<=0)return std::vector<double>{};int qn=static_cast<int>(queries.size()/D);'
+     'std::vector<double> out;for(int q=0;q<qn;++q){std::vector<double> query(queries.begin()+q*D,queries.begin()+(q+1)*D);'
+     'out.push_back(nearestIdx(query,matrix,dims));}return out;}'),
 ])
-
 cx('mldecision', [
     ('deciSum', 'number', [('v', 'list number')],
      'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
@@ -4415,7 +4417,11 @@ add_ultra_db_modules(500)
 
 
 def main() -> None:
-    runtime_path = os.path.join(ROOT, "runtime", "complex_libs.hpp")
+    # Full blob lives under runtime/optional/; runtime/complex_libs.hpp is the
+    # opt-in gate (see docs/STDLIB_GEN.md).
+    optional_dir = os.path.join(ROOT, "runtime", "optional")
+    os.makedirs(optional_dir, exist_ok=True)
+    runtime_path = os.path.join(optional_dir, "complex_libs.hpp")
     runtime_src = gen_runtime(MODULES, "cx")
     runtime_src = runtime_src.replace(
         "#include <vector>",

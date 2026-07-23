@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module vizultra101
 
 function writeLineChart(path text, ys list number, width number, height number) returns bool

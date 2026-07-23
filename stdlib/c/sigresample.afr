@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module sigresample
 
 function resaSum(v list number) returns number

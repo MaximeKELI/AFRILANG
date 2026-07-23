@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module gameultra3d182
 
 function integratePos(pos list number, vel list number, n number, dt number) returns list number

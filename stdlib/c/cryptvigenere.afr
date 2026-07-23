@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module cryptvigenere
 
 function vigeLen(s text) returns number

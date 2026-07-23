@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module crypthmac
 
 function hmacLen(s text) returns number

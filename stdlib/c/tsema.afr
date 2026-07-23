@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module tsema
 
 function ema(v list number, alpha number) returns list number

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module cryptsha256
 
 function sha2Len(s text) returns number

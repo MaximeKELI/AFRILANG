@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module graphbipart
 
 function isBipartite(adj list number, n number) returns bool

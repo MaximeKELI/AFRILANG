@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module gamemcts
 
 function uctSelect(wins list number, visits list number, totalVisits number, explore number) returns number

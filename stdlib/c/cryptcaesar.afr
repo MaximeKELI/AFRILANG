@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module cryptcaesar
 
 function encrypt(s text, shift number) returns text

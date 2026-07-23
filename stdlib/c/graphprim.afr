@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module graphprim
 
 function primMst(adj list number, n number) returns number

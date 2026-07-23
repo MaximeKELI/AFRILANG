@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module statoutlier
 
 function iqrOutliers(v list number) returns list number

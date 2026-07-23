@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module dataultra030
 
 function mean(v list number) returns number

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module graphflow
 
 function maxFlow(adj list number, n number, source number, sink number) returns number

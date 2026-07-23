@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module gameflood
 
 function floodFill(grid list number, width number, start number, newVal number) returns list number

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module mlcosine
 
 function cosineSim(a list number, b list number) returns number

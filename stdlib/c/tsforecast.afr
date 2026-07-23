@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module tsforecast
 
 function foreSum(v list number) returns number

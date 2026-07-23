@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module finyield
 
 function yielSum(v list number) returns number

@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module geomdistance
 
 function euclidean2d(x1 number, y1 number, x2 number, y2 number) returns number

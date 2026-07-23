@@ -1,3 +1,4 @@
+// experimental catalog — IDE signatures only (not core runtime)
 module compdict
 
 function dictEncode(data list number) returns list number
