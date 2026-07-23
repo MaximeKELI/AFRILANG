@@ -375,6 +375,7 @@ Token Lexer::stringLiteral() {
             char esc = advance();
             switch (esc) {
                 case 'n':  value += '\n'; break;
+                case 'r':  value += '\r'; break;
                 case 't':  value += '\t'; break;
                 case '"':  value += '"';  break;
                 case '\\': value += '\\'; break;

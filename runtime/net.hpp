@@ -133,9 +133,14 @@ inline std::string httpRequestPath(const std::string& raw) {
 }
 
 inline std::string httpRequestBody(const std::string& raw) {
-    const std::size_t sep = raw.find("\r\n\r\n");
+    std::size_t sep = raw.find("\r\n\r\n");
+    std::size_t skip = 4;
+    if (sep == std::string::npos) {
+        sep = raw.find("\n\n");
+        skip = 2;
+    }
     if (sep == std::string::npos) return {};
-    return raw.substr(sep + 4);
+    return raw.substr(sep + skip);
 }
 
 // Serve a fixed body forever (blocking). Returns 0 normally, -1 on listen error.

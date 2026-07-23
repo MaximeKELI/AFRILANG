@@ -13,6 +13,7 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/
   /home/admin20/AFRILANG/include/afrilang/security.hpp \
   /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
   /home/admin20/AFRILANG/include/afrilang/stdlib_catalog.hpp \
+  /home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /home/admin20/AFRILANG/include/afrilang/target.hpp \
   /home/admin20/AFRILANG/include/afrilang/types.hpp \
   /usr/include/alloca.h \
@@ -8156,10 +8157,6 @@ CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
-/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
 /usr/include/c++/15/bits/unordered_map.h:
 
 /home/admin20/AFRILANG/include/afrilang/pkg.hpp:
@@ -8296,6 +8293,10 @@ CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o:
 
 /usr/include/openssl/evp.h:
 
+/usr/lib/i386-linux-gnu/libzstd.so.1:
+
+/usr/include/c++/15/bits/exception_ptr.h:
+
 /usr/include/c++/15/bits/ios_base.h:
 
 /usr/include/openssl/ssl2.h:
@@ -8315,14 +8316,6 @@ CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o:
 /usr/include/openssl/lhash.h:
 
 /usr/include/c++/15/bits/hashtable.h:
-
-/usr/include/c++/15/bits/locale_classes.tcc:
-
-/usr/include/openssl/bio.h:
-
-/usr/include/c++/15/algorithm:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /usr/include/c++/15/ext/type_traits.h:
 
@@ -8378,10 +8371,6 @@ CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o:
 
 /home/admin20/AFRILANG/runtime/ui.hpp:
 
-/usr/lib/i386-linux-gnu/libzstd.so.1:
-
-/usr/include/c++/15/bits/exception_ptr.h:
-
 /usr/include/c++/15/bits/codecvt.h:
 
 /usr/lib/i386-linux-gnu/libsamplerate.so.0:
@@ -8389,6 +8378,36 @@ CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o:
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avxneconvertintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/home/admin20/AFRILANG/src/utils/debug.cpp:
+
+/usr/include/openssl/buffererr.h:
+
+/home/admin20/AFRILANG/src/utils/stdlib_catalog.cpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/avx10_2minmaxintrin.h:
+
+/usr/include/openssl/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/home/admin20/AFRILANG/src/utils/pkg.cpp:
+
+/usr/include/c++/15/bits/atomic_base.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/immintrin.h:
+
+/home/admin20/AFRILANG/include/afrilang/target.hpp:
+
+CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
+
+/usr/include/time.h:
+
+/usr/include/c++/15/tr1/hypergeometric.tcc:
+
+/usr/include/c++/15/bits/stl_iterator_base_types.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
@@ -8420,35 +8439,27 @@ CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o:
 
 /usr/include/c++/15/random:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+/usr/lib/gcc/x86_64-linux-gnu/15/include/shaintrin.h:
 
-/home/admin20/AFRILANG/src/utils/debug.cpp:
+/home/admin20/AFRILANG/include/afrilang/parser.hpp:
 
-/usr/include/openssl/buffererr.h:
+/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
 
-/home/admin20/AFRILANG/src/utils/stdlib_catalog.cpp:
+/usr/include/c++/15/pstl/glue_algorithm_defs.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/include/avx10_2minmaxintrin.h:
+/usr/include/c++/15/bits/charconv.h:
 
-/usr/include/openssl/types.h:
+/usr/include/c++/15/tr1/poly_laguerre.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
-/home/admin20/AFRILANG/src/utils/pkg.cpp:
+/usr/include/c++/15/bits/algorithmfwd.h:
 
-/usr/include/c++/15/bits/atomic_base.h:
+/usr/lib/gcc/x86_64-linux-gnu/15/libgcc_s.so:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/include/immintrin.h:
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
-/home/admin20/AFRILANG/include/afrilang/target.hpp:
-
-CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
-
-/usr/include/time.h:
-
-/usr/include/c++/15/tr1/hypergeometric.tcc:
-
-/usr/include/c++/15/bits/stl_iterator_base_types.h:
+/usr/include/x86_64-linux-gnu/bits/socket.h:
 
 /home/admin20/AFRILANG/include/afrilang/stdlib_catalog.hpp:
 
@@ -8492,6 +8503,14 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 
 /usr/include/c++/15/bits/nested_exception.h:
 
+/usr/include/asm-generic/types.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/asm-generic/errno-base.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/15/include/clwbintrin.h:
 
 /home/admin20/AFRILANG/include/afrilang/security.hpp:
@@ -8504,21 +8523,9 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 
 /usr/include/openssl/sslerr_legacy.h:
 
-/usr/include/c++/15/bits/charconv.h:
-
-/usr/include/c++/15/pstl/glue_algorithm_defs.h:
-
-/usr/include/c++/15/tr1/poly_laguerre.tcc:
-
 /usr/include/c++/15/bits/basic_ios.tcc:
 
 /usr/include/c++/15/pstl/pstl_config.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vbmivlintrin.h:
-
-/usr/include/x86_64-linux-gnu/c++/15/bits/time_members.h:
-
-/home/admin20/AFRILANG/include/afrilang/codegen.hpp:
 
 /home/admin20/AFRILANG/src/codegen/codegen.cpp:
 
@@ -8572,6 +8579,24 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 
 /usr/include/openssl/opensslv.h:
 
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/xsaveintrin.h:
+
+/usr/include/c++/15/cstdlib:
+
+/usr/include/openssl/dsa.h:
+
+/home/admin20/AFRILANG/include/afrilang/medium_catalog.hpp:
+
+/usr/include/c++/15/bits/requires_hosted.h:
+
+/usr/include/c++/15/filesystem:
+
+/usr/include/c++/15/typeinfo:
+
+/usr/include/openssl/prov_ssl.h:
+
 /usr/include/c++/15/bits/locale_classes.h:
 
 /home/admin20/AFRILANG/include/afrilang/complex_catalog.hpp:
@@ -8592,41 +8617,19 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 
 /usr/include/c++/15/bits/stl_deque.h:
 
-/usr/include/asm-generic/errno-base.h:
+/usr/include/c++/15/algorithm:
 
-/usr/include/asm-generic/types.h:
+/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vbmivlintrin.h:
 
-/usr/include/asm-generic/bitsperlong.h:
+/home/admin20/AFRILANG/include/afrilang/codegen.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+/usr/include/x86_64-linux-gnu/c++/15/bits/time_members.h:
 
-/usr/include/c++/15/typeinfo:
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
-/usr/include/openssl/prov_ssl.h:
+/usr/include/c++/15/bits/locale_classes.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/xsaveintrin.h:
-
-/usr/include/c++/15/cstdlib:
-
-/usr/include/openssl/dsa.h:
-
-/home/admin20/AFRILANG/include/afrilang/medium_catalog.hpp:
-
-/usr/include/c++/15/bits/requires_hosted.h:
-
-/usr/include/c++/15/filesystem:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/c++/15/bits/algorithmfwd.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/libgcc_s.so:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/x86_64-linux-gnu/bits/socket.h:
+/usr/include/openssl/bio.h:
 
 CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.o:
 
@@ -8890,6 +8893,10 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o:
 
 /usr/include/openssl/safestack.h:
 
+/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/stdc-predef.h:
@@ -8935,12 +8942,6 @@ CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.o:
 /home/admin20/AFRILANG/include/afrilang/formatter.hpp:
 
 /home/admin20/AFRILANG/src/utils/utf8.cpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/shaintrin.h:
-
-/home/admin20/AFRILANG/include/afrilang/parser.hpp:
-
-/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/smmintrin.h:
 

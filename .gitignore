@@ -81,6 +81,20 @@ Thumbs.db
 /smoke
 **/smoke
 /ma_lib/smoke
+/net
+/web_bin
+/web_rt
+/maps
+/yaml
+/str
+/re
+/stats
+/thread
+/unicode
+/complex_libs_demo
+
+# Generated remote index (use remote-index.bundled.json + pkg sync)
+/packages/remote-index.json
 
 # Package remote download cache
 /packages/.cache/

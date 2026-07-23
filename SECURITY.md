@@ -106,8 +106,18 @@ afrilang pkg verify <name>
 At install time, if a `sig` field is present in the index **and** at least one
 trusted key is configured in `packages/trusted_keys.json`, the signature over the
 package's SHA-256 must validate against a trusted key or the install is refused.
-Packages without a signature (or when no trusted keys are configured) install with
-checksum verification only (backward compatible).
+
+**Blessed packages** (`packages/blessed.json`) additionally **require** a verifiable
+Ed25519 signature whenever trusted keys are configured — unsigned blessed packages
+are refused at install. Sign all of them with:
+
+```
+export AFRILANG_PKG_SIGN_KEY=<privateKeyHex>
+bash scripts/sign_blessed_all.sh
+```
+
+Non-blessed packages without a signature still install with checksum verification
+only (when no `sig` is recorded).
 
 Only install packages from trusted sources.
 
