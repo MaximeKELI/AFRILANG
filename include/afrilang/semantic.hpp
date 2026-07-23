@@ -14,6 +14,7 @@ namespace afrilang {
 struct MethodSignature {
     std::string name;
     std::vector<std::string> typeParams;
+    std::vector<TypeConstraint> typeConstraints;
     std::vector<AfrType> paramTypes;
     AfrType returnType;
     std::size_t requiredParamCount = 0;
@@ -202,6 +203,9 @@ private:
         const MethodSignature& sig,
         const std::vector<AfrType>& argTypes,
         const ASTNode& at) const;
+    void checkTypeConstraints(const MethodSignature& sig,
+                              const std::unordered_map<std::string, AfrType>& subst,
+                              const ASTNode& at) const;
 
     bool recordsStructurallyCompatible(const RecordInfo& target,
                                        const RecordInfo& value) const;

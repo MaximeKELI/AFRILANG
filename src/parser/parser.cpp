@@ -3,6 +3,7 @@
 #include "afrilang/error.hpp"
 #include "afrilang/lexer.hpp"
 
+#include <algorithm>
 #include <unordered_set>
 #include <cctype>
 #include <sstream>
@@ -698,6 +699,43 @@ std::vector<std::string> Parser::parseTypeParams() {
     return params;
 }
 
+std::vector<TypeConstraint> Parser::parseTypeConstraints(
+    const std::vector<std::string>& typeParams) {
+    std::vector<TypeConstraint> constraints;
+    if (!match(TokenType::Where)) return constraints;
+
+    do {
+        const Token& paramTok = consumeName("Paramètre de type attendu après 'where'");
+        TypeConstraint c;
+        c.typeParam = paramTok.lexeme;
+        if (std::find(typeParams.begin(), typeParams.end(), c.typeParam) == typeParams.end()) {
+            error("'" + c.typeParam + "' n'est pas un paramètre de type de cette fonction");
+        }
+        if (match(TokenType::Is)) {
+            c.isInterface = false;
+            if (match(TokenType::TypeNumber)) c.bound = "number";
+            else if (match(TokenType::TypeInt)) c.bound = "int";
+            else if (match(TokenType::TypeText)) c.bound = "text";
+            else if (match(TokenType::TypeBool)) c.bound = "bool";
+            else if (match(TokenType::TypeBigInt)) c.bound = "bigint";
+            else if (match(TokenType::TypeJson)) c.bound = "json";
+            else {
+                const Token& boundTok = consumeName("Type de contrainte attendu après 'is'");
+                c.bound = boundTok.lexeme;
+            }
+        } else if (match(TokenType::Implements)) {
+            c.isInterface = true;
+            const Token& iface = consumeName("Nom d'interface attendu après 'implements'");
+            c.bound = iface.lexeme;
+        } else {
+            error("'is' ou 'implements' attendu dans une contrainte de type");
+        }
+        constraints.push_back(std::move(c));
+    } while (match(TokenType::Comma));
+
+    return constraints;
+}
+
 std::string Parser::parseTypeName() {
     if (match(TokenType::Function)) {
         std::vector<std::string> paramTypes;
@@ -793,6 +831,8 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly,
         }
     }
 
+    std::vector<TypeConstraint> typeConstraints = parseTypeConstraints(typeParams);
+
     std::vector<std::unique_ptr<StatementNode>> body;
     if (!signatureOnly) {
         body = parseBlock();
@@ -802,6 +842,7 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly,
     auto node = std::make_unique<FunctionNode>(
         std::move(funcName), std::move(params), std::move(returnType),
         returnsResult, std::move(body), std::move(typeParams), isStatic, isAbstract, isFinal);
+    node->typeConstraints = std::move(typeConstraints);
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }

@@ -114,6 +114,8 @@ private:
     void consumeIntoOrEn(const std::string& message);
 
     std::vector<std::string> parseTypeParams();
+    std::vector<TypeConstraint> parseTypeConstraints(
+        const std::vector<std::string>& typeParams);
     std::string parseTypeName();
     std::vector<ParameterNode> parseParameters();
     std::vector<std::unique_ptr<StatementNode>> parseBlock();

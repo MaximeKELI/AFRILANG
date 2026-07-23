@@ -695,9 +695,16 @@ struct FieldNode {
         , isStatic(isStatic) {}
 };
 
+struct TypeConstraint {
+    std::string typeParam;
+    bool isInterface = false; // false => primitive/named type bound ("number", …)
+    std::string bound;        // "number" | "int" | "text" | interface name
+};
+
 struct FunctionNode : ASTNode {
     std::string name;
     std::vector<std::string> typeParams;
+    std::vector<TypeConstraint> typeConstraints;
     std::vector<ParameterNode> parameters;
     std::string returnTypeName;
     bool returnsResult = false;

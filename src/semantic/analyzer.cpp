@@ -528,6 +528,7 @@ void SemanticAnalyzer::registerClasses() {
             MethodSignature sig;
             sig.name = func->name;
             sig.typeParams = func->typeParams;
+            sig.typeConstraints = func->typeConstraints;
             sig.returnType = resolveFunctionReturnType(*func);
             sig.returnsResult = func->returnsResult;
             sig.isAsync = func->isAsync;
@@ -738,6 +739,7 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
     MethodSignature sig;
     sig.name = func.name;
     sig.typeParams = func.typeParams;
+    sig.typeConstraints = func.typeConstraints;
     sig.returnType = resolveFunctionReturnType(func);
     sig.returnsResult = func.returnsResult;
     sig.isAsync = func.isAsync;
