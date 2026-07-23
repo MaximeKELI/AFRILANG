@@ -1572,6 +1572,7 @@ CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o: /home/admin20/AFRILANG/src/
   /usr/include/c++/15/initializer_list \
   /usr/include/c++/15/ios \
   /usr/include/c++/15/iosfwd \
+  /usr/include/c++/15/iostream \
   /usr/include/c++/15/istream \
   /usr/include/c++/15/memory \
   /usr/include/c++/15/new \

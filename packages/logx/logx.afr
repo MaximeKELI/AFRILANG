@@ -1,0 +1,23 @@
+module logx
+    function format(level text, message text) returns text
+        return "[" + level + "] " + message
+    end
+
+    function info(message text) returns text
+        create line = format("INFO", message)
+        say line
+        return line
+    end
+
+    function warn(message text) returns text
+        create line = format("WARN", message)
+        say line
+        return line
+    end
+
+    function error(message text) returns text
+        create line = format("ERROR", message)
+        say line
+        return line
+    end
+end

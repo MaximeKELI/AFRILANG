@@ -6,6 +6,10 @@ module Math
     function multiply(a number, b number) returns number
         return a * b
     end
+
+    function square(n number) returns number
+        return n * n
+    end
 end
 
 use Math
@@ -13,4 +17,9 @@ use Math
 test "user module functions"
     assert add(3, 4) is equal to 7
     assert multiply(5, 6) is equal to 30
+end
+
+test "user module extra"
+    assert square(9) is equal to 81
+    assert add(square(2), square(3)) is equal to 13
 end

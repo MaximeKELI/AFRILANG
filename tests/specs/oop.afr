@@ -23,6 +23,12 @@ class Dog extends Animal
     end
 end
 
+class Cat extends Animal
+    function speak() returns text
+        return "meow"
+    end
+end
+
 test "class method and field"
     create c = new Counter
     assert c.inc() is equal to 1
@@ -33,4 +39,10 @@ end
 test "inheritance override"
     create d = new Dog
     assert d.speak() is equal to "woof"
+end
+
+test "polymorphic list of animals"
+    create pets list of Animal = list of new Dog(), new Cat()
+    assert (pets at 0).speak() is equal to "woof"
+    assert (pets at 1).speak() is equal to "meow"
 end

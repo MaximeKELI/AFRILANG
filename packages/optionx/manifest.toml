@@ -1,0 +1,4 @@
+name = "optionx"
+version = "0.1.0"
+description = "Helpers optionnel (orElse wrappers)"
+main = "optionx.afr"

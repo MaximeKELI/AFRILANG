@@ -1,0 +1,17 @@
+module iterx
+    function sumRange(low number, high number) returns number
+        create total number = 0
+        for each x in low..high do
+            set total = total + x
+        end
+        return total
+    end
+
+    function countExclusive(low number, high number) returns number
+        create n number = 0
+        for each x in low..<high do
+            set n = n + 1
+        end
+        return n
+    end
+end

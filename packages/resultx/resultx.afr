@@ -1,0 +1,16 @@
+module resultx
+    function half(n number) returns number or error
+        if n is equal to 0 then
+            return error "zero"
+        end
+        return n / 2
+    end
+
+    function valueOr(r number or error, fallback number) returns number
+        return r or else fallback
+    end
+
+    function isOk(r number or error) returns bool
+        return (r is error) is equal to false
+    end
+end

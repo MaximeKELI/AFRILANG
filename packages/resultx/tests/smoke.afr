@@ -1,0 +1,14 @@
+import "pkg/resultx/resultx.afr"
+
+use resultx
+
+test "half ok"
+    create r = half(10)
+    assert isOk(r) is equal to true
+    assert r.value is equal to 5
+end
+
+test "valueOr"
+    assert valueOr(half(0), 99) is equal to 99
+    assert valueOr(half(8), 0) is equal to 4
+end

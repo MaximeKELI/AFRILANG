@@ -1,0 +1,8 @@
+import "pkg/logx/logx.afr"
+
+use logx
+
+test "format levels"
+    assert format("INFO", "hi") is equal to "[INFO] hi"
+    assert format("WARN", "x") is equal to "[WARN] x"
+end

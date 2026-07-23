@@ -1,7 +1,12 @@
 extern from "m" function sqrt(x number) returns number
 extern from "m" function fabs(x number) returns number
+extern from "m" function pow(x number, y number) returns number
 
 test "ffi math"
     assert sqrt(16) is equal to 4
     assert fabs(0 - 3) is equal to 3
+end
+
+test "ffi pow"
+    assert pow(2, 10) is equal to 1024
 end

@@ -1,0 +1,10 @@
+import "pkg/optionx/optionx.afr"
+
+use optionx
+
+test "maybe and orElse"
+    assert isSome(maybePositive(3)) is equal to true
+    assert isSome(maybePositive(0)) is equal to false
+    assert orElseNumber(maybePositive(0), 42) is equal to 42
+    assert orElseNumber(maybePositive(7), 0) is equal to 7
+end

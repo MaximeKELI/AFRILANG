@@ -94,6 +94,25 @@ say identity("ok")
 
 Utiliser `list of T` (pas de syntaxe `List[T]`). Pas de contraintes de types (P5+).
 
+## Macros (MVP)
+
+Définition + appel avec `!` ; substitution d'identifiants/expressions (pas de récursion, pas d'introspection AST) :
+
+```afr
+macro shout(msg)
+    say msg
+end
+
+macro assertEq(a, b)
+    assert a is equal to b
+end
+
+shout!("hello")
+assertEq!(1 + 1, 2)
+```
+
+Alias FR : `macrocommande`.
+
 ## Maps
 
 ```afr

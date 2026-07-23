@@ -1,0 +1,4 @@
+name = "logx"
+version = "0.1.0"
+description = "Log textuel simple (niveaux + say)"
+main = "logx.afr"

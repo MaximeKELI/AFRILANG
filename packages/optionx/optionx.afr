@@ -1,0 +1,16 @@
+module optionx
+    function maybePositive(n number) returns number?
+        if n is greater than 0 then
+            return n
+        end
+        return nothing
+    end
+
+    function orElseNumber(v number?, fallback number) returns number
+        return v or else fallback
+    end
+
+    function isSome(v number?) returns bool
+        return v is defined
+    end
+end

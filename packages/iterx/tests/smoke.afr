@@ -1,0 +1,11 @@
+import "pkg/iterx/iterx.afr"
+
+use iterx
+
+test "sumRange"
+    assert sumRange(1, 5) is equal to 15
+end
+
+test "countExclusive"
+    assert countExclusive(1, 5) is equal to 4
+end

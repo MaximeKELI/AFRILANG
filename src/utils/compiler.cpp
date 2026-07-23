@@ -209,6 +209,9 @@ void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
     for (auto& stmt : source.statements) {
         target.statements.push_back(std::move(stmt));
     }
+    for (auto& macro : source.macros) {
+        target.macros.push_back(std::move(macro));
+    }
 }
 
 void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir, int depth) {
