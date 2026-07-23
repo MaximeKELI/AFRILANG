@@ -39,6 +39,11 @@ Suite de tests : `afrilang test --specs`.
 
 Suite : `./build/afrilang test --specs .` (inclut `tests/stdlib/`).
 
+**Vague modules B** : `str` / `json` / `fs` / `collections` approfondis (cas limites :
+trim vide, split/join, JSON missing keys / `[]`/`{}`, fs makeDir/listDir/fileSize,
+collections sort/reverse/contains/sum/take-drop edges). WASM CI smoke :
+`str` + `json` + `collections`.
+
 - `stdlib/*.afr`, `stdlib/m/`, `stdlib/c/` — stubs de signatures, **pas** une garantie de profondeur API
 - Un module utilisateur / paquet qui **porte le même nom** qu’une entrée de catalogue n’est **pas** traité comme stdlib (origine `isStdlibInjected`)
 - Packs « ultra » (GIS, data, …) — utiles en démo ; stabilité au cas par cas

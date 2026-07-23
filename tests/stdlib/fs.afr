@@ -28,3 +28,30 @@ test "fs copy and rename"
     assert removeFile(src) is equal to true
     assert removeFile(dst) is equal to true
 end
+
+test "fs missing path"
+    assert exists("/tmp/afrilang_fs_missing_xyz_m2") is equal to false
+    assert readText("/tmp/afrilang_fs_missing_xyz_m2") is equal to ""
+    assert fileSize("/tmp/afrilang_fs_missing_xyz_m2") is equal to 0 - 1
+    assert isFile("/tmp/afrilang_fs_missing_xyz_m2") is equal to false
+end
+
+test "fs makeDir listDir fileSize"
+    create dir = "/tmp/afrilang_fs_m2_dir"
+    create file = "/tmp/afrilang_fs_m2_dir/note.txt"
+    assert makeDir(dir) is equal to true
+    assert isDir(dir) is equal to true
+    assert writeText(file, "abc") is equal to true
+    assert fileSize(file) is equal to 3
+    create entries = listDir(dir)
+    assert entries at 0 is equal to "note.txt"
+    assert removeFile(file) is equal to true
+end
+
+test "fs empty write"
+    create path = "/tmp/afrilang_fs_m2_empty.txt"
+    assert writeText(path, "") is equal to true
+    assert readText(path) is equal to ""
+    assert fileSize(path) is equal to 0
+    assert removeFile(path) is equal to true
+end

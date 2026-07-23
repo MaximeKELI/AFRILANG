@@ -67,3 +67,17 @@ test "transforms and outliers"
     create noisy = list of 1, 2, 3, 4, 5, 100
     assert outlierCount(noisy) is greater than 0
 end
+
+test "empty and singleton"
+    create xs = list of 1
+    create none = filter each x in xs where x is equal to 0
+    assert count(none) is equal to 0
+    assert sum(none) is equal to 0
+    assert mean(none) is equal to 0
+    assert product(none) is equal to 1
+    create one = list of 7
+    assert mean(one) is equal to 7
+    assert minVal(one) is equal to 7
+    assert maxVal(one) is equal to 7
+    assert median(one) is equal to 7
+end

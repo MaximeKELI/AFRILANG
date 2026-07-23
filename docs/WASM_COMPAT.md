@@ -13,7 +13,7 @@ Plateformes host : voir [`PLATFORM.md`](PLATFORM.md).
 | Stdlib core | `json`, `str`, `math`, `stats`, `proba`, `collections`, `args`, `path`, `log`, `re`, `datetime`, `yaml`, `unicode` |
 | Async | `std/async` — `sleep`, coroutines (Emscripten) |
 | Démos CI | `examples/tier8_demo.afr`, `examples/tier8_stdlib.afr`, `examples/wasm_core_smoke.afr` |
-| Conformité WASM (subset) | `text_bool`, `collections_basic`, `functions_basic`, `strength_reduce`, `while_repeat` |
+| Conformité WASM (subset) | conformance pack + `tests/stdlib/{str,json,collections}.afr` |
 
 ## Natif uniquement (pas WASM)
 

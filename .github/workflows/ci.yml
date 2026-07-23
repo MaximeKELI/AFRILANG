@@ -208,6 +208,9 @@ jobs:
           ./build/afrilang run tests/conformance/functions_basic.afr --target wasm32 --run
           ./build/afrilang run tests/conformance/strength_reduce.afr --target wasm32 --run
           ./build/afrilang run tests/conformance/while_repeat.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/str.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/json.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/collections.afr --target wasm32 --run
 
       - name: Check Emscripten script
         run: |

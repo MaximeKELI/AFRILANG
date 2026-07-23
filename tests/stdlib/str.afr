@@ -1,5 +1,4 @@
 import "std/str"
-
 use str
 
 test "trim strips whitespace"
@@ -7,20 +6,49 @@ test "trim strips whitespace"
     assert t is equal to "hello"
 end
 
+test "trim empty and all whitespace"
+    assert trim("") is equal to ""
+    assert trim("   \t\n") is equal to ""
+end
+
 test "contains finds substring"
     assert contains("afrilang", "lang") is equal to true
     assert contains("afrilang", "xyz") is equal to false
+    assert contains("", "") is equal to true
+    assert contains("abc", "") is equal to true
 end
 
-test "replace substitutes"
+test "replace substitutes and empty from"
     create r = replace("aa-bb-aa", "aa", "xx")
     assert r is equal to "xx-bb-xx"
+    assert replace("abc", "", "x") is equal to "abc"
+    assert replace("", "a", "b") is equal to ""
+end
+
+test "split and join roundtrip"
+    create parts = split("a,b,c", ",")
+    assert parts at 0 is equal to "a"
+    assert parts at 2 is equal to "c"
+    assert join(parts, "-") is equal to "a-b-c"
+    create one = split("solo", ",")
+    assert one at 0 is equal to "solo"
+    create xy = list of "x", "y"
+    assert join(xy, ",") is equal to "x,y"
+end
+
+test "split empty sep"
+    create parts = split("ab", "")
+    assert parts at 0 is equal to "ab"
 end
 
 test "starts ends case length"
     assert startsWith("afrilang", "afri") is equal to true
+    assert startsWith("afrilang", "lang") is equal to false
+    assert startsWith("ab", "abcd") is equal to false
     assert endsWith("afrilang", "lang") is equal to true
+    assert endsWith("", "") is equal to true
     assert toUpper("Ab") is equal to "AB"
     assert toLower("Ab") is equal to "ab"
     assert byteLen("abc") is equal to 3
+    assert byteLen("") is equal to 0
 end

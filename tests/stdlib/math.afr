@@ -75,3 +75,24 @@ test "list helpers and constants"
     assert floor(e()) is equal to 2
     assert deg2rad(180) is equal to pi()
 end
+
+test "edge abs zero and clamp"
+    assert abs(0) is equal to 0
+    assert clamp(5, 0, 10) is equal to 5
+    assert clamp(0 - 1, 0, 10) is equal to 0
+    assert pow(2, 0) is equal to 1
+    assert atan2(0, 1) is equal to 0
+end
+
+test "empty list sum prod"
+    create xs = list of 1
+    create none = filter each x in xs where x is equal to 0
+    assert sum(none) is equal to 0
+    assert prod(none) is equal to 1
+end
+
+test "gcd with zero and almostEqual"
+    assert gcd(7, 0) is equal to 7
+    assert almostEqual(0.1 + 0.2, 0.3) is equal to true
+    assert isFinite(inf()) is equal to false
+end

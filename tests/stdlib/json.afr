@@ -1,5 +1,4 @@
 import "std/json"
-
 use json
 
 test "makeObject and getString"
@@ -35,6 +34,20 @@ test "getBool and has"
     assert has(doc, "missing") is equal to false
 end
 
+test "missing key defaults"
+    create doc json = parse("{\"n\": 1}")
+    assert getString(doc, "missing") is equal to ""
+    assert getNumber(doc, "missing") is equal to 0
+    assert getBool(doc, "missing") is equal to false
+end
+
+test "empty object and array"
+    create obj json = parse("{}")
+    assert has(obj, "x") is equal to false
+    create arr json = parse("[]")
+    assert arrayLength(arr) is equal to 0
+end
+
 test "array access"
     create arr json = parse("[10, 20, 30]")
     assert arrayLength(arr) is equal to 3
@@ -43,13 +56,20 @@ test "array access"
     assert stringify(item) is equal to "20"
 end
 
-test "getPath nested"
+test "getPath nested and missing"
     create doc json = parse("{\"a\": {\"b\": {\"c\": 7}}}")
     create leaf json = getPath(doc, "a.b.c")
     assert stringify(leaf) is equal to "7"
+    create miss json = getPath(doc, "a.z")
+    assert stringify(miss) is equal to "null"
 end
 
 test "pretty print"
     create arr json = parse("[1,2]")
     assert stringifyPretty(arr, 2) is equal to "[\n  1,\n  2\n]"
+end
+
+test "getInt"
+    create doc json = parse("{\"n\": 9}")
+    assert getInt(doc, "n") is equal to 9
 end

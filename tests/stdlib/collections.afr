@@ -30,3 +30,45 @@ test "unique take drop"
     assert length of d is equal to 2
     assert d at 0 is equal to 3
 end
+
+test "sort reverse contains index sum"
+    create xs = list of 3, 1, 2
+    create s = sortNumbers(xs)
+    assert s at 0 is equal to 1
+    assert s at 2 is equal to 3
+    create r = reverseNumbers(s)
+    assert r at 0 is equal to 3
+    assert containsNumber(xs, 2) is equal to true
+    assert containsNumber(xs, 9) is equal to false
+    assert indexOfNumber(xs, 1) is equal to 1
+    assert indexOfNumber(xs, 9) is equal to 0 - 1
+    assert sumNumbers(xs) is equal to 6
+end
+
+test "sortText containsText"
+    create words = list of "b", "a", "c"
+    create sorted = sortText(words)
+    assert sorted at 0 is equal to "a"
+    assert containsText(words, "b") is equal to true
+    assert containsText(words, "z") is equal to false
+    assert indexOfText(words, "c") is equal to 2
+end
+
+test "take drop edge"
+    create xs = list of 1, 2
+    create t0 = takeNumbers(xs, 0)
+    assert length of t0 is equal to 0
+    create tall = takeNumbers(xs, 10)
+    assert length of tall is equal to 2
+    create dall = dropNumbers(xs, 10)
+    assert length of dall is equal to 0
+end
+
+test "empty list helpers"
+    create xs = list of 1
+    create none = filter each x in xs where x is equal to 0
+    assert length of none is equal to 0
+    assert sumNumbers(none) is equal to 0
+    assert length of uniqueNumbers(none) is equal to 0
+    assert length of takeNumbers(none, 3) is equal to 0
+end

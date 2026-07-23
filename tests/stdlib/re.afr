@@ -79,3 +79,18 @@ test "lookbehind when pcre2"
         assert search("xbarbaz", "(?<=foo)bar") is equal to false
     end
 end
+
+test "empty and no match edges"
+    assert matches("", "") is equal to true
+    assert search("", "a") is equal to false
+    assert findAll("abc", "[0-9]+") is equal to list of
+    assert count("abc", "z") is equal to 0
+    assert replace("abc", "z", "Q") is equal to "abc"
+    assert split("", ",") at 0 is equal to ""
+end
+
+test "invalid pattern fails closed"
+    assert matches("abc", "[") is equal to false
+    assert search("abc", "(") is equal to false
+    assert find("abc", "[") is equal to ""
+end

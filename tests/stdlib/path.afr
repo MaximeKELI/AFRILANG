@@ -16,3 +16,14 @@ test "path absolute normalize"
     create norm = normalize("a/b/../c")
     assert basename(norm) is equal to "c"
 end
+
+test "path edges"
+    assert basename("file") is equal to "file"
+    assert dirname("file") is equal to "."
+    assert extension("file") is equal to ""
+    assert extension("a.tar.gz") is equal to ".gz"
+    assert basename("/tmp/") is equal to "tmp"
+    create j = join("/tmp", "x")
+    assert isAbsolute(j) is equal to true
+    assert basename(j) is equal to "x"
+end
