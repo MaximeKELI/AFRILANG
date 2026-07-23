@@ -2,16 +2,16 @@ import "std/str"
 use str
 
 module envx
-    function parseKey(line text) returns text
-        create parts = split(line, "=")
+    function parseKey(raw text) returns text
+        create parts = split(raw, "=")
         if length of parts is less than 1 then
             return ""
         end
         return parts at 0
     end
 
-    function parseValue(line text) returns text
-        create parts = split(line, "=")
+    function parseValue(raw text) returns text
+        create parts = split(raw, "=")
         if length of parts is less than 2 then
             return ""
         end

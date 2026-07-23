@@ -9,7 +9,7 @@ use percentx
 create row = joinRow(escape("name"), escape("score"), escape("pct"))
 create cells = list of "ok", "12", "50"
 say row
-say "cols=" + first(cells) + ".." + last(cells) + " n=" 
-say size(cells)
+say first(cells)
+say last(cells)
 say percent(25, 100)
 say ofTotal(50, 200)

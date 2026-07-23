@@ -12,7 +12,7 @@ name = "envx"
 version = "0.1.0"
 path = "vendor/envx"
 source = "registry"
-sha256 = "a58fda5657e31fb45a3fcf507089dbd16928f21ebd7984991c0dbc2c82ef8a2b"
+sha256 = "7ef68f74de68a088572c344b3f66543746726a35d8efc2f8aa9d06e06b8e3d6f"
 
 [[package]]
 name = "flagx"
