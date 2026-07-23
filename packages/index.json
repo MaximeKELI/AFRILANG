@@ -5,8 +5,10 @@
     {"name":"math","version":"0.1.0","description":"Basic math utilities (square, pi, twice)","method":"local","sha256":"ef0c9fd4f548358cbe72d0ee42e32e2b45cd356ac02f004997617613d8f97d2e","blessed":true},
     {"name":"mathx","version":"0.1.0","description":"Extra integer math helpers (gcd, lcm, prime, factorial)","method":"local","sha256":"7dcd7556ccfc14080bed57926ff05574fa349897b8187937f51035d623a62d44","blessed":true},
     {"name":"semverx","version":"0.1.0","description":"Semantic version compare and compatibility checks","method":"local","sha256":"b6efea051d8d7338fd6ea517507ae5b840d2511a482fd079b845c766c1678cf0","sig":"43d2392cfc1d7317d7761fa16b565b8ac1a3686345384eab14181f6ad2057cea13904584f3e78488a3b5b6602a27bafc2f28a41467ac92072e2c601c84e2110c","blessed":true},
+    {"name":"optionx","version":"0.1.0","description":"Helpers optionnel (orElse wrappers)","method":"local","sha256":"8f345008c60aa1f79f2827428c4658c7028f8051f340e4f97a7b122af659b11c","blessed":true},
     {"name":"testing","version":"0.1.0","description":"Lightweight test helpers","method":"local","sha256":"826c98bbf08da5e4f3ebd904890d103df64c74659ef80ac1687b97379d62a1c3","blessed":true},
     {"name":"finance","version":"0.1.0","description":"Simple financial helpers (interest, discount, percent)","method":"local","sha256":"dc0c0d2ad3ca5da2e0223d8361e3fb404cdefdf72bd16dd9f81581919734ed42","blessed":true},
+    {"name":"iterx","version":"0.1.0","description":"Utilitaires plages / somme","method":"local","sha256":"cd45f4d4d695102ce63c3000ee23632cfbc3157d7954b8d4db136b4080d7cfab","blessed":true},
     {"name":"uuid","version":"0.1.0","description":"UUID helpers","method":"local","sha256":"1c7469f5a11903897e2a11507ee3f931131eb8b8d3508a767fe1aada99809f39","blessed":true},
     {"name":"config","version":"0.1.0","description":"Simple config helpers","method":"local","sha256":"827f816cd0d0ec80adfb732b016189dc3ee37d80ee60101023f10e9679eeeb92","blessed":true},
     {"name":"temperature","version":"0.1.0","description":"Temperature unit conversions","method":"local","sha256":"0382c9785d8eda02d849ce7743010be43841d2c640030816f471e866b083c9b0","blessed":true},
@@ -18,7 +20,9 @@
     {"name":"strings","version":"0.1.0","description":"String helpers (replicate, upper, lower)","method":"local","sha256":"8344fd8d8073062458e9cb8876caecc871365f2607afe9064923c8aff3d1e323","blessed":true},
     {"name":"datetime","version":"0.1.0","description":"Date/time helpers","method":"local","sha256":"c5c57b4e7cd18fce8c19ebf6b3bbef75c939ed172501aac90450cff12af5b265","blessed":true},
     {"name":"colors","version":"0.1.0","description":"ANSI color helpers","method":"local","sha256":"ad354a5851aa329e1d173b9b8771dfed5d2be9629719e9ef75e55ada4edf22bb","blessed":true},
+    {"name":"logx","version":"0.1.0","description":"Log textuel simple (niveaux + say)","method":"local","sha256":"87fb187617c49c69328432f19631b1cc9d80c9da97cecc3269e62c6ecfe696dd","blessed":true},
     {"name":"geometry","version":"0.1.0","description":"Basic 2D/3D geometry area and volume helpers","method":"local","sha256":"915990a6e9ecfebc107aeeef503dabdf97f23a23bf4d7b25d5ca4d3d2431ae17","blessed":true},
+    {"name":"resultx","version":"0.1.0","description":"Helpers Result (ok unwrap helpers)","method":"local","sha256":"e88de116cb3560f7ad9eb7cddfb0cecacb389388bfe54990ce9a7621a6d71c1b","blessed":true},
     {"name":"ma_lib","version":"0.1.0","description":"Paquet AFRILANG ma_lib","method":"local","sha256":"b94feac2966b9221e484a69bfd0a93595e663c9be061f65a3ee9810d26c56911"}
   ]
 }

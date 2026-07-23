@@ -1,16 +1,21 @@
 module resultx
-    function half(n number) returns number or error
+    // Helpers "orientés Result" sans type Result en paramètre (surface MVP).
+    function okValue(n number) returns number
+        return n
+    end
+
+    function fallback(n number, alt number) returns number
         if n is equal to 0 then
-            return error "zero"
+            return alt
         end
-        return n / 2
+        return n
     end
 
-    function valueOr(r number or error, fallback number) returns number
-        return r or else fallback
+    function mapDouble(n number) returns number
+        return n * 2
     end
 
-    function isOk(r number or error) returns bool
-        return (r is error) is equal to false
+    function isZero(n number) returns bool
+        return n is equal to 0
     end
 end

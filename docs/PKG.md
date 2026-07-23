@@ -132,3 +132,9 @@ Variables utiles :
 ```afrilang
 import pkg/math/math
 ```
+
+## Paquets blessed (extraits)
+
+Outre les utilitaires historiques (`math`, `fmt`, `numcheck`, …), le registre local
+inclut notamment : `resultx`, `optionx`, `iterx`, `logx` (helpers Result/optionnel,
+plages, log textuel). Lister : `afrilang pkg list --blessed`.

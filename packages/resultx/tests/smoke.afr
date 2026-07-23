@@ -2,13 +2,10 @@ import "pkg/resultx/resultx.afr"
 
 use resultx
 
-test "half ok"
-    create r = half(10)
-    assert isOk(r) is equal to true
-    assert r.value is equal to 5
-end
-
-test "valueOr"
-    assert valueOr(half(0), 99) is equal to 99
-    assert valueOr(half(8), 0) is equal to 4
+test "resultx helpers"
+    assert okValue(5) is equal to 5
+    assert fallback(0, 99) is equal to 99
+    assert fallback(3, 99) is equal to 3
+    assert mapDouble(4) is equal to 8
+    assert isZero(0) is equal to true
 end

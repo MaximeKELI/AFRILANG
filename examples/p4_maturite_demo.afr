@@ -1,0 +1,43 @@
+// P4 demo : records valeurs + ?. + finally + macros
+
+record Point
+    field x number
+    field y number
+end
+
+class Person
+    public field name text
+end
+
+function maybePerson(ok bool) returns Person?
+    if ok then
+        create p = new Person()
+        set p.name = "Ada"
+        return p
+    end
+    return nothing
+end
+
+macro shout(msg)
+    say msg
+end
+
+create p = Point with x 3, y 4
+say p.x + p.y
+
+create a Person? = maybePerson(true)
+create n text? = a?.name
+say n or else "nobody"
+
+create flag text = ""
+try
+    set flag = flag + "t"
+    raise "x"
+catch error e
+    set flag = flag + "c"
+finally
+    set flag = flag + "f"
+end
+say flag
+
+shout!("p4 ok")
