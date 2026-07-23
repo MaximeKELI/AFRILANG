@@ -1294,12 +1294,29 @@ int runCli(int argc, char* argv[]) {
             return PkgRegistry::cmdList(root, blessedOnly);
         }
         if (sub == "search") {
-            const std::string query = argc >= 4 ? argv[3] : "";
-            return PkgRegistry::cmdSearch(root, query);
+            std::string query;
+            bool blessedOnly = false;
+            for (int i = 3; i < argc; ++i) {
+                const std::string arg = argv[i];
+                if (arg == "--blessed") blessedOnly = true;
+                else if (query.empty()) query = arg;
+            }
+            return PkgRegistry::cmdSearch(root, query, blessedOnly);
         }
         if (sub == "init") {
-            const std::string name = argc >= 4 ? argv[3] : "mylib";
-            return PkgRegistry::cmdInit(name);
+            std::string name = "mylib";
+            std::string tmpl = "lib";
+            bool nameSet = false;
+            for (int i = 3; i < argc; ++i) {
+                const std::string arg = argv[i];
+                if (arg == "--template" && i + 1 < argc) {
+                    tmpl = argv[++i];
+                } else if (!nameSet) {
+                    name = arg;
+                    nameSet = true;
+                }
+            }
+            return PkgRegistry::cmdInit(name, tmpl);
         }
         if (sub == "test") {
             const std::string pkgDir = argc >= 4 ? argv[3] : dir;
