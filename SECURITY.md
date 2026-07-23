@@ -92,6 +92,10 @@ AFR
 # Sign a package (writes packages/signatures.json and reindexes):
 afrilang pkg sign <name> <privateKeyHex>
 
+# Or sign the representative blessed subset:
+#   export AFRILANG_PKG_SIGN_KEY=<privateKeyHex>
+#   bash scripts/sign_blessed_subset.sh
+
 # Trust the public key by adding it to packages/trusted_keys.json:
 #   ["<publicKeyHex>", ...]
 

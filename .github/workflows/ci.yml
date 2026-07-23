@@ -77,6 +77,16 @@ jobs:
           for p in math strx flagx percentx urlx listx jsonx clampx; do
             ./build/afrilang run "packages/$p/tests/smoke.afr"
           done
+          ./build/afrilang run tests/specs/module_name_collision.afr
+          for p in math strx urlx queryx; do
+            ./build/afrilang pkg verify "$p"
+          done
+          rm -rf examples/apps/pkg_transitive/vendor examples/apps/pkg_transitive/afrilang.lock
+          cd examples/apps/pkg_transitive
+          "$ROOT/build/afrilang" pkg install
+          grep -q 'name = "urlx"' afrilang.lock
+          "$ROOT/build/afrilang" run src/main.afr
+          cd "$ROOT"
 
       - name: LSP diagnostic smoke test
         run: python3 scripts/test_lsp_diag.py

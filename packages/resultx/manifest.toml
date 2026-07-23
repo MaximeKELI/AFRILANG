@@ -1,6 +1,6 @@
 name = "resultx"
 version = "0.1.0"
-description = "Helpers Result (ok unwrap helpers)"
+description = "Helpers Result (parsePositive, valueOr)"
 main = "resultx.afr"
 license = "MIT"
 tags = ["lib"]
