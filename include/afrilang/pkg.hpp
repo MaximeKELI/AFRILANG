@@ -56,9 +56,10 @@ public:
                           const std::string& pathDep, const std::string& afrilangRoot);
     static int cmdInstall(const std::string& projectDir, const std::string& afrilangRoot);
     static int cmdUpdate(const std::string& projectDir, const std::string& afrilangRoot);
-    static int cmdInit(const std::string& dirOrName);
+    static int cmdInit(const std::string& dirOrName, const std::string& tmpl = "lib");
     static int cmdList(const std::string& afrilangRoot, bool blessedOnly = false);
-    static int cmdSearch(const std::string& afrilangRoot, const std::string& query);
+    static int cmdSearch(const std::string& afrilangRoot, const std::string& query,
+                         bool blessedOnly = false);
     /** Local publish into packages/. If remote=true, also POST / print Nimble-style recipe. */
     static int cmdPublish(const std::string& packageDir, const std::string& afrilangRoot,
                           bool remote = false);

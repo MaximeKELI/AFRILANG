@@ -146,11 +146,11 @@ static void printUsage() {
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
     std::cerr << "  afrilang repl                REPL interactif\n";
     std::cerr << "  afrilang pkg list [--blessed] Lister les paquets\n";
-    std::cerr << "  afrilang pkg search [query]  Rechercher un paquet\n";
+    std::cerr << "  afrilang pkg search [query] [--blessed]  Rechercher un paquet\n";
     std::cerr << "  afrilang pkg add <name> [--git URL|--path DIR] [--tag T]\n";
     std::cerr << "  afrilang pkg install         Installer depuis afrilang.lock / toml\n";
     std::cerr << "  afrilang pkg update          Re-résoudre et régénérer le lock\n";
-    std::cerr << "  afrilang pkg init [nom]      Créer un paquet bibliothèque\n";
+    std::cerr << "  afrilang pkg init [nom] [--template lib|cli|http|game]\n";
     std::cerr << "  afrilang pkg test [dir]      Tester un paquet (self-vendor)\n";
     std::cerr << "  afrilang pkg publish <dir> [--remote]  Publier (local / registre)\n";
     std::cerr << "  afrilang pkg sign <name> <privHex>  Signer (Ed25519) le hash du paquet\n";

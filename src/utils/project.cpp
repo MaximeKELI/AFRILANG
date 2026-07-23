@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 namespace afrilang {
 
@@ -20,6 +21,51 @@ static std::string unquote(const std::string& s) {
         return s.substr(1, s.size() - 2);
     }
     return s;
+}
+
+static std::vector<std::string> parseTagsValue(const std::string& value) {
+    std::vector<std::string> tags;
+    std::string v = trim(value);
+    if (v.empty()) return tags;
+
+    if (v.front() == '[') {
+        if (v.back() == ']') v = v.substr(1, v.size() - 2);
+        else v = v.substr(1);
+        std::size_t pos = 0;
+        while (pos < v.size()) {
+            while (pos < v.size() &&
+                   (std::isspace(static_cast<unsigned char>(v[pos])) || v[pos] == ',')) {
+                ++pos;
+            }
+            if (pos >= v.size()) break;
+            if (v[pos] == '"') {
+                const std::size_t end = v.find('"', pos + 1);
+                if (end == std::string::npos) break;
+                const std::string tag = trim(v.substr(pos + 1, end - pos - 1));
+                if (!tag.empty()) tags.push_back(tag);
+                pos = end + 1;
+            } else {
+                std::size_t end = pos;
+                while (end < v.size() && v[end] != ',') ++end;
+                const std::string tag = trim(v.substr(pos, end - pos));
+                if (!tag.empty()) tags.push_back(tag);
+                pos = end;
+            }
+        }
+        return tags;
+    }
+
+    const std::string csv = unquote(v);
+    std::size_t pos = 0;
+    while (pos < csv.size()) {
+        const std::size_t comma = csv.find(',', pos);
+        const std::string tag =
+            trim(comma == std::string::npos ? csv.substr(pos) : csv.substr(pos, comma - pos));
+        if (!tag.empty()) tags.push_back(tag);
+        if (comma == std::string::npos) break;
+        pos = comma + 1;
+    }
+    return tags;
 }
 
 DependencySpec parseDependencyValue(const std::string& value) {
@@ -125,12 +171,15 @@ ProjectConfig loadProjectConfig(const std::string& path) {
 
         if (inDependencies) {
             config.dependencies[key] = parseDependencyValue(value);
-        } else if (key == "name") config.name = unquote(value);
+        }         else if (key == "name") config.name = unquote(value);
         else if (key == "version") config.version = unquote(value);
         else if (key == "main") config.mainFile = unquote(value);
         else if (key == "output") config.output = unquote(value);
         else if (key == "description") config.description = unquote(value);
         else if (key == "stdlib") config.stdlibPath = unquote(value);
+        else if (key == "license") config.license = unquote(value);
+        else if (key == "web") config.web = unquote(value);
+        else if (key == "tags") config.tags = parseTagsValue(value);
     }
     return config;
 }

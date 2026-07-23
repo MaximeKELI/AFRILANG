@@ -110,6 +110,9 @@ PackageInfo PkgRegistry::loadManifest(const std::string& packageDir) {
     info.version = cfg.version;
     info.description = cfg.description;
     info.mainFile = cfg.mainFile.empty() ? "math.afr" : cfg.mainFile;
+    info.license = cfg.license;
+    info.web = cfg.web;
+    info.tags = cfg.tags;
     return info;
 }
 
@@ -565,6 +568,20 @@ int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
         }
         if (isBlessed) {
             json << ",\"blessed\":true";
+        }
+        if (!pkg.license.empty()) {
+            json << ",\"license\":\"" << jsonEscape(pkg.license) << "\"";
+        }
+        if (!pkg.web.empty()) {
+            json << ",\"web\":\"" << jsonEscape(pkg.web) << "\"";
+        }
+        if (!pkg.tags.empty()) {
+            json << ",\"tags\":[";
+            for (std::size_t t = 0; t < pkg.tags.size(); ++t) {
+                if (t) json << ',';
+                json << "\"" << jsonEscape(pkg.tags[t]) << "\"";
+            }
+            json << "]";
         }
         json << "}";
         if (i + 1 < packages.size()) json << ',';
@@ -1288,7 +1305,16 @@ int PkgRegistry::cmdUpdate(const std::string& projectDir, const std::string& afr
     return failures == 0 ? 0 : 1;
 }
 
-int PkgRegistry::cmdInit(const std::string& dirOrName) {
+int PkgRegistry::cmdInit(const std::string& dirOrName, const std::string& tmpl) {
+    std::string templateName = tmpl.empty() ? "lib" : tmpl;
+    for (char& c : templateName) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+    if (templateName != "lib" && templateName != "cli" && templateName != "http" &&
+        templateName != "game") {
+        std::cerr << "Erreur: template inconnu '" << tmpl
+                  << "' (attendu: lib|cli|http|game).\n";
+        return 1;
+    }
+
     const fs::path dir = dirOrName.empty()
                              ? fs::current_path() / "mylib"
                              : (fs::path(dirOrName).is_absolute()
@@ -1309,36 +1335,95 @@ int PkgRegistry::cmdInit(const std::string& dirOrName) {
         man << "version = \"0.1.0\"\n";
         man << "description = \"Paquet AFRILANG " << name << "\"\n";
         man << "main = \"" << name << ".afr\"\n";
+        man << "license = \"MIT\"\n";
+        if (templateName == "cli") man << "tags = [\"cli\"]\n";
+        else if (templateName == "http") man << "tags = [\"http\", \"net\"]\n";
+        else if (templateName == "game") man << "tags = [\"game\"]\n";
+        else man << "tags = [\"lib\"]\n";
     }
 
     {
         std::ofstream mod(dir / (name + ".afr"));
-        mod << "module " << name << "\n";
-        mod << "    function hello() returns text\n";
-        mod << "        return \"hello from " << name << "\"\n";
-        mod << "    end\n";
-        mod << "end\n";
+        if (templateName == "cli") {
+            mod << "module " << name << "\n";
+            mod << "    function run(args list text) returns text\n";
+            mod << "        if length of args is less than 1 then\n";
+            mod << "            return \"usage: " << name << " <cmd>\"\n";
+            mod << "        end\n";
+            mod << "        return \"ok:\" + (args at 0)\n";
+            mod << "    end\n";
+            mod << "end\n";
+        } else if (templateName == "http") {
+            mod << "module " << name << "\n";
+            mod << "    function get(url text) returns text\n";
+            mod << "        return \"GET \" + url\n";
+            mod << "    end\n";
+            mod << "\n";
+            mod << "    function post(url text, body text) returns text\n";
+            mod << "        return \"POST \" + url + \" body=\" + body\n";
+            mod << "    end\n";
+            mod << "\n";
+            mod << "    function header(name text, value text) returns text\n";
+            mod << "        return name + \": \" + value\n";
+            mod << "    end\n";
+            mod << "end\n";
+        } else if (templateName == "game") {
+            mod << "module " << name << "\n";
+            mod << "    function tick(score int) returns int\n";
+            mod << "        return score + 1\n";
+            mod << "    end\n";
+            mod << "\n";
+            mod << "    function addScore(score int, points int) returns int\n";
+            mod << "        return score + points\n";
+            mod << "    end\n";
+            mod << "end\n";
+        } else {
+            mod << "module " << name << "\n";
+            mod << "    function hello() returns text\n";
+            mod << "        return \"hello from " << name << "\"\n";
+            mod << "    end\n";
+            mod << "end\n";
+        }
     }
 
     {
         std::ofstream test(dir / "tests" / "smoke.afr");
         test << "import \"pkg/" << name << "/" << name << ".afr\"\n\n";
         test << "use " << name << "\n\n";
-        test << "test \"hello\"\n";
-        test << "    create h = hello()\n";
-        test << "    assert h is equal to \"hello from " << name << "\"\n";
-        test << "end\n";
+        if (templateName == "cli") {
+            test << "test \"run\"\n";
+            test << "    create args = list of \"help\"\n";
+            test << "    create out = run(args)\n";
+            test << "    assert out is equal to \"ok:help\"\n";
+            test << "end\n";
+        } else if (templateName == "http") {
+            test << "test \"get post\"\n";
+            test << "    assert get(\"https://x\") is equal to \"GET https://x\"\n";
+            test << "    assert post(\"https://x\", \"{}\") is equal to \"POST https://x body={}\"\n";
+            test << "    assert header(\"Content-Type\", \"text/plain\") is equal to \"Content-Type: text/plain\"\n";
+            test << "end\n";
+        } else if (templateName == "game") {
+            test << "test \"score\"\n";
+            test << "    create s = tick(0)\n";
+            test << "    assert s is equal to 1\n";
+            test << "    assert addScore(s, 10) is equal to 11\n";
+            test << "end\n";
+        } else {
+            test << "test \"hello\"\n";
+            test << "    create h = hello()\n";
+            test << "    assert h is equal to \"hello from " << name << "\"\n";
+            test << "end\n";
+        }
     }
 
     {
         std::ofstream readme(dir / "README.md");
         readme << "# " << name << "\n\n";
-        readme << "Paquet AFRILANG.\n\n";
+        readme << "Paquet AFRILANG (template `" << templateName << "`).\n\n";
         readme << "```bash\n";
         readme << "afrilang pkg test\n";
         readme << "afrilang doc .\n";
         readme << "afrilang pkg publish .\n";
-        readme << "afrilang pkg publish . --remote   # recette registre + POST si token\n";
         readme << "```\n";
     }
 
@@ -1347,7 +1432,8 @@ int PkgRegistry::cmdInit(const std::string& dirOrName) {
         gi << "vendor/\nbuild/\n*.o\n.afrilang/\n";
     }
 
-    std::cout << "Paquet '" << name << "' initialisé dans " << dir.string() << "\n";
+    std::cout << "Paquet '" << name << "' initialisé dans " << dir.string()
+              << " (template=" << templateName << ")\n";
     std::cout << "  cd " << name << " && afrilang pkg test\n";
     std::cout << "  afrilang pkg publish " << dir.string() << "\n";
     return 0;
@@ -1386,11 +1472,24 @@ int PkgRegistry::cmdList(const std::string& afrilangRoot, bool blessedOnly) {
     return 0;
 }
 
-int PkgRegistry::cmdSearch(const std::string& afrilangRoot, const std::string& query) {
-    const auto packages = listAvailable(afrilangRoot);
+int PkgRegistry::cmdSearch(const std::string& afrilangRoot, const std::string& query,
+                           bool blessedOnly) {
+    auto packages = listAvailable(afrilangRoot);
+    std::stable_sort(packages.begin(), packages.end(),
+                     [](const PackageInfo& a, const PackageInfo& b) {
+                         if (a.blessed != b.blessed) return a.blessed && !b.blessed;
+                         return a.name < b.name;
+                     });
+
+    const bool emptyQuery = query.empty();
+    const bool restrictBlessed = blessedOnly || emptyQuery;
+    constexpr int kEmptyMax = 30;
+    int shown = 0;
     bool found = false;
+
     for (const auto& pkg : packages) {
-        if (!query.empty() &&
+        if (restrictBlessed && !pkg.blessed) continue;
+        if (!emptyQuery &&
             !containsIgnoreCase(pkg.name, query) &&
             !containsIgnoreCase(pkg.description, query) &&
             !containsIgnoreCase(pkg.url, query)) {
@@ -1403,7 +1502,11 @@ int PkgRegistry::cmdSearch(const std::string& afrilangRoot, const std::string& q
             }
             if (!tagHit) continue;
         }
+        if (emptyQuery && shown >= kEmptyMax) break;
+
         found = true;
+        ++shown;
+        if (pkg.blessed) std::cout << "★ ";
         std::cout << pkg.name << "@" << pkg.version;
         if (!pkg.description.empty()) std::cout << " — " << pkg.description;
         if (!pkg.url.empty()) std::cout << " <" << pkg.url << ">";

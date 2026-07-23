@@ -6,6 +6,7 @@
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 
 namespace afrilang {
 
@@ -31,6 +32,9 @@ struct ProjectConfig {
     std::string output = "build/app";
     std::string stdlibPath;
     std::string description;
+    std::string license;
+    std::string web;
+    std::vector<std::string> tags;
     std::unordered_map<std::string, DependencySpec> dependencies;
 };
 
