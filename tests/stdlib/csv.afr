@@ -1,0 +1,24 @@
+import "std/csv"
+use csv
+
+test "csv splitLine simple"
+    create fields = splitLine("a,b,c")
+    assert fields at 0 is equal to "a"
+    assert fields at 1 is equal to "b"
+    assert fields at 2 is equal to "c"
+end
+
+test "csv splitLine quoted"
+    create fields = splitLine("\"a,b\",c")
+    assert fields at 0 is equal to "a,b"
+    assert fields at 1 is equal to "c"
+end
+
+test "csv joinFields roundtrip"
+    create parts = list of "x", "y,z", "q"
+    create line = joinFields(parts)
+    create again = splitLine(line)
+    assert again at 0 is equal to "x"
+    assert again at 1 is equal to "y,z"
+    assert again at 2 is equal to "q"
+end

@@ -1,0 +1,12 @@
+import "std/url"
+use url
+
+test "url encode decode roundtrip"
+    create raw text = "a b/c?"
+    create enc = encode(raw)
+    assert decode(enc) is equal to raw
+end
+
+test "url encode space"
+    assert encode("hello world") is equal to "hello%20world"
+end

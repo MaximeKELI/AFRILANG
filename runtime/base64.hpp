@@ -13,14 +13,17 @@ inline std::string encode(const std::string& data) {
     out.reserve(((data.size() + 2) / 3) * 4);
     std::size_t i = 0;
     while (i < data.size()) {
+        const std::size_t remaining = data.size() - i;
         const std::uint32_t octet_a = static_cast<unsigned char>(data[i++]);
-        const std::uint32_t octet_b = i < data.size() ? static_cast<unsigned char>(data[i++]) : 0;
-        const std::uint32_t octet_c = i < data.size() ? static_cast<unsigned char>(data[i++]) : 0;
+        const std::uint32_t octet_b =
+            remaining > 1 ? static_cast<unsigned char>(data[i++]) : 0;
+        const std::uint32_t octet_c =
+            remaining > 2 ? static_cast<unsigned char>(data[i++]) : 0;
         const std::uint32_t triple = (octet_a << 16) + (octet_b << 8) + octet_c;
         out.push_back(kTable[(triple >> 18) & 0x3F]);
         out.push_back(kTable[(triple >> 12) & 0x3F]);
-        out.push_back(i > data.size() + 1 ? '=' : kTable[(triple >> 6) & 0x3F]);
-        out.push_back(i > data.size() ? '=' : kTable[triple & 0x3F]);
+        out.push_back(remaining > 1 ? kTable[(triple >> 6) & 0x3F] : '=');
+        out.push_back(remaining > 2 ? kTable[triple & 0x3F] : '=');
     }
     return out;
 }

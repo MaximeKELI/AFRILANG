@@ -1184,6 +1184,7 @@ void StdlibRegistry::injectHexModule(ProgramNode& program) {
 void StdlibRegistry::injectCsvModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("splitLine", {{"line", "text"}}, "list text"));
+    fns.push_back(makeStubFunction("joinFields", {{"fields", "list text"}}, "text"));
     injectModule(program, "csv", std::move(fns));
 }
 

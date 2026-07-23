@@ -1,0 +1,13 @@
+import "std/base64"
+use base64
+
+test "base64 roundtrip"
+    create raw text = "AFRILANG-core"
+    create enc = encode(raw)
+    assert decode(enc) is equal to raw
+end
+
+test "base64 known vector"
+    assert encode("f") is equal to "Zg=="
+    assert decode("Zg==") is equal to "f"
+end

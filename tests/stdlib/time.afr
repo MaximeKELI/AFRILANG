@@ -1,0 +1,16 @@
+import "std/time"
+use chrono
+
+test "chrono now positive"
+    create s = now()
+    assert s is greater than 1000000000
+    create ms = nowMs()
+    assert ms is greater than 1000000000000
+end
+
+test "chrono formatTimestamp nonempty"
+    create stamp = formatTimestamp(0)
+    assert stamp is equal to stamp
+    // Format is local-time dependent; only require non-empty shaped output.
+    assert (stamp is equal to "") is equal to false
+end

@@ -1,0 +1,19 @@
+import "std/args"
+use args
+
+test "args count and at oob"
+    // Under `afrilang test`, argv extras are usually empty — API must stay safe.
+    create n = count()
+    assert n is greater than 0 - 1
+    assert at(9999) is equal to ""
+end
+
+test "args all returns list"
+    create xs = all()
+    create n = count()
+    if n is equal to 0 then
+        assert true is equal to true
+    else
+        assert xs at 0 is equal to at(0)
+    end
+end

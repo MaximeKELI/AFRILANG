@@ -1,0 +1,14 @@
+import "std/io"
+use io
+
+test "io write read exists"
+    create path text = "/tmp/afrilang_io_core_m1.txt"
+    writeFile(path, "hello-io")
+    assert fileExists(path) is equal to true
+    assert readFile(path) is equal to "hello-io"
+end
+
+test "io missing file"
+    assert fileExists("/tmp/afrilang_io_core_missing_xyz.txt") is equal to false
+    assert readFile("/tmp/afrilang_io_core_missing_xyz.txt") is equal to ""
+end

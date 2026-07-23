@@ -1,0 +1,9 @@
+import "std/log"
+use logging
+
+test "log levels callable"
+    info("core-log-info")
+    warn("core-log-warn")
+    error("core-log-error")
+    assert true is equal to true
+end

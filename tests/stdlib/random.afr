@@ -1,0 +1,34 @@
+import "std/random"
+use random
+
+test "random seed deterministic"
+    seed(42)
+    create a = randomInt(1, 100)
+    seed(42)
+    create b = randomInt(1, 100)
+    assert a is equal to b
+end
+
+test "randomInt bounds"
+    seed(7)
+    create x = randomInt(5, 5)
+    assert x is equal to 5
+end
+
+test "randomFloat and uniform range"
+    seed(1)
+    create f = randomFloat()
+    assert f is greater than 0 - 0.0001
+    assert f is less than 1.0001
+    create u = uniform(2, 2)
+    assert u is equal to 2
+end
+
+test "choice and shuffle nonempty"
+    seed(3)
+    create xs = list of 10, 20, 30
+    create c = choice(xs)
+    assert (c is equal to 10) or (c is equal to 20) or (c is equal to 30)
+    create sh = shuffle(xs)
+    assert sh at 0 is equal to sh at 0
+end

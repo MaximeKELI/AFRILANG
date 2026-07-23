@@ -1,0 +1,13 @@
+import "std/hex"
+use hex
+
+test "hex roundtrip"
+    create raw text = "Hi"
+    create enc = encode(raw)
+    assert decode(enc) is equal to raw
+end
+
+test "hex toHex fromHex"
+    assert toHex(255) is equal to "ff"
+    assert fromHex("10") is equal to 16
+end

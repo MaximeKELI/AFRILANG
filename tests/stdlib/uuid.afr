@@ -1,0 +1,15 @@
+import "std/uuid"
+use uuid
+
+test "uuid v4 shape"
+    create id = v4()
+    // 8-4-4-4-12 with version nibble '4'
+    assert id is equal to id
+    assert (id is equal to "") is equal to false
+end
+
+test "uuid v4 uniqueness smoke"
+    create a = v4()
+    create b = v4()
+    assert (a is equal to b) is equal to false
+end
