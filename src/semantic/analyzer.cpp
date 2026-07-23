@@ -712,7 +712,7 @@ bool SemanticAnalyzer::recordsStructurallyCompatible(const RecordInfo& target,
 }
 
 void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
-    const bool isStdlib = StdlibRegistry::isStdlibModule(module.name);
+    const bool isStdlib = module.isStdlibInjected;
     currentModuleName_ = module.name;
 
     for (const auto& cls : module.classes) {

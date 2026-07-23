@@ -729,6 +729,10 @@ std::string Parser::parseTypeName() {
     else error("Type attendu (number, text, bool, list, ou nom de classe/record/enum)");
 
     if (match(TokenType::Question)) base += "?";
+    if (match(TokenType::Or)) {
+        consume(TokenType::ErrorKw, "'error' attendu après 'or'");
+        base += " or error";
+    }
     return base;
 }
 

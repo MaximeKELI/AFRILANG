@@ -841,6 +841,8 @@ struct ModuleNode : ASTNode {
     std::vector<std::unique_ptr<RecordNode>> records;
     std::vector<std::unique_ptr<EnumNode>> enums;
     std::vector<std::unique_ptr<FunctionNode>> functions;
+    /** True when injected via StdlibRegistry (import std/...), not user source. */
+    bool isStdlibInjected = false;
 
     ModuleNode(std::string name,
                std::vector<std::unique_ptr<ClassNode>> classes,

@@ -1154,11 +1154,17 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
 
     out << " {\n";
     const FunctionNode* saved = currentFunction_;
+    auto savedVars = declaredVars_;
     currentFunction_ = &func;
+    declaredVars_.clear();
+    for (const auto& param : func.parameters) {
+        declaredVars_.insert(param.name);
+    }
     for (const auto& stmt : func.body) {
         emitStatement(out, *stmt, indentLevel + 1, ownerClass);
     }
     currentFunction_ = saved;
+    declaredVars_ = std::move(savedVars);
     if (func.isGenerator) {
         indent(out, indentLevel + 1);
         out << "co_return;\n";
@@ -3348,19 +3354,10 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 }
 
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
-    return name == "io" || name == "json" || name == "fs" || name == "http" ||
-           name == "str" || name == "logging" || name == "math" || name == "stats" ||
-           name == "proba" || name == "chrono" ||
-           name == "re" || name == "collections" || name == "args" || name == "path" ||
-           name == "sql" || name == "web" || name == "orm" || name == "thread" ||
-           name == "bigint" || name == "crypto" || name == "process" || name == "net" ||
-           name == "yaml" || name == "datetime" ||
-           name == "env" || name == "tempfile" || name == "base64" || name == "url" ||
-           name == "random" || name == "hex" || name == "csv" || name == "html" ||
-           name == "cli" || name == "email" || name == "uuid" || name == "unicode" ||
-           name == "async" || name == "ui" || name == "game2d" || name == "game3d" ||
-           name == "gamestate" || name == "gamenet" || stdlibCatalogIsSimpleModule(name) ||
-           mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);
+    for (const auto& mod : program_.modules) {
+        if (mod->name == name) return mod->isStdlibInjected;
+    }
+    return false;
 }
 
 void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& moduleName,
