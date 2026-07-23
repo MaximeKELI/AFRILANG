@@ -96,10 +96,10 @@ jobs:
           cd "$ROOT"
           # catalog isolation: core-only program must not pull simple_libs.hpp
           printf '%s\n' 'import "std/math"' 'use math' 'say abs(1)' > /tmp/afr_core_only.afr
-          "$ROOT/build/afrilang" run /tmp/afr_core_only.afr
-          ! grep -q 'simple_libs.hpp' /tmp/afr_core_only.generated.cpp 2>/dev/null
-          ! grep -q 'simple_libs.hpp' afr_core_only.generated.cpp 2>/dev/null || true
-          test ! -f afr_core_only.generated.cpp || ! grep -q 'simple_libs.hpp' afr_core_only.generated.cpp
+          rm -f afr_core_only.generated.cpp
+          ./build/afrilang run /tmp/afr_core_only.afr
+          test -f afr_core_only.generated.cpp
+          ! grep -q 'simple_libs.hpp' afr_core_only.generated.cpp
 
       - name: LSP diagnostic smoke test
         run: python3 scripts/test_lsp_diag.py
