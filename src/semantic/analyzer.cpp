@@ -1251,31 +1251,85 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
 
     if (const auto* matchStmt = dynamic_cast<const MatchStatementNode*>(&stmt)) {
         AfrType subjectType = analyzeExpression(*matchStmt->subject, scope);
-        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
+        using CK = MatchArmNode::CaseKind;
+
+        auto analyzeGuardAndBody = [&](const MatchArmNode& arm,
+                                       std::unordered_map<std::string, AfrType>& armScope) {
+            if (arm.guard) {
+                AfrType guardType = analyzeExpression(*arm.guard, armScope);
+                if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
+                    errorAt(*matchStmt, "Guard match doit être booléen");
+                }
+            }
+            for (const auto& bodyStmt : arm.body) {
+                analyzeStatement(*bodyStmt, armScope, isGlobalScope);
+            }
+        };
+
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number ||
+            subjectType.kind == TypeKind::Int || subjectType.kind == TypeKind::Bool) {
+            const bool wantText = subjectType.kind == TypeKind::Text;
+            const bool wantBool = subjectType.kind == TypeKind::Bool;
             for (const auto& arm : matchStmt->arms) {
-                if (arm.isDefault) {
-                    for (const auto& bodyStmt : arm.body) {
-                        analyzeStatement(*bodyStmt, scope, isGlobalScope);
-                    }
+                auto armScope = scope;
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    analyzeGuardAndBody(arm, armScope);
                     continue;
                 }
-                if (subjectType.kind == TypeKind::Text &&
-                    arm.caseKind != MatchArmNode::CaseKind::Text) {
+                if (wantText && arm.caseKind != CK::Text) {
                     errorAt(*matchStmt, "Cas texte attendu dans match sur text");
-                }
-                if (subjectType.kind == TypeKind::Number &&
-                    arm.caseKind != MatchArmNode::CaseKind::Number) {
+                } else if (wantBool && arm.caseKind != CK::Bool) {
+                    errorAt(*matchStmt, "Cas booléen (true/false) attendu dans match sur bool");
+                } else if (!wantText && !wantBool &&
+                           arm.caseKind != CK::Number && arm.caseKind != CK::Range) {
                     errorAt(*matchStmt, "Cas numérique attendu dans match sur number");
                 }
-                if (arm.guard) {
-                    AfrType guardType = analyzeExpression(*arm.guard, scope);
-                    if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
-                        errorAt(*matchStmt, "Guard match doit être booléen");
-                    }
+                analyzeGuardAndBody(arm, armScope);
+            }
+            return;
+        }
+        if (subjectType.kind == TypeKind::Result) {
+            const AfrType inner = subjectType.resultInnerType();
+            bool hasOk = false, hasError = false, hasCatchAll = false;
+            for (const auto& arm : matchStmt->arms) {
+                auto armScope = scope;
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    hasCatchAll = true;
+                } else if (arm.caseKind == CK::ResultError) {
+                    hasError = true;
+                    if (!arm.bindNames.empty()) armScope[arm.bindNames[0]] = AfrType::text();
+                } else if (arm.caseKind == CK::Enum && arm.caseName == "ok") {
+                    hasOk = true;
+                    if (!arm.bindNames.empty()) armScope[arm.bindNames[0]] = inner;
+                } else {
+                    errorAt(*matchStmt, "Cas 'ok', 'error' ou '_' attendu dans match sur Result");
                 }
-                for (const auto& bodyStmt : arm.body) {
-                    analyzeStatement(*bodyStmt, scope, isGlobalScope);
+                analyzeGuardAndBody(arm, armScope);
+            }
+            if (!hasCatchAll && (!hasOk || !hasError)) {
+                errorAt(*matchStmt, "match sur Result doit couvrir 'ok' et 'error' (ou '_')");
+            }
+            return;
+        }
+        if (subjectType.kind == TypeKind::Optional) {
+            const AfrType inner = subjectType.optionalInnerType();
+            bool hasValue = false, hasNothing = false, hasCatchAll = false;
+            for (const auto& arm : matchStmt->arms) {
+                auto armScope = scope;
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    hasCatchAll = true;
+                } else if (arm.caseKind == CK::OptionalNothing) {
+                    hasNothing = true;
+                } else if (arm.caseKind == CK::Enum && arm.caseName == "value") {
+                    hasValue = true;
+                    if (!arm.bindNames.empty()) armScope[arm.bindNames[0]] = inner;
+                } else {
+                    errorAt(*matchStmt, "Cas 'value', 'nothing' ou '_' attendu dans match sur optionnel");
                 }
+                analyzeGuardAndBody(arm, armScope);
+            }
+            if (!hasCatchAll && (!hasValue || !hasNothing)) {
+                errorAt(*matchStmt, "match sur optionnel doit couvrir 'value' et 'nothing' (ou '_')");
             }
             return;
         }
@@ -1285,10 +1339,9 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 errorAt(*matchStmt, "Record '" + subjectType.recordName + "' introuvable");
             }
             for (const auto& arm : matchStmt->arms) {
-                if (arm.isDefault) {
-                    for (const auto& bodyStmt : arm.body) {
-                        analyzeStatement(*bodyStmt, scope, isGlobalScope);
-                    }
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    auto wcScope = scope;
+                    analyzeGuardAndBody(arm, wcScope);
                     continue;
                 }
                 if (arm.caseKind != MatchArmNode::CaseKind::Record) {
@@ -1328,7 +1381,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             return;
         }
         if (subjectType.kind != TypeKind::Enum) {
-            errorAt(*matchStmt, "'match' requiert une valeur de type enum, text, number ou record");
+            errorAt(*matchStmt, "'match' requiert enum, text, number, bool, record, Result ou optionnel");
         }
         const EnumInfo* en = findEnum(subjectType.className);
         if (!en) errorAt(*matchStmt, "Enum '" + subjectType.className + "' introuvable");
@@ -1336,11 +1389,10 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         bool hasDefault = false;
         std::unordered_set<std::string> coveredCases;
         for (const auto& arm : matchStmt->arms) {
-            if (arm.isDefault) {
+            if (arm.isDefault || arm.caseKind == CK::Wildcard) {
                 hasDefault = true;
-                for (const auto& bodyStmt : arm.body) {
-                    analyzeStatement(*bodyStmt, scope, isGlobalScope);
-                }
+                auto wcScope = scope;
+                analyzeGuardAndBody(arm, wcScope);
                 continue;
             }
             if (arm.caseKind != MatchArmNode::CaseKind::Enum) {
@@ -1352,6 +1404,12 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             const auto caseIt = en->cases.find(arm.caseName);
             if (caseIt == en->cases.end()) {
                 errorAt(*matchStmt, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
+            }
+            for (const auto& orName : arm.orValues) {
+                if (en->cases.find(orName) == en->cases.end()) {
+                    errorAt(*matchStmt, "Cas '" + orName + "' introuvable dans enum '" + en->name + "'");
+                }
+                if (!arm.guard) coveredCases.insert(orName);
             }
             auto armScope = scope;
             if (!caseIt->second.fields.empty()) {
