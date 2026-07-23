@@ -1,0 +1,7 @@
+macro outer(x)
+    inner!(x)
+end
+macro inner(y)
+    say y
+end
+outer!("hi")

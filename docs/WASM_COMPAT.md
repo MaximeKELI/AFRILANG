@@ -1,17 +1,18 @@
 # Compatibilité WASM (wasm32)
 
 AFRILANG peut cibler **wasm32** via Emscripten (`afrilang run fichier.afr --target wasm32`).
+Plateformes host : voir [`PLATFORM.md`](PLATFORM.md).
 
 ## Fonctionne en WASM
 
 | Domaine | Modules / features |
 |---------|-------------------|
-| Langage de base | variables, fonctions, boucles, `if`, listes, maps |
+| Langage de base | variables, fonctions, boucles, `if`, listes, maps, macros (après expansion) |
 | Robustesse | pattern matching complet, `or else`, `?.`, `or return`/`or raise`, plages `1..10`/`1..<10` (`runtime/range.hpp`), générateurs, protocole `hasNext`/`next` |
 | POO | classes, héritage, interfaces |
 | Stdlib core | `json`, `str`, `math`, `stats`, `proba`, `collections`, `args`, `path`, `log`, `re`, `datetime`, `yaml`, `unicode` |
 | Async | `std/async` — `sleep`, coroutines (Emscripten) |
-| Démos CI | `examples/tier8_demo.afr`, `examples/tier8_stdlib.afr` |
+| Démos CI | `examples/tier8_demo.afr`, `examples/tier8_stdlib.afr`, `examples/wasm_core_smoke.afr` |
 
 ## Natif uniquement (pas WASM)
 
@@ -30,8 +31,12 @@ AFRILANG peut cibler **wasm32** via Emscripten (`afrilang run fichier.afr --targ
 
 ## Playground JS (`compile-js`)
 
-Sous-ensemble élargi (Vague 3) : `say`, assign/set, `if`/`while`/`repeat`/`for`, **fonctions** + appels + `return`.  
-Toujours exclus : imports, classes, async, UI, tests.
+Sous-ensemble (Vague 7) : `say`, assign/set, `if`/`while`/`repeat`/`for`, **fonctions**,
+**list of** + `for each` (listes), **macros après expansion**.
+
+Toujours exclus : imports, classes, maps, async, UI, tests, FFI.
+
+CI smoke : `afrilang compile-js tests/js/playground_lists.afr | node`.
 
 ## Recommandation
 

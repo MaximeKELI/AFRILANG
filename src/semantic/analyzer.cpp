@@ -1,4 +1,5 @@
 #include "afrilang/semantic.hpp"
+#include "afrilang/ffi_allowlist.hpp"
 #include "afrilang/security.hpp"
 #include "afrilang/stdlib_registry.hpp"
 

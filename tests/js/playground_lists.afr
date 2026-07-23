@@ -1,0 +1,7 @@
+say "js lists"
+create xs = list of 1, 2, 3
+create sum = 0
+for each n in xs do
+    set sum = sum + n
+end
+say sum

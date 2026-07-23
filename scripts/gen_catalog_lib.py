@@ -164,9 +164,10 @@ def gen_catalog_json(
 def gen_afr_stubs(modules: list[tuple], subdir: str) -> None:
     base = os.path.join(ROOT, "stdlib", subdir)
     os.makedirs(base, exist_ok=True)
+    header = "// experimental catalog — IDE signatures only (not core runtime)"
     for import_name, use_name, funcs in modules:
         path = os.path.join(base, f"{import_name}.afr")
-        lines = [f"module {use_name}", ""]
+        lines = [header, f"module {use_name}", ""]
         for fname, ret, params, _ in funcs:
             ps = ", ".join(f"{pn} {pt}" for pn, pt in params)
             if ret:

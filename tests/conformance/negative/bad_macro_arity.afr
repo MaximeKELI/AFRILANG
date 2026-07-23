@@ -1,0 +1,5 @@
+macro shout(msg)
+    say msg
+end
+shout!("a")
+shout!("b", "c")

@@ -110,7 +110,9 @@ end
 
 ## Macros (MVP)
 
-Définition + appel avec `!` ; substitution d'identifiants/expressions (pas de récursion, pas d'introspection AST) :
+Définition + appel avec `!` ; substitution d'identifiants/expressions (pas de récursion,
+pas d'introspection AST). Expansion sémantique avant codegen — **native, WASM et
+playground JS** (après expansion). Pas de macros hygiéniques.
 
 ```afr
 macro shout(msg)
@@ -811,19 +813,21 @@ Commandes : `:help`, `:reset`, `:show`, `:run`, `:load fichier.afr`, `:type expr
 ## Foreign Function Interface (FFI)
 
 > **Trust boundary (unsafe):** `extern` leaves the AFRILANG memory/safety contract.
-> See `docs/MEMORY_MODEL.md` and `docs/NORMATIVE.md` §9.
+> See `docs/MEMORY_MODEL.md`, `docs/NORMATIVE.md` §9, and `docs/PLATFORM.md`.
 
 ```afr
 extern from "m" function sin(x number) returns number
 ```
 
-Bibliothèques autorisées (allowlist compile-time) : `m`, `pthread`, `dl`, `curl`, `c`.
+Bibliothèques autorisées (allowlist compile-time unique) : `m`/`libm`/`math`, `c`/`libc`,
+`pthread`, `dl`, `curl`.
 
 Types FFI : `number` → `double`, `text` → `const char*`, `bool`, `pointer` (`void*`).
 
 En mode sécurisé par défaut, FFI est refusé sauf `AFRILANG_ALLOW_FFI=1`
 (ou `AFRILANG_INSECURE=1`). Les pointeurs et `const char*` **ne sont pas**
-couverts par les garanties de bornes / optionnels du langage.
+couverts par les garanties de bornes / optionnels du langage. Sur hosts secondaires
+(Win/macOS), `dl` / `pthread` peuvent être indisponibles ou liés autrement.
 
 ## Identifiants et encodage
 
@@ -846,11 +850,15 @@ Le lockfile `afrilang.lock` fige les versions installées. Semver 2.0 appliqué 
 
 ```ebnf
 program     = { declaration | statement } ;
-declaration = class_decl | function_decl | enum_decl | module_decl | extern_decl ;
+declaration = class_decl | function_decl | enum_decl | module_decl
+            | extern_decl | macro_decl ;
+macro_decl  = "macro" name "(" [ name { "," name } ] ")" { statement } "end" ;
 statement   = "say" expression
               | "create" identifier [ type ] "=" expression
               | "if" expression "then" block [ "else" block ] "end"
-              | "match" expression match_arm { match_arm } "end" ;
+              | "match" expression match_arm { match_arm } "end"
+              | macro_call ;
+macro_call  = name "!" "(" [ expression { "," expression } ] ")" ;
 expression  = literal | identifier | call | binary_op | "match" expression ... ;
 ```
 
