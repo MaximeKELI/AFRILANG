@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include <sstream>
+#include <unordered_set>
 #include <vector>
 
 #include <openssl/evp.h>
@@ -51,13 +52,24 @@ std::string sha256File(const std::string& path) {
 }
 
 std::string sha256Directory(const std::string& dirPath) {
+    // Exclut les artefacts non distribués (doit rester aligné avec la liste
+    // d'exclusion de copyDirectory dans pkg.cpp) pour que le hash d'un paquet
+    // reste stable, qu'on ait lancé un build/test dans le répertoire ou non.
+    static const std::unordered_set<std::string> kSkip = {
+        "vendor", ".git", "build", ".afrilang", ".cache",
+    };
     std::vector<fs::path> files;
     if (!fs::exists(dirPath)) return {};
     for (const auto& entry : fs::recursive_directory_iterator(
              dirPath, fs::directory_options::skip_permission_denied)) {
-        if (entry.is_regular_file()) {
-            files.push_back(fs::relative(entry.path(), dirPath));
+        if (!entry.is_regular_file()) continue;
+        const fs::path rel = fs::relative(entry.path(), dirPath);
+        bool skip = false;
+        for (const auto& part : rel) {
+            if (kSkip.count(part.string())) { skip = true; break; }
         }
+        if (skip) continue;
+        files.push_back(rel);
     }
     std::sort(files.begin(), files.end());
 
