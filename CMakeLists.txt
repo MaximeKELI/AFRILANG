@@ -7,6 +7,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+# Catalogue « complexe » (std/c/*) externalisé, chargé paresseusement en JSON.
+set(AFRILANG_COMPLEX_CATALOG_REL "share/afrilang/catalog/complex.json")
+set(AFRILANG_SOURCE_CATALOG "${CMAKE_SOURCE_DIR}/${AFRILANG_COMPLEX_CATALOG_REL}")
+set(AFRILANG_INSTALL_CATALOG "${CMAKE_INSTALL_PREFIX}/${AFRILANG_COMPLEX_CATALOG_REL}")
+
 set(AFRILANG_SOURCES
     src/lexer/lexer.cpp
     src/parser/parser.cpp
@@ -24,7 +29,7 @@ set(AFRILANG_SOURCES
     src/utils/stdlib_registry.cpp
     src/utils/stdlib_catalog.cpp
     src/utils/medium_catalog.cpp
-    src/utils/complex_catalog.cpp
+    src/utils/catalog_loader.cpp
     src/utils/formatter.cpp
     src/utils/pkg.cpp
     src/utils/hash.cpp
@@ -42,6 +47,9 @@ set(AFRILANG_SOURCES
 add_executable(afrilang main.cpp ${AFRILANG_SOURCES})
 target_include_directories(afrilang PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_compile_definitions(afrilang PRIVATE AFRILANG_VERSION="${PROJECT_VERSION}")
+target_compile_definitions(afrilang PRIVATE
+    AFRILANG_SOURCE_CATALOG="${AFRILANG_SOURCE_CATALOG}"
+    AFRILANG_INSTALL_CATALOG="${AFRILANG_INSTALL_CATALOG}")
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(afrilang PRIVATE -Wall -Wextra -Wpedantic)
@@ -59,12 +67,16 @@ option(AFRILANG_ENABLE_COVERAGE "Enable coverage reporting" OFF)
 install(TARGETS afrilang DESTINATION bin)
 install(DIRECTORY runtime/ DESTINATION share/afrilang/runtime)
 install(DIRECTORY stdlib/ DESTINATION share/afrilang/stdlib OPTIONAL)
+install(FILES ${AFRILANG_SOURCE_CATALOG} DESTINATION share/afrilang/catalog)
 
 # Tests unitaires du compilateur
 add_executable(afrilang_tests tests/test_compiler.cpp ${AFRILANG_SOURCES})
 target_include_directories(afrilang_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_compile_definitions(afrilang_tests PRIVATE AFRILANG_VERSION="${PROJECT_VERSION}")
 target_compile_definitions(afrilang_tests PRIVATE AFRILANG_TESTING=1)
+target_compile_definitions(afrilang_tests PRIVATE
+    AFRILANG_SOURCE_CATALOG="${AFRILANG_SOURCE_CATALOG}"
+    AFRILANG_INSTALL_CATALOG="${AFRILANG_INSTALL_CATALOG}")
 
 # SDL2 runtime (ui.hpp) is used by one unit test
 find_package(PkgConfig QUIET)

@@ -450,6 +450,33 @@ src/utils/cache.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.s
 .PHONY : src/utils/cache.cpp.s
 
+src/utils/catalog_loader.o: src/utils/catalog_loader.cpp.o
+.PHONY : src/utils/catalog_loader.o
+
+# target to build an object file
+src/utils/catalog_loader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/catalog_loader.cpp.o
+.PHONY : src/utils/catalog_loader.cpp.o
+
+src/utils/catalog_loader.i: src/utils/catalog_loader.cpp.i
+.PHONY : src/utils/catalog_loader.i
+
+# target to preprocess a source file
+src/utils/catalog_loader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/catalog_loader.cpp.i
+.PHONY : src/utils/catalog_loader.cpp.i
+
+src/utils/catalog_loader.s: src/utils/catalog_loader.cpp.s
+.PHONY : src/utils/catalog_loader.s
+
+# target to generate assembly for a file
+src/utils/catalog_loader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/catalog_loader.cpp.s
+.PHONY : src/utils/catalog_loader.cpp.s
+
 src/utils/cli.o: src/utils/cli.cpp.o
 .PHONY : src/utils/cli.o
 
@@ -503,33 +530,6 @@ src/utils/compiler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/compiler.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.s
 .PHONY : src/utils/compiler.cpp.s
-
-src/utils/complex_catalog.o: src/utils/complex_catalog.cpp.o
-.PHONY : src/utils/complex_catalog.o
-
-# target to build an object file
-src/utils/complex_catalog.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.o
-.PHONY : src/utils/complex_catalog.cpp.o
-
-src/utils/complex_catalog.i: src/utils/complex_catalog.cpp.i
-.PHONY : src/utils/complex_catalog.i
-
-# target to preprocess a source file
-src/utils/complex_catalog.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.i
-.PHONY : src/utils/complex_catalog.cpp.i
-
-src/utils/complex_catalog.s: src/utils/complex_catalog.cpp.s
-.PHONY : src/utils/complex_catalog.s
-
-# target to generate assembly for a file
-src/utils/complex_catalog.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.s
-.PHONY : src/utils/complex_catalog.cpp.s
 
 src/utils/debug.o: src/utils/debug.cpp.o
 .PHONY : src/utils/debug.o
@@ -1084,15 +1084,15 @@ help:
 	@echo "... src/utils/cache.o"
 	@echo "... src/utils/cache.i"
 	@echo "... src/utils/cache.s"
+	@echo "... src/utils/catalog_loader.o"
+	@echo "... src/utils/catalog_loader.i"
+	@echo "... src/utils/catalog_loader.s"
 	@echo "... src/utils/cli.o"
 	@echo "... src/utils/cli.i"
 	@echo "... src/utils/cli.s"
 	@echo "... src/utils/compiler.o"
 	@echo "... src/utils/compiler.i"
 	@echo "... src/utils/compiler.s"
-	@echo "... src/utils/complex_catalog.o"
-	@echo "... src/utils/complex_catalog.i"
-	@echo "... src/utils/complex_catalog.s"
 	@echo "... src/utils/debug.o"
 	@echo "... src/utils/debug.i"
 	@echo "... src/utils/debug.s"

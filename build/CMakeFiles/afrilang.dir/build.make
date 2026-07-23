@@ -310,19 +310,19 @@ CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/admin20/AFRILANG/src/utils/medium_catalog.cpp -o CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.s
 
-CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o: CMakeFiles/afrilang.dir/flags.make
-CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o: /home/admin20/AFRILANG/src/utils/complex_catalog.cpp
-CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o -c /home/admin20/AFRILANG/src/utils/complex_catalog.cpp
+CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o: CMakeFiles/afrilang.dir/flags.make
+CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o: /home/admin20/AFRILANG/src/utils/catalog_loader.cpp
+CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o -c /home/admin20/AFRILANG/src/utils/catalog_loader.cpp
 
-CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/admin20/AFRILANG/src/utils/complex_catalog.cpp > CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.i
+CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/admin20/AFRILANG/src/utils/catalog_loader.cpp > CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.i
 
-CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/admin20/AFRILANG/src/utils/complex_catalog.cpp -o CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.s
+CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/admin20/AFRILANG/src/utils/catalog_loader.cpp -o CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.s
 
 CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: /home/admin20/AFRILANG/src/utils/formatter.cpp
@@ -511,7 +511,7 @@ afrilang_OBJECTS = \
 "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o" \
-"CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o" \
+"CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/hash.cpp.o" \
@@ -545,7 +545,7 @@ afrilang: CMakeFiles/afrilang.dir/src/utils/project.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o
-afrilang: CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o
+afrilang: CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/hash.cpp.o
