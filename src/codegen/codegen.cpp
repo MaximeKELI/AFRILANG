@@ -2454,8 +2454,14 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
+        using CK = MatchArmNode::CaseKind;
         AfrType subjectType = inferExpressionAfrType(*matchExpr->subject);
-        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
+        auto isCatchAllArm = [](const MatchExprArmNode& a) {
+            return a.isDefault || a.caseKind == CK::Wildcard;
+        };
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number ||
+            subjectType.kind == TypeKind::Int || subjectType.kind == TypeKind::Bool) {
+            const bool isText = subjectType.kind == TypeKind::Text;
             const std::string resultCpp = matchExpr->resultTypeName.empty()
                 ? "auto"
                 : typeFromName(matchExpr->resultTypeName).toCpp();
@@ -2463,14 +2469,23 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             out << "    auto _afr_match = ";
             emitExpression(out, *matchExpr->subject, ownerClass);
             out << ";\n";
-            std::size_t nonDefaultIdx = 0;
+            std::size_t idx = 0;
             for (const auto& arm : matchExpr->arms) {
-                if (arm.isDefault) continue;
-                out << "    " << (nonDefaultIdx == 0 ? "if" : "else if") << " (_afr_match == ";
-                if (subjectType.kind == TypeKind::Text) {
-                    out << "\"" << arm.caseName << "\"";
+                if (isCatchAllArm(arm)) continue;
+                out << "    " << (idx == 0 ? "if" : "else if") << " (";
+                auto emitEq = [&](const std::string& lit) {
+                    out << "_afr_match == ";
+                    if (isText) out << "\"" << lit << "\"";
+                    else out << lit;
+                };
+                if (arm.caseKind == CK::Range) {
+                    out << "_afr_match >= " << arm.rangeLow
+                        << " && _afr_match <= " << arm.rangeHigh;
                 } else {
-                    out << arm.caseName;
+                    out << "(";
+                    emitEq(arm.caseName);
+                    for (const auto& ov : arm.orValues) { out << " || "; emitEq(ov); }
+                    out << ")";
                 }
                 if (arm.guard) {
                     out << " && (";
@@ -2480,16 +2495,130 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 out << ") {\n        return ";
                 emitExpression(out, *arm.value, ownerClass);
                 out << ";\n    }\n";
-                ++nonDefaultIdx;
+                ++idx;
+            }
+            bool hasCatchAll = false;
+            for (const auto& arm : matchExpr->arms) {
+                if (isCatchAllArm(arm)) {
+                    out << "    else {\n        return ";
+                    emitExpression(out, *arm.value, ownerClass);
+                    out << ";\n    }\n";
+                    hasCatchAll = true;
+                    break;
+                }
+            }
+            if (!hasCatchAll) {
+                out << "    throw std::runtime_error(\"match: cas non couvert\");\n";
+            }
+            out << "})()";
+            return;
+        }
+
+        if (subjectType.kind == TypeKind::Result || subjectType.kind == TypeKind::Optional) {
+            const bool isResult = subjectType.kind == TypeKind::Result;
+            const std::string resultCpp = matchExpr->resultTypeName.empty()
+                ? "auto"
+                : typeFromName(matchExpr->resultTypeName).toCpp();
+            out << "([&]() -> " << resultCpp << " {\n";
+            out << "    auto _afr_opt = ";
+            emitExpression(out, *matchExpr->subject, ownerClass);
+            out << ";\n";
+            std::size_t idx = 0;
+            for (const auto& arm : matchExpr->arms) {
+                if (isCatchAllArm(arm)) continue;
+                std::string bindType, bindExpr;
+                bool positive = false;
+                out << "    " << (idx == 0 ? "if" : "else if") << " (";
+                if (isResult) {
+                    if (arm.caseKind == CK::ResultError) {
+                        out << "_afr_opt.isError";
+                        bindType = "std::string"; bindExpr = "_afr_opt.message";
+                    } else {
+                        out << "!_afr_opt.isError";
+                        positive = true; bindType = "auto"; bindExpr = "_afr_opt.value";
+                    }
+                } else {
+                    if (arm.caseKind == CK::OptionalNothing) {
+                        out << "!_afr_opt.has_value()";
+                    } else {
+                        out << "_afr_opt.has_value()";
+                        positive = true; bindType = "auto"; bindExpr = "_afr_opt.value()";
+                    }
+                }
+                const bool hasBind = !arm.bindNames.empty() && (positive || isResult);
+                if (arm.guard && !hasBind) {
+                    out << " && (";
+                    emitExpression(out, *arm.guard, ownerClass);
+                    out << ")";
+                }
+                out << ") {\n";
+                if (hasBind) {
+                    out << "        " << bindType << " " << arm.bindNames[0]
+                        << " = " << bindExpr << ";\n";
+                }
+                if (arm.guard && hasBind) {
+                    out << "        if (";
+                    emitExpression(out, *arm.guard, ownerClass);
+                    out << ") {\n            return ";
+                    emitExpression(out, *arm.value, ownerClass);
+                    out << ";\n        }\n    }\n";
+                } else {
+                    out << "        return ";
+                    emitExpression(out, *arm.value, ownerClass);
+                    out << ";\n    }\n";
+                }
+                ++idx;
             }
             for (const auto& arm : matchExpr->arms) {
-                if (arm.isDefault) {
+                if (isCatchAllArm(arm)) {
                     out << "    else {\n        return ";
                     emitExpression(out, *arm.value, ownerClass);
                     out << ";\n    }\n";
                     break;
                 }
             }
+            out << "    throw std::runtime_error(\"match: cas non couvert\");\n";
+            out << "})()";
+            return;
+        }
+
+        if (subjectType.kind == TypeKind::Record) {
+            const std::string resultCpp = matchExpr->resultTypeName.empty()
+                ? "auto"
+                : typeFromName(matchExpr->resultTypeName).toCpp();
+            out << "([&]() -> " << resultCpp << " {\n";
+            out << "    auto _afr_rec = ";
+            emitExpression(out, *matchExpr->subject, ownerClass);
+            out << ";\n";
+            std::size_t idx = 0;
+            for (const auto& arm : matchExpr->arms) {
+                if (isCatchAllArm(arm)) continue;
+                out << "    " << (idx == 0 ? "if" : "else if") << " (true) {\n";
+                for (const auto& bindName : arm.bindNames) {
+                    out << "        auto " << bindName << " = _afr_rec." << bindName << ";\n";
+                }
+                if (arm.guard) {
+                    out << "        if (";
+                    emitExpression(out, *arm.guard, ownerClass);
+                    out << ") {\n            return ";
+                    emitExpression(out, *arm.value, ownerClass);
+                    out << ";\n        }\n    }\n";
+                } else {
+                    out << "        return ";
+                    emitExpression(out, *arm.value, ownerClass);
+                    out << ";\n    }\n";
+                }
+                ++idx;
+            }
+            for (const auto& arm : matchExpr->arms) {
+                if (isCatchAllArm(arm)) {
+                    out << "    else {\n        return ";
+                    emitExpression(out, *arm.value, ownerClass);
+                    out << ";\n    }\n";
+                    break;
+                }
+            }
+            out << "    throw std::runtime_error(\"match: cas non couvert\");\n";
             out << "})()";
             return;
         }
@@ -2522,13 +2651,14 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
         std::size_t nonDefaultIdx = 0;
         for (const auto& arm : matchExpr->arms) {
-            if (arm.isDefault) continue;
+            if (isCatchAllArm(arm)) continue;
 
-            if (nonDefaultIdx == 0) {
-                out << "    if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
-            } else {
-                out << "    else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
+            out << "    " << (nonDefaultIdx == 0 ? "if" : "else if")
+                << " ((_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
+            for (const auto& ov : arm.orValues) {
+                out << " || _afr_match.tag == " << enumName << "::Tag::" << ov;
             }
+            out << ")";
             if (arm.guard && arm.bindNames.empty()) {
                 out << " && (";
                 emitExpression(out, *arm.guard, ownerClass);
@@ -2568,7 +2698,7 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         }
 
         for (const auto& arm : matchExpr->arms) {
-            if (arm.isDefault) {
+            if (isCatchAllArm(arm)) {
                 out << "    else {\n        return ";
                 emitExpression(out, *arm.value, ownerClass);
                 out << ";\n    }\n";
@@ -2578,7 +2708,7 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
         bool hasDefault = false;
         for (const auto& arm : matchExpr->arms) {
-            if (arm.isDefault) { hasDefault = true; break; }
+            if (isCatchAllArm(arm)) { hasDefault = true; break; }
         }
         if (!hasDefault) {
             out << "    throw std::runtime_error(\"match: cas non couvert\");\n";
