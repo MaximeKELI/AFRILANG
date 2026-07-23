@@ -7,6 +7,7 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/
   /home/admin20/AFRILANG/include/afrilang/complex_catalog.hpp \
   /home/admin20/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/admin20/AFRILANG/include/afrilang/educational.hpp \
+  /home/admin20/AFRILANG/include/afrilang/ffi_allowlist.hpp \
   /home/admin20/AFRILANG/include/afrilang/i18n.hpp \
   /home/admin20/AFRILANG/include/afrilang/medium_catalog.hpp \
   /home/admin20/AFRILANG/include/afrilang/sandbox.hpp \
@@ -1290,6 +1291,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: /home/admin20/AFRILAN
   /home/admin20/AFRILANG/include/afrilang/ast.hpp \
   /home/admin20/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/admin20/AFRILANG/include/afrilang/error.hpp \
+  /home/admin20/AFRILANG/include/afrilang/ffi_allowlist.hpp \
   /home/admin20/AFRILANG/include/afrilang/i18n.hpp \
   /home/admin20/AFRILANG/include/afrilang/security.hpp \
   /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
@@ -8286,8 +8288,6 @@ CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o:
 
 /usr/include/rpc/netdb.h:
 
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
 /usr/lib/i386-linux-gnu/libasyncns.so.0:
 
 /usr/include/c++/15/ext/string_conversions.h:
@@ -8339,6 +8339,8 @@ CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o:
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avxvnniint8intrin.h:
 
 /usr/include/pthread.h:
+
+/home/admin20/AFRILANG/include/afrilang/ffi_allowlist.hpp:
 
 /usr/include/c++/15/bits/allocator.h:
 
@@ -8420,54 +8422,6 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 
 /usr/include/c++/15/string_view:
 
-/usr/include/c++/15/bits/basic_string.tcc:
-
-/usr/include/c++/15/bits/streambuf.tcc:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/usermsrintrin.h:
-
-/usr/include/x86_64-linux-gnu/c++/15/bits/c++allocator.h:
-
-/usr/include/c++/15/bits/alloc_traits.h:
-
-/usr/include/c++/15/bits/stringfwd.h:
-
-/usr/include/openssl/ssl.h:
-
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/openssl/tls1.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/sgxintrin.h:
-
-/usr/include/c++/15/fstream:
-
-/usr/include/c++/15/bits/stl_algo.h:
-
-/usr/include/c++/15/random:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/shaintrin.h:
-
-/home/admin20/AFRILANG/include/afrilang/parser.hpp:
-
-/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
-
-/usr/include/c++/15/pstl/glue_algorithm_defs.h:
-
-/usr/include/c++/15/bits/charconv.h:
-
-/usr/include/c++/15/tr1/poly_laguerre.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/c++/15/bits/algorithmfwd.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/libgcc_s.so:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/x86_64-linux-gnu/bits/socket.h:
-
 /home/admin20/AFRILANG/include/afrilang/stdlib_catalog.hpp:
 
 /usr/include/openssl/asn1.h:
@@ -8510,14 +8464,6 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 
 /usr/include/c++/15/bits/nested_exception.h:
 
-/usr/include/asm-generic/types.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-/usr/include/asm-generic/errno-base.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/15/include/clwbintrin.h:
 
 /home/admin20/AFRILANG/include/afrilang/security.hpp:
@@ -8529,6 +8475,24 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 /usr/include/x86_64-linux-gnu/openssl/configuration.h:
 
 /usr/include/openssl/sslerr_legacy.h:
+
+/usr/include/c++/15/bits/charconv.h:
+
+/usr/include/c++/15/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/15/tr1/poly_laguerre.tcc:
+
+/usr/include/c++/15/ext/concurrence.h:
+
+/usr/include/c++/15/ext/atomicity.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h:
+
+/usr/include/openssl/safestack.h:
+
+/usr/include/c++/15/bits/enable_special_members.h:
+
+/usr/include/SDL2/SDL_atomic.h:
 
 /usr/include/c++/15/bits/basic_ios.tcc:
 
@@ -8543,6 +8507,56 @@ CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o:
 /usr/include/stdlib.h:
 
 /usr/include/c++/15/bits/locale_facets.tcc:
+
+/usr/include/c++/15/bits/basic_string.tcc:
+
+/usr/include/c++/15/bits/streambuf.tcc:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/usermsrintrin.h:
+
+/usr/include/x86_64-linux-gnu/c++/15/bits/c++allocator.h:
+
+/usr/include/c++/15/bits/alloc_traits.h:
+
+/usr/include/c++/15/bits/stringfwd.h:
+
+/usr/include/openssl/ssl.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/openssl/tls1.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/sgxintrin.h:
+
+/usr/include/c++/15/fstream:
+
+/usr/include/c++/15/bits/stl_algo.h:
+
+/usr/include/c++/15/random:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/shaintrin.h:
+
+/home/admin20/AFRILANG/include/afrilang/parser.hpp:
+
+/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/asm-generic/types.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/c++/15/bits/algorithmfwd.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/libgcc_s.so:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/x86_64-linux-gnu/bits/socket.h:
 
 /usr/include/alloca.h:
 
@@ -8886,17 +8900,7 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o:
 
 /usr/include/c++/15/ext/alloc_traits.h:
 
-/usr/include/c++/15/bits/enable_special_members.h:
-
-/usr/include/SDL2/SDL_atomic.h:
-
-/usr/include/c++/15/ext/concurrence.h:
-
-/usr/include/c++/15/ext/atomicity.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h:
-
-/usr/include/openssl/safestack.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
 
@@ -9063,6 +9067,12 @@ CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o:
 /usr/lib/gcc/x86_64-linux-gnu/15/include/sm4intrin.h:
 
 /usr/include/openssl/randerr.h:
+
+/usr/include/SDL2/SDL_filesystem.h:
+
+/usr/include/openssl/rand.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/openssl/conferr.h:
 
@@ -9407,9 +9417,3 @@ CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o:
 /usr/lib/x86_64-linux-gnu/libXss.so.1:
 
 /usr/include/SDL2/SDL_events.h:
-
-/usr/include/openssl/rand.h:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
-
-/usr/include/SDL2/SDL_filesystem.h:

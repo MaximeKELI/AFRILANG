@@ -1,0 +1,25 @@
+// WASM core stdlib smoke — modules documented as WASM-ok in docs/WASM_COMPAT.md
+
+import "std/str"
+import "std/math"
+import "std/json"
+import "std/collections"
+
+use str
+use math
+use json
+use collections
+
+say "wasm_core_smoke"
+say trim("  ok  ")
+say abs(0 - 3)
+say floor(2.7)
+create doc = parse("{\"n\":1}")
+if has(doc, "n") then
+    say "json_ok"
+end
+create xs = list of 1, 2, 2, 3
+create u = uniqueNumbers(xs)
+if (length of u) is equal to 3 then
+    say "collections_ok"
+end

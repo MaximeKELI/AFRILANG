@@ -19,6 +19,8 @@ See `docs/NORMATIVE.md`. This is **not** an ISO certification suite.
 | `negative/bad_constraint.afr` | §6 | semantic reject |
 | `negative/bad_index_type.afr` | §3 | semantic reject |
 | `negative/incomplete_optional_match.afr` | §4 / match | semantic reject |
+| `negative/bad_macro_arity.afr` | macros MVP | semantic reject |
+| `negative/bad_macro_recursion.afr` | macros MVP | semantic reject |
 
 Harness: `scripts/check_conformance_negative.sh`
 

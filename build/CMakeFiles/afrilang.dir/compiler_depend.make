@@ -171,6 +171,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/src/co
   /home/admin20/AFRILANG/include/afrilang/complex_catalog.hpp \
   /home/admin20/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/admin20/AFRILANG/include/afrilang/educational.hpp \
+  /home/admin20/AFRILANG/include/afrilang/ffi_allowlist.hpp \
   /home/admin20/AFRILANG/include/afrilang/i18n.hpp \
   /home/admin20/AFRILANG/include/afrilang/medium_catalog.hpp \
   /home/admin20/AFRILANG/include/afrilang/sandbox.hpp \
@@ -1454,6 +1455,7 @@ CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o: /home/admin20/AFRILANG/src/
   /home/admin20/AFRILANG/include/afrilang/ast.hpp \
   /home/admin20/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/admin20/AFRILANG/include/afrilang/error.hpp \
+  /home/admin20/AFRILANG/include/afrilang/ffi_allowlist.hpp \
   /home/admin20/AFRILANG/include/afrilang/i18n.hpp \
   /home/admin20/AFRILANG/include/afrilang/security.hpp \
   /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
@@ -7515,8 +7517,6 @@ CMakeFiles/afrilang.dir/src/serve/server.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
-/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
-
 /usr/include/c++/15/bits/functexcept.h:
 
 /usr/include/c++/15/bits/atomic_base.h:
@@ -7564,6 +7564,8 @@ CMakeFiles/afrilang.dir/src/repl/repl.cpp.o:
 /usr/include/c++/15/bits/stl_iterator_base_types.h:
 
 /usr/include/c++/15/bits/allocator.h:
+
+/home/admin20/AFRILANG/include/afrilang/ffi_allowlist.hpp:
 
 /usr/include/c++/15/bit:
 
@@ -7680,6 +7682,10 @@ CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o:
 /usr/include/c++/15/bits/stl_relops.h:
 
 /usr/include/c++/15/bits/random.tcc:
+
+/usr/lib/i386-linux-gnu/libz.so.1:
+
+/usr/include/pthread.h:
 
 /usr/include/c++/15/bits/cxxabi_forced.h:
 
@@ -8054,6 +8060,8 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.o:
 /usr/include/c++/15/string:
 
 /usr/include/x86_64-linux-gnu/asm/sockios.h:
+
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/atomic_word.h:
 
@@ -8486,7 +8494,3 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o:
 /usr/include/c++/15/deque:
 
 /usr/lib/x86_64-linux-gnu/libc.so:
-
-/usr/include/pthread.h:
-
-/usr/lib/i386-linux-gnu/libz.so.1:

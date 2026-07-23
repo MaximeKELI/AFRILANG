@@ -1,5 +1,6 @@
 #include "afrilang/codegen.hpp"
 #include "afrilang/target.hpp"
+#include "afrilang/ffi_allowlist.hpp"
 
 #include "afrilang/educational.hpp"
 #include "afrilang/sandbox.hpp"
@@ -685,14 +686,20 @@ void CodeGenerator::collectLinkLibrary(const std::string& library,
 }
 
 std::string CodeGenerator::linkFlagForLibrary(const std::string& library) {
-    static const std::unordered_set<std::string> kAllowed = {
-        "m", "libm", "c", "libc", "pthread", "dl", "math", "curl"
-    };
-    if (!kAllowed.count(library)) return {};
+    if (!isFfiLibraryAllowed(library)) return {};
     if (library == "c" || library == "libc") return {};
     if (library == "m" || library == "libm" || library == "math") return "-lm";
+#if defined(_WIN32)
+    if (library == "pthread") return {};  // usually linked via runtime on MSVC/MinGW hosts
+    if (library == "dl") return {};       // no libdl on Windows
+#else
     if (library == "pthread") return "-lpthread";
+#if !defined(__APPLE__)
     if (library == "dl") return "-ldl";
+#else
+    if (library == "dl") return {};  // dlopen in libSystem on Apple
+#endif
+#endif
     if (library == "curl") return "-lcurl";
     return "-l" + library;
 }

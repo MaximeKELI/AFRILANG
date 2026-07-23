@@ -71,7 +71,11 @@ Post-compile execution uses sandboxed `execve` with resource limits instead of s
 
 ### Foreign Function Interface (`extern from "lib"`)
 
-FFI links against an allowlist of system libraries. Unknown library names are rejected at compile time.
+FFI links against a **shared compile-time allowlist** (`include/afrilang/ffi_allowlist.hpp`:
+`m`/`c`/`pthread`/`dl`/`curl` and aliases). Unknown library names are rejected at
+compile time. Secure mode still requires `AFRILANG_ALLOW_FFI=1` (or insecure mode).
+
+Link flags are **host-aware** (e.g. no `-ldl` on Windows/Apple). See `docs/PLATFORM.md`.
 
 ### Package manager
 

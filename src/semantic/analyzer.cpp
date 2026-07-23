@@ -565,12 +565,12 @@ void SemanticAnalyzer::registerModules() {
 }
 
 void SemanticAnalyzer::registerExterns() {
-    static const std::unordered_set<std::string> kAllowedLibs = {
-        "m", "libm", "c", "libc", "pthread", "dl", "math", "curl"
-    };
     for (const auto& ext : program_.externs) {
-        if (!kAllowedLibs.count(ext->library)) {
-            errorAt(*ext, "Bibliothèque FFI non autorisée: '" + ext->library + "'",
+        if (!isFfiLibraryAllowed(ext->library)) {
+            errorAt(*ext,
+                    "Bibliothèque FFI non autorisée: '" + ext->library +
+                        "' (allowlist: m/c/pthread/dl/curl ; "
+                        "AFRILANG_ALLOW_FFI=1 requis en mode sécurisé)",
                     {}, ErrorCode::FfiLibraryDenied);
         }
         if (result_.functions.count(ext->name)) {

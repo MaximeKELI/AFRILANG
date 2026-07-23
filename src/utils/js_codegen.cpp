@@ -55,6 +55,18 @@ bool statementsSupported(const std::vector<std::unique_ptr<StatementNode>>& stmt
             if (!statementsSupported(forRange->body)) return false;
             continue;
         }
+        if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(stmt.get())) {
+            // Lists only in JS playground (no map key/value pairs).
+            if (!forEach->valueName.empty()) return false;
+            if (!expressionSupported(*forEach->list)) return false;
+            if (!statementsSupported(forEach->body)) return false;
+            continue;
+        }
+        if (const auto* macroCall = dynamic_cast<const MacroCallStatementNode*>(stmt.get())) {
+            if (macroCall->expanded.empty()) return false;
+            if (!statementsSupported(macroCall->expanded)) return false;
+            continue;
+        }
         if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(stmt.get())) {
             if (ret->value && !expressionSupported(*ret->value)) return false;
             continue;
@@ -91,6 +103,12 @@ bool expressionSupported(const ExpressionNode& expr) {
         if (!call->typeArgs.empty()) return false;
         for (const auto& arg : call->arguments) {
             if (!expressionSupported(*arg)) return false;
+        }
+        return true;
+    }
+    if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
+        for (const auto& elem : list->elements) {
+            if (!expressionSupported(*elem)) return false;
         }
         return true;
     }
@@ -231,6 +249,15 @@ void JsCodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& ex
         out << ")";
         return;
     }
+    if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
+        out << "[";
+        for (std::size_t i = 0; i < list->elements.size(); ++i) {
+            if (i > 0) out << ", ";
+            emitExpression(out, *list->elements[i]);
+        }
+        out << "]";
+        return;
+    }
 }
 
 void JsCodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt,
@@ -310,6 +337,25 @@ void JsCodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt
         }
         indent(out, indentLevel);
         out << "}\n";
+        return;
+    }
+
+    if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(&stmt)) {
+        out << "for (const " << forEach->itemName << " of ";
+        emitExpression(out, *forEach->list);
+        out << ") {\n";
+        for (const auto& bodyStmt : forEach->body) {
+            emitStatement(out, *bodyStmt, indentLevel + 1);
+        }
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
+
+    if (const auto* macroCall = dynamic_cast<const MacroCallStatementNode*>(&stmt)) {
+        for (const auto& expanded : macroCall->expanded) {
+            emitStatement(out, *expanded, indentLevel);
+        }
         return;
     }
 

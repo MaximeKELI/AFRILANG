@@ -55,3 +55,14 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] Indices signés + pas de `operator[]` non vérifié ; harness négatif ; FFI trust boundary
 - [x] Re-score audit canvas (critiques atténuées, pas « certifié ISO »)
 
+## Vague 7 — Non-conformités ISO mineures / modérées (mitigation honnête)
+
+> Pas de parité Win/macOS, pas d’IR, pas d’élargissement FFI agressif.
+
+- [x] Macros MVP documentées (EBNF) + négatifs arité/récursion ; JS après expansion
+- [x] Catalog stubs : header expérimental dans le générateur + honesty CI élargi
+- [x] Playground JS : listes + `for each` + smoke `compile-js | node`
+- [x] WASM core smoke (`examples/wasm_core_smoke.afr`) + `PLATFORM.md`
+- [x] FFI allowlist unique (`ffi_allowlist.hpp`) + link flags host-aware
+- [x] Re-score audit canvas (écarts modérés atténués)
+

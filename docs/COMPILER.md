@@ -32,6 +32,7 @@ Depuis Vague 5–6 (ISO critiques/majeurs) :
 - `Result.value` si erreur → `requireValue()` (message d’erreur ou `result is error`)
 
 Modèle mémoire : `docs/MEMORY_MODEL.md`. Spec normative produit : `docs/NORMATIVE.md`.
+Plateformes : `docs/PLATFORM.md`. WASM/JS : `docs/WASM_COMPAT.md`.
 
 Smoke CI : `scripts/check_asan_bounds.sh` ; option `AFRILANG_SANITIZE=1`.
 
