@@ -13,7 +13,7 @@ module resultx
         if r is error then
             return alt
         end
-        return r
+        return r.value
     end
 
     function mapDouble(n number) returns number
