@@ -70,7 +70,12 @@ RNG de base (Crystal / Nim style) : `seed`, `randomize`, `randomInt`, `randomFlo
 
 ## `std/re`
 
-Regex **ECMAScript** (`std::regex`, sans dépendance PCRE2 — compatible WASM). Surface façon Nim `re` / Crystal `Regex` :
+Regex : backend **std::regex** (ECMAScript, WASM) par défaut ; avec
+`-DAFRILANG_HAS_PCRE2` (activé par CMake si `libpcre2` est trouvé), le moteur
+**PCRE2** est utilisé pour `matches` / `matchFlags` / `search` (lookbehind inclus).
+`engineName()` / `hasPcre2()` exposent le backend actif.
+
+Surface façon Nim `re` / Crystal `Regex` :
 
 | Fonction | Rôle |
 |----------|------|
@@ -86,7 +91,9 @@ Regex **ECMAScript** (`std::regex`, sans dépendance PCRE2 — compatible WASM).
 | `split(text, pattern)` | Découpe sur le motif |
 | `replace` / `replaceFirst` | Remplacement global / premier |
 
-Le lookahead `(?=)` / `(?!)` est supporté ; le **lookbehind** `(?<=)` / `(?<!)` ne l'est pas (limite de `std::regex` ECMAScript, sans PCRE2). Les groupes nommés sont émulés.
+Le lookahead `(?=)` / `(?!)` est supporté sur les deux backends ; le **lookbehind**
+`(?<=)` / `(?<!)` nécessite PCRE2 (`hasPcre2()`). Les groupes nommés sont émulés
+côté `std::regex` (toujours via le chemin `captureNamed`).
 
 Tests : `tests/stdlib/re.afr`
 
@@ -111,9 +118,10 @@ TCP : `tcpConnect`, `tcpListen`, `tcpAccept`, `tcpRead`, `tcpWrite`, `tcpClose`.
 HTTP : `httpServe` (bloquant), `httpServeOnce`, parse (`httpRequestMethod` /
 `httpRequestPath` / `httpRequestBody`), `httpServeTlsOnce` (cert/key PEM, OpenSSL).
 Routage : module `web` — `createRouter` / `addRoute` / `dispatch` /
-`httpServeOnceRouted` / `httpRoundTripRouted` (tests).
+`httpServeOnceRouted` / `httpServeRouted(port, router, maxRequests)` /
+`httpRoundTripRouted` / `httpRoundTripRoutedN` (tests).
 
-Tests : `tests/stdlib/net.afr` (listen/connect ; pas de serveur bloquant en CI).
+Tests : `tests/stdlib/net.afr`, `tests/stdlib/web.afr`.
 
 ## `std/json`
 
@@ -141,7 +149,7 @@ Tests : `tests/stdlib/yaml.afr`
 
 ## `std/datetime`
 
-Horodatage UTC + offsets fixes (pas de base IANA) :
+Horodatage UTC + fuseaux IANA (native) :
 
 | Fonction | Rôle |
 |----------|------|
@@ -152,10 +160,14 @@ Horodatage UTC + offsets fixes (pas de base IANA) :
 | `weekday(seconds)` | Jour de semaine (0 = dimanche) |
 | `addSeconds` / `addDays` | Arithmétique |
 | `diffSeconds(a, b)` | Écart absolu |
-| `zoneOffset(name)` | Offset **standard** (minutes) d'une zone nommée |
-| `formatInZone(seconds, zoneName)` | Formatage dans une zone nommée |
+| `zoneOffsetStandard(name)` | Offset d'hiver (table ~45 zones) |
+| `zoneOffsetAt(name, seconds)` | Offset **DST-aware** (zoneinfo POSIX native) |
+| `zoneOffset(name)` | Offset à « maintenant » (DST-aware native) |
+| `formatInZone(seconds, zoneName)` | Formatage DST-aware |
 
-Les zones nommées utilisent des offsets **standard** (heure d'hiver) issus d'une table statique (~45 zones) ; le passage automatique à l'heure d'été (DST) n'est pas géré et la base IANA complète est hors périmètre (choix zéro-dépendance). Zone inconnue : `zoneOffset` renvoie `-100000`, `formatInZone` renvoie `""`.
+Sur native Linux/macOS, `zoneOffsetAt` / `formatInZone` lisent `/usr/share/zoneinfo`
+(DST inclus). Sur WASM : table standard uniquement. Zone inconnue :
+`zoneOffset*` → `-100000`, `formatInZone` → `""`.
 
 Tests : `tests/stdlib/datetime.afr`
 

@@ -1,5 +1,22 @@
 module DateTime
     function formatDuration(seconds number) returns text
-        return "duration"
+        if seconds is less than 60 then
+            return "seconds"
+        end
+        if seconds is less than 3600 then
+            return "minutes"
+        end
+        return "hours"
+    end
+
+    function isPast(seconds number) returns bool
+        return seconds is less than 0
+    end
+
+    function clampNonNeg(seconds number) returns number
+        if seconds is less than 0 then
+            return 0
+        end
+        return seconds
     end
 end

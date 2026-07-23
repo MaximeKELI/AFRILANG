@@ -1,0 +1,8 @@
+import "pkg/fmt/fmt.afr"
+
+use Fmt
+
+test "join"
+    assert join("a", "b", "-") is equal to "a-b"
+    assert bracket("x") is equal to "[x]"
+end

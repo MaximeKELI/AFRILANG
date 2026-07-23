@@ -1,0 +1,7 @@
+import "pkg/strings/strings.afr"
+
+use Strings
+
+test "replicate"
+    assert replicate("ab", 2) is equal to "abab"
+end

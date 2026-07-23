@@ -63,6 +63,19 @@ else()
 endif()
 
 option(AFRILANG_ENABLE_COVERAGE "Enable coverage reporting" OFF)
+option(AFRILANG_ENABLE_PCRE2 "Enable PCRE2 backend for std/re in generated programs" ON)
+
+set(AFRILANG_PCRE2_FOUND FALSE)
+if(AFRILANG_ENABLE_PCRE2)
+    find_path(PCRE2_INCLUDE_DIR NAMES pcre2.h)
+    find_library(PCRE2_LIBRARY NAMES pcre2-8)
+    if(PCRE2_INCLUDE_DIR AND PCRE2_LIBRARY)
+        set(AFRILANG_PCRE2_FOUND TRUE)
+        message(STATUS "PCRE2 enabled for std/re (${PCRE2_LIBRARY})")
+    else()
+        message(STATUS "PCRE2 not found — std/re stays on std::regex")
+    endif()
+endif()
 
 install(TARGETS afrilang DESTINATION bin)
 install(DIRECTORY runtime/ DESTINATION share/afrilang/runtime)
@@ -77,6 +90,11 @@ target_compile_definitions(afrilang_tests PRIVATE AFRILANG_TESTING=1)
 target_compile_definitions(afrilang_tests PRIVATE
     AFRILANG_SOURCE_CATALOG="${AFRILANG_SOURCE_CATALOG}"
     AFRILANG_INSTALL_CATALOG="${AFRILANG_INSTALL_CATALOG}")
+
+if(AFRILANG_PCRE2_FOUND)
+    target_compile_definitions(afrilang PRIVATE AFRILANG_HAS_PCRE2=1)
+    target_compile_definitions(afrilang_tests PRIVATE AFRILANG_HAS_PCRE2=1)
+endif()
 
 # SDL2 runtime (ui.hpp) is used by one unit test
 find_package(PkgConfig QUIET)

@@ -1,13 +1,76 @@
 #pragma once
 
-// std/re — regex ECMAScript (std::regex). Pas de PCRE2 (aucune dépendance
-// externe, compatible WASM). Surface inspirée de Nim `re` / Crystal `Regex`.
+// std/re — regex. Backend par défaut : std::regex (ECMAScript, WASM-friendly).
+// Avec -DAFRILANG_HAS_PCRE2=1 + libpcre2 : moteur PCRE2 (lookbehind, etc.).
 
 #include <regex>
 #include <string>
 #include <vector>
 
+#if defined(AFRILANG_HAS_PCRE2)
+#define PCRE2_CODE_UNIT_WIDTH 8
+#include <pcre2.h>
+#endif
+
 namespace afrilang::runtime::re {
+
+inline std::string engineName() {
+#if defined(AFRILANG_HAS_PCRE2)
+    return "pcre2";
+#else
+    return "std";
+#endif
+}
+
+inline bool hasPcre2() {
+#if defined(AFRILANG_HAS_PCRE2)
+    return true;
+#else
+    return false;
+#endif
+}
+
+#if defined(AFRILANG_HAS_PCRE2)
+inline int pcre2Flags(const std::string& flags) {
+    int f = PCRE2_UTF;
+    for (char c : flags) {
+        if (c == 'i') f |= PCRE2_CASELESS;
+        else if (c == 'm') f |= PCRE2_MULTILINE;
+    }
+    return f;
+}
+
+inline pcre2_code* pcre2Compile(const std::string& pattern, const std::string& flags = "") {
+    int err = 0;
+    PCRE2_SIZE erroff = 0;
+    return pcre2_compile(reinterpret_cast<PCRE2_SPTR>(pattern.c_str()),
+                         pattern.size(), pcre2Flags(flags), &err, &erroff, nullptr);
+}
+
+inline bool pcre2MatchFull(const std::string& text, const std::string& pattern,
+                           const std::string& flags = "") {
+    pcre2_code* re = pcre2Compile(pattern, flags);
+    if (!re) return false;
+    pcre2_match_data* md = pcre2_match_data_create_from_pattern(re, nullptr);
+    const int rc = pcre2_match(re, reinterpret_cast<PCRE2_SPTR>(text.c_str()), text.size(), 0,
+                               PCRE2_ANCHORED | PCRE2_ENDANCHORED, md, nullptr);
+    pcre2_match_data_free(md);
+    pcre2_code_free(re);
+    return rc >= 0;
+}
+
+inline bool pcre2Search(const std::string& text, const std::string& pattern,
+                        const std::string& flags = "") {
+    pcre2_code* re = pcre2Compile(pattern, flags);
+    if (!re) return false;
+    pcre2_match_data* md = pcre2_match_data_create_from_pattern(re, nullptr);
+    const int rc = pcre2_match(re, reinterpret_cast<PCRE2_SPTR>(text.c_str()), text.size(), 0, 0,
+                               md, nullptr);
+    pcre2_match_data_free(md);
+    pcre2_code_free(re);
+    return rc >= 0;
+}
+#endif
 
 inline std::regex::flag_type parseFlags(const std::string& flags) {
     std::regex::flag_type f = std::regex::ECMAScript;
@@ -25,29 +88,41 @@ inline std::regex compile(const std::string& pattern, const std::string& flags =
 // Ancré : la totalité du texte doit correspondre.
 // Note : exposé sous le nom `matches` côté langage (`match` est un mot-clé).
 inline bool matches(const std::string& text, const std::string& pattern) {
+#if defined(AFRILANG_HAS_PCRE2)
+    return pcre2MatchFull(text, pattern);
+#else
     try {
         return std::regex_match(text, compile(pattern));
     } catch (const std::regex_error&) {
         return false;
     }
+#endif
 }
 
 inline bool matchFlags(const std::string& text, const std::string& pattern,
                        const std::string& flags) {
+#if defined(AFRILANG_HAS_PCRE2)
+    return pcre2MatchFull(text, pattern, flags);
+#else
     try {
         return std::regex_match(text, compile(pattern, flags));
     } catch (const std::regex_error&) {
         return false;
     }
+#endif
 }
 
 // Non ancré : cherche une sous-chaîne correspondante.
 inline bool search(const std::string& text, const std::string& pattern) {
+#if defined(AFRILANG_HAS_PCRE2)
+    return pcre2Search(text, pattern);
+#else
     try {
         return std::regex_search(text, compile(pattern));
     } catch (const std::regex_error&) {
         return false;
     }
+#endif
 }
 
 // Premier match (texte complet du match) ou chaîne vide.

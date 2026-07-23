@@ -18,6 +18,7 @@ struct PackageInfo {
     // Nimble-style remote metadata
     std::string url;
     std::string method; // "git" | "path" | "local"
+    std::string subdir; // monorepo subdirectory inside cloned git repo
     std::string license;
     std::string web;
     std::vector<std::string> tags;

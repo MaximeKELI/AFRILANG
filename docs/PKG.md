@@ -71,13 +71,25 @@ afrilang pkg install
 afrilang pkg update
 ```
 
-`pkg sync` utilise `AFRILANG_REGISTRY_URL` (http(s) ou `file://`). Si l’URL est
-indisponible, AFRILANG bascule sur
-[`packages/remote-index.bundled.json`](../packages/remote-index.bundled.json)
-(index local des paquets du dépôt, y compris blessed + signatures).
+`pkg sync` utilise `AFRILANG_REGISTRY_URL` (http(s) ou `file://`). Par défaut :
+`https://raw.githubusercontent.com/MaximeKELI/AFRILANG/main/registry/index.json`.
+
+Chaîne de secours : URL → `registry/index.json` (arbre source) →
+`packages/remote-index.bundled.json`.
+
+Régénérer l’index publié :
+
+```bash
+afrilang pkg reindex
+bash scripts/publish_registry_index.sh
+```
 
 Les paquets **blessed** exigent une signature Ed25519 vérifiable
 (`packages/signatures.json` + `trusted_keys.json`) à l’install.
+
+Tier **core-blessed** (`packages/core-blessed.json`) : sous-ensemble qualité
+(README + smoke + LOC) vérifié par `scripts/check_blessed_quality.sh` — le reste
+des blessed sont des utilitaires signés, pas un clone de crates.io.
 
 Si le paquet n’est pas dans `packages/<name>` mais apparaît dans l’index avec
 `"method":"git"` + `"url"`, AFRILANG clone comme **Nimble** (cache sous

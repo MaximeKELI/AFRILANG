@@ -4,10 +4,12 @@
 #include <cmath>
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <ctime>
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <unistd.h>
 
 namespace afrilang::runtime::datetime {
 
@@ -122,13 +124,13 @@ inline double weekday(double seconds) { return toUtcTm(seconds).tm_wday; }
 inline double addSeconds(double seconds, double delta) { return seconds + delta; }
 inline double addDays(double seconds, double days) { return seconds + days * 86400.0; }
 
-// --- Fuseaux nommés (table statique) --------------------------------------
-// Zéro-dépendance : offsets STANDARD (heure d'hiver), sans passage automatique
-// à l'heure d'été (DST). Pour un décalage exact avec DST, utiliser
-// formatIsoOffset avec l'offset voulu. Sentinelle -100000 si zone inconnue.
+// --- Fuseaux nommés -------------------------------------------------------
+// Native (non-WASM) : offsets via zoneinfo POSIX (TZ / localtime_r / tm_gmtoff),
+// donc DST inclus pour les zones IANA installées sur le système.
+// WASM / fallback : table d'offsets STANDARD (hiver) sans DST.
 inline constexpr double kUnknownZone = -100000.0;
 
-inline double zoneOffset(const std::string& name) {
+inline double zoneOffsetStandard(const std::string& name) {
     struct Zone { const char* name; int minutes; };
     static const Zone zones[] = {
         {"UTC", 0}, {"GMT", 0}, {"Z", 0},
@@ -156,10 +158,61 @@ inline double zoneOffset(const std::string& name) {
     return kUnknownZone;
 }
 
-// Formate un instant epoch dans une zone nommée (offset standard). Chaîne vide
+#if !defined(AFRILANG_WASM)
+#include <mutex>
+inline std::mutex& tzMutex() {
+    static std::mutex m;
+    return m;
+}
+
+// Offset minutes east of UTC at the given epoch, using system zoneinfo.
+inline double zoneOffsetAt(const std::string& name, double seconds) {
+    if (name == "UTC" || name == "GMT" || name == "Z") return 0;
+    const double known = zoneOffsetStandard(name);
+    const std::string ziPath = "/usr/share/zoneinfo/" + name;
+    const bool onDisk = access(ziPath.c_str(), R_OK) == 0;
+    if (!onDisk && known == kUnknownZone) return kUnknownZone;
+
+    std::lock_guard<std::mutex> lock(tzMutex());
+    const char* old = std::getenv("TZ");
+    std::string oldTz = old ? old : "";
+    setenv("TZ", name.c_str(), 1);
+    tzset();
+    const std::time_t t = static_cast<std::time_t>(seconds);
+    std::tm tm{};
+    localtime_r(&t, &tm);
+#if defined(__linux__) || defined(__APPLE__)
+    const long offSec = tm.tm_gmtoff;
+#else
+    std::tm utc = toUtcTm(seconds);
+    utc.tm_isdst = -1;
+    const std::time_t asLocal = std::mktime(&utc);
+    const long offSec = static_cast<long>(t - asLocal);
+#endif
+    if (old) setenv("TZ", oldTz.c_str(), 1);
+    else unsetenv("TZ");
+    tzset();
+    return static_cast<double>(offSec / 60);
+}
+#else
+inline double zoneOffsetAt(const std::string& name, double /*seconds*/) {
+    return zoneOffsetStandard(name);
+}
+#endif
+
+// Offset at "now" (native DST-aware). On WASM: standard winter table.
+inline double zoneOffset(const std::string& name) {
+#if !defined(AFRILANG_WASM)
+    const double at = zoneOffsetAt(name, nowSeconds());
+    if (at != kUnknownZone) return at;
+#endif
+    return zoneOffsetStandard(name);
+}
+
+// Formate un instant epoch dans une zone nommée (DST-aware native). Chaîne vide
 // si la zone est inconnue.
 inline std::string formatInZone(double seconds, const std::string& zoneName) {
-    const double off = zoneOffset(zoneName);
+    const double off = zoneOffsetAt(zoneName, seconds);
     if (off == kUnknownZone) return {};
     return formatIsoOffset(seconds, off);
 }

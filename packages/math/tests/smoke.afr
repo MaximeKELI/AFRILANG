@@ -1,0 +1,8 @@
+import "pkg/math/math.afr"
+
+use Math
+
+test "square"
+    assert square(3) is equal to 9
+    assert twice(4) is equal to 8
+end

@@ -20,6 +20,9 @@ AFRILANG_BINARY_DIR:STATIC=/home/admin20/AFRILANG/build
 //Enable coverage reporting
 AFRILANG_ENABLE_COVERAGE:BOOL=OFF
 
+//Enable PCRE2 backend for std/re in generated programs
+AFRILANG_ENABLE_PCRE2:BOOL=ON
+
 //Value Computed by CMake
 AFRILANG_IS_TOP_LEVEL:STATIC=ON
 
@@ -34,7 +37,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -230,6 +233,12 @@ OPENSSL_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
 OPENSSL_SSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
+
+//Path to a file.
+PCRE2_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+PCRE2_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpcre2-8.so
 
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=

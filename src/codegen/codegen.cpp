@@ -3582,8 +3582,12 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
             out << "return afrilang::runtime::web::dispatchId(router, method, path);\n";
         } else if (func.name == "httpServeOnceRouted") {
             out << "return afrilang::runtime::web::httpServeOnceRouted(port, router);\n";
+        } else if (func.name == "httpServeRouted") {
+            out << "return afrilang::runtime::web::httpServeRouted(port, router, maxRequests);\n";
         } else if (func.name == "httpRoundTripRouted") {
             out << "return afrilang::runtime::web::httpRoundTripRouted(port, router, method, path);\n";
+        } else if (func.name == "httpRoundTripRoutedN") {
+            out << "return afrilang::runtime::web::httpRoundTripRoutedN(port, router, method, path, times);\n";
         }
     } else if (moduleName == "bigint") {
         if (func.name == "fromInt") {
@@ -3686,6 +3690,21 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         // Opt-in gate for the ~19MB complex catalog runtime blob.
         args.push_back("-DAFRILANG_ENABLE_COMPLEX_LIBS=1");
     }
+#if defined(AFRILANG_HAS_PCRE2)
+    {
+        bool needsRe = false;
+        for (const auto& module : program_.modules) {
+            if (module->name == "re") {
+                needsRe = true;
+                break;
+            }
+        }
+        if (needsRe && !wasmBuild) {
+            args.push_back("-DAFRILANG_HAS_PCRE2=1");
+            args.push_back("-lpcre2-8");
+        }
+    }
+#endif
     if (!wasmBuild) {
         args.push_back("-fstack-protector-strong");
         args.push_back("-D_FORTIFY_SOURCE=2");

@@ -1,0 +1,8 @@
+import "pkg/testing/testing.afr"
+
+use Testing
+
+test "check"
+    assert check("ok", true) is equal to "[PASS] ok"
+    assert check("bad", false) is equal to "[FAIL] bad"
+end

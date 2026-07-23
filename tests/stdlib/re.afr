@@ -63,3 +63,15 @@ test "lookahead supported"
     assert search("foobar", "foo(?=bar)") is equal to true
     assert search("foobaz", "foo(?=bar)") is equal to false
 end
+
+test "engine name"
+    create eng = engineName()
+    assert length of eng is greater than 0
+end
+
+test "lookbehind when pcre2"
+    if hasPcre2() is equal to true then
+        assert search("foobarbaz", "(?<=foo)bar") is equal to true
+        assert search("foobarbaz", "(?<!foo)bar") is equal to false
+    end
+end

@@ -1,0 +1,7 @@
+import "pkg/cli/cli.afr"
+
+use Cli
+
+test "banner"
+    assert banner("x") is equal to "=== x ==="
+end

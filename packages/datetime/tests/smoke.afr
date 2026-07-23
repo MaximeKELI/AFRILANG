@@ -1,0 +1,10 @@
+import "pkg/datetime/datetime.afr"
+
+use DateTime
+
+test "duration buckets"
+    assert formatDuration(10) is equal to "seconds"
+    assert formatDuration(120) is equal to "minutes"
+    assert formatDuration(7200) is equal to "hours"
+    assert clampNonNeg(0 - 3) is equal to 0
+end

@@ -598,6 +598,8 @@ void StdlibRegistry::injectReModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("split", {{"text", "text"}, {"pattern", "text"}}, "list text"));
     fns.push_back(makeStubFunction("replace", {{"text", "text"}, {"pattern", "text"}, {"replacement", "text"}}, "text"));
     fns.push_back(makeStubFunction("replaceFirst", {{"text", "text"}, {"pattern", "text"}, {"replacement", "text"}}, "text"));
+    fns.push_back(makeStubFunction("engineName", {}, "text"));
+    fns.push_back(makeStubFunction("hasPcre2", {}, "bool"));
     injectModule(program, "re", std::move(fns));
 }
 
@@ -668,12 +670,22 @@ void StdlibRegistry::injectWebModule(ProgramNode& program) {
                                                 {"path", "text"}}, "text"));
     fns.push_back(makeStubFunction("httpServeOnceRouted", {{"port", "number"}, {"router", "int"}},
                                    "number"));
+    fns.push_back(makeStubFunction(
+        "httpServeRouted",
+        {{"port", "number"}, {"router", "int"}, {"maxRequests", "number"}}, "number"));
     fns.push_back(makeStubFunction("httpRoundTripRouted",
                                    {{"port", "number"},
                                     {"router", "int"},
                                     {"method", "text"},
                                     {"path", "text"}},
                                    "text"));
+    fns.push_back(makeStubFunction("httpRoundTripRoutedN",
+                                   {{"port", "number"},
+                                    {"router", "int"},
+                                    {"method", "text"},
+                                    {"path", "text"},
+                                    {"times", "number"}},
+                                   "number"));
     injectModule(program, "web", std::move(fns));
 }
 
@@ -1107,6 +1119,8 @@ void StdlibRegistry::injectDatetimeModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("addSeconds", {{"seconds", "number"}, {"delta", "number"}}, "number"));
     fns.push_back(makeStubFunction("addDays", {{"seconds", "number"}, {"days", "number"}}, "number"));
     fns.push_back(makeStubFunction("zoneOffset", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("zoneOffsetAt", {{"name", "text"}, {"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("zoneOffsetStandard", {{"name", "text"}}, "number"));
     fns.push_back(makeStubFunction("formatInZone", {{"seconds", "number"}, {"zoneName", "text"}}, "text"));
     injectModule(program, "datetime", std::move(fns));
 }

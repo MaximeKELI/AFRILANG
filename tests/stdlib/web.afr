@@ -24,3 +24,10 @@ test "http round trip routed"
     create body = httpRoundTripRouted(19876, router, "GET", "/ping")
     assert body is equal to "pong"
 end
+
+test "http multi request routed"
+    create router = createRouter()
+    addRoute(router, "GET", "/ping", "pong")
+    create n = httpRoundTripRoutedN(19879, router, "GET", "/ping", 3)
+    assert n is equal to 3
+end

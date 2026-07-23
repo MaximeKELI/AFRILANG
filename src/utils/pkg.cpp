@@ -61,7 +61,8 @@ std::string PkgRegistry::registryUrl() {
     if (const char* url = std::getenv("AFRILANG_REGISTRY_URL")) {
         return url;
     }
-    return "https://raw.githubusercontent.com/afrilang/registry/main/index.json";
+    // Canonical published index (this repository).
+    return "https://raw.githubusercontent.com/MaximeKELI/AFRILANG/main/registry/index.json";
 }
 
 std::string PkgRegistry::registryPublishUrl() {
@@ -93,6 +94,20 @@ int PkgRegistry::syncRemoteRegistry(const std::string& afrilangRoot) {
         body = afrilang::runtime::http::httpGet(url);
     }
 
+    // Prefer the in-tree published registry/ before the offline bundle.
+    if (body.empty()) {
+        const fs::path localRegistry =
+            fs::path(afrilangRoot) / "registry" / "index.json";
+        std::ifstream in(localRegistry);
+        if (in) {
+            std::ostringstream buf;
+            buf << in.rdbuf();
+            body = buf.str();
+            sourceLabel = localRegistry.string() + " (registre local)";
+            std::cout << "URL distante indisponible — utilisation de registry/index.json.\n";
+        }
+    }
+
     if (body.empty()) {
         const fs::path bundled =
             fs::path(afrilangRoot) / "packages" / "remote-index.bundled.json";
@@ -102,14 +117,14 @@ int PkgRegistry::syncRemoteRegistry(const std::string& afrilangRoot) {
             buf << in.rdbuf();
             body = buf.str();
             sourceLabel = bundled.string() + " (fallback bundlé)";
-            std::cout << "URL distante indisponible — utilisation du fallback bundlé.\n";
+            std::cout << "Registre local absent — utilisation du fallback bundlé.\n";
         }
     }
 
     if (body.empty()) {
         std::cerr << "Erreur: impossible de télécharger l'index distant.\n";
         std::cerr << "Définissez AFRILANG_REGISTRY_URL (http(s) ou file://) ou placez "
-                     "packages/remote-index.bundled.json.\n";
+                     "registry/index.json / packages/remote-index.bundled.json.\n";
         return 1;
     }
 
@@ -484,6 +499,8 @@ static void applyIndexObject(PackageInfo& pkg, const std::string& obj) {
     if (!url.empty()) pkg.url = url;
     const std::string method = readFieldFromObject(obj, "method");
     if (!method.empty()) pkg.method = method;
+    const std::string subdir = readFieldFromObject(obj, "path");
+    if (!subdir.empty()) pkg.subdir = subdir;
     const std::string license = readFieldFromObject(obj, "license");
     if (!license.empty()) pkg.license = license;
     const std::string web = readFieldFromObject(obj, "web");
@@ -971,6 +988,17 @@ static LockedPackage installRegistryPackage(const std::string& projectDir,
             }
         }
         src = cache;
+        if (!meta.subdir.empty()) {
+            const fs::path nested = cache / meta.subdir;
+            if (fs::exists(nested / "manifest.toml")) {
+                src = nested;
+            } else {
+                std::cerr << "Erreur: sous-chemin '" << meta.subdir
+                          << "' introuvable dans le dépôt cloné.\n";
+                fs::remove_all(cache);
+                return locked;
+            }
+        }
         fetchedRemote = true;
     }
 
@@ -1397,17 +1425,23 @@ int PkgRegistry::cmdInit(const std::string& dirOrName, const std::string& tmpl) 
             mod << "    end\n";
             mod << "end\n";
         } else if (templateName == "http") {
+            mod << "import \"std/web\"\n";
+            mod << "use web\n\n";
             mod << "module " << name << "\n";
-            mod << "    function get(url text) returns text\n";
-            mod << "        return \"GET \" + url\n";
+            mod << "    function makeRouter() returns int\n";
+            mod << "        create router = createRouter()\n";
+            mod << "        addRoute(router, \"GET\", \"/\", \"ok\")\n";
+            mod << "        addRoute(router, \"GET\", \"/health\", \"healthy\")\n";
+            mod << "        return router\n";
             mod << "    end\n";
             mod << "\n";
-            mod << "    function post(url text, body text) returns text\n";
-            mod << "        return \"POST \" + url + \" body=\" + body\n";
+            mod << "    function serveOnce(port number) returns number\n";
+            mod << "        create router = makeRouter()\n";
+            mod << "        return httpServeOnceRouted(port, router)\n";
             mod << "    end\n";
             mod << "\n";
-            mod << "    function header(name text, value text) returns text\n";
-            mod << "        return name + \": \" + value\n";
+            mod << "    function routeGet(router int, path text) returns text\n";
+            mod << "        return dispatch(router, \"GET\", path)\n";
             mod << "    end\n";
             mod << "end\n";
         } else if (templateName == "game") {
@@ -1440,10 +1474,11 @@ int PkgRegistry::cmdInit(const std::string& dirOrName, const std::string& tmpl) 
             test << "    assert out is equal to \"ok:help\"\n";
             test << "end\n";
         } else if (templateName == "http") {
-            test << "test \"get post\"\n";
-            test << "    assert get(\"https://x\") is equal to \"GET https://x\"\n";
-            test << "    assert post(\"https://x\", \"{}\") is equal to \"POST https://x body={}\"\n";
-            test << "    assert header(\"Content-Type\", \"text/plain\") is equal to \"Content-Type: text/plain\"\n";
+            test << "test \"router routes\"\n";
+            test << "    create router = makeRouter()\n";
+            test << "    assert routeGet(router, \"/\") is equal to \"ok\"\n";
+            test << "    assert routeGet(router, \"/health\") is equal to \"healthy\"\n";
+            test << "    assert routeGet(router, \"/missing\") is equal to \"\"\n";
             test << "end\n";
         } else if (templateName == "game") {
             test << "test \"score\"\n";

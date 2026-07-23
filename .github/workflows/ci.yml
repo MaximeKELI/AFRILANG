@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake g++ clang build-essential lcov libsdl2-dev libsdl2-ttf-dev
+          sudo apt-get install -y cmake g++ clang build-essential lcov libsdl2-dev libsdl2-ttf-dev libpcre2-dev
 
       - name: Configure
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=${{ matrix.compiler }} -DAFRILANG_ENABLE_COVERAGE=ON
@@ -57,15 +57,28 @@ jobs:
           ../build/afrilang pkg install
           grep -q 'source = "path"' afrilang.lock
           cd ..
-          # remote-index: bundled registry path (file://) + search merge
+          # remote-index: published registry path
+          test -f registry/index.json
           ./build/afrilang pkg sync
           test -f packages/remote-index.json
           ./build/afrilang pkg search math | grep -q math
+          # sync from published in-tree registry via file://
+          export AFRILANG_REGISTRY_URL="file://$PWD/registry/index.json"
+          ./build/afrilang pkg sync | grep -q 'Index distant'
           export AFRILANG_REGISTRY_URL="file://$PWD/packages/remote-index.example.json"
           ./build/afrilang pkg sync
           ./build/afrilang pkg search example_remote | grep -q example_remote
           rm -f packages/remote-index.json
           unset AFRILANG_REGISTRY_URL
+          bash scripts/check_blessed_quality.sh
+          # http template uses std/web
+          ROOT="$PWD"
+          rm -rf /tmp/demo_http_p9
+          ./build/afrilang pkg init /tmp/demo_http_p9 --template http
+          grep -q 'std/web' /tmp/demo_http_p9/*.afr
+          cd /tmp/demo_http_p9 && "$ROOT/build/afrilang" pkg test
+          cd "$ROOT"
+          rm -rf /tmp/demo_http_p9
           rm -rf smoke_app smoke_lib path_app local_dep
 
       - name: Blessed packages smoke (subset)
