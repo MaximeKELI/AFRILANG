@@ -50,3 +50,16 @@ test "replace and replaceFirst"
     assert replace("a1b2c3", "[0-9]", "#") is equal to "a#b#c#"
     assert replaceFirst("a1b2c3", "[0-9]", "#") is equal to "a#b2c3"
 end
+
+test "named groups"
+    create date = "2024-07-22"
+    assert captureNamed(date, "(?<year>[0-9]+)-(?<month>[0-9]+)-(?<day>[0-9]+)", "year") is equal to "2024"
+    assert captureNamed(date, "(?<year>[0-9]+)-(?<month>[0-9]+)-(?<day>[0-9]+)", "day") is equal to "22"
+    assert captureNamed(date, "(?<year>[0-9]+)-(?<month>[0-9]+)", "missing") is equal to ""
+    assert namedGroupIndex("(?<a>x)(?<b>y)", "b") is equal to 2
+end
+
+test "lookahead supported"
+    assert search("foobar", "foo(?=bar)") is equal to true
+    assert search("foobaz", "foo(?=bar)") is equal to false
+end
