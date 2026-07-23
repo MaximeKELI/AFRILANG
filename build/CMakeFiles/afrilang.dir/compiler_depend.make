@@ -5272,6 +5272,7 @@ CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o: /home/admin20/AFRILANG/src/utils/pk
   /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
   /home/admin20/AFRILANG/include/afrilang/semver.hpp \
   /home/admin20/AFRILANG/include/afrilang/types.hpp \
+  /home/admin20/AFRILANG/runtime/crypto.hpp \
   /home/admin20/AFRILANG/runtime/http.hpp \
   /usr/include/alloca.h \
   /usr/include/arpa/inet.h \
@@ -5504,6 +5505,8 @@ CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o: /home/admin20/AFRILANG/src/utils/pk
   /usr/include/openssl/pkcs7err.h \
   /usr/include/openssl/prov_ssl.h \
   /usr/include/openssl/quic.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
   /usr/include/openssl/rsa.h \
   /usr/include/openssl/rsaerr.h \
   /usr/include/openssl/safestack.h \
@@ -7238,6 +7241,10 @@ CMakeFiles/afrilang.dir/src/lsp/server.cpp.o:
 
 CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o:
 
+CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o:
+
+CMakeFiles/afrilang.dir/main.cpp.o:
+
 /usr/include/x86_64-linux-gnu/c++/15/bits/atomic_word.h:
 
 /usr/include/c++/15/bits/locale_facets_nonio.h:
@@ -7365,10 +7372,6 @@ CMakeFiles/afrilang.dir/src/serve/server.cpp.o:
 /usr/include/c++/15/pstl/execution_defs.h:
 
 /usr/include/x86_64-linux-gnu/bits/netdb.h:
-
-CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o:
-
-CMakeFiles/afrilang.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
@@ -8018,6 +8021,12 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a:
 
+/usr/lib/x86_64-linux-gnu/libz.so.1:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
+
+/usr/include/c++/15/functional:
+
 /home/admin20/AFRILANG/include/afrilang/js_codegen.hpp:
 
 /home/admin20/AFRILANG/include/afrilang/serve.hpp:
@@ -8057,6 +8066,10 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o:
 /usr/include/string.h:
 
 /usr/include/unistd.h:
+
+/usr/include/openssl/randerr.h:
+
+/usr/include/openssl/rand.h:
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
@@ -8246,6 +8259,8 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o:
 
 /usr/include/c++/15/climits:
 
+/home/admin20/AFRILANG/runtime/crypto.hpp:
+
 /home/admin20/AFRILANG/runtime/http.hpp:
 
 /usr/include/openssl/async.h:
@@ -8341,9 +8356,3 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o:
 /usr/lib/x86_64-linux-gnu/libcrypto.so:
 
 /usr/lib/x86_64-linux-gnu/libssl.so:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
-
-/usr/include/c++/15/functional:
-
-/usr/lib/x86_64-linux-gnu/libz.so.1:

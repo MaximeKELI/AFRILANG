@@ -153,6 +153,8 @@ static void printUsage() {
     std::cerr << "  afrilang pkg init [nom]      Créer un paquet bibliothèque\n";
     std::cerr << "  afrilang pkg test [dir]      Tester un paquet (self-vendor)\n";
     std::cerr << "  afrilang pkg publish <dir> [--remote]  Publier (local / registre)\n";
+    std::cerr << "  afrilang pkg sign <name> <privHex>  Signer (Ed25519) le hash du paquet\n";
+    std::cerr << "  afrilang pkg verify <name>   Vérifier checksum + signature\n";
     std::cerr << "  afrilang pkg sync            Télécharger l'index distant\n";
     std::cerr << "  afrilang debug <fichier>      Débugger avec GDB\n";
     std::cerr << "  afrilang benchmark           Mesurer compile + exec (exemples)\n";
@@ -1278,7 +1280,7 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "pkg") {
         if (argc < 3) {
-            std::cerr << "Usage: afrilang pkg <list|search|add|install|update|init|test|sync|reindex|publish> [args]\n";
+            std::cerr << "Usage: afrilang pkg <list|search|add|install|update|init|test|sync|reindex|publish|sign|verify> [args]\n";
             return 1;
         }
         const std::string sub = argv[2];
@@ -1332,6 +1334,21 @@ int runCli(int argc, char* argv[]) {
         if (sub == "update") return PkgRegistry::cmdUpdate(dir, root);
         if (sub == "sync") return PkgRegistry::syncRemoteRegistry(root);
         if (sub == "reindex") return PkgRegistry::rebuildIndex(root);
+        if (sub == "sign") {
+            if (argc < 5) {
+                std::cerr << "Usage: afrilang pkg sign <name> <privateKeyHex>\n";
+                std::cerr << "  (générer une clé: crypto ed25519GenPrivate)\n";
+                return 1;
+            }
+            return PkgRegistry::cmdSign(argv[3], argv[4], root);
+        }
+        if (sub == "verify") {
+            if (argc < 4) {
+                std::cerr << "Usage: afrilang pkg verify <name>\n";
+                return 1;
+            }
+            return PkgRegistry::cmdVerify(argv[3], root);
+        }
         if (sub == "publish") {
             std::string pkgDir = dir;
             bool remote = false;

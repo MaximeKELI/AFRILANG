@@ -5108,6 +5108,7 @@ CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o: /home/admin20/AFRILANG/src/ut
   /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
   /home/admin20/AFRILANG/include/afrilang/semver.hpp \
   /home/admin20/AFRILANG/include/afrilang/types.hpp \
+  /home/admin20/AFRILANG/runtime/crypto.hpp \
   /home/admin20/AFRILANG/runtime/http.hpp \
   /usr/include/alloca.h \
   /usr/include/arpa/inet.h \
@@ -5340,6 +5341,8 @@ CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o: /home/admin20/AFRILANG/src/ut
   /usr/include/openssl/pkcs7err.h \
   /usr/include/openssl/prov_ssl.h \
   /usr/include/openssl/quic.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
   /usr/include/openssl/rsa.h \
   /usr/include/openssl/rsaerr.h \
   /usr/include/openssl/safestack.h \
@@ -7771,8 +7774,6 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/tsxldtrkintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/include/sm4intrin.h:
-
 /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/sm3intrin.h:
@@ -7863,8 +7864,6 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avx512bf16vlintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512bf16intrin.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avx2intrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avx10_2satcvtintrin.h:
@@ -7928,6 +7927,8 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o:
 /usr/include/SDL2/SDL_platform.h:
 
 /usr/include/SDL2/SDL_mutex.h:
+
+/usr/include/SDL2/SDL_keycode.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/error_constants.h:
 
@@ -8685,6 +8686,14 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o:
 
 /usr/include/SDL2/SDL_gamecontroller.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/15/include/hresetintrin.h:
+
+/usr/include/SDL2/SDL_keyboard.h:
+
+/usr/include/c++/15/bits/move.h:
+
+/usr/include/c++/15/bits/unique_ptr.h:
+
 /usr/lib/x86_64-linux-gnu/libsamplerate.so.0:
 
 /usr/include/asm-generic/sockios.h:
@@ -8857,8 +8866,6 @@ CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/resource.h:
 
-/usr/include/SDL2/SDL_keycode.h:
-
 /usr/include/c++/15/ctime:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/avx512vp2intersectvlintrin.h:
@@ -8934,6 +8941,10 @@ CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o:
 /usr/include/string.h:
 
 /usr/include/unistd.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/include/sm4intrin.h:
+
+/usr/include/openssl/randerr.h:
 
 /usr/include/openssl/conferr.h:
 
@@ -9135,6 +9146,10 @@ CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o:
 
 /usr/include/c++/15/climits:
 
+/usr/lib/gcc/x86_64-linux-gnu/15/include/avx512bf16intrin.h:
+
+/home/admin20/AFRILANG/runtime/crypto.hpp:
+
 /usr/include/SDL2/SDL_scancode.h:
 
 /home/admin20/AFRILANG/runtime/http.hpp:
@@ -9257,16 +9272,10 @@ CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o:
 
 /usr/include/SDL2/SDL_events.h:
 
+/usr/include/openssl/rand.h:
+
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/SDL2/SDL_filesystem.h:
 
 /usr/include/SDL2/SDL_haptic.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/include/hresetintrin.h:
-
-/usr/include/c++/15/bits/move.h:
-
-/usr/include/c++/15/bits/unique_ptr.h:
-
-/usr/include/SDL2/SDL_keyboard.h:

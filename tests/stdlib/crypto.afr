@@ -32,3 +32,11 @@ test "randomHex length"
     create r = randomHex(16)
     assert r is equal to hexEncode(hexDecode(r))
 end
+
+test "ed25519 sign verify"
+    create priv = ed25519GenPrivate()
+    create pub = ed25519PublicFromPrivate(priv)
+    create sig = ed25519Sign(priv, "hello afrilang")
+    assert ed25519Verify(pub, "hello afrilang", sig) is equal to true
+    assert ed25519Verify(pub, "tampered", sig) is equal to false
+end

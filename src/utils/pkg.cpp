@@ -594,6 +594,101 @@ static std::string expectedIndexSha256(const std::string& afrilangRoot,
     return readIndexSha256(packagesDir / "remote-index.json", packageName);
 }
 
+static std::string expectedIndexSig(const std::string& afrilangRoot,
+                                     const std::string& packageName) {
+    const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
+    std::ifstream in(packagesDir / "index.json");
+    if (!in) return {};
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    // Borner la recherche à l'objet du paquet pour ne pas capter le "sig"
+    // d'un paquet voisin (les signatures sont optionnelles).
+    const std::string obj = extractJsonObjectForName(buf.str(), packageName);
+    if (obj.empty()) return {};
+    return readFieldFromObject(obj, "sig");
+}
+
+// Résultat de la vérification de provenance d'un paquet.
+enum class SigCheck { Ok, NoSignature, Failed };
+
+static SigCheck verifyPackageSignature(const std::string& afrilangRoot,
+                                       const std::string& packageName,
+                                       const std::string& pkgHash) {
+    const std::string sig = expectedIndexSig(afrilangRoot, packageName);
+    if (sig.empty()) return SigCheck::NoSignature;
+    const auto keys = loadTrustedKeys(afrilangRoot);
+    if (keys.empty()) return SigCheck::NoSignature;
+    for (const auto& pub : keys) {
+        if (afrilang::runtime::crypto::ed25519Verify(pub, pkgHash, sig)) {
+            return SigCheck::Ok;
+        }
+    }
+    return SigCheck::Failed;
+}
+
+int PkgRegistry::cmdSign(const std::string& packageName, const std::string& privKeyHex,
+                         const std::string& afrilangRoot) {
+    const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
+    const fs::path pkgDir = packagesDir / packageName;
+    if (!fs::exists(pkgDir / "manifest.toml")) {
+        std::cerr << "Erreur: paquet introuvable: " << pkgDir.string() << "\n";
+        return 1;
+    }
+    const std::string hash = sha256Directory(pkgDir.string());
+    if (hash.empty()) {
+        std::cerr << "Erreur: impossible de calculer le checksum du paquet.\n";
+        return 1;
+    }
+    const std::string sig = afrilang::runtime::crypto::ed25519Sign(privKeyHex, hash);
+    if (sig.empty()) {
+        std::cerr << "Erreur: échec de la signature (clé privée hex 32 octets attendue).\n";
+        return 1;
+    }
+    const std::string pub = afrilang::runtime::crypto::ed25519PublicFromPrivate(privKeyHex);
+
+    auto sigs = loadSignatures(afrilangRoot);
+    sigs[packageName] = sig;
+    writeSignatures(afrilangRoot, sigs);
+    rebuildIndex(afrilangRoot);
+
+    std::cout << "Paquet '" << packageName << "' signé.\n";
+    std::cout << "  sha256: " << hash << "\n";
+    std::cout << "  sig:    " << sig << "\n";
+    std::cout << "  clé publique: " << pub << "\n";
+    std::cout << "Ajoutez la clé publique à packages/trusted_keys.json pour l'imposer.\n";
+    return 0;
+}
+
+int PkgRegistry::cmdVerify(const std::string& packageName, const std::string& afrilangRoot) {
+    const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
+    const fs::path pkgDir = packagesDir / packageName;
+    if (!fs::exists(pkgDir / "manifest.toml")) {
+        std::cerr << "Erreur: paquet introuvable: " << pkgDir.string() << "\n";
+        return 1;
+    }
+    const std::string hash = sha256Directory(pkgDir.string());
+    const std::string expected = expectedIndexSha256(afrilangRoot, packageName);
+    if (!expected.empty() && expected != hash) {
+        std::cerr << "Checksum invalide pour '" << packageName << "'.\n";
+        std::cerr << "  attendu: " << expected << "\n  obtenu:  " << hash << "\n";
+        return 1;
+    }
+    std::cout << "Checksum OK: " << hash << "\n";
+    switch (verifyPackageSignature(afrilangRoot, packageName, hash)) {
+        case SigCheck::Ok:
+            std::cout << "Signature Ed25519 vérifiée (clé de confiance).\n";
+            return 0;
+        case SigCheck::Failed:
+            std::cerr << "Signature Ed25519 INVALIDE.\n";
+            return 1;
+        case SigCheck::NoSignature:
+            std::cout << "Aucune signature vérifiable (paquet non signé ou aucune clé de "
+                         "confiance).\n";
+            return 0;
+    }
+    return 0;
+}
+
 static std::string unquoteLock(const std::string& s) {
     if (s.size() >= 2 && s.front() == '"' && s.back() == '"') {
         return s.substr(1, s.size() - 2);
@@ -861,6 +956,22 @@ static LockedPackage installRegistryPackage(const std::string& projectDir,
         std::cerr << "  obtenu:   " << pkgHash << "\n";
         fs::remove_all(dst);
         return locked;
+    }
+
+    if (!fetchedRemote) {
+        switch (verifyPackageSignature(afrilangRoot, packageName, pkgHash)) {
+            case SigCheck::Ok:
+                std::cout << "Signature Ed25519 vérifiée pour '" << packageName << "'.\n";
+                break;
+            case SigCheck::Failed:
+                std::cerr << "Erreur: signature Ed25519 invalide pour '" << packageName
+                          << "' (aucune clé de confiance ne valide la signature).\n";
+                fs::remove_all(dst);
+                return locked;
+            case SigCheck::NoSignature:
+                // Compat ascendante : paquet non signé ou aucune clé de confiance.
+                break;
+        }
     }
 
     if (!skipToml) {

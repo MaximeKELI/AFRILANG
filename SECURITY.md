@@ -73,8 +73,38 @@ FFI links against an allowlist of system libraries. Unknown library names are re
 
 ### Package manager
 
-Packages are copied from the local registry without cryptographic signatures.
-Symlinks pointing outside the package tree are rejected.
+Packages are verified by SHA-256 checksum (recorded in `packages/index.json`) at
+install time. Symlinks pointing outside the package tree are rejected.
+
+**Detached Ed25519 signatures (provenance).** Maintainers can sign a package's
+directory hash:
+
+```
+# Generate a keypair once (keep the private key secret):
+afrilang run - <<'AFR'
+import "std/crypto"
+use crypto
+create priv = ed25519GenPrivate()
+say priv
+say ed25519PublicFromPrivate(priv)
+AFR
+
+# Sign a package (writes packages/signatures.json and reindexes):
+afrilang pkg sign <name> <privateKeyHex>
+
+# Trust the public key by adding it to packages/trusted_keys.json:
+#   ["<publicKeyHex>", ...]
+
+# Verify checksum + signature:
+afrilang pkg verify <name>
+```
+
+At install time, if a `sig` field is present in the index **and** at least one
+trusted key is configured in `packages/trusted_keys.json`, the signature over the
+package's SHA-256 must validate against a trusted key or the install is refused.
+Packages without a signature (or when no trusted keys are configured) install with
+checksum verification only (backward compatible).
+
 Only install packages from trusted sources.
 
 ### Imports

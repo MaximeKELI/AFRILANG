@@ -1,24 +1,24 @@
 {
   "packages": [
-    {"name":"backoff","version":"0.1.0","description":"Retry/backoff delay helpers","method":"local","sha256":"5695825f66857671085834dd23e903a0979242b93ad26ee94e99c82fd846c9d9","blessed":true},
+    {"name":"backoff","version":"0.1.0","description":"Retry/backoff delay helpers","method":"local","sha256":"ef9e4ba2672bf1a6abb164ed1de4feecbce92988a75a538cd52c775f301a47a2","blessed":true},
     {"name":"fmt","version":"0.1.0","description":"Formatting helpers","method":"local","sha256":"d8866d026807d3ad9b4e3c21122f0592b1e49aea27629bd56e42fba37a4423e8","blessed":true},
     {"name":"math","version":"0.1.0","description":"Basic math utilities (square, pi, twice)","method":"local","sha256":"ef0c9fd4f548358cbe72d0ee42e32e2b45cd356ac02f004997617613d8f97d2e","blessed":true},
-    {"name":"mathx","version":"0.1.0","description":"Extra integer math helpers (gcd, lcm, prime, factorial)","method":"local","sha256":"7dcd7556ccfc14080bed57926ff05574fa349897b8187937f51035d623a62d44","blessed":true},
-    {"name":"semverx","version":"0.1.0","description":"Semantic version compare and compatibility checks","method":"local","sha256":"b6efea051d8d7338fd6ea517507ae5b840d2511a482fd079b845c766c1678cf0","blessed":true},
+    {"name":"mathx","version":"0.1.0","description":"Extra integer math helpers (gcd, lcm, prime, factorial)","method":"local","sha256":"d2279bf810d04e52b4935e6465220ff2d31c559418b052a28672b3d3a7a59f41","blessed":true},
+    {"name":"semverx","version":"0.1.0","description":"Semantic version compare and compatibility checks","method":"local","sha256":"9270c0088f41d3e6a4ab354644c86d1457cf4bc8b9e29dedb212081bdc8dd9bc","sig":"120c5b3cabf850fe57d98eb737a5c52d8c7905bed8b95faf4196c285516dc018b98eeebf5c78b7d3fd7a898a1bb598de027f6700264357cdc5f8bafdde778008","blessed":true},
     {"name":"testing","version":"0.1.0","description":"Lightweight test helpers","method":"local","sha256":"66b42b82b69b94f7807460322aef4fff522c931467627a538abfbc7912745d57","blessed":true},
-    {"name":"finance","version":"0.1.0","description":"Simple financial helpers (interest, discount, percent)","method":"local","sha256":"dc0c0d2ad3ca5da2e0223d8361e3fb404cdefdf72bd16dd9f81581919734ed42","blessed":true},
+    {"name":"finance","version":"0.1.0","description":"Simple financial helpers (interest, discount, percent)","method":"local","sha256":"75e169a1081c2c91fd3c3524cafac828be3de67a09eb30873cece459a48fef8a","blessed":true},
     {"name":"uuid","version":"0.1.0","description":"UUID helpers","method":"local","sha256":"1c7469f5a11903897e2a11507ee3f931131eb8b8d3508a767fe1aada99809f39","blessed":true},
     {"name":"config","version":"0.1.0","description":"Simple config helpers","method":"local","sha256":"3c5adbb5d0868a6ac9adee35061cbb696ff63503b4392b99a623206e1c0d135f","blessed":true},
-    {"name":"temperature","version":"0.1.0","description":"Temperature unit conversions","method":"local","sha256":"0382c9785d8eda02d849ce7743010be43841d2c640030816f471e866b083c9b0","blessed":true},
+    {"name":"temperature","version":"0.1.0","description":"Temperature unit conversions","method":"local","sha256":"cd8242096f3b2d893f29e37f10abff9103a729246063c5bcaeb4bfe946b588a2","blessed":true},
     {"name":"cli","version":"0.1.0","description":"CLI helpers (colors, banners)","method":"local","sha256":"185536742e36dee8de6fa7218afa00e001ff88f6c94f4e4616ef981dd5785d0d","blessed":true},
-    {"name":"timespan","version":"0.1.0","description":"Time duration conversions","method":"local","sha256":"60caff573a50e00891e50e68c54db2eb611a8183224644a09d10af643aa0baac","blessed":true},
+    {"name":"timespan","version":"0.1.0","description":"Time duration conversions","method":"local","sha256":"f75caaf3f53dbee2ed699c93e4cf52ae78d3e1a27520b01e9a9befa127af69fc","blessed":true},
     {"name":"validate","version":"0.1.0","description":"Validation helpers","method":"local","sha256":"d217ed00077cb9db7ebfca5858d2effd60fa17d7d7d1718ebd5b72ea9e0d57a1","blessed":true},
     {"name":"w2smoke","version":"0.1.0","description":"Paquet AFRILANG w2smoke","method":"local","sha256":"3b49d6303b5cad88a31c9939afb6fad18c26bc5baa28b4bf1bd2bda8eed56092"},
-    {"name":"numcheck","version":"0.1.0","description":"Numeric predicates (even, odd, sign, range)","method":"local","sha256":"0f57b1fd63a055e3043829579dd31d758952781fb6b63251a1958c8d64ad0a47","blessed":true},
+    {"name":"numcheck","version":"0.1.0","description":"Numeric predicates (even, odd, sign, range)","method":"local","sha256":"4fd176a840d1db45e6d0fe53123ffaf61cb806bd732a03b33ee3f90baeac7454","blessed":true},
     {"name":"strings","version":"0.1.0","description":"String helpers (replicate, upper, lower)","method":"local","sha256":"f7bd8dd98661893c1b1910e0fb042f0e684f24e932ae789abfe156de138eeac8","blessed":true},
     {"name":"datetime","version":"0.1.0","description":"Date/time helpers","method":"local","sha256":"c5c57b4e7cd18fce8c19ebf6b3bbef75c939ed172501aac90450cff12af5b265","blessed":true},
     {"name":"colors","version":"0.1.0","description":"ANSI color helpers","method":"local","sha256":"ad354a5851aa329e1d173b9b8771dfed5d2be9629719e9ef75e55ada4edf22bb","blessed":true},
-    {"name":"geometry","version":"0.1.0","description":"Basic 2D/3D geometry area and volume helpers","method":"local","sha256":"915990a6e9ecfebc107aeeef503dabdf97f23a23bf4d7b25d5ca4d3d2431ae17","blessed":true},
+    {"name":"geometry","version":"0.1.0","description":"Basic 2D/3D geometry area and volume helpers","method":"local","sha256":"bb4a7d3b78d44bb563ccdc8d0bac40e002eebe468437d2a181e7c8daa9c45afb","blessed":true},
     {"name":"ma_lib","version":"0.1.0","description":"Paquet AFRILANG ma_lib","method":"local","sha256":"b94feac2966b9221e484a69bfd0a93595e663c9be061f65a3ee9810d26c56911"}
   ]
 }

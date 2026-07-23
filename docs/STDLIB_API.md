@@ -84,6 +84,8 @@ Tests : `tests/stdlib/re.afr`
 
 OpenSSL : `sha256` / `sha512` / `sha1` / `sha3_256`, `sha256File`, `hmacSha256`, `randomBytes` / `randomHex`, `hexEncode` / `hexDecode`, `aesGcmEncrypt` / `aesGcmDecrypt` (hex packed nonce||tag||ciphertext).
 
+Signatures **Ed25519** (clés/signatures en hex) : `ed25519GenPrivate`, `ed25519PublicFromPrivate`, `ed25519Sign(privHex, message)`, `ed25519Verify(pubHex, message, sigHex)`.
+
 Tests : `tests/stdlib/crypto.afr`
 
 ## `std/process`
