@@ -599,6 +599,16 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
             if (method->returnsResult) needsResult = true;
         }
     }
+    for (const auto& module : program_.modules) {
+        for (const auto& func : module->functions) {
+            if (func->returnsResult) needsResult = true;
+        }
+        for (const auto& cls : module->classes) {
+            for (const auto& method : cls->methods) {
+                if (method->returnsResult) needsResult = true;
+            }
+        }
+    }
     if (needsResult) out << "#include \"result.hpp\"\n";
     if (!program_.externs.empty()) {
         out << "#include <cmath>\n";
@@ -2262,6 +2272,18 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
+        if (declaredVars_.count(id->name)) {
+            out << id->name;
+            return;
+        }
+        if (currentFunction_) {
+            for (const auto& param : currentFunction_->parameters) {
+                if (param.name == id->name) {
+                    out << id->name;
+                    return;
+                }
+            }
+        }
         for (const auto& modName : semantic_.usedModules) {
             auto modIt = semantic_.modules.find(modName);
             if (modIt != semantic_.modules.end() && modIt->second.functions.count(id->name)) {
