@@ -399,6 +399,9 @@ struct MatchExprArmNode {
     std::string caseName;
     MatchArmNode::CaseKind caseKind = MatchArmNode::CaseKind::Enum;
     std::vector<std::string> bindNames;
+    std::vector<std::string> orValues; // valeurs supplementaires (or-patterns)
+    std::string rangeLow;              // borne basse (CaseKind::Range)
+    std::string rangeHigh;             // borne haute (CaseKind::Range)
     std::unique_ptr<ExpressionNode> guard;
     bool isDefault = false;
     std::unique_ptr<ExpressionNode> value;
