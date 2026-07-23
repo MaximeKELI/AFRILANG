@@ -1,0 +1,15 @@
+module ratiox
+    function ratio(a number, b number) returns number
+        if b is equal to 0 then
+            return 0
+        end
+        return a / b
+    end
+
+    function invert(r number) returns number
+        if r is equal to 0 then
+            return 0
+        end
+        return 1 / r
+    end
+end

@@ -1,0 +1,6 @@
+name = "pathx"
+version = "0.1.0"
+description = "Path helpers (join, basename, isAbsolute)"
+main = "pathx.afr"
+license = "MIT"
+tags = ["path"]

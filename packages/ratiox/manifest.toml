@@ -1,0 +1,6 @@
+name = "ratiox"
+version = "0.1.0"
+description = "Ratio helpers"
+main = "ratiox.afr"
+license = "MIT"
+tags = ["math"]

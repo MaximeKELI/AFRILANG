@@ -1,0 +1,13 @@
+module jsonx
+    function quote(s text) returns text
+        return "\"" + s + "\""
+    end
+
+    function object1(key text, value text) returns text
+        return "{\"" + key + "\":\"" + value + "\"}"
+    end
+
+    function array2(a text, b text) returns text
+        return "[\"" + a + "\",\"" + b + "\"]"
+    end
+end

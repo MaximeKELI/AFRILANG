@@ -1,0 +1,6 @@
+name = "jsonx"
+version = "0.1.0"
+description = "JSON text helpers (quote, object, array)"
+main = "jsonx.afr"
+license = "MIT"
+tags = ["format", "text"]

@@ -34,6 +34,7 @@
                 <th>Nom</th>
                 <th>Version</th>
                 <th>Description</th>
+                <th>Tags</th>
                 <th>SHA256</th>
               </tr>
             </thead>
@@ -72,11 +73,13 @@
           ver.textContent = pkg.version || '';
           const desc = document.createElement('td');
           desc.textContent = pkg.description || '';
+          const tags = document.createElement('td');
+          tags.textContent = (pkg.tags || []).map(t => '#' + t).join(' ');
           const sha = document.createElement('td');
           sha.className = 'mono';
           sha.textContent = pkg.sha256 ? pkg.sha256.slice(0, 16) + '…' : '—';
           sha.title = pkg.sha256 || '';
-          tr.append(name, ver, desc, sha);
+          tr.append(name, ver, desc, tags, sha);
           body.appendChild(tr);
         }
         status.textContent = allPackages.length + ' paquet(s), ' +
@@ -103,6 +106,7 @@
             <span class="tag">v${p.version || '0.1.0'}</span>
           </div>
           <p>${p.description || ''}</p>
+          ${(p.tags && p.tags.length) ? `<p class="muted" style="margin-top:0.35rem">${p.tags.map(t => '#' + t).join(' ')}</p>` : ''}
           <code class="pkg-cmd">afrilang pkg add ${p.name}</code>
           ${p.sha256 ? `<p class="muted mono" style="font-size:0.72rem;margin-top:0.5rem" title="${p.sha256}">sha256: ${p.sha256.slice(0, 20)}…</p>` : ''}
         </article>
@@ -114,7 +118,8 @@
       const filtered = q
         ? allPackages.filter(p =>
             p.name.toLowerCase().includes(q) ||
-            (p.description || '').toLowerCase().includes(q))
+            (p.description || '').toLowerCase().includes(q) ||
+            (p.tags || []).some(t => String(t).toLowerCase().includes(q)))
         : allPackages;
       renderGrid(filtered);
     });

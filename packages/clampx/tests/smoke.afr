@@ -1,0 +1,9 @@
+import "pkg/clampx/clampx.afr"
+
+use clampx
+
+test "clampx"
+    assert clamp(15, 0, 10) is equal to 10
+    assert clamp(0 - 5, 0, 10) is equal to 0
+    assert clampInt(3, 1, 5) is equal to 3
+end

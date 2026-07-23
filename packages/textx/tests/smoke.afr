@@ -1,0 +1,9 @@
+import "pkg/textx/textx.afr"
+
+use textx
+
+test "textx"
+    assert isBlank("") is equal to true
+    assert nonEmpty("hi") is equal to true
+    assert label("k", "v") is equal to "k=v"
+end

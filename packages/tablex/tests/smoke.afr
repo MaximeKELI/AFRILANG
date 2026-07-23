@@ -1,0 +1,9 @@
+import "pkg/tablex/tablex.afr"
+
+use tablex
+
+test "tablex"
+    assert row("a", "b") is equal to "| a | b |"
+    assert separator(3) is equal to "+---+"
+    assert header("T") is equal to "# T"
+end

@@ -1,0 +1,13 @@
+module inix
+    function section(name text) returns text
+        return "[" + name + "]"
+    end
+
+    function keyValue(key text, value text) returns text
+        return key + "=" + value
+    end
+
+    function comment(msg text) returns text
+        return "; " + msg
+    end
+end

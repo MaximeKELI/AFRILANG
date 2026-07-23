@@ -1,0 +1,8 @@
+import "pkg/padx/padx.afr"
+
+use padx
+
+test "padx"
+    assert padLeft("7", 2, "0") is equal to "007"
+    assert padRight("x", 2, "-") is equal to "x--"
+end

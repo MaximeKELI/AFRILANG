@@ -1,0 +1,6 @@
+name = "slicekit"
+version = "0.1.0"
+description = "Text slice helpers via std/str"
+main = "slicekit.afr"
+license = "MIT"
+tags = ["text", "collections"]

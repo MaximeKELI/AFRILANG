@@ -1,0 +1,9 @@
+import "pkg/csvx/csvx.afr"
+
+use csvx
+
+test "csvx"
+    assert escape("x") is equal to "\"x\""
+    assert joinRow("a", "b", "c") is equal to "a,b,c"
+    assert cell("b", ",", "a") is equal to "a,b"
+end

@@ -1,0 +1,9 @@
+import "pkg/queryx/queryx.afr"
+
+use queryx
+
+test "queryx"
+    assert pair("q", "1") is equal to "q=1"
+    assert append("https://x", "q", "1") is equal to "https://x?q=1"
+    assert joinPairs("a=1", "b=2") is equal to "a=1&b=2"
+end

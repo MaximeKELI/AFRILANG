@@ -1,0 +1,10 @@
+import "pkg/mapx/mapx.afr"
+
+use mapx
+
+test "mapx"
+    assert entry("a", "1") is equal to "a=1"
+    assert getOr("", "x") is equal to "x"
+    assert getOr("y", "x") is equal to "y"
+    assert keyOf("a=1") is equal to "a"
+end

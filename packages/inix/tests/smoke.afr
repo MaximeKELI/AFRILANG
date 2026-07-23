@@ -1,0 +1,9 @@
+import "pkg/inix/inix.afr"
+
+use inix
+
+test "inix"
+    assert section("db") is equal to "[db]"
+    assert keyValue("port", "5432") is equal to "port=5432"
+    assert comment("note") is equal to "; note"
+end

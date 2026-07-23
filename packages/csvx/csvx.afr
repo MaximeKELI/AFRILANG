@@ -1,0 +1,13 @@
+module csvx
+    function escape(field text) returns text
+        return "\"" + field + "\""
+    end
+
+    function joinRow(a text, b text, c text) returns text
+        return a + "," + b + "," + c
+    end
+
+    function cell(row text, sep text, left text) returns text
+        return left + sep + row
+    end
+end

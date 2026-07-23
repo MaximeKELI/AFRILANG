@@ -1,0 +1,6 @@
+name = "tablex"
+version = "0.1.0"
+description = "ASCII table helpers"
+main = "tablex.afr"
+license = "MIT"
+tags = ["cli", "text"]

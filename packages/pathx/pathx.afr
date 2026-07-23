@@ -1,0 +1,29 @@
+import "std/prefix"
+use prefix
+import "std/str"
+use str
+
+module pathx
+    function joinPath(a text, b text) returns text
+        if a is equal to "" then
+            return b
+        end
+        if b is equal to "" then
+            return a
+        end
+        return a + "/" + b
+    end
+
+    function isAbsolute(p text) returns bool
+        return startsWith(p, "/")
+    end
+
+    function basename(p text) returns text
+        create parts = split(p, "/")
+        if length of parts is less than 1 then
+            return p
+        end
+        create i int = length of parts - 1
+        return parts at i
+    end
+end

@@ -1,0 +1,10 @@
+import "pkg/flagx/flagx.afr"
+
+use flagx
+
+test "flagx"
+    create args = list of "--name", "Ada", "--verbose"
+    assert hasFlag(args, "--verbose") is equal to true
+    assert hasFlag(args, "--quiet") is equal to false
+    assert flagValue(args, "--name") is equal to "Ada"
+end

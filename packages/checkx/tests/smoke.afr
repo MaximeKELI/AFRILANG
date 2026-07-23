@@ -1,0 +1,10 @@
+import "pkg/checkx/checkx.afr"
+
+use checkx
+
+test "checkx"
+    assert requireNonEmpty("ok") is equal to true
+    assert isBlank("") is equal to true
+    assert inBounds(5, 0, 10) is equal to true
+    assert inBounds(11, 0, 10) is equal to false
+end

@@ -1,0 +1,10 @@
+import "pkg/stopwatch/stopwatch.afr"
+
+use Swatch
+
+test "stopwatch"
+    create t = begin()
+    create t2 = pulse(t)
+    create t3 = pulse(t2)
+    assert elapsedTicks(t, t3) is equal to 2
+end

@@ -1,0 +1,6 @@
+name = "strx"
+version = "0.1.0"
+description = "String helpers (empty, join3, repeat)"
+main = "strx.afr"
+license = "MIT"
+tags = ["text"]

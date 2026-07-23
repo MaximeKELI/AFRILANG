@@ -1,0 +1,19 @@
+module checkx
+    function requireNonEmpty(s text) returns bool
+        return s is not equal to ""
+    end
+
+    function isBlank(s text) returns bool
+        return s is equal to ""
+    end
+
+    function inBounds(n number, low number, high number) returns bool
+        if n is less than low then
+            return false
+        end
+        if n is greater than high then
+            return false
+        end
+        return true
+    end
+end

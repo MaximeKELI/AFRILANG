@@ -1,0 +1,6 @@
+name = "mapx"
+version = "0.1.0"
+description = "Map-like text pairs (entry, getOr)"
+main = "mapx.afr"
+license = "MIT"
+tags = ["collections"]

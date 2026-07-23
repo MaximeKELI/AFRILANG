@@ -1,0 +1,16 @@
+import "std/unicode"
+use unicode
+
+module slicekit
+    function take(s text, n number) returns text
+        return slice(s, 0, n)
+    end
+
+    function drop(s text, n number) returns text
+        return slice(s, n, 100000)
+    end
+
+    function mid(s text, fromIdx number, toIdx number) returns text
+        return slice(s, fromIdx, toIdx)
+    end
+end

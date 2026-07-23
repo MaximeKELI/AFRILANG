@@ -1,0 +1,23 @@
+import "std/str"
+use str
+
+module mapx
+    function entry(key text, value text) returns text
+        return key + "=" + value
+    end
+
+    function getOr(value text, fallback text) returns text
+        if value is equal to "" then
+            return fallback
+        end
+        return value
+    end
+
+    function keyOf(pair text) returns text
+        create parts = split(pair, "=")
+        if length of parts is less than 1 then
+            return ""
+        end
+        return parts at 0
+    end
+end

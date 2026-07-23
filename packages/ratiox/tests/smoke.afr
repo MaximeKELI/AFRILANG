@@ -1,0 +1,8 @@
+import "pkg/ratiox/ratiox.afr"
+
+use ratiox
+
+test "ratiox"
+    assert ratio(10, 2) is equal to 5
+    assert invert(2) is equal to 0.5
+end

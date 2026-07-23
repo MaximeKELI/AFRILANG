@@ -1,0 +1,6 @@
+name = "checkx"
+version = "0.1.0"
+description = "Validation helpers"
+main = "checkx.afr"
+license = "MIT"
+tags = ["validate", "text"]

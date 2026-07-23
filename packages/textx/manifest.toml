@@ -1,0 +1,6 @@
+name = "textx"
+version = "0.1.0"
+description = "Text helpers (blank, nonEmpty, label)"
+main = "textx.afr"
+license = "MIT"
+tags = ["text"]

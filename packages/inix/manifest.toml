@@ -1,0 +1,6 @@
+name = "inix"
+version = "0.1.0"
+description = "INI text helpers (section, keyValue)"
+main = "inix.afr"
+license = "MIT"
+tags = ["format", "config"]

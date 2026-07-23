@@ -1,0 +1,10 @@
+import "pkg/strx/strx.afr"
+
+use strx
+
+test "strx"
+    assert isEmpty("") is equal to true
+    assert isEmpty("x") is equal to false
+    assert join3("a", "-", "b") is equal to "a-b"
+    assert repeat("ab", 3) is equal to "ababab"
+end

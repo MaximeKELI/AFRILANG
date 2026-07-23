@@ -1,0 +1,13 @@
+module Swatch
+    function begin() returns int
+        return 0
+    end
+
+    function pulse(t int) returns int
+        return t + 1
+    end
+
+    function elapsedTicks(started int, now int) returns int
+        return now - started
+    end
+end

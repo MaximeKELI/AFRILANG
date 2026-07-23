@@ -29,9 +29,29 @@ Guide web détaillé (bilingue) : `/docs/package-manager/`.
 ```bash
 afrilang init mon_app              # application
 afrilang init mon_lib --lib        # alias de pkg init
-afrilang pkg init mon_lib          # paquet bibliothèque
+afrilang pkg init mon_lib          # paquet bibliothèque (template lib)
+afrilang pkg init tool --template cli
+afrilang pkg init api  --template http
+afrilang pkg init game --template game
 cd mon_lib && afrilang pkg test    # self-vendor + tests/
 afrilang doc .                     # docs/api/
+```
+
+Templates `pkg init --template` :
+
+| Template | Contenu |
+|----------|---------|
+| `lib` (défaut) | module + `hello` + smoke |
+| `cli` | `run(args list text)` + smoke |
+| `http` | stubs textuels `get` / `post` / `header` |
+| `game` | `tick` / `addScore` + smoke |
+
+## Recherche
+
+```bash
+afrilang pkg search              # top blessed (tags inclus)
+afrilang pkg search math         # nom / description / tags
+afrilang pkg search --blessed    # restreindre aux blessed
 ```
 
 ## Dépendances
@@ -138,3 +158,23 @@ import pkg/math/math
 Outre les utilitaires historiques (`math`, `fmt`, `numcheck`, …), le registre local
 inclut notamment : `resultx`, `optionx`, `iterx`, `logx` (helpers Result/optionnel,
 plages, log textuel). Lister : `afrilang pkg list --blessed`.
+
+## Catalogue blessed par domaine
+
+| Domaine | Paquets | Tags typiques |
+|---------|---------|---------------|
+| Texte | `strings`, `strx`, `textx`, `padx`, `fmt`, `slicekit` | `text` |
+| Collections | `listx`, `mapx`, `iterx` | `collections` |
+| Chemins / env | `pathx`, `envx` | `path`, `env` |
+| Formats | `csvx`, `inix`, `jsonx`, `config` | `format`, `config` |
+| CLI / UX | `cli`, `flagx`, `tablex`, `bannerx`, `colors`, `logx` | `cli` |
+| Maths / métriques | `math`, `mathx`, `percentx`, `ratiox`, `clampx`, `numcheck`, `geometry`, `finance` | `math` |
+| Qualité | `checkx`, `validate`, `testing` | `validate`, `test` |
+| Temps | `datetime`, `timespan`, `stopwatch` | `time` |
+| Réseau / URL | `urlx`, `queryx` | `net`, `url` |
+| Lib / util | `resultx`, `optionx`, `uuid`, `semverx`, `backoff` | `lib`, `util` |
+
+Les manifests portent `license = "MIT"` et `tags = [...]` ; `afrilang pkg reindex`
+propage ces champs dans `packages/index.json` et `site/packages.json`.
+
+Apps multi-paquets d’exemple : `examples/apps/pkg_cli_tool`, `pkg_data_pipeline`, `pkg_webish`.

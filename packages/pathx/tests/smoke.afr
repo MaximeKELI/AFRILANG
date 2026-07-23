@@ -1,0 +1,10 @@
+import "pkg/pathx/pathx.afr"
+
+use pathx
+
+test "pathx"
+    assert joinPath("a", "b") is equal to "a/b"
+    assert isAbsolute("/tmp") is equal to true
+    assert isAbsolute("tmp") is equal to false
+    assert basename("a/b/c") is equal to "c"
+end

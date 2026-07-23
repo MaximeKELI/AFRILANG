@@ -1,0 +1,21 @@
+module padx
+    function padLeft(s text, count int, fill text) returns text
+        create out text = s
+        create i int = 0
+        while i is less than count do
+            set out = fill + out
+            set i = i + 1
+        end
+        return out
+    end
+
+    function padRight(s text, count int, fill text) returns text
+        create out text = s
+        create i int = 0
+        while i is less than count do
+            set out = out + fill
+            set i = i + 1
+        end
+        return out
+    end
+end

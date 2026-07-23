@@ -1,0 +1,6 @@
+name = "percentx"
+version = "0.1.0"
+description = "Percent helpers"
+main = "percentx.afr"
+license = "MIT"
+tags = ["math"]

@@ -1,0 +1,21 @@
+module clampx
+    function clamp(value number, low number, high number) returns number
+        if value is less than low then
+            return low
+        end
+        if value is greater than high then
+            return high
+        end
+        return value
+    end
+
+    function clampInt(value int, low int, high int) returns int
+        if value is less than low then
+            return low
+        end
+        if value is greater than high then
+            return high
+        end
+        return value
+    end
+end

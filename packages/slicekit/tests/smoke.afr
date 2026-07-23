@@ -1,0 +1,9 @@
+import "pkg/slicekit/slicekit.afr"
+
+use slicekit
+
+test "slicekit"
+    assert take("abcdef", 3) is equal to "abc"
+    assert drop("abcdef", 2) is equal to "cdef"
+    assert mid("abcdef", 1, 4) is equal to "bcd"
+end

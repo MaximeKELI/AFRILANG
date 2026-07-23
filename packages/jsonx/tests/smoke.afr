@@ -1,0 +1,9 @@
+import "pkg/jsonx/jsonx.afr"
+
+use jsonx
+
+test "jsonx"
+    assert quote("hi") is equal to "\"hi\""
+    assert object1("k", "v") is equal to "{\"k\":\"v\"}"
+    assert array2("a", "b") is equal to "[\"a\",\"b\"]"
+end

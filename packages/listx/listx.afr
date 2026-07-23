@@ -1,0 +1,20 @@
+module listx
+    function size(items list text) returns int
+        return length of items
+    end
+
+    function first(items list text) returns text
+        if length of items is less than 1 then
+            return ""
+        end
+        return items at 0
+    end
+
+    function last(items list text) returns text
+        if length of items is less than 1 then
+            return ""
+        end
+        create i int = length of items - 1
+        return items at i
+    end
+end

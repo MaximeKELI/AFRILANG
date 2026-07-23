@@ -1,0 +1,6 @@
+name = "padx"
+version = "0.1.0"
+description = "Pad text left/right"
+main = "padx.afr"
+license = "MIT"
+tags = ["text"]

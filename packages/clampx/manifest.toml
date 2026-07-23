@@ -1,0 +1,6 @@
+name = "clampx"
+version = "0.1.0"
+description = "Clamp numeric values"
+main = "clampx.afr"
+license = "MIT"
+tags = ["math"]

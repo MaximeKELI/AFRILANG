@@ -1,0 +1,6 @@
+name = "stopwatch"
+version = "0.1.0"
+description = "Textual tick counter / elapsed ticks"
+main = "stopwatch.afr"
+license = "MIT"
+tags = ["time"]
