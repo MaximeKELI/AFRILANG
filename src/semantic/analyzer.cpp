@@ -1617,6 +1617,62 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
         return AfrType::boolType();
     }
 
+    if (const auto* orElse = dynamic_cast<const OrElseExprNode*>(&expr)) {
+        AfrType valType = analyzeExpression(*orElse->value, scope);
+        AfrType fbType = analyzeExpression(*orElse->fallback, scope);
+        AfrType inner;
+        if (valType.kind == TypeKind::Optional) {
+            inner = valType.optionalInnerType();
+        } else if (valType.kind == TypeKind::Result) {
+            inner = valType.resultInnerType();
+        } else {
+            errorAt(expr, "'or else' requiert un optionnel ou un Result à gauche");
+        }
+        if (!isAssignable(inner, fbType) && !isAssignable(fbType, inner)) {
+            errorAt(expr, "La valeur de repli de 'or else' doit être de type " + inner.toTypeName());
+        }
+        return inner;
+    }
+
+    if (const auto* nav = dynamic_cast<const SafeNavExprNode*>(&expr)) {
+        AfrType objType = analyzeExpression(*nav->object, scope);
+        if (objType.kind != TypeKind::Optional) {
+            errorAt(expr, "'?.' requiert un optionnel à gauche (ex: personne?.nom)");
+        }
+        const AfrType inner = objType.optionalInnerType();
+        AfrType fieldType;
+        bool found = false;
+        if (inner.kind == TypeKind::Class) {
+            const ClassInfo* cls = findClass(inner.className);
+            if (cls) {
+                const ClassInfo* owner = cls;
+                if (const FieldInfo* field = findFieldWithOwner(*cls, nav->member, owner)) {
+                    fieldType = field->type;
+                    found = true;
+                } else if (const PropertyInfo* prop = findProperty(*cls, nav->member)) {
+                    fieldType = prop->type;
+                    found = true;
+                }
+            }
+        } else if (inner.kind == TypeKind::Record) {
+            const RecordInfo* rec = findRecord(inner.recordName);
+            if (rec) {
+                for (const auto& [fname, field] : rec->fields) {
+                    if (fname == nav->member) {
+                        fieldType = field.type;
+                        found = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (!found) {
+            errorAt(expr, "Membre '" + nav->member +
+                  "' introuvable pour la navigation sûre '?.'");
+        }
+        return AfrType::optionalType(fieldType);
+    }
+
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
         if (list->elements.empty()) {
             errorAt(expr, "Impossible d'inférer le type d'une liste vide");

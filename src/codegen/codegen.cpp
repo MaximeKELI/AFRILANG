@@ -2220,6 +2220,41 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         return;
     }
 
+    if (const auto* orElse = dynamic_cast<const OrElseExprNode*>(&expr)) {
+        const AfrType vt = inferExpressionAfrType(*orElse->value);
+        out << "([&]() { auto _oe = ";
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(orElse->value.get())) {
+            out << id->name; // optionnel/Result brut
+        } else {
+            emitExpression(out, *orElse->value, ownerClass);
+        }
+        out << "; return ";
+        if (vt.kind == TypeKind::Result) {
+            out << "_oe.isError ? (";
+            emitExpression(out, *orElse->fallback, ownerClass);
+            out << ") : _oe.value";
+        } else {
+            out << "_oe.has_value() ? _oe.value() : (";
+            emitExpression(out, *orElse->fallback, ownerClass);
+            out << ")";
+        }
+        out << "; }())";
+        return;
+    }
+
+    if (const auto* nav = dynamic_cast<const SafeNavExprNode*>(&expr)) {
+        const AfrType navType = inferExpressionAfrType(expr);
+        out << "([&]() -> " << navType.toCpp() << " { auto _sn = ";
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(nav->object.get())) {
+            out << id->name; // optionnel brut
+        } else {
+            emitExpression(out, *nav->object, ownerClass);
+        }
+        out << "; if (_sn.has_value()) return _sn.value()." << nav->member
+            << "; return std::nullopt; }())";
+        return;
+    }
+
     if (const auto* enumCase = dynamic_cast<const EnumCaseExprNode*>(&expr)) {
         out << enumCase->enumName << "::make_" << enumCase->caseName << "(";
         for (std::size_t i = 0; i < enumCase->arguments.size(); ++i) {

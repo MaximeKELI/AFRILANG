@@ -37,6 +37,11 @@ bool Parser::check(TokenType type) const {
     return peek().type == type;
 }
 
+bool Parser::checkNext(TokenType type) const {
+    if (current_ + 1 >= tokens_.size()) return false;
+    return tokens_[current_ + 1].type == type;
+}
+
 bool Parser::match(TokenType type) {
     if (check(type)) {
         advance();
@@ -1556,7 +1561,19 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
         return std::make_unique<BinaryOpNode>("&&", std::move(left), std::move(right));
     }
 
-    if (match(TokenType::Or)) {
+    if (check(TokenType::Or)) {
+        // `... or return` / `... or raise` : laisse le niveau instruction gerer (D3).
+        if (checkNext(TokenType::Return) || checkNext(TokenType::Raise)) {
+            return left;
+        }
+        // `x or else fallback` : valeur de repli pour optionnel/Result.
+        if (checkNext(TokenType::Else)) {
+            advance(); // or
+            advance(); // else
+            auto fallback = parseComparison();
+            return std::make_unique<OrElseExprNode>(std::move(left), std::move(fallback));
+        }
+        advance(); // or
         auto right = parseComparison();
         return std::make_unique<BinaryOpNode>("||", std::move(left), std::move(right));
     }
@@ -1914,6 +1931,12 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
                 continue;
             }
             callee = std::make_unique<MemberAccessNode>(std::move(callee), member.lexeme);
+            continue;
+        }
+
+        if (match(TokenType::QuestionDot)) {
+            const Token& member = consumeName("Nom de membre attendu après '?.'");
+            callee = std::make_unique<SafeNavExprNode>(std::move(callee), member.lexeme);
             continue;
         }
 

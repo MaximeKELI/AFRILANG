@@ -38,6 +38,8 @@ enum class TokenType {
     Dot, Equals, Comma, LeftParen, RightParen,
     LeftBracket, RightBracket,
     Question,
+    QuestionDot,
+    DotDot, DotDotLess,
     AngleOpen, AngleClose,
 
     // Fin de fichier
@@ -182,6 +184,9 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Show:           return "show";
         case TokenType::Clear:          return "clear";
         case TokenType::Question:       return "?";
+        case TokenType::QuestionDot:    return "?.";
+        case TokenType::DotDot:         return "..";
+        case TokenType::DotDotLess:     return "..<";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";
         case TokenType::NumberLiteral:  return "nombre";

@@ -31,6 +31,7 @@ private:
     const Token& previous() const;
     const Token& advance();
     bool check(TokenType type) const;
+    bool checkNext(TokenType type) const;
     bool match(TokenType type);
     bool matchOneOf(TokenType a, TokenType b);
     bool matchOneOf(TokenType a, TokenType b, TokenType c);

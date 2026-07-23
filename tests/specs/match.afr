@@ -3,6 +3,26 @@ enum Status
     case Error with message text
 end
 
+enum Color
+    case Red
+    case Green
+    case Blue
+end
+
+function half(n number) returns number or error
+    if n is equal to 0 then
+        return error "zero"
+    end
+    return n / 2
+end
+
+function maybe(n number) returns number?
+    if n is greater than 0 then
+        return n
+    end
+    return nothing
+end
+
 test "match ok"
     create s = Status.Ok
     create label = match s
@@ -23,4 +43,135 @@ test "match error payload"
         end
     end
     assert msg is equal to "failed"
+end
+
+test "wildcard enum"
+    create c = Color.Blue
+    create label = match c
+        case Red then "r"
+        end
+        case _ then "other"
+        end
+    end
+    assert label is equal to "other"
+end
+
+test "or-pattern enum"
+    create c = Color.Green
+    create label = match c
+        case Red or Green then "warm-ish"
+        end
+        case Blue then "cool"
+        end
+    end
+    assert label is equal to "warm-ish"
+end
+
+test "text or-pattern with wildcard"
+    create s = "b"
+    create label = match s
+        case "a" or "b" then "ab"
+        end
+        case _ then "z"
+        end
+    end
+    assert label is equal to "ab"
+end
+
+test "number range"
+    create n = 7
+    create label = match n
+        case 1 to 10 then "small"
+        end
+        case _ then "big"
+        end
+    end
+    assert label is equal to "small"
+end
+
+test "number or-pattern"
+    create n = 3
+    create label = match n
+        case 2 or 3 or 5 then "prime"
+        end
+        default "no"
+        end
+    end
+    assert label is equal to "prime"
+end
+
+test "bool match"
+    create flag = true
+    create label = match flag
+        case true then "yes"
+        end
+        case false then "no"
+        end
+    end
+    assert label is equal to "yes"
+end
+
+test "result ok binding"
+    create label = match half(10)
+        case ok v then v
+        end
+        case error m then 0 - 1
+        end
+    end
+    assert label is equal to 5
+end
+
+test "result error binding"
+    create label = match half(0)
+        case ok v then "ok"
+        end
+        case error m then m
+        end
+    end
+    assert label is equal to "zero"
+end
+
+test "optional value and nothing"
+    create a number? = maybe(9)
+    create label = match a
+        case value v then v
+        end
+        case nothing then 0 - 1
+        end
+    end
+    assert label is equal to 9
+
+    create b number? = maybe(0)
+    create label2 = match b
+        case value v then v
+        end
+        case nothing then 0 - 1
+        end
+    end
+    assert label2 is equal to 0 - 1
+end
+
+test "result statement form"
+    create total number = 0
+    match half(4)
+        case ok v then
+            set total = v
+        end
+        case error m then
+            set total = 0 - 1
+        end
+    end
+    assert total is equal to 2
+end
+
+test "guard with binding on result"
+    create label = match half(10)
+        case ok v if v is greater than 2 then "big"
+        end
+        case ok v then "small"
+        end
+        case error m then m
+        end
+    end
+    assert label is equal to "big"
 end

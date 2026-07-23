@@ -267,14 +267,33 @@ std::vector<Token> Lexer::tokenize() {
                         tokens.push_back(makeToken(TokenType::Slash, "/"));
                     }
                     break;
-                case '.': tokens.push_back(makeToken(TokenType::Dot, ".")); break;
+                case '.':
+                    if (peek() == '.') {
+                        advance();
+                        if (peek() == '<') {
+                            advance();
+                            tokens.push_back(makeToken(TokenType::DotDotLess, "..<"));
+                        } else {
+                            tokens.push_back(makeToken(TokenType::DotDot, ".."));
+                        }
+                    } else {
+                        tokens.push_back(makeToken(TokenType::Dot, "."));
+                    }
+                    break;
                 case '=': tokens.push_back(makeToken(TokenType::Equals, "=")); break;
                 case ',': tokens.push_back(makeToken(TokenType::Comma, ",")); break;
                 case '(': tokens.push_back(makeToken(TokenType::LeftParen, "(")); break;
                 case ')': tokens.push_back(makeToken(TokenType::RightParen, ")")); break;
                 case '[': tokens.push_back(makeToken(TokenType::LeftBracket, "[")); break;
                 case ']': tokens.push_back(makeToken(TokenType::RightBracket, "]")); break;
-                case '?': tokens.push_back(makeToken(TokenType::Question, "?")); break;
+                case '?':
+                    if (peek() == '.') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::QuestionDot, "?."));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::Question, "?"));
+                    }
+                    break;
                 case '<': tokens.push_back(makeToken(TokenType::AngleOpen, "<")); break;
                 case '>': tokens.push_back(makeToken(TokenType::AngleClose, ">")); break;
                 default:

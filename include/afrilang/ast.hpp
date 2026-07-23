@@ -196,6 +196,37 @@ struct IndexExpressionNode : ExpressionNode {
         : object(std::move(object)), index(std::move(index)) {}
 };
 
+// `x or else fallback` : valeur de repli pour un optionnel ou un Result.
+struct OrElseExprNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> value;
+    std::unique_ptr<ExpressionNode> fallback;
+
+    OrElseExprNode(std::unique_ptr<ExpressionNode> value,
+                   std::unique_ptr<ExpressionNode> fallback)
+        : value(std::move(value)), fallback(std::move(fallback)) {}
+};
+
+// `x?.field` : navigation sure sur un optionnel de record/classe (un niveau).
+struct SafeNavExprNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> object;
+    std::string member;
+
+    SafeNavExprNode(std::unique_ptr<ExpressionNode> object, std::string member)
+        : object(std::move(object)), member(std::move(member)) {}
+};
+
+// Littéral de plage numérique : `a..b` (inclusif) ou `a..<b` (exclusif).
+struct RangeExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> low;
+    std::unique_ptr<ExpressionNode> high;
+    bool inclusive = true;
+
+    RangeExpressionNode(std::unique_ptr<ExpressionNode> low,
+                        std::unique_ptr<ExpressionNode> high,
+                        bool inclusive)
+        : low(std::move(low)), high(std::move(high)), inclusive(inclusive) {}
+};
+
 struct LengthExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> object;
     explicit LengthExpressionNode(std::unique_ptr<ExpressionNode> object)
