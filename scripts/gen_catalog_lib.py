@@ -2,10 +2,16 @@
 """Shared helpers for stdlib catalog code generation."""
 
 from __future__ import annotations
+import json
 import os
 from typing import Callable
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Version du schéma du catalogue JSON externalisé. À incrémenter en cas de
+# changement de format. Doit correspondre à `kComplexCatalogVersion` dans
+# include/afrilang/complex_catalog.hpp (garde-fou anti-skew binaire/catalogue).
+CATALOG_JSON_VERSION = 1
 
 RESERVED_CPP = {
     "template", "class", "new", "delete", "private", "public", "protected",
@@ -126,6 +132,33 @@ def gen_catalog_cpp(
     lines.append("")
     lines.append("} // namespace afrilang")
     return "\n".join(lines)
+
+
+def gen_catalog_json(
+    modules: list[tuple],
+    header_field: str,
+    version: int = CATALOG_JSON_VERSION,
+) -> str:
+    """Émet le catalogue sous forme JSON compacte (miroir de StdlibModuleSpec).
+
+    Schéma :
+        {"version": N, "runtimeHeader": "...",
+         "modules": [{"import": "..", "name": "..",
+                      "funcs": [{"n": "..", "r": "..",
+                                 "p": [["pn", "pt"], ...]}]}]}
+    """
+    mods = []
+    for import_name, use_name, funcs in modules:
+        fl = []
+        for fname, ret, params, _body in funcs:
+            fl.append({
+                "n": fname,
+                "r": ret or "",
+                "p": [[pn, pt] for pn, pt in params],
+            })
+        mods.append({"import": import_name, "name": use_name, "funcs": fl})
+    doc = {"version": version, "runtimeHeader": header_field, "modules": mods}
+    return json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
 
 
 def gen_afr_stubs(modules: list[tuple], subdir: str) -> None:

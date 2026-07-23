@@ -1,5 +1,7 @@
 import "std/unicode"
 
+use unicode
+
 test "byte vs codepoint length"
     create s = "café"
     assert byteLength(s) is equal to 5

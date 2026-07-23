@@ -1,6 +1,9 @@
 import "std/yaml"
 import "std/json"
 
+use yaml
+use json
+
 test "nested mapping"
     create doc json = yaml.parse("name: AFRILANG\nversion: 3\nnested:\n  a: 1\n  b: hello\n")
     assert json.getString(doc, "name") is equal to "AFRILANG"

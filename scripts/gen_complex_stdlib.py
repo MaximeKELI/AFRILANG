@@ -11,6 +11,7 @@ from gen_catalog_lib import (
     ROOT,
     gen_runtime,
     gen_catalog_cpp,
+    gen_catalog_json,
     gen_afr_stubs,
     gen_docs,
 )
@@ -4423,16 +4424,13 @@ def main() -> None:
     with open(runtime_path, "w", encoding="utf-8") as f:
         f.write(runtime_src)
 
-    catalog_cpp = os.path.join(ROOT, "src", "utils", "complex_catalog.cpp")
-    with open(catalog_cpp, "w", encoding="utf-8") as f:
-        f.write(gen_catalog_cpp(
-            MODULES,
-            "kComplexModules",
-            "kComplexModuleCount",
-            "complexCatalogFindModule",
-            "complexCatalogIsComplexModule",
-            "cx/complex_libs.hpp",
-        ))
+    # Le catalogue complexe n'est plus compilé dans le binaire : il est chargé
+    # paresseusement depuis un JSON (voir src/utils/catalog_loader.cpp).
+    catalog_dir = os.path.join(ROOT, "share", "afrilang", "catalog")
+    os.makedirs(catalog_dir, exist_ok=True)
+    catalog_json = os.path.join(catalog_dir, "complex.json")
+    with open(catalog_json, "w", encoding="utf-8") as f:
+        f.write(gen_catalog_json(MODULES, "cx/complex_libs.hpp"))
 
     gen_afr_stubs(MODULES, "c")
     gen_docs(MODULES, "Bibliothèques complexes AFRILANG", "std/c/", "docs/STDLIB_COMPLEX.md")
