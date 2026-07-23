@@ -810,13 +810,20 @@ Commandes : `:help`, `:reset`, `:show`, `:run`, `:load fichier.afr`, `:type expr
 
 ## Foreign Function Interface (FFI)
 
+> **Trust boundary (unsafe):** `extern` leaves the AFRILANG memory/safety contract.
+> See `docs/MEMORY_MODEL.md` and `docs/NORMATIVE.md` §9.
+
 ```afr
 extern from "m" function sin(x number) returns number
 ```
 
-Bibliothèques autorisées : `m`, `pthread`, `dl`, `curl`, `c`.
+Bibliothèques autorisées (allowlist compile-time) : `m`, `pthread`, `dl`, `curl`, `c`.
 
-Types FFI : `number` → `double`, `text` → `const char*`, `bool`, `pointer`.
+Types FFI : `number` → `double`, `text` → `const char*`, `bool`, `pointer` (`void*`).
+
+En mode sécurisé par défaut, FFI est refusé sauf `AFRILANG_ALLOW_FFI=1`
+(ou `AFRILANG_INSECURE=1`). Les pointeurs et `const char*` **ne sont pas**
+couverts par les garanties de bornes / optionnels du langage.
 
 ## Identifiants et encodage
 

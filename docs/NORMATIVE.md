@@ -42,12 +42,14 @@ Companion documents:
 
 1. Reading `list at i` when `i < 0` or `i >= length` **MUST** throw a catchable error
    whose message **MUST** be exactly `list index out of bounds`.
+   (Negative indices **MUST NOT** wrap via unsigned conversion.)
 2. Writing `set list at i = …` out of range **MUST** throw the same message.
 3. Reading `map at k` when `k` is absent **MUST** throw a catchable error whose message
    **MUST** be exactly `map key not found`.
 4. Writing `set map at k = …` **MUST** insert or replace (no throw solely for absence).
-5. List slices out of range **MUST** throw `list slice out of bounds`.
-
+5. List slices with negative bounds, `start > end`, or `end > length` **MUST** throw
+   `list slice out of bounds`.
+6. Codegen **MUST NOT** emit unchecked `operator[]` for language-level list/map indexing.
 Conformance: `tests/conformance/bounds.afr`.
 
 ---
@@ -97,11 +99,26 @@ Conformance: `tests/conformance/generics_constraints.afr` (+ unit negative tests
 
 ## 8. Conformance suite
 
-1. The directory `tests/conformance/` **MUST** be executable via:
+1. The directory `tests/conformance/` (positive `.afr`, excluding `negative/`) **MUST** be
+   executable via:
    - `afrilang test --conformance`
    - and included in `afrilang test --specs`
-2. A claim of “AFRILANG 1.0 conformance (product)” **MUST NOT** be published unless the
-   suite passes on the claimed platform.
-3. Passing the suite **MUST NOT** be described as “ISO certified” or “ISO conformant”.
+2. Negative cases under `tests/conformance/negative/` **MUST** be rejected by
+   `afrilang check` (see `scripts/check_conformance_negative.sh`).
+3. A claim of “AFRILANG 1.0 conformance (product)” **MUST NOT** be published unless the
+   positive suite and negative harness pass on the claimed platform.
+4. Passing the suite **MUST NOT** be described as “ISO certified” or “ISO conformant”.
 
 Manifest: `tests/conformance/MANIFEST.md`.
+
+---
+
+## 9. FFI trust boundary (unsafe)
+
+1. `extern from "lib"` **MUST** be treated as leaving the language safety contract.
+2. In secure mode, FFI **MUST** require an explicit allow (`AFRILANG_ALLOW_FFI=1`) or
+   insecure mode; unknown library names **MUST** be rejected.
+3. Types `pointer` / `text`→`const char*` **MUST NOT** be claimed memory-safe by this
+   product norm.
+4. Implementations **SHOULD** document FFI as an auditable unsafe boundary (see
+   `MEMORY_MODEL.md`).

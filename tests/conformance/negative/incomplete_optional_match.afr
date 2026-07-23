@@ -1,0 +1,11 @@
+# MUST fail: optional match missing nothing arm
+function maybe(n number) returns number?
+    return n
+end
+
+create a = maybe(1)
+match a
+    case value v
+        say v
+    end
+end

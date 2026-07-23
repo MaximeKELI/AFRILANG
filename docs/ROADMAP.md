@@ -52,5 +52,6 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] Suite conformité élargie + `afrilang test --conformance`
 - [x] Unwrap optionnel / Result `.value` → erreurs catchables stables
 - [x] `AFRILANG_SANITIZE` + CI conformance
+- [x] Indices signés + pas de `operator[]` non vérifié ; harness négatif ; FFI trust boundary
 - [x] Re-score audit canvas (critiques atténuées, pas « certifié ISO »)
 

@@ -1,0 +1,4 @@
+# MUST fail: indexing on non-list/non-map
+create n = 3
+create v = n at 0
+say v

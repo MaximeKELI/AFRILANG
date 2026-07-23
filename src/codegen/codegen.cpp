@@ -1566,9 +1566,14 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             emitExpression(out, *idxAssign->object, ownerClass);
             out << ";\n";
             indent(out, indentLevel + 1);
-            out << "const std::size_t _afr_i = static_cast<std::size_t>(";
+            out << "const long long _afr_i64 = static_cast<long long>(";
             emitExpression(out, *idxAssign->index, ownerClass);
             out << ");\n";
+            indent(out, indentLevel + 1);
+            out << "if (_afr_i64 < 0) "
+                   "throw std::out_of_range(\"list index out of bounds\");\n";
+            indent(out, indentLevel + 1);
+            out << "const std::size_t _afr_i = static_cast<std::size_t>(_afr_i64);\n";
             indent(out, indentLevel + 1);
             out << "if (_afr_i >= _afr_lst.size()) "
                    "throw std::out_of_range(\"list index out of bounds\");\n";
@@ -2596,18 +2601,24 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
         const AfrType containerType = inferExpressionAfrType(*index->object);
         if (containerType.kind == TypeKind::Generator) {
+            out << "([&]() -> decltype(auto) { const auto& _afr_g = ";
             emitExpression(out, *index->object, ownerClass);
-            out << ".at(static_cast<std::size_t>(";
+            out << "; const long long _afr_i64 = static_cast<long long>(";
             emitExpression(out, *index->index, ownerClass);
-            out << "))";
+            out << "); if (_afr_i64 < 0) "
+                   "throw std::out_of_range(\"list index out of bounds\"); "
+                   "return _afr_g.at(static_cast<std::size_t>(_afr_i64)); })()";
             return;
         }
         if (containerType.kind == TypeKind::List) {
             out << "([&]() -> decltype(auto) { const auto& _afr_lst = ";
             emitExpression(out, *index->object, ownerClass);
-            out << "; const std::size_t _afr_i = static_cast<std::size_t>(";
+            out << "; const long long _afr_i64 = static_cast<long long>(";
             emitExpression(out, *index->index, ownerClass);
-            out << "); if (_afr_i >= _afr_lst.size()) "
+            out << "); if (_afr_i64 < 0) "
+                   "throw std::out_of_range(\"list index out of bounds\"); "
+                   "const std::size_t _afr_i = static_cast<std::size_t>(_afr_i64); "
+                   "if (_afr_i >= _afr_lst.size()) "
                    "throw std::out_of_range(\"list index out of bounds\"); "
                    "return _afr_lst[_afr_i]; })()";
             return;
@@ -2623,10 +2634,8 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                    "return _afr_it->second; })()";
             return;
         }
-        emitExpression(out, *index->object, ownerClass);
-        out << "[";
-        emitExpression(out, *index->index, ownerClass);
-        out << "]";
+        // Semantic analysis rejects other containers; never emit unchecked operator[].
+        out << "afrilang::runtime::IndexingUnsupported{}";
         return;
     }
 
@@ -2635,11 +2644,15 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         const AfrType elemType = listType.listElementType();
         out << "([&]() { const auto& _afr_lst = ";
         emitExpression(out, *slice->object, ownerClass);
-        out << "; const std::size_t _afr_s = static_cast<std::size_t>(";
+        out << "; const long long _afr_s64 = static_cast<long long>(";
         emitExpression(out, *slice->start, ownerClass);
-        out << "); const std::size_t _afr_e = static_cast<std::size_t>(";
+        out << "); const long long _afr_e64 = static_cast<long long>(";
         emitExpression(out, *slice->end, ownerClass);
-        out << "); if (_afr_s > _afr_e || _afr_e > _afr_lst.size()) "
+        out << "); if (_afr_s64 < 0 || _afr_e64 < 0 || _afr_s64 > _afr_e64) "
+               "throw std::out_of_range(\"list slice out of bounds\"); "
+               "const std::size_t _afr_s = static_cast<std::size_t>(_afr_s64); "
+               "const std::size_t _afr_e = static_cast<std::size_t>(_afr_e64); "
+               "if (_afr_e > _afr_lst.size()) "
                "throw std::out_of_range(\"list slice out of bounds\"); "
                "return std::vector<" << elemType.toCpp()
             << ">(_afr_lst.begin() + _afr_s, _afr_lst.begin() + _afr_e); })()";

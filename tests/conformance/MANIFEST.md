@@ -2,21 +2,29 @@
 
 See `docs/NORMATIVE.md`. This is **not** an ISO certification suite.
 
+## Positive (must run / pass)
+
 | File | Normative clauses | Kind |
 |------|-------------------|------|
-| `bounds.afr` | §3 Indexing / slices | runtime |
+| `bounds.afr` | §3 Indexing / slices (incl. negative index) | runtime |
 | `optional_access.afr` | §4 Optionals | runtime |
 | `result_access.afr` | §5 Result | runtime |
 | `generics_constraints.afr` | §6 Generics constraints | runtime |
 | `exceptions_catch.afr` | §7 Exceptions | runtime |
 
-Negative (compile-time) cases for §6 live in `tests/test_compiler.cpp`
-(`testGenericConstraintRejectsText`).
+## Negative (must reject)
+
+| File | Clause | Expectation |
+|------|--------|-------------|
+| `negative/bad_constraint.afr` | §6 | semantic reject |
+| `negative/bad_index_type.afr` | §3 | semantic reject |
+| `negative/incomplete_optional_match.afr` | §4 / match | semantic reject |
+
+Harness: `scripts/check_conformance_negative.sh`
 
 Run:
 
 ```bash
 ./build/afrilang test --conformance
-# or
-./build/afrilang test --specs   # includes this directory
+bash scripts/check_conformance_negative.sh
 ```

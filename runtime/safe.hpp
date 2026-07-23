@@ -23,5 +23,13 @@ T optionalRequire(std::optional<T>&& opt) {
     return *std::move(opt);
 }
 
+/** Convertible to any T; always throws. Used when codegen must not emit unchecked []. */
+struct IndexingUnsupported {
+    template<typename T>
+    [[noreturn]] operator T() const {
+        throw std::logic_error("indexing unsupported");
+    }
+};
+
 } // namespace runtime
 } // namespace afrilang

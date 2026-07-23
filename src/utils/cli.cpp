@@ -694,6 +694,13 @@ static int runProjectTests(const fs::path& projectDir, bool coverage) {
     return failures == 0 ? 0 : 1;
 }
 
+static bool isConformanceNegativePath(const fs::path& path) {
+    for (const auto& part : path) {
+        if (part == "negative") return true;
+    }
+    return false;
+}
+
 static int runSpecsSuite(const fs::path& root, bool coverage) {
     std::vector<fs::path> files;
     for (const char* sub : {"tests/specs", "tests/stdlib", "tests/conformance"}) {
@@ -702,7 +709,9 @@ static int runSpecsSuite(const fs::path& root, bool coverage) {
         for (const auto& entry : fs::recursive_directory_iterator(
                  dir, fs::directory_options::skip_permission_denied)) {
             if (!entry.is_regular_file()) continue;
-            if (entry.path().extension() == ".afr") files.push_back(entry.path());
+            if (entry.path().extension() != ".afr") continue;
+            if (isConformanceNegativePath(entry.path())) continue;
+            files.push_back(entry.path());
         }
     }
     std::sort(files.begin(), files.end());
@@ -752,7 +761,9 @@ static int runConformanceSuite(const fs::path& root, bool coverage) {
         for (const auto& entry : fs::recursive_directory_iterator(
                  dir, fs::directory_options::skip_permission_denied)) {
             if (!entry.is_regular_file()) continue;
-            if (entry.path().extension() == ".afr") files.push_back(entry.path());
+            if (entry.path().extension() != ".afr") continue;
+            if (isConformanceNegativePath(entry.path())) continue;
+            files.push_back(entry.path());
         }
     }
     std::sort(files.begin(), files.end());

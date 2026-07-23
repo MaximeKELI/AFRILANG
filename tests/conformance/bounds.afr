@@ -10,6 +10,19 @@ test "list at throws on oob"
     assert caught is equal to "list index out of bounds"
 end
 
+test "list at throws on negative"
+    create xs = list of 1, 2, 3
+    create caught text = ""
+    try
+        create v = xs at 0 - 1
+        set caught = "nope"
+        say v
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "list index out of bounds"
+end
+
 test "list set throws on oob"
     create xs = list of 1, 2
     create caught text = ""
@@ -28,6 +41,7 @@ test "map at throws on missing key"
     try
         create v = m at "missing"
         set caught = "nope"
+        say v
     catch error e
         set caught = e
     end

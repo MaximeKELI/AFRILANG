@@ -34,8 +34,12 @@ Reduce **language-surface** undefined behavior for everyday programs:
 - Optional local: `AFRILANG_SANITIZE=1` adds `-fsanitize=address,undefined` to host flags
   (requires `AFRILANG_INSECURE=1` at run time because ASan needs large virtual address space).
 
-## Residual risk
+## FFI trust boundary
 
-Any AFRILANG program that relies on undefined C++ behavior introduced outside the
-checked surfaces above remains unsafe. Treat this document as a **mitigation map**,
-not a certification.
+`extern` is the intentional **unsafe** escape hatch:
+
+- Opt-in under secure mode (`AFRILANG_ALLOW_FFI=1`)
+- Compile-time library allowlist
+- `pointer` / `const char*` are raw host types — no AFRILANG bounds/optional guarantees
+
+This mirrors the role of `unsafe` in other languages: **label and quarantine**, not eliminate.
