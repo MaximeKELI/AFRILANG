@@ -2,3 +2,5 @@ name = "iterx"
 version = "0.1.0"
 description = "Utilitaires plages / somme"
 main = "iterx.afr"
+license = "MIT"
+tags = ["collections", "math"]

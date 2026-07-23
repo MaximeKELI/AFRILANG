@@ -2,3 +2,5 @@ name = "colors"
 version = "0.1.0"
 description = "ANSI color helpers"
 main = "colors.afr"
+license = "MIT"
+tags = ["cli", "text"]

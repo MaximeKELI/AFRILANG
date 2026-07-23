@@ -2,3 +2,5 @@ name = "temperature"
 version = "0.1.0"
 description = "Temperature unit conversions"
 main = "temperature.afr"
+license = "MIT"
+tags = ["math", "science"]

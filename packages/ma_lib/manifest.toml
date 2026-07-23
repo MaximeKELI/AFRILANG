@@ -2,3 +2,5 @@ name = "ma_lib"
 version = "0.1.0"
 description = "Paquet AFRILANG ma_lib"
 main = "ma_lib.afr"
+license = "MIT"
+tags = ["lib"]

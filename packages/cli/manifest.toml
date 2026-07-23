@@ -2,3 +2,5 @@ name = "cli"
 version = "0.1.0"
 description = "CLI helpers (colors, banners)"
 main = "cli.afr"
+license = "MIT"
+tags = ["cli"]

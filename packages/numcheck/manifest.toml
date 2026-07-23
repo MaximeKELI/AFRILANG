@@ -2,3 +2,5 @@ name = "numcheck"
 version = "0.1.0"
 description = "Numeric predicates (even, odd, sign, range)"
 main = "numcheck.afr"
+license = "MIT"
+tags = ["math"]

@@ -2,3 +2,5 @@ name = "strings"
 version = "0.1.0"
 description = "String helpers (replicate, upper, lower)"
 main = "strings.afr"
+license = "MIT"
+tags = ["text"]

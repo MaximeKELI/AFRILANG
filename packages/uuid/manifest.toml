@@ -2,3 +2,5 @@ name = "uuid"
 version = "0.1.0"
 description = "UUID helpers"
 main = "uuid.afr"
+license = "MIT"
+tags = ["util"]

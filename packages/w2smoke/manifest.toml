@@ -2,3 +2,5 @@ name = "w2smoke"
 version = "0.1.0"
 description = "Paquet AFRILANG w2smoke"
 main = "w2smoke.afr"
+license = "MIT"
+tags = ["test"]

@@ -2,3 +2,5 @@ name = "validate"
 version = "0.1.0"
 description = "Validation helpers"
 main = "validate.afr"
+license = "MIT"
+tags = ["text", "validate"]

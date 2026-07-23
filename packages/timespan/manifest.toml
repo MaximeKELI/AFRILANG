@@ -2,3 +2,5 @@ name = "timespan"
 version = "0.1.0"
 description = "Time duration conversions"
 main = "timespan.afr"
+license = "MIT"
+tags = ["time"]

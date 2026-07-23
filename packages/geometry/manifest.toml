@@ -2,3 +2,5 @@ name = "geometry"
 version = "0.1.0"
 description = "Basic 2D/3D geometry area and volume helpers"
 main = "geometry.afr"
+license = "MIT"
+tags = ["math", "geometry"]

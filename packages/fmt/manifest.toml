@@ -2,3 +2,5 @@ name = "fmt"
 version = "0.1.0"
 description = "Formatting helpers"
 main = "fmt.afr"
+license = "MIT"
+tags = ["text", "fmt"]

@@ -2,3 +2,5 @@ name = "config"
 version = "0.1.0"
 description = "Simple config helpers"
 main = "config.afr"
+license = "MIT"
+tags = ["config", "text"]
