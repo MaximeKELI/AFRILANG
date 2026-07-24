@@ -1,0 +1,20 @@
+import "std/c/mlentropy"
+import "std/c/mlkldiv"
+use mlentropy
+use mlkldiv
+
+test "entropy extremes"
+    create sure = list of 1, 0, 0
+    create uniform = normalizeProbs(list of 1, 1, 1)
+    assert entropy(sure) is equal to 0
+    assert entropy(uniform) is greater than 1
+    assert maxEntropy(3) is greater than 1
+end
+
+test "kl and js"
+    create p = list of 0.5, 0.5
+    create q = list of 0.9, 0.1
+    assert klDiv(p, p) is equal to 0
+    assert jsDiv(p, q) is greater than 0
+    assert hellinger(p, q) is greater than 0
+end

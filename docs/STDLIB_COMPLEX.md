@@ -493,8 +493,8 @@
 `import "std/c/mlnaivebayes"` · `use mlnaivebayes`
 
 - `classPrior(labels list number, cls number) → number`
-- `featureMean(features list number, labels list number, cls number, feat number) → number`
-- `featureVar(features list number, labels list number, cls number) → number`
+- `featureMean(trainX list number, labels list number, cls number, feat number, dims number) → number`
+- `featureVar(trainX list number, labels list number, cls number, feat number, dims number) → number`
 - `gaussianLikelihood(x number, mu number, sigma number) → number`
 - `predictClass(features list number, trainX list number, trainY list number, numClasses number) → number`
 - `logPosterior(features list number, trainX list number, trainY list number, cls number) → number`
@@ -1891,37 +1891,31 @@
 
 `import "std/c/nlptoken"` · `use nlptoken`
 
-- `tokeLen(s text) → number`
-- `tokeUpper(s text) → text`
-- `tokeLower(s text) → text`
-- `tokeTrim(s text) → text`
-- `tokeSplit(s text, delim text) → list text`
-- `tokeJoin(parts list text, delim text) → text`
-- `tokeReplace(s text, from text, to text) → text`
+- `tokenize(s text) → list text`
+- `tokenCount(s text) → number`
+- `uniqueTokens(s text) → list text`
+- `joinTokens(parts list text, delim text) → text`
+- `hasToken(s text, term text) → bool`
+- `tokenAt(s text, index number) → text`
 
 ## std/c/nlpngram
 
 `import "std/c/nlpngram"` · `use nlpngram`
 
-- `ngraLen(s text) → number`
-- `ngraUpper(s text) → text`
-- `ngraLower(s text) → text`
-- `ngraTrim(s text) → text`
-- `ngraSplit(s text, delim text) → list text`
-- `ngraJoin(parts list text, delim text) → text`
-- `ngraReplace(s text, from text, to text) → text`
+- `charNgrams(s text, n number) → list text`
+- `wordNgrams(s text, n number) → list text`
+- `ngramCount(s text, n number) → number`
+- `ngramJaccard(a text, b text, n number) → number`
 
 ## std/c/nlpbow
 
 `import "std/c/nlpbow"` · `use nlpbow`
 
-- `bowLen(s text) → number`
-- `bowUpper(s text) → text`
-- `bowLower(s text) → text`
-- `bowTrim(s text) → text`
-- `bowSplit(s text, delim text) → list text`
-- `bowJoin(parts list text, delim text) → text`
-- `bowReplace(s text, from text, to text) → text`
+- `bagOfWords(doc text, vocab list text) → list number`
+- `vocabFrom(docs list text) → list text`
+- `bowDot(a list number, b list number) → number`
+- `bowCosine(a list number, b list number) → number`
+- `termFrequency(doc text, term text) → number`
 
 ## std/c/nlpstop
 

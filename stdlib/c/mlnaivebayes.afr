@@ -4,10 +4,10 @@ module mlnaivebayes
 function classPrior(labels list number, cls number) returns number
 end
 
-function featureMean(features list number, labels list number, cls number, feat number) returns number
+function featureMean(trainX list number, labels list number, cls number, feat number, dims number) returns number
 end
 
-function featureVar(features list number, labels list number, cls number) returns number
+function featureVar(trainX list number, labels list number, cls number, feat number, dims number) returns number
 end
 
 function gaussianLikelihood(x number, mu number, sigma number) returns number

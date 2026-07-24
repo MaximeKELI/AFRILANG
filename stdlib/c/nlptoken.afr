@@ -1,25 +1,22 @@
 // experimental catalog — IDE signatures only (not core runtime)
 module nlptoken
 
-function tokeLen(s text) returns number
+function tokenize(s text) returns list text
 end
 
-function tokeUpper(s text) returns text
+function tokenCount(s text) returns number
 end
 
-function tokeLower(s text) returns text
+function uniqueTokens(s text) returns list text
 end
 
-function tokeTrim(s text) returns text
+function joinTokens(parts list text, delim text) returns text
 end
 
-function tokeSplit(s text, delim text) returns list text
+function hasToken(s text, term text) returns bool
 end
 
-function tokeJoin(parts list text, delim text) returns text
-end
-
-function tokeReplace(s text, from text, to text) returns text
+function tokenAt(s text, index number) returns text
 end
 
 end

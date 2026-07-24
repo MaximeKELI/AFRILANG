@@ -1,25 +1,16 @@
 // experimental catalog — IDE signatures only (not core runtime)
 module nlpngram
 
-function ngraLen(s text) returns number
+function charNgrams(s text, n number) returns list text
 end
 
-function ngraUpper(s text) returns text
+function wordNgrams(s text, n number) returns list text
 end
 
-function ngraLower(s text) returns text
+function ngramCount(s text, n number) returns number
 end
 
-function ngraTrim(s text) returns text
-end
-
-function ngraSplit(s text, delim text) returns list text
-end
-
-function ngraJoin(parts list text, delim text) returns text
-end
-
-function ngraReplace(s text, from text, to text) returns text
+function ngramJaccard(a text, b text, n number) returns number
 end
 
 end

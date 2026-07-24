@@ -1508,10 +1508,15 @@ cx('mlkmeans', [
      '{int K=static_cast<int>(k);std::vector<double> sz(K,0);for(double l:labels){int c=static_cast<int>(l);if(c>=0&&c<K)sz[c]+=1;}return sz;}'),
     ('silhouetteSample', 'number', [('points', 'list number'), ('labels', 'list number'), ('idx', 'number'), ('dims', 'number')],
      '{int D=static_cast<int>(dims),p=static_cast<int>(idx),K=0;for(double l:labels)K=std::max(K,static_cast<int>(l)+1);int c=static_cast<int>(labels[static_cast<std::size_t>(p)]);double a=0,b=1e18;for(int q=0;q<static_cast<int>(labels.size());++q){if(q==p)continue;double dist=0;for(int d=0;d<D;++d){double diff=points[static_cast<std::size_t>(p*D+d)]-points[static_cast<std::size_t>(q*D+d)];dist+=diff*diff;}dist=std::sqrt(dist);if(static_cast<int>(labels[static_cast<std::size_t>(q)])==c)a+=dist;else b=std::min(b,dist);}int same=0;for(int q=0;q<static_cast<int>(labels.size());++q)if(q!=p&&static_cast<int>(labels[static_cast<std::size_t>(q)])==c)++same;a=same>0?a/same:0;return std::max(a,b)<1e-12?0:(b-a)/std::max(a,b);}'),
+    # Elbow = k with largest inertia drop vs k-1 (not argmin inertia → always maxK).
     ('elbowK', 'number', [('points', 'list number'), ('maxK', 'number'), ('dims', 'number')],
-     '{int mk=static_cast<int>(maxK);double bestK=1,bestIn=1e18;for(int k=1;k<=mk;++k){auto c=kmeans(points,static_cast<double>(k),dims);double in=inertia(points,c,dims);if(in<bestIn){bestIn=in;bestK=k;}}return bestK;}'),
+     '{int mk=static_cast<int>(maxK);if(mk<=1)return 1;'
+     'auto c1=kmeans(points,1,dims);double prev=inertia(points,c1,dims);'
+     'double bestK=1,bestDrop=-1;'
+     'for(int k=2;k<=mk;++k){auto c=kmeans(points,static_cast<double>(k),dims);double in=inertia(points,c,dims);'
+     'double drop=prev-in;if(drop>bestDrop){bestDrop=drop;bestK=k;}prev=in;}'
+     'return bestK;}'),
 ])
-
 cx('mllinear', [
     ('dot', 'number', [('a', 'list number'), ('b', 'list number')],
      '{if(a.size()!=b.size())return 0;double s=0;for(std::size_t i=0;i<a.size();++i)s+=a[i]*b[i];return s;}'),
@@ -1530,18 +1535,33 @@ cx('mllinear', [
 cx('mlnaivebayes', [
     ('classPrior', 'number', [('labels', 'list number'), ('cls', 'number')],
      '{int c=0;for(double l:labels)if(static_cast<int>(l)==static_cast<int>(cls))++c;return labels.empty()?0:static_cast<double>(c)/labels.size();}'),
-    ('featureMean', 'number', [('features', 'list number'), ('labels', 'list number'), ('cls', 'number'), ('feat', 'number')],
-     '{double s=0;int c=0;for(std::size_t i=0;i<labels.size()&&i<features.size();++i)if(static_cast<int>(labels[i])==static_cast<int>(cls)){s+=features[i];++c;}return c==0?0:s/c;}'),
-    ('featureVar', 'number', [('features', 'list number'), ('labels', 'list number'), ('cls', 'number')],
-     '{double m=featureMean(features,labels,cls,0),s=0;int c=0;for(std::size_t i=0;i<labels.size()&&i<features.size();++i)if(static_cast<int>(labels[i])==static_cast<int>(cls)){s+=(features[i]-m)*(features[i]-m);++c;}return c<2?1:s/(c-1);}'),
+    # trainX is row-major [n*dims]; feat is column index.
+    ('featureMean', 'number', [('trainX', 'list number'), ('labels', 'list number'), ('cls', 'number'), ('feat', 'number'), ('dims', 'number')],
+     '{int D=static_cast<int>(dims),f=static_cast<int>(feat);if(D<=0||f<0||f>=D)return 0;'
+     'double s=0;int c=0;for(std::size_t i=0;i<labels.size();++i)if(static_cast<int>(labels[i])==static_cast<int>(cls)){'
+     'std::size_t idx=i*static_cast<std::size_t>(D)+static_cast<std::size_t>(f);if(idx<trainX.size()){s+=trainX[idx];++c;}}'
+     'return c==0?0:s/c;}'),
+    ('featureVar', 'number', [('trainX', 'list number'), ('labels', 'list number'), ('cls', 'number'), ('feat', 'number'), ('dims', 'number')],
+     '{int D=static_cast<int>(dims),f=static_cast<int>(feat);if(D<=0||f<0||f>=D)return 1;'
+     'double m=featureMean(trainX,labels,cls,feat,dims),s=0;int c=0;'
+     'for(std::size_t i=0;i<labels.size();++i)if(static_cast<int>(labels[i])==static_cast<int>(cls)){'
+     'std::size_t idx=i*static_cast<std::size_t>(D)+static_cast<std::size_t>(f);if(idx<trainX.size()){double d=trainX[idx]-m;s+=d*d;++c;}}'
+     'return c<2?1:s/(c-1);}'),
     ('gaussianLikelihood', 'number', [('x', 'number'), ('mu', 'number'), ('sigma', 'number')],
      '{if(sigma<1e-12)return 0;double z=(x-mu)/sigma;return std::exp(-0.5*z*z)/(sigma*std::sqrt(2*3.141592653589793));}'),
     ('predictClass', 'number', [('features', 'list number'), ('trainX', 'list number'), ('trainY', 'list number'), ('numClasses', 'number')],
-     '{int K=static_cast<int>(numClasses);double best=-1e18,bestC=0;for(int c=0;c<K;++c){double logP=std::log(classPrior(trainY,static_cast<double>(c))+1e-12);for(std::size_t f=0;f<features.size();++f)logP+=std::log(gaussianLikelihood(features[f],featureMean(trainX,trainY,static_cast<double>(c),static_cast<double>(f)),std::sqrt(featureVar(trainX,trainY,static_cast<double>(c))))+1e-12);if(logP>best){best=logP;bestC=c;}}return static_cast<double>(bestC);}'),
+     '{int K=static_cast<int>(numClasses),D=static_cast<int>(features.size());double best=-1e18,bestC=0;'
+     'for(int c=0;c<K;++c){double logP=std::log(classPrior(trainY,static_cast<double>(c))+1e-12);'
+     'for(int f=0;f<D;++f){double mu=featureMean(trainX,trainY,static_cast<double>(c),static_cast<double>(f),static_cast<double>(D));'
+     'double sig=std::sqrt(featureVar(trainX,trainY,static_cast<double>(c),static_cast<double>(f),static_cast<double>(D)));'
+     'logP+=std::log(gaussianLikelihood(features[static_cast<std::size_t>(f)],mu,sig)+1e-12);}'
+     'if(logP>best){best=logP;bestC=c;}}return static_cast<double>(bestC);}'),
     ('logPosterior', 'number', [('features', 'list number'), ('trainX', 'list number'), ('trainY', 'list number'), ('cls', 'number')],
-     '{double lp=std::log(classPrior(trainY,cls)+1e-12);for(std::size_t f=0;f<features.size();++f)lp+=std::log(gaussianLikelihood(features[f],featureMean(trainX,trainY,cls,static_cast<double>(f)),std::sqrt(featureVar(trainX,trainY,cls)))+1e-12);return lp;}'),
+     '{int D=static_cast<int>(features.size());double lp=std::log(classPrior(trainY,cls)+1e-12);'
+     'for(int f=0;f<D;++f){double mu=featureMean(trainX,trainY,cls,static_cast<double>(f),static_cast<double>(D));'
+     'double sig=std::sqrt(featureVar(trainX,trainY,cls,static_cast<double>(f),static_cast<double>(D)));'
+     'lp+=std::log(gaussianLikelihood(features[static_cast<std::size_t>(f)],mu,sig)+1e-12);}return lp;}'),
 ])
-
 cx('mltfidf', [
     ('tfidSum', 'number', [('v', 'list number')],
      'return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0);'),
@@ -3529,56 +3549,51 @@ cx('nlpedit', [
 ])
 
 cx('nlptoken', [
-    ('tokeLen', 'number', [('s', 'text')],
-     'return static_cast<double>(s.size());'),
-    ('tokeUpper', 'text', [('s', 'text')],
-     '{std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;}'),
-    ('tokeLower', 'text', [('s', 'text')],
-     '{std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;}'),
-    ('tokeTrim', 'text', [('s', 'text')],
-     '{std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);}'),
-    ('tokeSplit', 'list text', [('s', 'text'), ('delim', 'text')],
-     '{std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;}'),
-    ('tokeJoin', 'text', [('parts', 'list text'), ('delim', 'text')],
+    ('tokenize', 'list text', [('s', 'text')],
+     '{std::vector<std::string> r;std::string w;for(unsigned char ch:s){if(std::isspace(ch)||std::ispunct(ch)){if(!w.empty()){r.push_back(w);w.clear();}}else w+=static_cast<char>(std::tolower(ch));}if(!w.empty())r.push_back(w);return r;}'),
+    ('tokenCount', 'number', [('s', 'text')],
+     'return static_cast<double>(tokenize(s).size());'),
+    ('uniqueTokens', 'list text', [('s', 'text')],
+     '{auto t=tokenize(s);std::sort(t.begin(),t.end());t.erase(std::unique(t.begin(),t.end()),t.end());return t;}'),
+    ('joinTokens', 'text', [('parts', 'list text'), ('delim', 'text')],
      '{std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;}'),
-    ('tokeReplace', 'text', [('s', 'text'), ('from', 'text'), ('to', 'text')],
-     '{if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;}'),
+    ('hasToken', 'bool', [('s', 'text'), ('term', 'text')],
+     '{auto t=tokenize(s);for(auto&w:t)if(w==term)return true;return false;}'),
+    ('tokenAt', 'text', [('s', 'text'), ('index', 'number')],
+     '{auto t=tokenize(s);int i=static_cast<int>(index);return(i<0||i>=static_cast<int>(t.size()))?std::string{}:t[static_cast<std::size_t>(i)];}'),
 ])
 
 cx('nlpngram', [
-    ('ngraLen', 'number', [('s', 'text')],
-     'return static_cast<double>(s.size());'),
-    ('ngraUpper', 'text', [('s', 'text')],
-     '{std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;}'),
-    ('ngraLower', 'text', [('s', 'text')],
-     '{std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;}'),
-    ('ngraTrim', 'text', [('s', 'text')],
-     '{std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);}'),
-    ('ngraSplit', 'list text', [('s', 'text'), ('delim', 'text')],
-     '{std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;}'),
-    ('ngraJoin', 'text', [('parts', 'list text'), ('delim', 'text')],
-     '{std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;}'),
-    ('ngraReplace', 'text', [('s', 'text'), ('from', 'text'), ('to', 'text')],
-     '{if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;}'),
+    ('charNgrams', 'list text', [('s', 'text'), ('n', 'number')],
+     '{int N=static_cast<int>(n);std::vector<std::string> r;if(N<=0||static_cast<int>(s.size())<N)return r;'
+     'for(std::size_t i=0;i+static_cast<std::size_t>(N)<=s.size();++i)r.push_back(s.substr(i,static_cast<std::size_t>(N)));return r;}'),
+    ('wordNgrams', 'list text', [('s', 'text'), ('n', 'number')],
+     '{int N=static_cast<int>(n);std::vector<std::string> toks;std::string w;'
+     'for(unsigned char ch:s){if(std::isspace(ch)){if(!w.empty()){toks.push_back(w);w.clear();}}else w+=static_cast<char>(ch);}'
+     'if(!w.empty())toks.push_back(w);std::vector<std::string> r;if(N<=0||static_cast<int>(toks.size())<N)return r;'
+     'for(std::size_t i=0;i+static_cast<std::size_t>(N)<=toks.size();++i){std::string g;for(int j=0;j<N;++j){if(j)g+=" ";g+=toks[i+static_cast<std::size_t>(j)];}r.push_back(g);}return r;}'),
+    ('ngramCount', 'number', [('s', 'text'), ('n', 'number')],
+     'return static_cast<double>(charNgrams(s,n).size());'),
+    ('ngramJaccard', 'number', [('a', 'text'), ('b', 'text'), ('n', 'number')],
+     '{auto A=charNgrams(a,n),B=charNgrams(b,n);if(A.empty()&&B.empty())return 1;std::sort(A.begin(),A.end());std::sort(B.begin(),B.end());'
+     'std::vector<std::string> inter,uni;std::set_intersection(A.begin(),A.end(),B.begin(),B.end(),std::back_inserter(inter));'
+     'std::set_union(A.begin(),A.end(),B.begin(),B.end(),std::back_inserter(uni));return uni.empty()?0:static_cast<double>(inter.size())/uni.size();}'),
 ])
 
 cx('nlpbow', [
-    ('bowLen', 'number', [('s', 'text')],
-     'return static_cast<double>(s.size());'),
-    ('bowUpper', 'text', [('s', 'text')],
-     '{std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;}'),
-    ('bowLower', 'text', [('s', 'text')],
-     '{std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;}'),
-    ('bowTrim', 'text', [('s', 'text')],
-     '{std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);}'),
-    ('bowSplit', 'list text', [('s', 'text'), ('delim', 'text')],
-     '{std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;}'),
-    ('bowJoin', 'text', [('parts', 'list text'), ('delim', 'text')],
-     '{std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;}'),
-    ('bowReplace', 'text', [('s', 'text'), ('from', 'text'), ('to', 'text')],
-     '{if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;}'),
+    ('bagOfWords', 'list number', [('doc', 'text'), ('vocab', 'list text')],
+     '{std::map<std::string,int> freq;std::string w;for(unsigned char ch:doc){if(std::isspace(ch)||std::ispunct(ch)){if(!w.empty()){++freq[w];w.clear();}}else w+=static_cast<char>(std::tolower(ch));}'
+     'if(!w.empty())++freq[w];std::vector<double> r;for(auto&t:vocab)r.push_back(static_cast<double>(freq[t]));return r;}'),
+    ('vocabFrom', 'list text', [('docs', 'list text')],
+     '{std::map<std::string,int> seen;for(auto&d:docs){std::string w;for(unsigned char ch:d){if(std::isspace(ch)||std::ispunct(ch)){if(!w.empty()){seen[w]=1;w.clear();}}else w+=static_cast<char>(std::tolower(ch));}if(!w.empty())seen[w]=1;}'
+     'std::vector<std::string> r;for(auto&p:seen)r.push_back(p.first);std::sort(r.begin(),r.end());return r;}'),
+    ('bowDot', 'number', [('a', 'list number'), ('b', 'list number')],
+     '{if(a.size()!=b.size())return 0;double s=0;for(std::size_t i=0;i<a.size();++i)s+=a[i]*b[i];return s;}'),
+    ('bowCosine', 'number', [('a', 'list number'), ('b', 'list number')],
+     '{if(a.size()!=b.size())return 0;double dot=0,na=0,nb=0;for(std::size_t i=0;i<a.size();++i){dot+=a[i]*b[i];na+=a[i]*a[i];nb+=b[i]*b[i];}return(na*nb)<1e-12?0:dot/(std::sqrt(na)*std::sqrt(nb));}'),
+    ('termFrequency', 'number', [('doc', 'text'), ('term', 'text')],
+     '{auto v=bagOfWords(doc,std::vector<std::string>{term});return v.empty()?0:v[0];}'),
 ])
-
 cx('nlpstop', [
     ('stopLen', 'number', [('s', 'text')],
      'return static_cast<double>(s.size());'),
@@ -3650,9 +3665,11 @@ cx('nlpkeyword', [
 cx('nlptfidf', [
     ('tf', 'number', [('doc', 'text'), ('term', 'text')],
      '{int c=0,total=0;std::string w;for(unsigned char ch:doc){if(std::isspace(ch)){if(!w.empty()){++total;if(w==term)++c;w.clear();}}else w+=static_cast<char>(ch);}if(!w.empty()){++total;if(w==term)++c;}return total==0?0:static_cast<double>(c)/total;}'),
+    # Token equality (not substring): "cat" must not match "concatenate".
     ('idf', 'number', [('term', 'text'), ('corpus', 'list text')],
-     '{int df=0;for(auto&d:corpus){if(d.find(term)!=std::string::npos)++df;}return df==0?0:std::log(static_cast<double>(corpus.size())/(df+1))+1;}'),
-    ('tfidf', 'number', [('doc', 'text'), ('term', 'text'), ('corpus', 'list text')],
+     '{int df=0;for(auto&d:corpus){std::string w;bool hit=false;for(unsigned char ch:d){if(std::isspace(ch)){if(!w.empty()){if(w==term)hit=true;w.clear();}}else w+=static_cast<char>(ch);}'
+     'if(!w.empty()&&w==term)hit=true;if(hit)++df;}'
+     'return df==0?0:std::log(static_cast<double>(corpus.size())/(df+1))+1;}'),    ('tfidf', 'number', [('doc', 'text'), ('term', 'text'), ('corpus', 'list text')],
      'return tf(doc,term)*idf(term,corpus);'),
     ('docVector', 'list number', [('doc', 'text'), ('terms', 'list text'), ('corpus', 'list text')],
      '{std::vector<double> r;for(auto& t:terms)r.push_back(tfidf(doc,t,corpus));return r;}'),
@@ -4425,7 +4442,7 @@ def main() -> None:
     runtime_src = gen_runtime(MODULES, "cx")
     runtime_src = runtime_src.replace(
         "#include <vector>",
-        "#include <vector>\n#include <functional>\n#include \"io.hpp\"\n#include \"sql.hpp\"\n#include \"orm.hpp\"",
+        "#include <vector>\n#include <functional>\n#include <iterator>\n#include \"io.hpp\"\n#include \"sql.hpp\"\n#include \"orm.hpp\"",
     )
     with open(runtime_path, "w", encoding="utf-8") as f:
         f.write(runtime_src)

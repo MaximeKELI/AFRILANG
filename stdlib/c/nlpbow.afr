@@ -1,25 +1,19 @@
 // experimental catalog — IDE signatures only (not core runtime)
 module nlpbow
 
-function bowLen(s text) returns number
+function bagOfWords(doc text, vocab list text) returns list number
 end
 
-function bowUpper(s text) returns text
+function vocabFrom(docs list text) returns list text
 end
 
-function bowLower(s text) returns text
+function bowDot(a list number, b list number) returns number
 end
 
-function bowTrim(s text) returns text
+function bowCosine(a list number, b list number) returns number
 end
 
-function bowSplit(s text, delim text) returns list text
-end
-
-function bowJoin(parts list text, delim text) returns text
-end
-
-function bowReplace(s text, from text, to text) returns text
+function termFrequency(doc text, term text) returns number
 end
 
 end

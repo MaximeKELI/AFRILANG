@@ -1,0 +1,20 @@
+import "std/c/mlnaivebayes"
+use mlnaivebayes
+
+test "featureMean uses feat column"
+    // rows: [0,10], [1,10], [0,0], [1,0] — class 0 has feat0 mean 0, feat1 mean 5
+    create X = list of 0, 10, 1, 10, 0, 0, 1, 0
+    create y = list of 0, 1, 0, 1
+    assert featureMean(X, y, 0, 0, 2) is equal to 0
+    assert featureMean(X, y, 0, 1, 2) is equal to 5
+    assert featureMean(X, y, 1, 0, 2) is equal to 1
+end
+
+test "predictClass multi-feature"
+    create X = list of 0, 0, 0, 1, 1, 0, 1, 1, 8, 8, 9, 8, 8, 9, 9, 9
+    create y = list of 0, 0, 0, 0, 1, 1, 1, 1
+    create q0 = list of 0, 0
+    create q1 = list of 9, 9
+    assert predictClass(q0, X, y, 2) is equal to 0
+    assert predictClass(q1, X, y, 2) is equal to 1
+end

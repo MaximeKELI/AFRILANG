@@ -1,0 +1,17 @@
+// Tokenize + bag-of-words + ngrams — std/c/nlptoken, nlpbow, nlpngram
+import "std/c/nlptoken"
+import "std/c/nlpbow"
+import "std/c/nlpngram"
+use nlptoken
+use nlpbow
+use nlpngram
+
+create text = "The Cat sat on the mat."
+create toks = tokenize(text)
+create vocab = list of "cat", "mat", "dog"
+create bow = bagOfWords(text, vocab)
+create grams = charNgrams("abcd", 2)
+
+say "tokens={toks at 0} {toks at 1} {toks at 2} count={tokenCount(text)}"
+say "bow cat={bow at 0} mat={bow at 1} dog={bow at 2}"
+say "bigrams={grams at 0} {grams at 1} {grams at 2}"

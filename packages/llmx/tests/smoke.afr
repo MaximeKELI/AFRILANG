@@ -27,3 +27,13 @@ test "authHeader"
     assert authHeader("") is equal to ""
     assert authHeader("sk-test") is equal to "Authorization: Bearer sk-test\n"
 end
+
+test "buildChatBodyWithSystem"
+    create body = buildChatBodyWithSystem("m", "Be brief", "Hi")
+    assert body is equal to "{\"model\":\"m\",\"messages\":[{\"role\":\"system\",\"content\":\"Be brief\"},{\"role\":\"user\",\"content\":\"Hi\"}]}"
+end
+
+test "buildChatBodyTurns"
+    create body = buildChatBodyTurns("m", "user", "Hi", "assistant", "Hello")
+    assert body is equal to "{\"model\":\"m\",\"messages\":[{\"role\":\"user\",\"content\":\"Hi\"},{\"role\":\"assistant\",\"content\":\"Hello\"}]}"
+end

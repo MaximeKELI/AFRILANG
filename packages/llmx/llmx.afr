@@ -19,6 +19,24 @@ module llmx
         return "{\"model\":\"" + m + "\",\"messages\":[{\"role\":\"user\",\"content\":\"" + msg + "\"}]}"
     end
 
+    // System + user messages.
+    function buildChatBodyWithSystem(model text, systemPrompt text, userMessage text) returns text
+        create m = escapeJson(model)
+        create sys = escapeJson(systemPrompt)
+        create msg = escapeJson(userMessage)
+        return "{\"model\":\"" + m + "\",\"messages\":[{\"role\":\"system\",\"content\":\"" + sys + "\"},{\"role\":\"user\",\"content\":\"" + msg + "\"}]}"
+    end
+
+    // Two-turn helper: user then assistant (or any role pair) before a final user turn.
+    function buildChatBodyTurns(model text, role1 text, content1 text, role2 text, content2 text) returns text
+        create m = escapeJson(model)
+        create r1 = escapeJson(role1)
+        create c1 = escapeJson(content1)
+        create r2 = escapeJson(role2)
+        create c2 = escapeJson(content2)
+        return "{\"model\":\"" + m + "\",\"messages\":[{\"role\":\"" + r1 + "\",\"content\":\"" + c1 + "\"},{\"role\":\"" + r2 + "\",\"content\":\"" + c2 + "\"}]}"
+    end
+
     function chatUrl(baseUrl text) returns text
         if endsWith(baseUrl, "/") then
             return baseUrl + "chat/completions"

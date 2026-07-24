@@ -1,0 +1,14 @@
+import "std/c/nlpjaccard"
+use nlpjaccard
+
+test "token jaccard"
+    create a = "le chat noir"
+    create b = "le chat blanc"
+    assert tokenJaccard(a, b) is greater than 0.4
+    assert tokenJaccard(a, b) is less than 0.7
+    assert dice("paris", "paris") is equal to 1
+end
+
+test "identical ngram"
+    assert ngramJaccard("abracadabra", "abracadabra", 2) is equal to 1
+end

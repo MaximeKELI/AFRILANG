@@ -694,6 +694,12 @@ Generics transpile to C++ `template<typename T>` functions. Types are inferred f
 | `examples/fs_demo.afr` | Stdlib fs (listDir, makeDir, fileSize) |
 | `examples/advanced.afr` | Enums, match, null-safety |
 | `examples/generics.afr` | Fonctions génériques (type params, inference) |
+| `examples/ai_toolkit_demo.afr` | Tour toolkit IA (ML/NLP/llmx — expérimental) |
+| `examples/ml_*_demo.afr` | Demos ML curated (cosine, kmeans, perceptron, …) |
+| `examples/nlp_*_demo.afr` | Demos NLP (levenshtein, jaccard, tfidf, tokens) |
+| `examples/llmx_chat.afr` | Paquet LLM OpenAI-compatible (offline) |
+
+Toolkit IA : [`docs/STDLIB_AI.md`](docs/STDLIB_AI.md) (catalogue `std/c/*`, pas core).
 
 ## Compiler tous les exemples
 

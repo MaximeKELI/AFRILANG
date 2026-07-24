@@ -9,11 +9,15 @@ use llmx
 create model = "llama3"
 create prompt = "Reply with one word: ok"
 create body = buildChatBody(model, prompt)
+create withSys = buildChatBodyWithSystem(model, "Reply in one word", prompt)
+create turns = buildChatBodyTurns(model, "user", "Hi", "assistant", "Hello")
 create url = chatUrl("http://127.0.0.1:11434/v1")
 create hdr = authHeader("sk-demo")
 
 say "url={url}"
 say "body={body}"
+say "withSystem={withSys}"
+say "turns={turns}"
 say "auth={hdr}"
 
 create sample = "{\"id\":\"chat\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"ok\"}}]}"

@@ -1,0 +1,21 @@
+import "std/c/nlptfidf"
+use nlptfidf
+
+test "tf and idf token equality"
+    create doc = "the cat sat"
+    create corpus = list of "the cat sat", "the dog ran", "concatenate words here"
+    assert tf(doc, "cat") is greater than 0
+    // "cat" must not hit "concatenate"
+    create idfCat = idf("cat", corpus)
+    create idfMissing = idf("zebra", corpus)
+    assert idfCat is greater than 0
+    assert idfMissing is equal to 0
+end
+
+test "tfidf and docVector"
+    create corpus = list of "red apple", "green apple", "blue sky"
+    create terms = list of "apple", "sky"
+    create v = docVector("red apple", terms, corpus)
+    assert length of v is equal to 2
+    assert v at 0 is greater than v at 1
+end

@@ -1,0 +1,17 @@
+// TF-IDF — std/c/nlptfidf
+import "std/c/nlptfidf"
+use nlptfidf
+
+create corpus = list of "red apple fruit", "green apple tree", "blue sky cloud"
+create terms = list of "apple", "sky", "fruit"
+create doc = "red apple fruit"
+create v = docVector(doc, terms, corpus)
+create ranked = rankTerms("apple sky", corpus)
+create tfApple = tf(doc, "apple")
+create idfSky = idf("sky", corpus)
+create top = ranked at 0
+
+say "tf apple={tfApple}"
+say "idf sky={idfSky}"
+say "vec={v at 0} {v at 1} {v at 2}"
+say "top={top}"

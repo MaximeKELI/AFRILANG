@@ -1,0 +1,12 @@
+// Gaussian Naive Bayes (multi-feature) — std/c/mlnaivebayes
+import "std/c/mlnaivebayes"
+use mlnaivebayes
+
+create X = list of 0, 0, 0, 1, 1, 0, 1, 1, 8, 8, 9, 8, 8, 9, 9, 9
+create y = list of 0, 0, 0, 0, 1, 1, 1, 1
+create q0 = list of 0.2, 0.1
+create q1 = list of 8.5, 8.5
+
+say "prior0={classPrior(y, 0)} prior1={classPrior(y, 1)}"
+say "mean class0 f0={featureMean(X, y, 0, 0, 2)} f1={featureMean(X, y, 0, 1, 2)}"
+say "predict low={predictClass(q0, X, y, 2)} high={predictClass(q1, X, y, 2)}"
