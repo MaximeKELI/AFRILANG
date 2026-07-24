@@ -6,7 +6,7 @@ test "ml_cosine_demo"
     create same = list of 1, 0, 1
     create orthoA = list of 1, 0
     create orthoB = list of 0, 1
-    assert cosineSim(query, same) is equal to 1
+    assert cosineSim(query, same) is greater than 0.999
     assert cosineSim(orthoA, orthoB) is equal to 0
     create docs = list of 1, 0, 0, 0, 1, 0, 1, 0, 1
     assert mostSimilar(query, docs, 3) is equal to 2

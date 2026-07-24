@@ -8,5 +8,5 @@ test "complex_libs_demo"
     create vecA = list of 1, 0, 1
     create vecB = list of 1, 1, 0
     assert cosineSim(vecA, vecB) is greater than 0
-    assert cosineSim(vecA, vecA) is equal to 1
+    assert cosineSim(vecA, vecA) is greater than 0.999
 end

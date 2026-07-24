@@ -185,6 +185,14 @@ inline SDL_Scancode scancodeFromName(const std::string& key) {
     if (key == "Space" || key == " ") return SDL_SCANCODE_SPACE;
     if (key == "Escape" || key == "Esc") return SDL_SCANCODE_ESCAPE;
     if (key == "R" || key == "r") return SDL_SCANCODE_R;
+    if (key == "P" || key == "p") return SDL_SCANCODE_P;
+    if (key == "F" || key == "f") return SDL_SCANCODE_F;
+    if (key == "C" || key == "c") return SDL_SCANCODE_C;
+    if (key == "Enter" || key == "Return") return SDL_SCANCODE_RETURN;
+    if (key == "Tab") return SDL_SCANCODE_TAB;
+    if (key == "1") return SDL_SCANCODE_1;
+    if (key == "2") return SDL_SCANCODE_2;
+    if (key == "3") return SDL_SCANCODE_3;
     return SDL_SCANCODE_UNKNOWN;
 }
 

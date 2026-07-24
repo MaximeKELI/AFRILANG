@@ -1,0 +1,234 @@
+// Crystal Arena — pure game rules (no SDL).
+// Shows: modules, functions, classes, interfaces, inheritance, enums, match,
+// lists, loops, conditionals, Result-style helpers.
+
+interface Scorable
+    function points() returns number
+end
+
+interface NamedThing
+    function label() returns text
+end
+
+enum Phase
+    case Menu
+    case Playing
+    case Paused
+    case Victory
+    case Defeat
+end
+
+class Crystal
+    public field active bool
+    public field value number
+    public field x number
+    public field z number
+
+    function init(ax number, az number, aval number)
+        set this.active = true
+        set this.x = ax
+        set this.z = az
+        set this.value = aval
+    end
+
+    function points() returns number
+        return value
+    end
+
+    function label() returns text
+        return "crystal"
+    end
+
+    function collect() returns number
+        if active is equal to false then
+            return 0
+        end
+        set this.active = false
+        return value
+    end
+end
+
+class ScoreBoard implements Scorable, NamedThing
+    public field score number
+    public field lives number
+    public field goal number
+    public field difficulty number
+
+    function init(aGoal number, aLives number, aDiff number)
+        set this.score = 0
+        set this.goal = aGoal
+        set this.lives = aLives
+        set this.difficulty = aDiff
+    end
+
+    function points() returns number
+        return score
+    end
+
+    function label() returns text
+        return "scoreboard"
+    end
+
+    function addScore(n number)
+        set this.score = score + n
+    end
+
+    function hit() returns bool
+        set this.lives = lives - 1
+        if lives is less than 1 then
+            return true
+        end
+        return false
+    end
+
+    function hasWon() returns bool
+        if score is greater than goal then
+            return true
+        end
+        if score is equal to goal then
+            return true
+        end
+        return false
+    end
+end
+
+function phaseName(p Phase) returns text
+    create name = match p
+        case Menu then "menu"
+        end
+        case Playing then "playing"
+        end
+        case Paused then "paused"
+        end
+        case Victory then "victory"
+        end
+        case Defeat then "defeat"
+        end
+        default "menu"
+        end
+    end
+    return name
+end
+
+function difficultyGoal(level number) returns number
+    if level is equal to 1 then
+        return 3
+    end
+    if level is equal to 2 then
+        return 5
+    end
+    return 7
+end
+
+function difficultyLives(level number) returns number
+    if level is equal to 1 then
+        return 5
+    end
+    if level is equal to 2 then
+        return 3
+    end
+    return 2
+end
+
+function difficultyEnemySpeed(level number) returns number
+    if level is equal to 1 then
+        return 2.5
+    end
+    if level is equal to 2 then
+        return 4
+    end
+    return 5.5
+end
+
+function dist2(ax number, az number, bx number, bz number) returns number
+    create dx = ax - bx
+    create dz = az - bz
+    return dx * dx + dz * dz
+end
+
+function nearEnough(ax number, az number, bx number, bz number, radius number) returns bool
+    create r2 = radius * radius
+    if dist2(ax, az, bx, bz) is less than r2 then
+        return true
+    end
+    if dist2(ax, az, bx, bz) is equal to r2 then
+        return true
+    end
+    return false
+end
+
+function clampArena(v number, limit number) returns number
+    if v is greater than limit then
+        return limit
+    end
+    if v is less than (0 - limit) then
+        return 0 - limit
+    end
+    return v
+end
+
+function enemyImpulseToward(ex number, ez number, px number, pz number, speed number) returns list number
+    create dx = px - ex
+    create dz = pz - ez
+    create len2 = dx * dx + dz * dz
+    if len2 is less than 0.01 then
+        return list of 0, 0
+    end
+    // Approximate normalize without sqrt: scale by speed / max(|dx|,|dz|)
+    create ax = dx
+    if ax is less than 0 then
+        set ax = 0 - ax
+    end
+    create az = dz
+    if az is less than 0 then
+        set az = 0 - az
+    end
+    create m = ax
+    if az is greater than m then
+        set m = az
+    end
+    if m is less than 0.001 then
+        return list of 0, 0
+    end
+    create vx = (dx / m) * speed
+    create vz = (dz / m) * speed
+    return list of vx, vz
+end
+
+function crystalLayout(count number) returns list number
+    // Flat list: x0,z0, x1,z1, ...
+    create out list number = list of
+    if count is greater than 0 then
+        set out = list of 4, 4
+    end
+    if count is greater than 1 then
+        set out = list of 4, 4, 0 - 5, 3
+    end
+    if count is greater than 2 then
+        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2
+    end
+    if count is greater than 3 then
+        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6
+    end
+    if count is greater than 4 then
+        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7
+    end
+    if count is greater than 5 then
+        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7, 0 - 7, 0 - 1
+    end
+    if count is greater than 6 then
+        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7, 0 - 7, 0 - 1, 8, 5
+    end
+    return out
+end
+
+function hudBarCount(score number, goal number) returns number
+    if goal is less than 1 then
+        return 0
+    end
+    create n = score
+    if n is greater than goal then
+        set n = goal
+    end
+    return n
+end
