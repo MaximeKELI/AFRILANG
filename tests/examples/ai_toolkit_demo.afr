@@ -1,0 +1,24 @@
+import "std/c/mlcosine"
+import "std/c/mlsoftmax"
+import "std/c/mldistance"
+import "std/c/nlplevenshtein"
+import "pkg/llmx/llmx.afr"
+use mlcosine
+use mlsoftmax
+use mldistance
+use nlplevenshtein
+use llmx
+
+test "ai_toolkit_demo"
+    create q = list of 1, 0
+    create same = list of 1, 0
+    assert cosineSim(q, same) is equal to 1
+    create probs = softmax(list of 0, 2, 1)
+    assert argmax(probs) is equal to 1
+    create origin = list of 0, 0
+    create p34 = list of 3, 4
+    assert euclidean(origin, p34) is equal to 5
+    assert distance("kit", "sit") is equal to 1
+    assert extractAssistantText("{\"choices\":[{\"message\":{\"content\":\"Salut\"}}]}") is equal to "Salut"
+    assert buildChatBodyWithSystem("m", "sys", "u") is equal to "{\"model\":\"m\",\"messages\":[{\"role\":\"system\",\"content\":\"sys\"},{\"role\":\"user\",\"content\":\"u\"}]}"
+end

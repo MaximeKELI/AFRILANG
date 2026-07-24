@@ -1,0 +1,13 @@
+import "std/c/mllinear"
+use mllinear
+
+test "ml_linear_demo"
+    create w = list of 0
+    create X = list of 1, 2, 3, 4, 5
+    create y = list of 2, 4, 6, 8, 10
+    create trained = trainEpochs(w, X, y, 0.05, 100, 1)
+    assert mse(trained, X, y, 1) is less than 0.01
+    create x6 = list of 6
+    assert predict(trained, x6, 0) is greater than 11
+    assert sigmoid(0) is equal to 0.5
+end

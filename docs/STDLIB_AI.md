@@ -28,7 +28,8 @@ dans le paquet utilisateur `llmx`.
 | nlpbow | `std/c/nlpbow` | bag-of-words |
 | nlpngram | `std/c/nlpngram` | char/word n-grams |
 
-Specs : `tests/stdlib/ml_*.afr`, `tests/stdlib/nlp_*.afr`.
+Specs : `tests/stdlib/ml_*.afr`, `tests/stdlib/nlp_*.afr`,
+`tests/examples/*` (miroir des demos). Smoke : `bash scripts/check_examples_ai.sh`.
 
 API notes :
 - `mlperceptron` `trainStep`/`trainEpoch` → `[bias, w…]`

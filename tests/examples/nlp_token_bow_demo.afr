@@ -1,0 +1,18 @@
+import "std/c/nlptoken"
+import "std/c/nlpbow"
+import "std/c/nlpngram"
+use nlptoken
+use nlpbow
+use nlpngram
+
+test "nlp_token_bow_demo"
+    create toks = tokenize("The Cat sat on the mat.")
+    assert tokenCount("The Cat sat on the mat.") is equal to 6
+    assert toks at 1 is equal to "cat"
+    create vocab = list of "cat", "mat", "dog"
+    create bow = bagOfWords("The Cat sat on the mat.", vocab)
+    assert bow at 0 is equal to 1
+    assert bow at 2 is equal to 0
+    create grams = charNgrams("abcd", 2)
+    assert length of grams is equal to 3
+end

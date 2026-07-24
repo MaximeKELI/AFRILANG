@@ -1,0 +1,12 @@
+import "std/c/mlnaivebayes"
+use mlnaivebayes
+
+test "ml_naivebayes_demo"
+    create X = list of 0, 0, 0, 1, 1, 0, 1, 1, 8, 8, 9, 8, 8, 9, 9, 9
+    create y = list of 0, 0, 0, 0, 1, 1, 1, 1
+    create q0 = list of 0.2, 0.1
+    create q1 = list of 8.5, 8.5
+    assert classPrior(y, 0) is equal to 0.5
+    assert predictClass(q0, X, y, 2) is equal to 0
+    assert predictClass(q1, X, y, 2) is equal to 1
+end

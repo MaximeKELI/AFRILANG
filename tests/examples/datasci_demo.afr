@@ -1,0 +1,14 @@
+import "std/c/datasci001"
+use datasci001
+
+test "datasci demo invariants"
+    create values = list of 4, 8, 6, 12, 10, 16, 14, 20
+    create xs = list of 0, 1, 2, 3, 4, 5, 6, 7
+    create ys = list of 2, 4, 5, 8, 9, 12, 13, 18
+    assert median(values) is equal to 11
+    assert variance(values) is greater than 20
+    assert rSquared(xs, ys) is greater than 0.9
+    create scaled = minMaxScale(values)
+    assert scaled at 0 is equal to 0
+    assert trainSplitAt(8, 0.75) is equal to 6
+end

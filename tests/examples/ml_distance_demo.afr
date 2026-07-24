@@ -1,0 +1,20 @@
+import "std/c/mldistance"
+import "std/c/mlnearest"
+import "std/c/mlnormalize"
+use mldistance
+use mlnearest
+use mlnormalize
+
+test "ml_distance_demo"
+    create a = list of 0, 0
+    create b = list of 3, 4
+    assert euclidean(a, b) is equal to 5
+    assert manhattan(a, b) is equal to 7
+    create matrix = list of 0, 0, 3, 4, 10, 0
+    create query = list of 2, 3
+    create knn = knnIndices(query, matrix, 2, 2)
+    assert knn at 0 is equal to 1
+    create unit = l2Normalize(b)
+    assert unit at 0 is greater than 0.59
+    assert unit at 0 is less than 0.61
+end

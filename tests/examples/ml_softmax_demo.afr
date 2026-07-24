@@ -1,0 +1,15 @@
+import "std/c/mlsoftmax"
+import "std/c/mlentropy"
+import "std/c/mlkldiv"
+use mlsoftmax
+use mlentropy
+use mlkldiv
+
+test "ml_softmax_demo"
+    create logits = list of 1, 3, 2
+    create probs = softmax(logits)
+    assert argmax(probs) is equal to 1
+    create uniform = normalizeProbs(list of 1, 1, 1)
+    assert entropy(list of 1, 0, 0) is equal to 0
+    assert jsDiv(probs, uniform) is greater than 0
+end

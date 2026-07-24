@@ -1,0 +1,13 @@
+import "std/c/nlptfidf"
+use nlptfidf
+
+test "nlp_tfidf_demo"
+    create corpus = list of "red apple fruit", "green apple tree", "blue sky cloud"
+    create terms = list of "apple", "sky", "fruit"
+    create doc = "red apple fruit"
+    create v = docVector(doc, terms, corpus)
+    assert tf(doc, "apple") is greater than 0
+    assert idf("sky", corpus) is greater than 0
+    assert idf("cat", list of "concatenate words") is equal to 0
+    assert v at 0 is greater than v at 1
+end

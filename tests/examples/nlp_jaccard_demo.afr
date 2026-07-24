@@ -1,0 +1,8 @@
+import "std/c/nlpjaccard"
+use nlpjaccard
+
+test "nlp_jaccard_demo"
+    assert tokenJaccard("le chat noir", "le chat blanc") is greater than 0.4
+    assert dice("paris", "paris") is equal to 1
+    assert ngramJaccard("abracadabra", "abracadabra", 2) is equal to 1
+end

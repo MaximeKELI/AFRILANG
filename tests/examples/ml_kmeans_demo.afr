@@ -1,0 +1,12 @@
+import "std/c/mlkmeans"
+use mlkmeans
+
+test "ml_kmeans_demo"
+    create points = list of 0, 0, 1, 0, 8, 8, 9, 8
+    create centroids = kmeans(points, 2, 2)
+    create labels = assignClusters(points, centroids, 2)
+    create sizes = clusterSizes(labels, 2)
+    assert (sizes at 0) + (sizes at 1) is equal to 4
+    assert inertia(points, centroids, 2) is less than 5
+    assert elbowK(points, 3, 2) is equal to 2
+end

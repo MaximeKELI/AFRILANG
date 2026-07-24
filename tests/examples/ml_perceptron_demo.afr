@@ -1,0 +1,26 @@
+import "std/c/mlperceptron"
+use mlperceptron
+
+test "ml_perceptron_demo AND"
+    create w = list of 0, 0
+    create b = 0 - 1
+    create X = list of 0, 0, 0, 1, 1, 0, 1, 1
+    create y = list of 0, 0, 0, 1
+    create packed = list of 0, 0, 0
+    create w0 = 0
+    create w1 = 0
+    create i = 0
+    while i is less than 60 do
+        set packed = trainEpoch(w, b, X, y, 0.25, 2)
+        set b = packed at 0
+        set w0 = packed at 1
+        set w1 = packed at 2
+        set w = list of w0, w1
+        set i = i + 1
+    end
+    create f00 = list of 0, 0
+    create f11 = list of 1, 1
+    assert predict(w, f00, b) is equal to 0
+    assert predict(w, f11, b) is equal to 1
+    assert accuracy(w, b, X, y, 2) is equal to 1
+end

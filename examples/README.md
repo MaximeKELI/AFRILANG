@@ -26,4 +26,7 @@ Voir [`docs/STDLIB_AI.md`](../docs/STDLIB_AI.md).
 ```bash
 ./build/afrilang run examples/ai_toolkit_demo.afr
 ./build/afrilang run examples/llmx_chat.afr
+bash scripts/check_examples_ai.sh
 ```
+
+Après rebuild : `cp build/afrilang ~/.local/bin/afrilang` (évite un binaire PATH obsolète).

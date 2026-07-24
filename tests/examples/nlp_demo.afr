@@ -1,0 +1,8 @@
+import "std/c/nlplevenshtein"
+use nlplevenshtein
+
+test "nlp_demo"
+    assert distance("kitten", "sitting") is equal to 3
+    assert similarity("hello", "hallo") is greater than 0.7
+    assert isClose("couleur", "couleurs", 2) is equal to true
+end

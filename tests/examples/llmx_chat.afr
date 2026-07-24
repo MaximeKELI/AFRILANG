@@ -1,0 +1,12 @@
+import "pkg/llmx/llmx.afr"
+use llmx
+
+test "llmx_chat_demo"
+    create body = buildChatBody("llama3", "ok")
+    assert body is equal to "{\"model\":\"llama3\",\"messages\":[{\"role\":\"user\",\"content\":\"ok\"}]}"
+    assert chatUrl("http://127.0.0.1:11434/v1") is equal to "http://127.0.0.1:11434/v1/chat/completions"
+    create withSys = buildChatBodyWithSystem("m", "brief", "Hi")
+    assert withSys is equal to "{\"model\":\"m\",\"messages\":[{\"role\":\"system\",\"content\":\"brief\"},{\"role\":\"user\",\"content\":\"Hi\"}]}"
+    create sample = "{\"choices\":[{\"message\":{\"content\":\"ok\"}}]}"
+    assert extractAssistantText(sample) is equal to "ok"
+end

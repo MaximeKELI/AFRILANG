@@ -1,0 +1,12 @@
+import "std/c/nlplevenshtein"
+import "std/c/mlcosine"
+use nlplevenshtein
+use mlcosine
+
+test "complex_libs_demo"
+    assert distance("kitten", "sitting") is equal to 3
+    create vecA = list of 1, 0, 1
+    create vecB = list of 1, 1, 0
+    assert cosineSim(vecA, vecB) is greater than 0
+    assert cosineSim(vecA, vecA) is equal to 1
+end

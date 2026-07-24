@@ -719,7 +719,7 @@ static bool isConformanceNegativePath(const fs::path& path) {
 
 static int runSpecsSuite(const fs::path& root, bool coverage) {
     std::vector<fs::path> files;
-    for (const char* sub : {"tests/specs", "tests/stdlib", "tests/conformance"}) {
+    for (const char* sub : {"tests/specs", "tests/stdlib", "tests/conformance", "tests/examples"}) {
         const fs::path dir = root / sub;
         if (!fs::exists(dir) || !fs::is_directory(dir)) continue;
         for (const auto& entry : fs::recursive_directory_iterator(
