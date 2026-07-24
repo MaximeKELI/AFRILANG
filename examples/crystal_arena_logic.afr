@@ -48,7 +48,23 @@ class Crystal implements Scorable, NamedThing
     end
 end
 
-class BonusCrystal extends Crystal
+class BonusCrystal implements Scorable, NamedThing
+    public field active bool
+    public field value number
+    public field x number
+    public field z number
+
+    function init(ax number, az number, aval number)
+        set this.active = true
+        set this.x = ax
+        set this.z = az
+        set this.value = aval
+    end
+
+    function points() returns number
+        return value * 2
+    end
+
     function label() returns text
         return "bonus-crystal"
     end
@@ -59,6 +75,29 @@ class BonusCrystal extends Crystal
         end
         set this.active = false
         return value * 2
+    end
+end
+
+// Héritage simple (constructeur sans args sur la base — pattern AFRILANG).
+class ArenaActor
+    public field kind text
+
+    function init()
+        set this.kind = "actor"
+    end
+
+    function tag() returns text
+        return kind
+    end
+end
+
+class ArenaHero extends ArenaActor
+    function init()
+        set this.kind = "hero"
+    end
+
+    function tag() returns text
+        return "hero:" + kind
     end
 end
 

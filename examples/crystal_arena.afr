@@ -28,8 +28,10 @@ use gamestate
 // ---- démo POO / enum (hors boucle) ----
 create demoCrystal = new Crystal(4, 4, 1)
 create demoBonus = new BonusCrystal(0 - 5, 3, 1)
+create demoHero = new ArenaHero()
 say demoCrystal.label()
 say demoBonus.label()
+say demoHero.tag()
 say phaseMenuName()
 
 // ---- état mutable (niveau principal — pas de closures) ----

@@ -25,11 +25,14 @@ test "clampArena bounds"
     assert clampArena(3, 11) is equal to 3
 end
 
-test "crystalLayout length scales with count"
+test "crystalLayout positions for count 3 and 7"
     create L3 = crystalLayout(3)
-    assert count(L3) is equal to 6
+    assert L3 at 0 is equal to 4
+    assert L3 at 1 is equal to 4
+    assert L3 at 4 is equal to 6
     create L7 = crystalLayout(7)
-    assert count(L7) is equal to 14
+    assert L7 at 12 is equal to 8
+    assert L7 at 13 is equal to 5
 end
 
 test "hudBarCount caps at goal"
@@ -66,6 +69,11 @@ test "Crystal collect and BonusCrystal double"
     create b = new BonusCrystal(0, 0, 4)
     assert b.label() is equal to "bonus-crystal"
     assert b.collect() is equal to 8
+end
+
+test "ArenaHero inheritance"
+    create h = new ArenaHero()
+    assert h.tag() is equal to "hero:hero"
 end
 
 test "enemyImpulseToward faces player"
