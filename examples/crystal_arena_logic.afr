@@ -197,29 +197,25 @@ end
 
 function crystalLayout(count number) returns list number
     // Flat list: x0,z0, x1,z1, ...
-    create out list number = list of
-    if count is greater than 0 then
-        set out = list of 4, 4
+    if count is less than 2 then
+        return list of 4, 4
     end
-    if count is greater than 1 then
-        set out = list of 4, 4, 0 - 5, 3
+    if count is equal to 2 then
+        return list of 4, 4, 0 - 5, 3
     end
-    if count is greater than 2 then
-        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2
+    if count is equal to 3 then
+        return list of 4, 4, 0 - 5, 3, 6, 0 - 2
     end
-    if count is greater than 3 then
-        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6
+    if count is equal to 4 then
+        return list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6
     end
-    if count is greater than 4 then
-        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7
+    if count is equal to 5 then
+        return list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7
     end
-    if count is greater than 5 then
-        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7, 0 - 7, 0 - 1
+    if count is equal to 6 then
+        return list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7, 0 - 7, 0 - 1
     end
-    if count is greater than 6 then
-        set out = list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7, 0 - 7, 0 - 1, 8, 5
-    end
-    return out
+    return list of 4, 4, 0 - 5, 3, 6, 0 - 2, 0 - 3, 0 - 6, 2, 7, 0 - 7, 0 - 1, 8, 5
 end
 
 function hudBarCount(score number, goal number) returns number
