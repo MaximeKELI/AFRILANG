@@ -1,0 +1,73 @@
+// Unit tests for Crystal Arena rules (no SDL window).
+import "crystal_arena_logic.afr"
+
+test "difficultyGoal maps levels"
+    assert difficultyGoal(1) is equal to 3
+    assert difficultyGoal(2) is equal to 5
+    assert difficultyGoal(3) is equal to 7
+end
+
+test "difficultyLives maps levels"
+    assert difficultyLives(1) is equal to 5
+    assert difficultyLives(2) is equal to 3
+    assert difficultyLives(3) is equal to 2
+end
+
+test "nearEnough and dist2"
+    assert nearEnough(0, 0, 1, 0, 1.1) is equal to true
+    assert nearEnough(0, 0, 3, 0, 1) is equal to false
+    assert dist2(0, 0, 3, 4) is equal to 25
+end
+
+test "clampArena bounds"
+    assert clampArena(20, 11) is equal to 11
+    assert clampArena(0 - 20, 11) is equal to 0 - 11
+    assert clampArena(3, 11) is equal to 3
+end
+
+test "crystalLayout length scales with count"
+    create L3 = crystalLayout(3)
+    assert count(L3) is equal to 6
+    create L7 = crystalLayout(7)
+    assert count(L7) is equal to 14
+end
+
+test "hudBarCount caps at goal"
+    assert hudBarCount(0, 5) is equal to 0
+    assert hudBarCount(3, 5) is equal to 3
+    assert hudBarCount(9, 5) is equal to 5
+end
+
+test "phaseName match"
+    assert phaseName(Phase.Menu) is equal to "menu"
+    assert phaseName(Phase.Playing) is equal to "playing"
+    assert phaseName(Phase.Victory) is equal to "victory"
+end
+
+test "ScoreBoard win and hit"
+    create board = new ScoreBoard(2, 2, 1)
+    assert board.hasWon() is equal to false
+    board.addScore(1)
+    assert board.score is equal to 1
+    board.addScore(1)
+    assert board.hasWon() is equal to true
+    assert board.hit() is equal to false
+    assert board.lives is equal to 1
+    assert board.hit() is equal to true
+end
+
+test "Crystal collect and BonusCrystal double"
+    create c = new Crystal(1, 2, 3)
+    assert c.label() is equal to "crystal"
+    assert c.collect() is equal to 3
+    assert c.collect() is equal to 0
+    create b = new BonusCrystal(0, 0, 4)
+    assert b.label() is equal to "bonus-crystal"
+    assert b.collect() is equal to 8
+end
+
+test "enemyImpulseToward faces player"
+    create v = enemyImpulseToward(0, 0, 10, 0, 5)
+    assert v at 0 is greater than 0
+    assert v at 1 is equal to 0
+end

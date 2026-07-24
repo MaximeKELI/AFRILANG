@@ -25,7 +25,14 @@ use game3d
 import "std/gamestate"
 use gamestate
 
-// ---- configuration ----
+// ---- démo POO / enum (hors boucle) ----
+create demoCrystal = new Crystal(4, 4, 1)
+create demoBonus = new BonusCrystal(0 - 5, 3, 1)
+say demoCrystal.label()
+say demoBonus.label()
+say phaseName(Phase.Menu)
+
+// ---- état mutable (niveau principal — pas de closures) ----
 create difficulty number = 1
 create followCam bool = true
 create arenaLimit number = 11
@@ -34,248 +41,12 @@ create enemyTick number = 0
 create invulnMs number = 0
 create menuSpin number = 0
 create crystalCount number = 3
+create pendingReset number = 1
 create collectedFlags list number = list of 0, 0, 0, 0, 0, 0, 0
 create crystalXs list number = list of 0, 0, 0, 0, 0, 0, 0
 create crystalZs list number = list of 0, 0, 0, 0, 0, 0, 0
-
 create board = new ScoreBoard(3, 5, 1)
 
-function applyDifficulty(level number)
-    set difficulty = level
-    create g = difficultyGoal(level)
-    create lives = difficultyLives(level)
-    set board = new ScoreBoard(g, lives, level)
-    set crystalCount = g
-end
-
-function resetArena()
-    applyDifficulty(difficulty)
-    create layout = crystalLayout(crystalCount)
-    create i = 0
-    while i is less than crystalCount do
-        create xi = layout at (i * 2)
-        create zi = layout at (i * 2 + 1)
-        set crystalXs at i = xi
-        set crystalZs at i = zi
-        set collectedFlags at i = 0
-        set i = i + 1
-    end
-
-    if hasBody("hero") then
-        removeBody("hero")
-    end
-    createBody("hero", 0, 1.2, 0, 0.55)
-    setBodyRestitution("hero", 0.35)
-    setBodyFriction("hero", 0.92)
-
-    if hasBody("enemy1") then
-        removeBody("enemy1")
-    end
-    if hasBody("enemy2") then
-        removeBody("enemy2")
-    end
-    createBody("enemy1", 7, 1.2, 7, 0.5)
-    createBody("enemy2", 0 - 7, 1.2, 0 - 6, 0.5)
-    setBodyRestitution("enemy1", 0.8)
-    setBodyRestitution("enemy2", 0.8)
-
-    // Arena pillars (boxes)
-    if hasBody("pillarA") then
-        removeBody("pillarA")
-    end
-    if hasBody("pillarB") then
-        removeBody("pillarB")
-    end
-    if hasBody("pillarC") then
-        removeBody("pillarC")
-    end
-    if hasBody("pillarD") then
-        removeBody("pillarD")
-    end
-    createBoxBody("pillarA", 9, 1.5, 0, 0.6, 1.5, 0.6)
-    createBoxBody("pillarB", 0 - 9, 1.5, 0, 0.6, 1.5, 0.6)
-    createBoxBody("pillarC", 0, 1.5, 9, 0.6, 1.5, 0.6)
-    createBoxBody("pillarD", 0, 1.5, 0 - 9, 0.6, 1.5, 0.6)
-
-    set invulnMs = 1500
-    set enemyTick = 0
-    emitBurst(0, 2, 0, 20, 6)
-end
-
-function tryCollectCrystals()
-    create hx = bodyX("hero")
-    create hz = bodyZ("hero")
-    create i = 0
-    while i is less than crystalCount do
-        if collectedFlags at i is equal to 0 then
-            create cx = crystalXs at i
-            create cz = crystalZs at i
-            if nearEnough(hx, hz, cx, cz, 1.35) then
-                set collectedFlags at i = 1
-                board.addScore(1)
-                emitBurst(cx, 1.5, cz, 16, 5)
-                if board.hasWon() then
-                    setState("victory")
-                end
-            end
-        end
-        set i = i + 1
-    end
-end
-
-function updateEnemies(dt number)
-    set enemyTick = enemyTick + dt
-    if enemyTick is less than 280 then
-        return
-    end
-    set enemyTick = 0
-    create hx = bodyX("hero")
-    create hz = bodyZ("hero")
-    create spd = difficultyEnemySpeed(difficulty)
-
-    create i1 = enemyImpulseToward(bodyX("enemy1"), bodyZ("enemy1"), hx, hz, spd)
-    setBodyVelocity("enemy1", i1 at 0, 1.5, i1 at 1)
-
-    create i2 = enemyImpulseToward(bodyX("enemy2"), bodyZ("enemy2"), hx, hz, spd * 0.85)
-    setBodyVelocity("enemy2", i2 at 0, 1.2, i2 at 1)
-end
-
-function checkEnemyHits(dt number)
-    if invulnMs is greater than 0 then
-        set invulnMs = invulnMs - dt
-        return
-    end
-    create hx = bodyX("hero")
-    create hz = bodyZ("hero")
-    create hit = false
-    if nearEnough(hx, hz, bodyX("enemy1"), bodyZ("enemy1"), 1.2) then
-        set hit = true
-    end
-    if nearEnough(hx, hz, bodyX("enemy2"), bodyZ("enemy2"), 1.2) then
-        set hit = true
-    end
-    if hit then
-        set invulnMs = 2000
-        emitBurst(hx, 1.5, hz, 24, 7)
-        if board.hit() then
-            setState("defeat")
-        end
-    end
-end
-
-function handleHeroInput(dt number)
-    create speed = 7 + difficulty
-    create vx = 0
-    create vz = 0
-    if isKeyDown("W") then
-        set vz = vz - speed
-    end
-    if isKeyDown("S") then
-        set vz = vz + speed
-    end
-    if isKeyDown("A") then
-        set vx = vx - speed
-    end
-    if isKeyDown("D") then
-        set vx = vx + speed
-    end
-    create vy = 0
-    if wasKeyPressed("Space") then
-        set vy = 9
-        emitBurst(bodyX("hero"), 0.8, bodyZ("hero"), 8, 3)
-    end
-    setBodyVelocity("hero", vx, vy, vz)
-
-    // Soft arena clamp via reposition if escaped
-    create x = clampArena(bodyX("hero"), arenaLimit)
-    create z = clampArena(bodyZ("hero"), arenaLimit)
-    create y = bodyY("hero")
-    if y is less than 0.6 then
-        set y = 0.6
-    end
-    setBodyPosition("hero", x, y, z)
-end
-
-function drawCrystals()
-    create i = 0
-    while i is less than crystalCount do
-        if collectedFlags at i is equal to 0 then
-            create cx = crystalXs at i
-            create cz = crystalZs at i
-            if hasModel("crystal") then
-                drawModelColored("crystal", cx, 0.9, cz, 0.55, crystalRot + i * 25, 80, 220, 255)
-            else
-                drawSphere(cx, 1.1, cz, 0.45, 80, 220, 255)
-            end
-        end
-        set i = i + 1
-    end
-end
-
-function drawHudMarkers()
-    // Score = green cubes along +X ; lives = red cubes along -X
-    create s = hudBarCount(board.score, board.goal)
-    create i = 0
-    while i is less than s do
-        drawCube(0 - 10, 8, 0 - 6 + i * 0.7, 0.25, 40, 220, 90)
-        set i = i + 1
-    end
-    create L = board.lives
-    create j = 0
-    while j is less than L do
-        drawCube(10, 8, 0 - 6 + j * 0.7, 0.25, 230, 70, 70)
-        set j = j + 1
-    end
-    // Difficulty marker colour
-    if difficulty is equal to 1 then
-        drawSphere(0, 9, 0 - 10, 0.35, 90, 200, 255)
-    end
-    if difficulty is equal to 2 then
-        drawSphere(0, 9, 0 - 10, 0.35, 255, 200, 60)
-    end
-    if difficulty is equal to 3 then
-        drawSphere(0, 9, 0 - 10, 0.35, 255, 80, 80)
-    end
-end
-
-function drawWorld()
-    clearScreen(18, 22, 34)
-    applyFog()
-    applyLighting()
-    applyCamera()
-
-    drawGrid(0, 28, 28)
-    if hasTexture3d("grass") then
-        drawPlaneTextured(0, 28, "grass")
-    else
-        drawPlane(0, 28, 40, 90, 55)
-    end
-
-    drawCrystals()
-    drawHudMarkers()
-
-    // Bodies
-    drawSphere(bodyX("hero"), bodyY("hero"), bodyZ("hero"), 0.55, 255, 210, 70)
-    drawSphere(bodyX("enemy1"), bodyY("enemy1"), bodyZ("enemy1"), 0.5, 220, 60, 90)
-    drawSphere(bodyX("enemy2"), bodyY("enemy2"), bodyZ("enemy2"), 0.5, 200, 40, 120)
-
-    if hasModel("crate") then
-        drawModelLit("crate", bodyX("pillarA"), 0, bodyZ("pillarA"), 0.7, 0)
-        drawModelLit("crate", bodyX("pillarB"), 0, bodyZ("pillarB"), 0.7, 0)
-        drawModelLit("crate", bodyX("pillarC"), 0, bodyZ("pillarC"), 0.7, 0)
-        drawModelLit("crate", bodyX("pillarD"), 0, bodyZ("pillarD"), 0.7, 0)
-    else
-        drawBody("pillarA")
-        drawBody("pillarB")
-        drawBody("pillarC")
-        drawBody("pillarD")
-    end
-
-    drawAxis(2)
-    drawParticles()
-end
-
-// ---- boot ----
 openWindow("AFRILANG — Crystal Arena 3D", 1100, 700)
 setCamera(0, 12, 26, 0, -18)
 
@@ -291,9 +62,6 @@ setFog(yes, 130, 145, 165, 20, 90)
 setWind(0.4, 0, 0.2)
 
 setState("menu")
-applyDifficulty(1)
-resetArena()
-
 say "Crystal Arena — Enter jouer | 1/2/3 difficulte | WASD | Space | P pause | F camera"
 
 while isOpen() do
@@ -302,23 +70,79 @@ while isOpen() do
     tickState(dt)
     set crystalRot = crystalRot + dt * 0.05
 
+    // ---- reset arène (flag, car les fonctions ne voient pas les globales) ----
+    if pendingReset is equal to 1 then
+        set pendingReset = 0
+        create g = difficultyGoal(difficulty)
+        create lives = difficultyLives(difficulty)
+        set board = new ScoreBoard(g, lives, difficulty)
+        set crystalCount = g
+        create layout = crystalLayout(crystalCount)
+        create ri = 0
+        while ri is less than crystalCount do
+            set crystalXs at ri = layout at (ri * 2)
+            set crystalZs at ri = layout at (ri * 2 + 1)
+            set collectedFlags at ri = 0
+            set ri = ri + 1
+        end
+
+        if hasBody("hero") then
+            removeBody("hero")
+        end
+        createBody("hero", 0, 1.2, 0, 0.55)
+        setBodyRestitution("hero", 0.35)
+        setBodyFriction("hero", 0.92)
+
+        if hasBody("enemy1") then
+            removeBody("enemy1")
+        end
+        if hasBody("enemy2") then
+            removeBody("enemy2")
+        end
+        createBody("enemy1", 7, 1.2, 7, 0.5)
+        createBody("enemy2", 0 - 7, 1.2, 0 - 6, 0.5)
+        setBodyRestitution("enemy1", 0.8)
+        setBodyRestitution("enemy2", 0.8)
+
+        if hasBody("pillarA") then
+            removeBody("pillarA")
+        end
+        if hasBody("pillarB") then
+            removeBody("pillarB")
+        end
+        if hasBody("pillarC") then
+            removeBody("pillarC")
+        end
+        if hasBody("pillarD") then
+            removeBody("pillarD")
+        end
+        createBoxBody("pillarA", 9, 1.5, 0, 0.6, 1.5, 0.6)
+        createBoxBody("pillarB", 0 - 9, 1.5, 0, 0.6, 1.5, 0.6)
+        createBoxBody("pillarC", 0, 1.5, 9, 0.6, 1.5, 0.6)
+        createBoxBody("pillarD", 0, 1.5, 0 - 9, 0.6, 1.5, 0.6)
+
+        set invulnMs = 1500
+        set enemyTick = 0
+        emitBurst(0, 2, 0, 20, 6)
+    end
+
     // -------- MENU --------
     if isState("menu") then
         set menuSpin = menuSpin + dt * 0.02
         if wasKeyPressed("1") then
-            applyDifficulty(1)
-            resetArena()
+            set difficulty = 1
+            set pendingReset = 1
         end
         if wasKeyPressed("2") then
-            applyDifficulty(2)
-            resetArena()
+            set difficulty = 2
+            set pendingReset = 1
         end
         if wasKeyPressed("3") then
-            applyDifficulty(3)
-            resetArena()
+            set difficulty = 3
+            set pendingReset = 1
         end
         if wasKeyPressed("Enter") then
-            resetArena()
+            set pendingReset = 1
             setState("playing")
             say "GO — collectez les cristaux !"
         end
@@ -326,116 +150,269 @@ while isOpen() do
             shutdown()
         end
 
-        setCamera(12 * 0 + 18, 10, 18, menuSpin * 8, -20)
-        create move = dt * 0.004
-        create turn = dt * 0.01
-        // gentle orbit only via setCamera above
+        setCamera(18, 10, 18, menuSpin * 8, -20)
         stepPhysicsEx(dt, -18)
         updateParticles(dt)
-        drawWorld()
-        showFrame()
-
-    // -------- PLAYING --------
-    else if isState("playing") then
-        if wasKeyPressed("Escape") then
-            setState("menu")
-        end
-        if wasKeyPressed("P") then
-            setState("paused")
-        end
-        if wasKeyPressed("F") then
-            if followCam then
-                set followCam = false
-            else
-                set followCam = true
-            end
-        end
-        if wasKeyPressed("R") then
-            resetArena()
-        end
-
-        handleHeroInput(dt)
-        updateEnemies(dt)
-        stepPhysicsEx(dt, -22)
-        updateParticles(dt)
-        tryCollectCrystals()
-        checkEnemyHits(dt)
-
-        if followCam then
-            followBody("hero", 6, 16, 0.12)
-        else
-            updateFlyCamera(dt * 0.012, dt * 0.035)
-        end
-
-        drawWorld()
-        showFrame()
-
-    // -------- PAUSED --------
-    else if isState("paused") then
-        if wasKeyPressed("P") then
-            setState("playing")
-        end
-        if wasKeyPressed("Escape") then
-            setState("menu")
-        end
-        if followCam then
-            followBody("hero", 6, 16, 0.12)
-        end
-        drawWorld()
-        // Dim pulse marker when paused
-        drawCube(0, 12, 0, 0.4, 255, 255, 120)
-        showFrame()
-
-    // -------- VICTORY --------
-    else if isState("victory") then
-        if wasKeyPressed("Enter") then
-            resetArena()
-            setState("playing")
-        end
-        if wasKeyPressed("R") then
-            resetArena()
-            setState("playing")
-        end
-        if wasKeyPressed("Escape") then
-            setState("menu")
-        end
-        followBody("hero", 8, 18, 0.08)
-        stepPhysicsEx(dt, -10)
-        updateParticles(dt)
-        if wasStateChanged() then
-            emitBurst(bodyX("hero"), 2, bodyZ("hero"), 40, 10)
-            say "VICTOIRE — score=" + board.score
-        end
-        drawWorld()
-        drawSphere(0, 10, 0, 0.8, 80, 255, 140)
-        showFrame()
-
-    // -------- DEFEAT --------
-    else if isState("defeat") then
-        if wasKeyPressed("Enter") then
-            resetArena()
-            setState("playing")
-        end
-        if wasKeyPressed("R") then
-            resetArena()
-            setState("playing")
-        end
-        if wasKeyPressed("Escape") then
-            setState("menu")
-        end
-        followBody("hero", 5, 14, 0.1)
-        if wasStateChanged() then
-            emitBurst(bodyX("hero"), 1, bodyZ("hero"), 30, 8)
-            say "DEFAITE — score=" + board.score
-        end
-        drawWorld()
-        drawSphere(0, 10, 0, 0.8, 255, 70, 70)
-        showFrame()
 
     else
-        setState("menu")
-        showFrame()
+        // -------- PLAYING --------
+        if isState("playing") then
+            if wasKeyPressed("Escape") then
+                setState("menu")
+            end
+            if wasKeyPressed("P") then
+                setState("paused")
+            end
+            if wasKeyPressed("F") then
+                if followCam then
+                    set followCam = false
+                else
+                    set followCam = true
+                end
+            end
+            if wasKeyPressed("R") then
+                set pendingReset = 1
+            end
+
+            // héros
+            create speed = 7 + difficulty
+            create vx = 0
+            create vz = 0
+            if isKeyDown("W") then
+                set vz = vz - speed
+            end
+            if isKeyDown("S") then
+                set vz = vz + speed
+            end
+            if isKeyDown("A") then
+                set vx = vx - speed
+            end
+            if isKeyDown("D") then
+                set vx = vx + speed
+            end
+            create vy = 0
+            if wasKeyPressed("Space") then
+                set vy = 9
+                emitBurst(bodyX("hero"), 0.8, bodyZ("hero"), 8, 3)
+            end
+            setBodyVelocity("hero", vx, vy, vz)
+
+            create hx = clampArena(bodyX("hero"), arenaLimit)
+            create hz = clampArena(bodyZ("hero"), arenaLimit)
+            create hy = bodyY("hero")
+            if hy is less than 0.6 then
+                set hy = 0.6
+            end
+            setBodyPosition("hero", hx, hy, hz)
+
+            // ennemis
+            set enemyTick = enemyTick + dt
+            if enemyTick is greater than 279 then
+                set enemyTick = 0
+                create spd = difficultyEnemySpeed(difficulty)
+                create i1 = enemyImpulseToward(bodyX("enemy1"), bodyZ("enemy1"), hx, hz, spd)
+                setBodyVelocity("enemy1", i1 at 0, 1.5, i1 at 1)
+                create i2 = enemyImpulseToward(bodyX("enemy2"), bodyZ("enemy2"), hx, hz, spd * 0.85)
+                setBodyVelocity("enemy2", i2 at 0, 1.2, i2 at 1)
+            end
+
+            stepPhysicsEx(dt, -22)
+            updateParticles(dt)
+
+            // cristaux
+            create ci = 0
+            while ci is less than crystalCount do
+                if collectedFlags at ci is equal to 0 then
+                    create cx = crystalXs at ci
+                    create cz = crystalZs at ci
+                    if nearEnough(hx, hz, cx, cz, 1.35) then
+                        set collectedFlags at ci = 1
+                        board.addScore(1)
+                        emitBurst(cx, 1.5, cz, 16, 5)
+                        if board.hasWon() then
+                            setState("victory")
+                        end
+                    end
+                end
+                set ci = ci + 1
+            end
+
+            // collisions ennemis
+            if invulnMs is greater than 0 then
+                set invulnMs = invulnMs - dt
+            else
+                create eh = false
+                if nearEnough(hx, hz, bodyX("enemy1"), bodyZ("enemy1"), 1.2) then
+                    set eh = true
+                end
+                if nearEnough(hx, hz, bodyX("enemy2"), bodyZ("enemy2"), 1.2) then
+                    set eh = true
+                end
+                if eh then
+                    set invulnMs = 2000
+                    emitBurst(hx, 1.5, hz, 24, 7)
+                    if board.hit() then
+                        setState("defeat")
+                    end
+                end
+            end
+
+            if followCam then
+                followBody("hero", 6, 16, 0.12)
+            else
+                updateFlyCamera(dt * 0.012, dt * 0.035)
+            end
+
+        else
+            // -------- PAUSED --------
+            if isState("paused") then
+                if wasKeyPressed("P") then
+                    setState("playing")
+                end
+                if wasKeyPressed("Escape") then
+                    setState("menu")
+                end
+                if followCam then
+                    followBody("hero", 6, 16, 0.12)
+                end
+
+            else
+                // -------- VICTORY --------
+                if isState("victory") then
+                    if wasKeyPressed("Enter") then
+                        set pendingReset = 1
+                        setState("playing")
+                    end
+                    if wasKeyPressed("R") then
+                        set pendingReset = 1
+                        setState("playing")
+                    end
+                    if wasKeyPressed("Escape") then
+                        setState("menu")
+                    end
+                    followBody("hero", 8, 18, 0.08)
+                    stepPhysicsEx(dt, -10)
+                    updateParticles(dt)
+                    if wasStateChanged() then
+                        emitBurst(bodyX("hero"), 2, bodyZ("hero"), 40, 10)
+                        say "VICTOIRE — score=" + board.score
+                    end
+
+                else
+                    // -------- DEFEAT --------
+                    if isState("defeat") then
+                        if wasKeyPressed("Enter") then
+                            set pendingReset = 1
+                            setState("playing")
+                        end
+                        if wasKeyPressed("R") then
+                            set pendingReset = 1
+                            setState("playing")
+                        end
+                        if wasKeyPressed("Escape") then
+                            setState("menu")
+                        end
+                        followBody("hero", 5, 14, 0.1)
+                        if wasStateChanged() then
+                            emitBurst(bodyX("hero"), 1, bodyZ("hero"), 30, 8)
+                            say "DEFAITE — score=" + board.score
+                        end
+                    else
+                        setState("menu")
+                    end
+                end
+            end
+        end
     end
+
+    // ---- rendu commun ----
+    clearScreen(18, 22, 34)
+    applyFog()
+    applyLighting()
+    applyCamera()
+
+    drawGrid(0, 28, 28)
+    if hasTexture3d("grass") then
+        drawPlaneTextured(0, 28, "grass")
+    else
+        drawPlane(0, 28, 40, 90, 55)
+    end
+
+    create di = 0
+    while di is less than crystalCount do
+        if collectedFlags at di is equal to 0 then
+            create dx = crystalXs at di
+            create dz = crystalZs at di
+            if hasModel("crystal") then
+                drawModelColored("crystal", dx, 0.9, dz, 0.55, crystalRot + di * 25, 80, 220, 255)
+            else
+                drawSphere(dx, 1.1, dz, 0.45, 80, 220, 255)
+            end
+        end
+        set di = di + 1
+    end
+
+    create s = hudBarCount(board.score, board.goal)
+    create hi = 0
+    while hi is less than s do
+        drawCube(0 - 10, 8, 0 - 6 + hi * 0.7, 0.25, 40, 220, 90)
+        set hi = hi + 1
+    end
+    create L = board.lives
+    create lj = 0
+    while lj is less than L do
+        drawCube(10, 8, 0 - 6 + lj * 0.7, 0.25, 230, 70, 70)
+        set lj = lj + 1
+    end
+    if difficulty is equal to 1 then
+        drawSphere(0, 9, 0 - 10, 0.35, 90, 200, 255)
+    end
+    if difficulty is equal to 2 then
+        drawSphere(0, 9, 0 - 10, 0.35, 255, 200, 60)
+    end
+    if difficulty is equal to 3 then
+        drawSphere(0, 9, 0 - 10, 0.35, 255, 80, 80)
+    end
+
+    if hasBody("hero") then
+        drawSphere(bodyX("hero"), bodyY("hero"), bodyZ("hero"), 0.55, 255, 210, 70)
+    end
+    if hasBody("enemy1") then
+        drawSphere(bodyX("enemy1"), bodyY("enemy1"), bodyZ("enemy1"), 0.5, 220, 60, 90)
+    end
+    if hasBody("enemy2") then
+        drawSphere(bodyX("enemy2"), bodyY("enemy2"), bodyZ("enemy2"), 0.5, 200, 40, 120)
+    end
+
+    if hasModel("crate") then
+        if hasBody("pillarA") then
+            drawModelLit("crate", bodyX("pillarA"), 0, bodyZ("pillarA"), 0.7, 0, "crate")
+            drawModelLit("crate", bodyX("pillarB"), 0, bodyZ("pillarB"), 0.7, 0, "crate")
+            drawModelLit("crate", bodyX("pillarC"), 0, bodyZ("pillarC"), 0.7, 0, "crate")
+            drawModelLit("crate", bodyX("pillarD"), 0, bodyZ("pillarD"), 0.7, 0, "crate")
+        end
+    else
+        if hasBody("pillarA") then
+            drawBody("pillarA")
+            drawBody("pillarB")
+            drawBody("pillarC")
+            drawBody("pillarD")
+        end
+    end
+
+    if isState("paused") then
+        drawCube(0, 12, 0, 0.4, 255, 255, 120)
+    end
+    if isState("victory") then
+        drawSphere(0, 10, 0, 0.8, 80, 255, 140)
+    end
+    if isState("defeat") then
+        drawSphere(0, 10, 0, 0.8, 255, 70, 70)
+    end
+
+    drawAxis(2)
+    drawParticles()
+    showFrame()
 end
 
 shutdown()

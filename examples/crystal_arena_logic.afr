@@ -18,7 +18,7 @@ enum Phase
     case Defeat
 end
 
-class Crystal
+class Crystal implements Scorable, NamedThing
     public field active bool
     public field value number
     public field x number
@@ -45,6 +45,20 @@ class Crystal
         end
         set this.active = false
         return value
+    end
+end
+
+class BonusCrystal extends Crystal
+    function label() returns text
+        return "bonus-crystal"
+    end
+
+    function collect() returns number
+        if active is equal to false then
+            return 0
+        end
+        set this.active = false
+        return value * 2
     end
 end
 
