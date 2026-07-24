@@ -2,6 +2,26 @@
 
 Programmes de référence. Suite : `afrilang test` (section exemples).
 
+## Jeux (2D / 3D)
+
+| Fichier | Contenu |
+|---------|---------|
+| `crystal_arena.afr` | **Crystal Arena** — jeu 3D (menu, pause, victoire/défaite, WASD, physique, HUD) |
+| `crystal_arena_logic.afr` | Règles pures : POO, interfaces, héritage, enums/`match`, listes |
+| `crystal_arena_test.afr` | Tests unitaires des règles (sans fenêtre SDL) |
+| `snake.afr` / `snake_test.afr` | Snake 2D + tests |
+| `game3d_demo.afr` / `game3d_complex.afr` | Démos `std/game3d` |
+
+```bash
+# Règles seules (CI-friendly)
+./build/afrilang examples/crystal_arena_test.afr -o /tmp/crystal_arena_test && /tmp/crystal_arena_test
+
+# Jeu 3D (affichage SDL/OpenGL requis)
+./build/afrilang run examples/crystal_arena.afr
+```
+
+Contrôles Crystal Arena : `1`/`2`/`3` difficulté · `Enter` jouer · `WASD` · `Space` sauter · `P` pause · `F` caméra · `R` restart · `Escape` menu/quit.
+
 ## IA / ML / NLP (expérimental)
 
 Voir [`docs/STDLIB_AI.md`](../docs/STDLIB_AI.md).

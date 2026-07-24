@@ -573,6 +573,8 @@ static int runExampleSuite(const fs::path& root, bool coverage) {
         "ai_toolkit_demo.afr",
         "llmx_chat.afr",
         "snake_test.afr",
+        "crystal_arena_test.afr",
+        "crystal_arena_logic.afr",
         "game3d_demo.afr",
         "test_game2dkit.afr",
     };

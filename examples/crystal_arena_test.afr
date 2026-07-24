@@ -81,3 +81,5 @@ test "enemyImpulseToward faces player"
     assert v at 0 is greater than 0
     assert v at 1 is equal to 0
 end
+
+say "Crystal Arena logic tests OK"
