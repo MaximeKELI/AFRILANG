@@ -1,0 +1,267 @@
+// ============================================================
+//  AFRIFINANCE — application CLI interactive
+// ============================================================
+// Menu + readLine + persistance fichier (std/io).
+//
+// Lancer :
+//   ./build/afrilang run examples/finance_app.afr
+//
+// Fichier par défaut : finance_data.txt (répertoire courant)
+// ============================================================
+
+import "finance_logic.afr"
+
+import "std/io"
+use io
+
+import "std/parse"
+use parse
+
+import "std/m/textsplit2"
+use textsplit2
+
+import "std/m/textjoin2"
+use textjoin2
+
+create SAVE_PATH = "finance_data.txt"
+create accountName text = "Caisse"
+create balance number = 0
+create txCount number = 0
+create budgetCount number = 0
+create running number = 1
+
+create txKinds list number = list of 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+create txAmounts list number = list of 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+create txCats list number = list of 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+create txNotes list text = list of "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"
+
+create budCats list number = list of 0, 0, 0, 0, 0, 0, 0, 0
+create budLimits list number = list of 0, 0, 0, 0, 0, 0, 0, 0
+create budSpent list number = list of 0, 0, 0, 0, 0, 0, 0, 0
+
+create demoUser = new FinanceUser()
+say menuTitle()
+say "Utilisateur: " + demoUser.who()
+say "Fichier: " + SAVE_PATH
+
+if fileExists(SAVE_PATH) then
+    say "Donnees existantes detectees — chargez avec l'option 7."
+end
+
+while running is equal to 1 do
+    say ""
+    say "========== MENU =========="
+    say "1. Tableau de bord"
+    say "2. Ajouter un revenu"
+    say "3. Ajouter une depense"
+    say "4. Lister les transactions"
+    say "5. Definir un budget"
+    say "6. Voir les budgets"
+    say "7. Charger depuis fichier"
+    say "8. Sauvegarder"
+    say "9. Objectif d'epargne (apercu)"
+    say "0. Quitter"
+    say "Choix:"
+    create choice = parseInt(readLine())
+
+    if choice is equal to 0 then
+        set running = 0
+    end
+
+    if choice is equal to 1 then
+        create income = sumByKind(txAmounts, txKinds, kindIncomeCode(), txCount)
+        create expense = sumByKind(txAmounts, txKinds, kindExpenseCode(), txCount)
+        create rate = savingsRate(income, expense)
+        say "--- Tableau de bord ---"
+        say "Compte: " + accountName
+        say "Solde: " + balance
+        say "Revenus: " + income
+        say "Depenses: " + expense
+        say "Taux d'epargne: " + rate + " %"
+        say "Transactions: " + txCount
+    end
+
+    if choice is equal to 2 then
+        if txCount is less than 32 then
+            say "Montant du revenu:"
+            create amt = parseFloat(readLine())
+            if validateAmount(amt) then
+                say "Categorie (0 Food 1 Transport 2 Salary 3 Rent 4 Leisure 5 Other):"
+                create cat = categoryFromMenu(parseInt(readLine()))
+                say "Note:"
+                create note = readLine()
+                set txKinds at txCount = kindIncomeCode()
+                set txAmounts at txCount = amt
+                set txCats at txCount = cat
+                set txNotes at txCount = note
+                set txCount = txCount + 1
+                set balance = applyTx(balance, kindIncomeCode(), amt)
+                say "OK +" + amt + " | solde=" + balance
+            else
+                say "Montant invalide."
+            end
+        else
+            say "Limite de 32 transactions atteinte."
+        end
+    end
+
+    if choice is equal to 3 then
+        if txCount is less than 32 then
+            say "Montant de la depense:"
+            create amtE = parseFloat(readLine())
+            if validateAmount(amtE) then
+                if canAfford(balance, amtE) then
+                    say "Categorie (0-5):"
+                    create catE = categoryFromMenu(parseInt(readLine()))
+                    say "Note:"
+                    create noteE = readLine()
+                    set txKinds at txCount = kindExpenseCode()
+                    set txAmounts at txCount = amtE
+                    set txCats at txCount = catE
+                    set txNotes at txCount = noteE
+                    set txCount = txCount + 1
+                    set balance = applyTx(balance, kindExpenseCode(), amtE)
+                    create bi = 0
+                    while bi is less than budgetCount do
+                        if budCats at bi is equal to catE then
+                            set budSpent at bi = (budSpent at bi) + amtE
+                            if isOverBudget(budLimits at bi, budSpent at bi) then
+                                say "ALERTE budget depasse: " + categoryName(catE)
+                            end
+                        end
+                        set bi = bi + 1
+                    end
+                    say "OK -" + amtE + " | solde=" + balance
+                else
+                    say "Solde insuffisant."
+                end
+            else
+                say "Montant invalide."
+            end
+        else
+            say "Limite de 32 transactions atteinte."
+        end
+    end
+
+    if choice is equal to 4 then
+        say "--- Transactions ---"
+        if txCount is equal to 0 then
+            say "(aucune)"
+        else
+            create ti = 0
+            while ti is less than txCount do
+                say (ti + 1) + ". [" + kindName(txKinds at ti) + "] " + (txAmounts at ti) + " | " + categoryName(txCats at ti) + " | " + (txNotes at ti)
+                set ti = ti + 1
+            end
+        end
+    end
+
+    if choice is equal to 5 then
+        if budgetCount is less than 8 then
+            say "Categorie budget (0-5):"
+            create bcat = categoryFromMenu(parseInt(readLine()))
+            say "Plafond:"
+            create blim = parseFloat(readLine())
+            if validateAmount(blim) then
+                set budCats at budgetCount = bcat
+                set budLimits at budgetCount = blim
+                create spent0 = sumByCategory(txAmounts, txKinds, txCats, bcat, kindExpenseCode(), txCount)
+                set budSpent at budgetCount = spent0
+                set budgetCount = budgetCount + 1
+                say "Budget " + categoryName(bcat) + " = " + blim
+            else
+                say "Plafond invalide."
+            end
+        else
+            say "Limite de 8 budgets atteinte."
+        end
+    end
+
+    if choice is equal to 6 then
+        say "--- Budgets ---"
+        if budgetCount is equal to 0 then
+            say "(aucun)"
+        else
+            create bk = 0
+            while bk is less than budgetCount do
+                create rem = budgetRemaining(budLimits at bk, budSpent at bk)
+                create pct = budgetUsagePct(budLimits at bk, budSpent at bk)
+                say categoryName(budCats at bk) + ": " + (budSpent at bk) + " / " + (budLimits at bk) + " (reste " + rem + ", " + pct + "%)"
+                if isOverBudget(budLimits at bk, budSpent at bk) then
+                    say "  >> DEPASSE"
+                end
+                set bk = bk + 1
+            end
+        end
+    end
+
+    if choice is equal to 7 then
+        if fileExists(SAVE_PATH) then
+            create raw = readFile(SAVE_PATH)
+            create allLines = splitLines(raw)
+            set txCount = 0
+            set budgetCount = 0
+            set balance = 0
+            create loaded = 0
+            for each row2 in allLines do
+                create bits = splitBy(row2, "|")
+                create head = bits at 0
+                if head is equal to "account" then
+                    set accountName = bits at 1
+                    set balance = parseFloat(bits at 2)
+                end
+                if head is equal to "tx" then
+                    if txCount is less than 32 then
+                        set txKinds at txCount = parseInt(bits at 1)
+                        set txAmounts at txCount = parseFloat(bits at 2)
+                        set txCats at txCount = parseInt(bits at 3)
+                        set txNotes at txCount = bits at 4
+                        set txCount = txCount + 1
+                    end
+                end
+                if head is equal to "budget" then
+                    if budgetCount is less than 8 then
+                        set budCats at budgetCount = parseInt(bits at 1)
+                        set budLimits at budgetCount = parseFloat(bits at 2)
+                        set budSpent at budgetCount = parseFloat(bits at 3)
+                        set budgetCount = budgetCount + 1
+                    end
+                end
+                set loaded = loaded + 1
+            end
+            say "Charge: " + loaded + " lignes | solde=" + balance + " | tx=" + txCount
+        else
+            say "Fichier introuvable: " + SAVE_PATH
+        end
+    end
+
+    if choice is equal to 8 then
+        create lines list text = list of "AFRIFINANCE1"
+        add ("account|" + accountName + "|" + balance) to lines
+        create si = 0
+        while si is less than txCount do
+            add ("tx|" + (txKinds at si) + "|" + (txAmounts at si) + "|" + (txCats at si) + "|" + (txNotes at si)) to lines
+            set si = si + 1
+        end
+        create sj = 0
+        while sj is less than budgetCount do
+            add ("budget|" + (budCats at sj) + "|" + (budLimits at sj) + "|" + (budSpent at sj)) to lines
+            set sj = sj + 1
+        end
+        writeFile(SAVE_PATH, joinLines(lines))
+        say "Sauvegarde OK -> " + SAVE_PATH
+    end
+
+    if choice is equal to 9 then
+        create goal = new SavingsGoal("Vacances", balance, 5000)
+        say "Objectif: " + goal.label()
+        say "Progression: " + goal.progressPct() + " %"
+        if goal.reached() then
+            say "Objectif atteint !"
+        else
+            say "Encore " + (5000 - balance) + " a epargner."
+        end
+    end
+end
+
+say "AFRIFINANCE ferme. A bientot."

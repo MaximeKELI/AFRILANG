@@ -1,0 +1,345 @@
+// ============================================================
+//  AFRIFINANCE — règles métier (sans I/O)
+// ============================================================
+// Modules, interfaces, classes, héritage, enums + match,
+// fonctions, listes, boucles, conditions.
+// Montants en unités monétaires (number).
+// kind : 0 = revenu, 1 = dépense
+// cat  : 0 Food, 1 Transport, 2 Salary, 3 Rent, 4 Leisure, 5 Other
+// ============================================================
+
+interface Named
+    function label() returns text
+end
+
+interface Balanceable
+    function balance() returns number
+end
+
+enum TxKind
+    case Income
+    case Expense
+end
+
+enum MoneyCat
+    case Food
+    case Transport
+    case Salary
+    case Rent
+    case Leisure
+    case Other
+end
+
+function categoryName(cat number) returns text
+    if cat is equal to 0 then
+        return "Alimentation"
+    end
+    if cat is equal to 1 then
+        return "Transport"
+    end
+    if cat is equal to 2 then
+        return "Salaire"
+    end
+    if cat is equal to 3 then
+        return "Loyer"
+    end
+    if cat is equal to 4 then
+        return "Loisirs"
+    end
+    return "Autre"
+end
+
+class Account implements Named, Balanceable
+    public field name text
+    public field bal number
+
+    function init(aName text, aBal number)
+        set this.name = aName
+        set this.bal = aBal
+    end
+
+    function label() returns text
+        return name
+    end
+
+    function balance() returns number
+        return bal
+    end
+
+    function credit(amount number)
+        set this.bal = bal + amount
+    end
+
+    function debit(amount number) returns bool
+        if amount is greater than bal then
+            return false
+        end
+        set this.bal = bal - amount
+        return true
+    end
+end
+
+class BudgetLine implements Named
+    public field category number
+    public field limit number
+    public field spent number
+
+    function init(cat number, lim number)
+        set this.category = cat
+        set this.limit = lim
+        set this.spent = 0
+    end
+
+    function label() returns text
+        if category is equal to 0 then
+            return "Alimentation"
+        end
+        if category is equal to 1 then
+            return "Transport"
+        end
+        if category is equal to 2 then
+            return "Salaire"
+        end
+        if category is equal to 3 then
+            return "Loyer"
+        end
+        if category is equal to 4 then
+            return "Loisirs"
+        end
+        return "Autre"
+    end
+
+    function remaining() returns number
+        return limit - spent
+    end
+
+    function addSpend(amount number)
+        set this.spent = spent + amount
+    end
+
+    function isOver() returns bool
+        if spent is greater than limit then
+            return true
+        end
+        return false
+    end
+end
+
+// Objectif d'épargne (standalone — évite le bug constructeur héritage AFRILANG)
+class SavingsGoal implements Named, Balanceable
+    public field name text
+    public field bal number
+    public field target number
+
+    function init(aName text, aBal number, aTarget number)
+        set this.name = aName
+        set this.bal = aBal
+        set this.target = aTarget
+    end
+
+    function label() returns text
+        return name
+    end
+
+    function balance() returns number
+        return bal
+    end
+
+    function progressPct() returns number
+        if target is less than 0.01 then
+            return 0
+        end
+        create p = (bal / target) * 100
+        if p is greater than 100 then
+            return 100
+        end
+        return p
+    end
+
+    function reached() returns bool
+        if bal is greater than target then
+            return true
+        end
+        if bal is equal to target then
+            return true
+        end
+        return false
+    end
+end
+
+// ---- enum helpers (ré-exportables via import) ----
+
+function kindIncomeCode() returns number
+    return 0
+end
+
+function kindExpenseCode() returns number
+    return 1
+end
+
+function kindName(kind number) returns text
+    if kind is equal to 0 then
+        return "revenu"
+    end
+    if kind is equal to 1 then
+        return "depense"
+    end
+    return "inconnu"
+end
+
+function kindNameEnum(k TxKind) returns text
+    create name = match k
+        case Income then "revenu"
+        end
+        case Expense then "depense"
+        end
+        default "inconnu"
+        end
+    end
+    return name
+end
+
+function kindIncomeLabel() returns text
+    return kindNameEnum(TxKind.Income)
+end
+
+function kindExpenseLabel() returns text
+    return kindNameEnum(TxKind.Expense)
+end
+
+function categoryFromMenu(choice number) returns number
+    if choice is less than 0 then
+        return 5
+    end
+    if choice is greater than 5 then
+        return 5
+    end
+    return choice
+end
+
+function catFoodName() returns text
+    return categoryName(0)
+end
+
+// Héritage simple (base sans args)
+class Person
+    public field role text
+
+    function init()
+        set this.role = "person"
+    end
+
+    function who() returns text
+        return role
+    end
+end
+
+class FinanceUser extends Person
+    function init()
+        set this.role = "finance-user"
+    end
+end
+
+// ---- calculs purs ----
+
+function applyTx(balance number, kind number, amount number) returns number
+    if amount is less than 0 then
+        return balance
+    end
+    if kind is equal to 0 then
+        return balance + amount
+    end
+    if kind is equal to 1 then
+        return balance - amount
+    end
+    return balance
+end
+
+function canAfford(balance number, amount number) returns bool
+    if amount is less than 0 then
+        return false
+    end
+    if amount is greater than balance then
+        return false
+    end
+    return true
+end
+
+function budgetRemaining(limit number, spent number) returns number
+    return limit - spent
+end
+
+function budgetUsagePct(limit number, spent number) returns number
+    if limit is less than 0.01 then
+        return 0
+    end
+    create p = (spent / limit) * 100
+    if p is greater than 100 then
+        return 100
+    end
+    return p
+end
+
+function isOverBudget(limit number, spent number) returns bool
+    if spent is greater than limit then
+        return true
+    end
+    return false
+end
+
+function sumByKind(amounts list number, kinds list number, wantKind number, n number) returns number
+    create total = 0
+    create i = 0
+    while i is less than n do
+        if kinds at i is equal to wantKind then
+            set total = total + (amounts at i)
+        end
+        set i = i + 1
+    end
+    return total
+end
+
+function sumByCategory(amounts list number, kinds list number, cats list number, wantCat number, wantKind number, n number) returns number
+    create total = 0
+    create i = 0
+    while i is less than n do
+        if kinds at i is equal to wantKind then
+            if cats at i is equal to wantCat then
+                set total = total + (amounts at i)
+            end
+        end
+        set i = i + 1
+    end
+    return total
+end
+
+function savingsRate(income number, expense number) returns number
+    if income is less than 0.01 then
+        return 0
+    end
+    create saved = income - expense
+    return (saved / income) * 100
+end
+
+function encodeTx(kind number, amount number, cat number, note text) returns text
+    return kind + "|" + amount + "|" + cat + "|" + note
+end
+
+function encodeBudget(cat number, limit number) returns text
+    return cat + "|" + limit
+end
+
+function encodeAccount(name text, balance number) returns text
+    return name + "|" + balance
+end
+
+function validateAmount(amount number) returns bool
+    if amount is less than 0.01 then
+        return false
+    end
+    return true
+end
+
+function menuTitle() returns text
+    return "AFRIFINANCE — Gestion financiere"
+end

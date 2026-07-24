@@ -1,0 +1,81 @@
+// Démo scriptée AFRIFINANCE (sans readLine — adapté CI / --run).
+import "finance_logic.afr"
+
+import "std/io"
+use io
+
+import "std/parse"
+use parse
+
+import "std/m/textsplit2"
+use textsplit2
+
+import "std/m/textjoin2"
+use textjoin2
+
+create PATH = "/tmp/afrifinance_demo.txt"
+
+say menuTitle()
+say "Kinds: " + kindIncomeLabel() + " / " + kindExpenseLabel()
+say "Cat food: " + catFoodName()
+
+create wallet = new Account("Caisse", 0)
+wallet.credit(2500)
+say "Apres salaire: " + wallet.balance()
+
+create ok = wallet.debit(800)
+if ok then
+    say "Loyer ok solde=" + wallet.balance()
+else
+    say "Loyer refuse"
+end
+
+create foodBudget = new BudgetLine(0, 300)
+foodBudget.addSpend(45.5)
+foodBudget.addSpend(120)
+say "Budget " + foodBudget.label() + " reste=" + foodBudget.remaining()
+
+create goal = new SavingsGoal("Vacances", wallet.balance(), 5000)
+say "Epargne " + goal.progressPct() + "%"
+
+create amounts list number = list of 2500, 800, 45.5, 120
+create kinds list number = list of 0, 1, 1, 1
+create cats list number = list of 2, 3, 0, 0
+create n = 4
+create bal = 0
+create i = 0
+while i is less than n do
+    set bal = applyTx(bal, kinds at i, amounts at i)
+    set i = i + 1
+end
+say "Solde recalcule: " + bal
+say "Revenus: " + sumByKind(amounts, kinds, kindIncomeCode(), n)
+say "Depenses: " + sumByKind(amounts, kinds, kindExpenseCode(), n)
+say "Food spend: " + sumByCategory(amounts, kinds, cats, 0, kindExpenseCode(), n)
+say "Taux epargne: " + savingsRate(2500, 800 + 45.5 + 120) + "%"
+
+create lines list text = list of "AFRIFINANCE1"
+add ("account|" + wallet.label() + "|" + wallet.balance()) to lines
+add encodeTx(0, 2500, 2, "Salaire") to lines
+// encodeTx returns kind|amount|cat|note — prefix with tx|
+create tx1 = "tx|" + encodeTx(1, 800, 3, "Loyer")
+add tx1 to lines
+add ("tx|" + encodeTx(1, 45.5, 0, "Courses")) to lines
+add ("budget|0|300|" + foodBudget.spent) to lines
+writeFile(PATH, joinLines(lines))
+say "Ecrit: " + PATH
+
+create raw = readFile(PATH)
+create loaded = 0
+for each row in splitLines(raw) do
+    create bits = splitBy(row, "|")
+    if bits at 0 is equal to "account" then
+        say "Load account " + (bits at 1) + " = " + (bits at 2)
+    end
+    set loaded = loaded + 1
+end
+say "Lignes chargees: " + loaded
+
+create user = new FinanceUser()
+say "User role: " + user.who()
+say "AFRIFINANCE demo OK"

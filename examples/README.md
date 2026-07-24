@@ -22,6 +22,24 @@ Programmes de référence. Suite : `afrilang test` (section exemples).
 
 Contrôles Crystal Arena : `1`/`2`/`3` difficulté · `Enter` jouer · `WASD` · `Space` sauter · `P` pause · `F` caméra · `R` restart · `Escape` menu/quit.
 
+## Finance (CLI)
+
+| Fichier | Contenu |
+|---------|---------|
+| `finance_app.afr` | **AFRIFINANCE** — menu interactif (revenus, dépenses, budgets, sauvegarde) |
+| `finance_logic.afr` | Règles : comptes, budgets, objectifs, enums/`match`, POO |
+| `finance_demo.afr` | Démo scriptée + persistance fichier (sans `readLine`) |
+| `finance_test.afr` | Tests unitaires |
+
+```bash
+./build/afrilang examples/finance_test.afr -o /tmp/fin_test && /tmp/fin_test
+./build/afrilang run examples/finance_demo.afr
+./build/afrilang run examples/finance_app.afr
+```
+
+Menu app : `1` tableau de bord · `2` revenu · `3` dépense · `4` liste · `5`/`6` budgets · `7`/`8` charger/sauver · `9` objectif · `0` quitter.  
+Fichier : `finance_data.txt`.
+
 ## IA / ML / NLP (expérimental)
 
 Voir [`docs/STDLIB_AI.md`](../docs/STDLIB_AI.md).

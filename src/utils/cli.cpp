@@ -575,6 +575,10 @@ static int runExampleSuite(const fs::path& root, bool coverage) {
         "snake_test.afr",
         "crystal_arena_test.afr",
         "crystal_arena_logic.afr",
+        "finance_test.afr",
+        "finance_logic.afr",
+        "finance_demo.afr",
+        "finance_app.afr",
         "game3d_demo.afr",
         "test_game2dkit.afr",
     };

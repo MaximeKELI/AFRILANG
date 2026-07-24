@@ -1,0 +1,93 @@
+// Tests unitaires AFRIFINANCE (sans I/O interactif).
+import "finance_logic.afr"
+
+import "std/m/textsplit2"
+use textsplit2
+
+test "applyTx income and expense"
+    assert applyTx(100, kindIncomeCode(), 50) is equal to 150
+    assert applyTx(100, kindExpenseCode(), 40) is equal to 60
+    assert applyTx(100, kindExpenseCode(), 0 - 5) is equal to 100
+end
+
+test "canAfford and validateAmount"
+    assert canAfford(100, 50) is equal to true
+    assert canAfford(100, 150) is equal to false
+    assert validateAmount(0) is equal to false
+    assert validateAmount(1) is equal to true
+end
+
+test "category and kind names"
+    assert categoryName(0) is equal to "Alimentation"
+    assert categoryName(2) is equal to "Salaire"
+    assert kindName(0) is equal to "revenu"
+    assert kindName(1) is equal to "depense"
+    assert kindIncomeLabel() is equal to "revenu"
+    assert kindExpenseLabel() is equal to "depense"
+    assert categoryFromMenu(99) is equal to 5
+end
+
+test "budget helpers"
+    assert budgetRemaining(300, 120) is equal to 180
+    assert isOverBudget(100, 101) is equal to true
+    assert isOverBudget(100, 100) is equal to false
+    assert budgetUsagePct(200, 100) is equal to 50
+end
+
+test "sumByKind and savingsRate"
+    create amounts list number = list of 1000, 200, 50
+    create kinds list number = list of 0, 1, 1
+    assert sumByKind(amounts, kinds, 0, 3) is equal to 1000
+    assert sumByKind(amounts, kinds, 1, 3) is equal to 250
+    assert savingsRate(1000, 250) is equal to 75
+end
+
+test "sumByCategory"
+    create amounts list number = list of 1000, 30, 70, 200
+    create kinds list number = list of 0, 1, 1, 1
+    create cats list number = list of 2, 0, 0, 1
+    assert sumByCategory(amounts, kinds, cats, 0, 1, 4) is equal to 100
+end
+
+test "Account credit debit"
+    create a = new Account("Caisse", 100)
+    assert a.label() is equal to "Caisse"
+    a.credit(50)
+    assert a.balance() is equal to 150
+    assert a.debit(200) is equal to false
+    assert a.debit(40) is equal to true
+    assert a.balance() is equal to 110
+end
+
+test "BudgetLine overspend"
+    create b = new BudgetLine(0, 100)
+    assert b.label() is equal to "Alimentation"
+    b.addSpend(60)
+    assert b.remaining() is equal to 40
+    assert b.isOver() is equal to false
+    b.addSpend(50)
+    assert b.isOver() is equal to true
+end
+
+test "SavingsGoal progress"
+    create g = new SavingsGoal("Vacances", 2500, 5000)
+    assert g.progressPct() is equal to 50
+    assert g.reached() is equal to false
+    create g2 = new SavingsGoal("Done", 5000, 5000)
+    assert g2.reached() is equal to true
+end
+
+test "encodeTx shape"
+    create line = encodeTx(1, 12.5, 0, "x")
+    create bits = splitBy(line, "|")
+    assert bits at 0 is equal to "1"
+    assert bits at 2 is equal to "0"
+    assert bits at 3 is equal to "x"
+end
+
+test "FinanceUser inheritance"
+    create u = new FinanceUser()
+    assert u.who() is equal to "finance-user"
+end
+
+say "AFRIFINANCE logic tests OK"
