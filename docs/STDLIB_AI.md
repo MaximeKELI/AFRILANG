@@ -24,8 +24,17 @@ dans le paquet utilisateur `llmx`.
 | nlplevenshtein | `std/c/nlplevenshtein` | distance d’édition |
 | nlpjaccard | `std/c/nlpjaccard` | Jaccard |
 | nlptfidf | `std/c/nlptfidf` | TF-IDF (préférer à `mltfidf`) |
+| nlptoken | `std/c/nlptoken` | tokenize / uniqueTokens |
+| nlpbow | `std/c/nlpbow` | bag-of-words |
+| nlpngram | `std/c/nlpngram` | char/word n-grams |
 
-Specs : `tests/stdlib/ml_*.afr`, `tests/stdlib/nlp_levenshtein.afr`.
+Specs : `tests/stdlib/ml_*.afr`, `tests/stdlib/nlp_*.afr`.
+
+API notes :
+- `mlperceptron` `trainStep`/`trainEpoch` → `[bias, w…]`
+- `mlnaivebayes` : `trainX` row-major `[n*dims]` ; `featureMean`/`featureVar` prennent `feat` + `dims`
+- `mlkmeans` `elbowK` : plus grande chute d’inertia (pas argmin)
+- `nlptfidf` `idf` : égalité de tokens (pas substring)
 
 ### Exemples (`examples/`)
 
@@ -40,16 +49,19 @@ Specs : `tests/stdlib/ml_*.afr`, `tests/stdlib/nlp_levenshtein.afr`.
 | `ml_linear_demo.afr` | régression GD |
 | `nlp_demo.afr` | levenshtein |
 | `nlp_jaccard_demo.afr` | Jaccard / Dice |
-| `llmx_chat.afr` | corps chat + extract (réseau commenté) |
+| `nlp_tfidf_demo.afr` | TF-IDF |
+| `nlp_token_bow_demo.afr` | tokenize / BoW / ngrams |
+| `ml_naivebayes_demo.afr` | Naive Bayes multi-features |
+| `llmx_chat.afr` | corps chat + system/turns (réseau commenté) |
 | `iaultra_demo.afr` / `complex_libs_demo.afr` | demos ultra / mixte historiques |
 
 ## Fillers (noms trompeurs)
 
 Toujours des helpers Sum/Mean génériques — **pas** l’algo annoncé :
 
-`mlsvm`, `mlpca`, `mltfidf`, `mlgradient`, `mlcrossval`, `mlfeature`,
-`mlcluster`, `mldecision`, `mlensemble`, et la majorité des `nlp*` hors
-levenshtein / jaccard / tfidf.
+`mlsvm`, `mlpca`, `mltfidf` (utiliser `nlptfidf`), `mlgradient`, `mlcrossval`,
+`mlfeature`, `mlcluster`, `mldecision`, `mlensemble`, et `nlp*` restants
+(`nlpstem`, `nlpstop`, …).
 
 ## Ultra clones
 
