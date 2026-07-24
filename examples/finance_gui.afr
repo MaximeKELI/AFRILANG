@@ -1,0 +1,504 @@
+// ============================================================
+//  AFRIFINANCE GUI — gestion financière (std/ui)
+// ============================================================
+// Écrans : accueil, revenu, dépense, liste, budgets, objectif.
+// Saisie montants via pavé (+10/+50/…) — pas de champ texte SDL.
+//
+// Lancer :
+//   ./build/afrilang run examples/finance_gui.afr
+// ============================================================
+
+import "finance_logic.afr"
+
+import "std/ui"
+use ui
+
+import "std/gamestate"
+use gamestate
+
+import "std/io"
+use io
+
+import "std/parse"
+use parse
+
+import "std/m/textsplit2"
+use textsplit2
+
+import "std/m/textjoin2"
+use textjoin2
+
+create SAVE_PATH = "finance_data.txt"
+create accountName text = "Caisse"
+create balance number = 0
+create txCount number = 0
+create budgetCount number = 0
+create draftAmount number = 0
+create draftCat number = 0
+create statusMsg text = "Bienvenue sur AFRIFINANCE"
+create flashMs number = 0
+
+create txKinds list number = list of 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+create txAmounts list number = list of 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+create txCats list number = list of 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+create txNotes list text = list of "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"
+
+create budCats list number = list of 0, 0, 0, 0, 0, 0, 0, 0
+create budLimits list number = list of 0, 0, 0, 0, 0, 0, 0, 0
+create budSpent list number = list of 0, 0, 0, 0, 0, 0, 0, 0
+
+openWindow("AFRIFINANCE — Gestion financiere", 980, 640)
+setState("home")
+
+while isOpen() do
+    beginFrame()
+    create dt = deltaMs()
+    tickState(dt)
+
+    if flashMs is greater than 0 then
+        set flashMs = flashMs - dt
+    end
+
+    if wasKeyPressed("Escape") then
+        if isState("home") then
+            closeWindow()
+        else
+            setState("home")
+        end
+    end
+
+    clearBackground(18, 24, 38)
+    fillRect(0, 0, 980, 64, 28, 40, 62)
+    drawTextColor(menuTitle(), 24, 18, 26, 240, 245, 255)
+    drawTextColor(statusMsg, 24, 600, 16, 160, 190, 220)
+
+    // -------- ACCUEIL --------
+    if isState("home") then
+        create income = sumByKind(txAmounts, txKinds, kindIncomeCode(), txCount)
+        create expense = sumByKind(txAmounts, txKinds, kindExpenseCode(), txCount)
+        create rate = savingsRate(income, expense)
+
+        fillRect(24, 88, 440, 200, 32, 48, 72)
+        drawTextColor("Compte: " + accountName, 40, 104, 20, 220, 230, 245)
+        drawTextColor("Solde", 40, 140, 18, 140, 170, 200)
+        drawTextColor("" + balance, 40, 168, 36, 90, 230, 160)
+        drawTextColor("Revenus " + income, 40, 220, 16, 120, 210, 255)
+        drawTextColor("Depenses " + expense, 40, 244, 16, 255, 140, 120)
+        drawTextColor("Epargne " + rate + " %", 40, 268, 16, 255, 210, 90)
+
+        // barre visuelle solde (cap 5000)
+        fillRect(24, 308, 440, 18, 40, 50, 70)
+        create barW = balance
+        if barW is less than 0 then
+            set barW = 0
+        end
+        if barW is greater than 5000 then
+            set barW = 5000
+        end
+        create bw = (barW / 5000) * 440
+        fillRect(24, 308, bw, 18, 70, 200, 140)
+
+        fillRect(488, 88, 468, 200, 32, 48, 72)
+        drawTextColor("Budgets", 508, 104, 20, 220, 230, 245)
+        if budgetCount is equal to 0 then
+            drawTextColor("Aucun budget — creez-en un", 508, 150, 16, 150, 170, 190)
+        else
+            create bi = 0
+            create yb = 140
+            while bi is less than budgetCount do
+                if bi is less than 4 then
+                    create pct = budgetUsagePct(budLimits at bi, budSpent at bi)
+                    drawTextColor(categoryName(budCats at bi) + " " + (budSpent at bi) + "/" + (budLimits at bi), 508, yb, 14, 200, 210, 230)
+                    fillRect(508, yb + 20, 420, 10, 40, 50, 70)
+                    create pw = (pct / 100) * 420
+                    if isOverBudget(budLimits at bi, budSpent at bi) then
+                        fillRect(508, yb + 20, pw, 10, 230, 80, 80)
+                    else
+                        fillRect(508, yb + 20, pw, 10, 80, 180, 255)
+                    end
+                    set yb = yb + 44
+                end
+                set bi = bi + 1
+            end
+        end
+
+        if drawButton("Revenu +", 24, 360, 200, 48) then
+            set draftAmount = 0
+            set draftCat = 2
+            setState("income")
+        end
+        if drawButton("Depense -", 244, 360, 200, 48) then
+            set draftAmount = 0
+            set draftCat = 0
+            setState("expense")
+        end
+        if drawButton("Transactions", 464, 360, 200, 48) then
+            setState("list")
+        end
+        if drawButton("Budgets", 684, 360, 200, 48) then
+            setState("budgets")
+        end
+
+        if drawButton("Objectif", 24, 424, 200, 44) then
+            setState("goal")
+        end
+        if drawButton("Charger", 244, 424, 200, 44) then
+            if fileExists(SAVE_PATH) then
+                create raw = readFile(SAVE_PATH)
+                create allLines = splitLines(raw)
+                set txCount = 0
+                set budgetCount = 0
+                set balance = 0
+                for each row in allLines do
+                    create bits = splitBy(row, "|")
+                    create head = bits at 0
+                    if head is equal to "account" then
+                        set accountName = bits at 1
+                        set balance = parseFloat(bits at 2)
+                    end
+                    if head is equal to "tx" then
+                        if txCount is less than 32 then
+                            set txKinds at txCount = parseInt(bits at 1)
+                            set txAmounts at txCount = parseFloat(bits at 2)
+                            set txCats at txCount = parseInt(bits at 3)
+                            set txNotes at txCount = bits at 4
+                            set txCount = txCount + 1
+                        end
+                    end
+                    if head is equal to "budget" then
+                        if budgetCount is less than 8 then
+                            set budCats at budgetCount = parseInt(bits at 1)
+                            set budLimits at budgetCount = parseFloat(bits at 2)
+                            set budSpent at budgetCount = parseFloat(bits at 3)
+                            set budgetCount = budgetCount + 1
+                        end
+                    end
+                end
+                set statusMsg = "Fichier charge — solde " + balance
+                set flashMs = 1500
+            else
+                set statusMsg = "Aucun fichier " + SAVE_PATH
+                set flashMs = 1500
+            end
+        end
+        if drawButton("Sauvegarder", 464, 424, 200, 44) then
+            create lines list text = list of "AFRIFINANCE1"
+            add ("account|" + accountName + "|" + balance) to lines
+            create si = 0
+            while si is less than txCount do
+                add ("tx|" + (txKinds at si) + "|" + (txAmounts at si) + "|" + (txCats at si) + "|" + (txNotes at si)) to lines
+                set si = si + 1
+            end
+            create sj = 0
+            while sj is less than budgetCount do
+                add ("budget|" + (budCats at sj) + "|" + (budLimits at sj) + "|" + (budSpent at sj)) to lines
+                set sj = sj + 1
+            end
+            writeFile(SAVE_PATH, joinLines(lines))
+            set statusMsg = "Sauvegarde OK"
+            set flashMs = 1500
+        end
+        if drawButton("Quitter", 684, 424, 200, 44) then
+            closeWindow()
+        end
+
+        drawTextColor("Transactions: " + txCount + "  |  Escape = quitter", 24, 500, 14, 120, 140, 170)
+
+    else
+        // -------- REVENU --------
+        if isState("income") then
+            drawTextColor("Nouveau revenu", 40, 90, 28, 120, 220, 255)
+            drawTextColor("Montant: " + draftAmount, 40, 140, 24, 255, 255, 255)
+            drawTextColor("Categorie: " + categoryName(draftCat), 40, 178, 18, 200, 210, 230)
+
+            if drawButton("+10", 40, 230, 90, 42) then
+                set draftAmount = draftAmount + 10
+            end
+            if drawButton("+50", 140, 230, 90, 42) then
+                set draftAmount = draftAmount + 50
+            end
+            if drawButton("+100", 240, 230, 100, 42) then
+                set draftAmount = draftAmount + 100
+            end
+            if drawButton("+500", 350, 230, 100, 42) then
+                set draftAmount = draftAmount + 500
+            end
+            if drawButton("+1000", 460, 230, 110, 42) then
+                set draftAmount = draftAmount + 1000
+            end
+            if drawButton("Effacer", 590, 230, 120, 42) then
+                set draftAmount = 0
+            end
+
+            if drawButton("Salaire", 40, 300, 140, 40) then
+                set draftCat = 2
+            end
+            if drawButton("Autre", 190, 300, 140, 40) then
+                set draftCat = 5
+            end
+            if drawButton("Loisirs", 340, 300, 140, 40) then
+                set draftCat = 4
+            end
+
+            if drawButton("Valider", 40, 380, 200, 50) then
+                if validateAmount(draftAmount) then
+                    if txCount is less than 32 then
+                        set txKinds at txCount = kindIncomeCode()
+                        set txAmounts at txCount = draftAmount
+                        set txCats at txCount = draftCat
+                        set txNotes at txCount = categoryName(draftCat)
+                        set txCount = txCount + 1
+                        set balance = applyTx(balance, kindIncomeCode(), draftAmount)
+                        set statusMsg = "Revenu +" + draftAmount + " enregistre"
+                        set flashMs = 1500
+                        setState("home")
+                    else
+                        set statusMsg = "Limite 32 transactions"
+                    end
+                else
+                    set statusMsg = "Montant invalide"
+                end
+            end
+            if drawButton("Retour", 260, 380, 160, 50) then
+                setState("home")
+            end
+
+        else
+            // -------- DEPENSE --------
+            if isState("expense") then
+                drawTextColor("Nouvelle depense", 40, 90, 28, 255, 140, 120)
+                drawTextColor("Montant: " + draftAmount, 40, 140, 24, 255, 255, 255)
+                drawTextColor("Categorie: " + categoryName(draftCat), 40, 178, 18, 200, 210, 230)
+                drawTextColor("Solde dispo: " + balance, 40, 208, 16, 160, 190, 210)
+
+                if drawButton("+10", 40, 250, 90, 42) then
+                    set draftAmount = draftAmount + 10
+                end
+                if drawButton("+50", 140, 250, 90, 42) then
+                    set draftAmount = draftAmount + 50
+                end
+                if drawButton("+100", 240, 250, 100, 42) then
+                    set draftAmount = draftAmount + 100
+                end
+                if drawButton("+500", 350, 250, 100, 42) then
+                    set draftAmount = draftAmount + 500
+                end
+                if drawButton("Effacer", 460, 250, 120, 42) then
+                    set draftAmount = 0
+                end
+
+                if drawButton("Food", 40, 320, 110, 38) then
+                    set draftCat = 0
+                end
+                if drawButton("Transport", 160, 320, 130, 38) then
+                    set draftCat = 1
+                end
+                if drawButton("Loyer", 300, 320, 110, 38) then
+                    set draftCat = 3
+                end
+                if drawButton("Loisirs", 420, 320, 110, 38) then
+                    set draftCat = 4
+                end
+                if drawButton("Autre", 540, 320, 110, 38) then
+                    set draftCat = 5
+                end
+
+                if drawButton("Valider", 40, 400, 200, 50) then
+                    if validateAmount(draftAmount) then
+                        if canAfford(balance, draftAmount) then
+                            if txCount is less than 32 then
+                                set txKinds at txCount = kindExpenseCode()
+                                set txAmounts at txCount = draftAmount
+                                set txCats at txCount = draftCat
+                                set txNotes at txCount = categoryName(draftCat)
+                                set txCount = txCount + 1
+                                set balance = applyTx(balance, kindExpenseCode(), draftAmount)
+                                create alert = false
+                                create bj = 0
+                                while bj is less than budgetCount do
+                                    if budCats at bj is equal to draftCat then
+                                        set budSpent at bj = (budSpent at bj) + draftAmount
+                                        if isOverBudget(budLimits at bj, budSpent at bj) then
+                                            set alert = true
+                                        end
+                                    end
+                                    set bj = bj + 1
+                                end
+                                if alert then
+                                    set statusMsg = "ALERTE budget " + categoryName(draftCat)
+                                else
+                                    set statusMsg = "Depense -" + draftAmount + " OK"
+                                end
+                                set flashMs = 1500
+                                setState("home")
+                            else
+                                set statusMsg = "Limite 32 transactions"
+                            end
+                        else
+                            set statusMsg = "Solde insuffisant"
+                        end
+                    else
+                        set statusMsg = "Montant invalide"
+                    end
+                end
+                if drawButton("Retour", 260, 400, 160, 50) then
+                    setState("home")
+                end
+
+            else
+                // -------- LISTE --------
+                if isState("list") then
+                    drawTextColor("Transactions (" + txCount + ")", 40, 90, 26, 220, 230, 245)
+                    if txCount is equal to 0 then
+                        drawTextColor("Aucune transaction", 40, 150, 18, 150, 170, 190)
+                    else
+                        create start = 0
+                        if txCount is greater than 12 then
+                            set start = txCount - 12
+                        end
+                        create ti = start
+                        create ly = 130
+                        while ti is less than txCount do
+                            create colR = 120
+                            create colG = 210
+                            create colB = 255
+                            if txKinds at ti is equal to 1 then
+                                set colR = 255
+                                set colG = 140
+                                set colB = 120
+                            end
+                            drawTextColor((ti + 1) + ". [" + kindName(txKinds at ti) + "] " + (txAmounts at ti) + "  " + categoryName(txCats at ti), 40, ly, 16, colR, colG, colB)
+                            set ly = ly + 28
+                            set ti = ti + 1
+                        end
+                    end
+                    if drawButton("Retour", 40, 520, 160, 48) then
+                        setState("home")
+                    end
+
+                else
+                    // -------- BUDGETS --------
+                    if isState("budgets") then
+                        drawTextColor("Budgets", 40, 90, 26, 220, 230, 245)
+                        if budgetCount is equal to 0 then
+                            drawTextColor("Aucun budget defini", 40, 140, 18, 150, 170, 190)
+                        else
+                            create bk = 0
+                            create by = 130
+                            while bk is less than budgetCount do
+                                create rem = budgetRemaining(budLimits at bk, budSpent at bk)
+                                create pct = budgetUsagePct(budLimits at bk, budSpent at bk)
+                                drawTextColor(categoryName(budCats at bk) + ": " + (budSpent at bk) + " / " + (budLimits at bk) + " (reste " + rem + ")", 40, by, 16, 210, 220, 235)
+                                fillRect(40, by + 22, 600, 12, 40, 50, 70)
+                                create pw2 = (pct / 100) * 600
+                                if isOverBudget(budLimits at bk, budSpent at bk) then
+                                    fillRect(40, by + 22, pw2, 12, 230, 80, 80)
+                                else
+                                    fillRect(40, by + 22, pw2, 12, 80, 190, 255)
+                                end
+                                set by = by + 56
+                                set bk = bk + 1
+                            end
+                        end
+
+                        if drawButton("Nouveau budget", 40, 500, 220, 48) then
+                            set draftAmount = 100
+                            set draftCat = 0
+                            setState("setbudget")
+                        end
+                        if drawButton("Retour", 280, 500, 160, 48) then
+                            setState("home")
+                        end
+
+                    else
+                        // -------- CREER BUDGET --------
+                        if isState("setbudget") then
+                            drawTextColor("Definir un budget", 40, 90, 26, 255, 210, 90)
+                            drawTextColor("Plafond: " + draftAmount, 40, 140, 22, 255, 255, 255)
+                            drawTextColor("Categorie: " + categoryName(draftCat), 40, 178, 18, 200, 210, 230)
+
+                            if drawButton("+50", 40, 230, 100, 42) then
+                                set draftAmount = draftAmount + 50
+                            end
+                            if drawButton("+100", 150, 230, 100, 42) then
+                                set draftAmount = draftAmount + 100
+                            end
+                            if drawButton("+200", 260, 230, 100, 42) then
+                                set draftAmount = draftAmount + 200
+                            end
+                            if drawButton("Effacer", 370, 230, 120, 42) then
+                                set draftAmount = 0
+                            end
+
+                            if drawButton("Food", 40, 300, 110, 38) then
+                                set draftCat = 0
+                            end
+                            if drawButton("Transport", 160, 300, 130, 38) then
+                                set draftCat = 1
+                            end
+                            if drawButton("Loisirs", 300, 300, 110, 38) then
+                                set draftCat = 4
+                            end
+                            if drawButton("Autre", 420, 300, 110, 38) then
+                                set draftCat = 5
+                            end
+
+                            if drawButton("Creer", 40, 380, 180, 50) then
+                                if validateAmount(draftAmount) then
+                                    if budgetCount is less than 8 then
+                                        set budCats at budgetCount = draftCat
+                                        set budLimits at budgetCount = draftAmount
+                                        create spent0 = sumByCategory(txAmounts, txKinds, txCats, draftCat, kindExpenseCode(), txCount)
+                                        set budSpent at budgetCount = spent0
+                                        set budgetCount = budgetCount + 1
+                                        set statusMsg = "Budget " + categoryName(draftCat) + " cree"
+                                        set flashMs = 1500
+                                        setState("budgets")
+                                    else
+                                        set statusMsg = "Limite 8 budgets"
+                                    end
+                                else
+                                    set statusMsg = "Plafond invalide"
+                                end
+                            end
+                            if drawButton("Retour", 240, 380, 160, 50) then
+                                setState("budgets")
+                            end
+
+                        else
+                            // -------- OBJECTIF --------
+                            if isState("goal") then
+                                create goal = new SavingsGoal("Vacances", balance, 5000)
+                                drawTextColor("Objectif d'epargne", 40, 90, 26, 255, 210, 90)
+                                drawTextColor(goal.label() + " — cible 5000", 40, 140, 20, 220, 230, 245)
+                                drawTextColor("Progression: " + goal.progressPct() + " %", 40, 180, 22, 90, 230, 160)
+                                fillRect(40, 220, 700, 28, 40, 50, 70)
+                                create gw = (goal.progressPct() / 100) * 700
+                                fillRect(40, 220, gw, 28, 90, 200, 150)
+                                if goal.reached() then
+                                    drawTextColor("Objectif atteint !", 40, 280, 22, 120, 255, 160)
+                                else
+                                    drawTextColor("Encore " + (5000 - balance) + " a epargner", 40, 280, 18, 200, 210, 230)
+                                end
+                                if drawButton("Retour", 40, 360, 160, 50) then
+                                    setState("home")
+                                end
+                            else
+                                setState("home")
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    if flashMs is greater than 0 then
+        fillRect(700, 12, 260, 40, 50, 90, 70)
+        drawTextColor("OK", 720, 20, 18, 120, 255, 180)
+    end
+
+    showFrame()
+end
+
+say "AFRIFINANCE GUI ferme."

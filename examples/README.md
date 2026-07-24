@@ -22,23 +22,24 @@ Programmes de référence. Suite : `afrilang test` (section exemples).
 
 Contrôles Crystal Arena : `1`/`2`/`3` difficulté · `Enter` jouer · `WASD` · `Space` sauter · `P` pause · `F` caméra · `R` restart · `Escape` menu/quit.
 
-## Finance (CLI)
+## Finance (GUI + CLI)
 
 | Fichier | Contenu |
 |---------|---------|
-| `finance_app.afr` | **AFRIFINANCE** — menu interactif (revenus, dépenses, budgets, sauvegarde) |
+| `finance_gui.afr` | **AFRIFINANCE GUI** — interface `std/ui` (dashboard, boutons, barres) |
+| `finance_app.afr` | Variante CLI menu / `readLine` |
 | `finance_logic.afr` | Règles : comptes, budgets, objectifs, enums/`match`, POO |
-| `finance_demo.afr` | Démo scriptée + persistance fichier (sans `readLine`) |
+| `finance_demo.afr` | Démo scriptée + persistance fichier |
 | `finance_test.afr` | Tests unitaires |
 
 ```bash
+./build/afrilang run examples/finance_gui.afr
 ./build/afrilang examples/finance_test.afr -o /tmp/fin_test && /tmp/fin_test
 ./build/afrilang run examples/finance_demo.afr
-./build/afrilang run examples/finance_app.afr
 ```
 
-Menu app : `1` tableau de bord · `2` revenu · `3` dépense · `4` liste · `5`/`6` budgets · `7`/`8` charger/sauver · `9` objectif · `0` quitter.  
-Fichier : `finance_data.txt`.
+GUI : accueil (solde + budgets) · Revenu / Dépense (pavé + catégories) · liste · budgets · objectif · charger/sauver.  
+`Escape` = retour / quitter. Fichier : `finance_data.txt`.
 
 ## IA / ML / NLP (expérimental)
 
