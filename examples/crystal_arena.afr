@@ -30,7 +30,7 @@ create demoCrystal = new Crystal(4, 4, 1)
 create demoBonus = new BonusCrystal(0 - 5, 3, 1)
 say demoCrystal.label()
 say demoBonus.label()
-say phaseName(Phase.Menu)
+say phaseMenuName()
 
 // ---- état mutable (niveau principal — pas de closures) ----
 create difficulty number = 1

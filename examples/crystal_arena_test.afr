@@ -38,10 +38,12 @@ test "hudBarCount caps at goal"
     assert hudBarCount(9, 5) is equal to 5
 end
 
-test "phaseName match"
-    assert phaseName(Phase.Menu) is equal to "menu"
-    assert phaseName(Phase.Playing) is equal to "playing"
-    assert phaseName(Phase.Victory) is equal to "victory"
+test "phaseName match via helpers"
+    assert phaseMenuName() is equal to "menu"
+    assert phasePlayingName() is equal to "playing"
+    assert phaseVictoryName() is equal to "victory"
+    assert phasePausedName() is equal to "paused"
+    assert phaseDefeatName() is equal to "defeat"
 end
 
 test "ScoreBoard win and hit"

@@ -124,6 +124,27 @@ function phaseName(p Phase) returns text
     return name
 end
 
+// Enums do not re-export across `import "*.afr"` — expose via helpers.
+function phaseMenuName() returns text
+    return phaseName(Phase.Menu)
+end
+
+function phasePlayingName() returns text
+    return phaseName(Phase.Playing)
+end
+
+function phasePausedName() returns text
+    return phaseName(Phase.Paused)
+end
+
+function phaseVictoryName() returns text
+    return phaseName(Phase.Victory)
+end
+
+function phaseDefeatName() returns text
+    return phaseName(Phase.Defeat)
+end
+
 function difficultyGoal(level number) returns number
     if level is equal to 1 then
         return 3
