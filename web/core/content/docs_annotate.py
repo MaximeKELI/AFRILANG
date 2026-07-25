@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 
-from .docs_pages import p
+from .docs_pages import callout
 
 
 def annotate_documentation_pages(pages: dict) -> None:
@@ -25,33 +25,38 @@ def _annotate_blocks(blocks: list, lang: str) -> list:
         out.append(b)
         if b.get('type') == 'code':
             text = b.get('text') or ''
-            # Prose manquante juste avant (heading → code) : déjà géré ailleurs ;
-            # ici on ajoute toujours une lecture après le code si absente.
             nxt = blocks[i + 1] if i + 1 < len(blocks) else None
             needs_after = True
-            if nxt and nxt.get('type') == 'p':
-                html = str(nxt.get('html', '')).lower()
-                # déjà une lecture / explication
+            if nxt and nxt.get('type') in ('p', 'callout', 'ul'):
+                html = str(nxt.get('html', '') or '')
+                if nxt.get('type') == 'ul':
+                    html = ' '.join(str(x) for x in nxt.get('items', []))
+                html_l = html.lower()
                 if any(
-                    m in html
+                    m in html_l
                     for m in (
                         'lecture',
                         'reading',
                         'cet exemple',
                         'this example',
-                        'ligne par ligne',
+                        'ligne',
                         'line by line',
-                        'ici :',
-                        'here:',
                         'explique',
                         'explains',
+                        'ici :',
+                        'here:',
+                        'ce que font',
+                        'what each',
+                        'from 0',
+                        'valeur de départ',
+                        'start value',
                     )
                 ):
                     needs_after = False
             if needs_after:
                 explanation = _explain_code(text, lang)
                 if explanation:
-                    out.append(p(explanation))
+                    out.append(callout(explanation, 'info'))
         i += 1
     return out
 
@@ -94,7 +99,7 @@ def _explain_code(src: str, lang: str) -> str:
             '<strong>Lecture de l’exemple</strong> — ce que font les lignes importantes :'
         )
     items = ''.join(f'<li>{b}</li>' for b in uniq)
-    return f'{head}<ul>{items}</ul>'
+    return f'{head}<ul class="mb-0 mt-2">{items}</ul>'
 
 
 def _line_tip(line: str, lang: str) -> str | None:

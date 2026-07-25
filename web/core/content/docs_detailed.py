@@ -444,6 +444,12 @@ def _deepen_pattern(pages):
                 '<code>bool</code>, <code>Result</code> et optionnels.'
             ),
             h3('Plages et or-patterns'),
+            p(
+                'Sur un nombre, vous pouvez matcher une valeur exacte, une plage '
+                'inclusive (<code>1 to 10</code>), plusieurs valeurs '
+                '(<code>11 or 12 or 13</code>), ou le reste avec le joker <code>_</code>. '
+                'L’ordre des bras compte : le premier qui correspond gagne.'
+            ),
             code(
                 'match n\n'
                 '    case 0 then\n'
@@ -466,6 +472,13 @@ def _deepen_pattern(pages):
                 '<code>_</code> — joker (comme <code>default</code>, rend le match exhaustif)',
             ]),
             h3('Result et optionnels'),
+            p(
+                'Pour un <code>Result</code>, les cas <code>ok v</code> et '
+                '<code>error m</code> lient respectivement la valeur et le message. '
+                'Pour un optionnel <code>T?</code>, utilisez <code>value v</code> '
+                'et <code>nothing</code>. C’est plus sûr qu’accéder à '
+                '<code>.value</code> sans test.'
+            ),
             code(
                 'match half(x)\n'
                 '    case ok v then\n'
@@ -504,6 +517,12 @@ def _deepen_pattern(pages):
                 '<code>bool</code>, <code>Result</code>, and optionals.'
             ),
             h3('Ranges and or-patterns'),
+            p(
+                'On a number you can match an exact value, an inclusive range '
+                '(<code>1 to 10</code>), several values (<code>11 or 12 or 13</code>), '
+                'or the rest with wildcard <code>_</code>. Arm order matters: '
+                'the first match wins.'
+            ),
             code(
                 'match n\n'
                 '    case 0 then\n'
@@ -526,6 +545,12 @@ def _deepen_pattern(pages):
                 '<code>_</code> — wildcard (like <code>default</code>)',
             ]),
             h3('Result and optionals'),
+            p(
+                'For a <code>Result</code>, <code>ok v</code> / <code>error m</code> '
+                'bind the value and message. For an optional <code>T?</code>, use '
+                '<code>value v</code> and <code>nothing</code> — safer than bare '
+                '<code>.value</code> access.'
+            ),
             code(
                 'match half(x)\n'
                 '    case ok v then\n'
