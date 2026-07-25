@@ -4,6 +4,7 @@
 #include "afrilang/error.hpp"
 #include "afrilang/semantic.hpp"
 
+#include <cstdlib>
 #include <cstring>
 #include <sstream>
 #include <unordered_set>
@@ -245,7 +246,11 @@ bool statementsSupported(const std::vector<std::unique_ptr<StatementNode>>& stmt
 
 std::string compileSourceToJavaScript(const std::string& source,
                                       const std::string& virtualPath) {
-    Compiler compiler(virtualPath, ".");
+    std::string root = ".";
+    if (const char* env = std::getenv("AFRILANG_HOME")) {
+        root = env;
+    }
+    Compiler compiler(virtualPath, root);
     std::unique_ptr<ProgramNode> program = compiler.compileFromSource(source);
     SemanticAnalyzer analyzer(*program, &compiler.sources(), virtualPath);
     const SemanticResult semantic = analyzer.analyze();

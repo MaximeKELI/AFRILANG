@@ -252,9 +252,9 @@ def api_mobile_examples(request):
             'title': ex.title,
             'description': ex.description,
             'featured': ex.featured,
-            'desktop_only': requires_desktop_display(ex.source or '')
-            and not is_browser_gui(ex.source or ''),
-            'browser_gui': is_browser_gui(ex.source or ''),
+            'desktop_only': False,
+            'browser_gui': is_browser_gui(ex.source or '')
+            or requires_desktop_display(ex.source or ''),
             'source_preview': (ex.source or '')[:280],
         }
         for ex in qs[:120]

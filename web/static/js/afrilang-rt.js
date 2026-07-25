@@ -387,9 +387,9 @@
 
     function ui_showFrame() {
       ensure2d();
+      clearEdgeInput();
       return new Promise(function (resolve) {
         requestAnimationFrame(function () {
-          clearEdgeInput();
           resolve();
         });
       });
@@ -1091,9 +1091,9 @@
     }
 
     function g3_showFrame() {
+      clearEdgeInput();
       return new Promise(function (resolve) {
         requestAnimationFrame(function () {
-          clearEdgeInput();
           resolve();
         });
       });

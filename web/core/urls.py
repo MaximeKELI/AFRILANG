@@ -57,6 +57,7 @@ urlpatterns = [
     path('api/compile/js/', views.api_compile_js, name='api_compile_js'),
     path('api/build/wasm/', views.api_build_wasm, name='api_build_wasm'),
     path('api/wasm/<slug:session_id>/<str:filename>', views.api_wasm_asset, name='api_wasm_asset'),
+    path('api/assets/<path:relpath>', views.api_assets, name='api_assets'),
     path('api/fmt/', views.api_fmt, name='api_fmt'),
     path('api/check/', views.api_check, name='api_check'),
     path('api/examples/<slug:slug>/', views.api_example, name='api_example'),

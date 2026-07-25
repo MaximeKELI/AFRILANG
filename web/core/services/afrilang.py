@@ -29,27 +29,18 @@ _DESKTOP_MARKERS = (
     'while window is open',
 )
 
-# Jeux 2D/3D : pas encore de backend navigateur (Canvas couvre std/ui naturel).
-_JS_BLOCKED_MARKERS = (
-    'import "std/game2d"',
-    'import "std/game3d"',
-)
-
 _DESKTOP_MESSAGE = (
-    'Cet exemple nécessite une fenêtre graphique (SDL) et le compilateur '
-    'AFRILANG en local — il ne peut pas tourner via Run natif ni dans '
-    'l’application mobile.\n\n'
-    'UI simple (open window / draw text / boutons) : utilisez le bouton '
-    '« Browser » du playground.\n'
-    'Jeux (std/game2d, std/game3d) : sur votre machine :\n'
-    '  afrilang run examples/<fichier>.afr\n\n'
-    'Choisissez un autre exemple (hello, list_ops, oop, …) pour l’exécuter ici.'
+    'Cet exemple nécessite une fenêtre graphique.\n\n'
+    'Dans le playground web, utilisez le bouton « Browser » — UI, game2d et '
+    'game3d tournent dans le canvas (Canvas2D / WebGL).\n\n'
+    'En local : afrilang run examples/<fichier>.afr\n\n'
+    'Choisissez un autre exemple (hello, list_ops, oop, …) pour Run natif.'
 )
 
 _BROWSER_GUI_MESSAGE = (
     'Interface graphique détectée.\n\n'
     'Dans le playground web, utilisez le bouton « Browser » — la fenêtre '
-    's’affiche dans le canvas à droite (pas besoin de SDL sur le serveur).\n\n'
+    's’affiche dans le canvas à droite.\n\n'
     'En local : afrilang run examples/<fichier>.afr'
 )
 
@@ -82,24 +73,27 @@ def requires_desktop_display(source: str) -> bool:
 
 
 def is_browser_gui(source: str) -> bool:
-    """True si l'UI peut tourner dans le playground via Canvas (syntaxe naturelle, sans imports)."""
-    if blocks_javascript_playground(source):
-        return False
-    # Le transpileur JS playground n'accepte pas encore les imports (ex. import "std/ui").
-    if 'import "' in source or "import '" in source:
-        return False
+    """True si l'UI peut tourner dans le playground via Canvas/WebGL."""
     return (
         'open window' in source
         or 'while window is open' in source
         or 'clear background' in source
         or 'draw text' in source
         or 'show frame' in source
+        or 'import "std/ui"' in source
+        or 'import "std/game2d"' in source
+        or 'import "std/game3d"' in source
+        or 'openWindow(' in source
+        or 'showFrame(' in source
     )
 
 
 def blocks_javascript_playground(source: str) -> bool:
     """True si compile-js / Browser ne peut pas exécuter ce programme."""
-    return any(marker in source for marker in _JS_BLOCKED_MARKERS)
+    # Classes / OOP GUI (crystal_arena…) : transpileur JS limité — pour l'instant
+    # on laisse passer ; le compilateur JS renverra une erreur claire si besoin.
+    _ = source
+    return False
 
 
 def normalize_project_path(raw: str) -> str:
@@ -375,13 +369,16 @@ def compile_to_js(source: str) -> dict:
 
     with tempfile.TemporaryDirectory(prefix='afrilang_js_') as tmp:
         src_file = _write_staged_source(Path(tmp), 'playground.afr', source)
+        env = os.environ.copy()
+        env['AFRILANG_HOME'] = str(cwd)
         try:
             proc = subprocess.run(
                 [str(bin_path), 'compile-js', str(src_file)],
                 cwd=cwd,
                 capture_output=True,
                 text=True,
-                timeout=15,
+                timeout=30,
+                env=env,
             )
         except subprocess.TimeoutExpired:
             return {'ok': False, 'output': 'Compile timeout'}
@@ -399,6 +396,8 @@ def compile_project_to_js(entry: str, files: dict[str, str]) -> dict:
 
     bin_path = _bin()
     cwd = _repo_root()
+    env = os.environ.copy()
+    env['AFRILANG_HOME'] = str(cwd)
     with tempfile.TemporaryDirectory(prefix='afrilang_js_') as tmp:
         src_file = stage_project(Path(tmp), entry_norm, files_norm)
         try:
@@ -407,7 +406,8 @@ def compile_project_to_js(entry: str, files: dict[str, str]) -> dict:
                 cwd=cwd,
                 capture_output=True,
                 text=True,
-                timeout=15,
+                timeout=30,
+                env=env,
             )
         except subprocess.TimeoutExpired:
             return {'ok': False, 'output': 'Compile timeout'}

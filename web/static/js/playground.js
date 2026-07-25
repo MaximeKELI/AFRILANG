@@ -116,8 +116,7 @@
   async function runCode(url, label) {
     if (!output || !status) return;
     const src = getSource();
-    if (window.AfrilangCompilerClient?.looksLikeGui?.(src) &&
-        !/import\s+"std\/game2d"|import\s+"std\/game3d"/.test(src)) {
+    if (window.AfrilangCompilerClient?.looksLikeGui?.(src)) {
       return runBrowser();
     }
     status.textContent = label;
@@ -184,14 +183,13 @@
     output.style.color = '';
     const canvas = document.getElementById('wasm-canvas');
     try {
-      const result = await window.AfrilangCompilerClient.runInstant(getSource());
+      const payload = projectPayload();
+      const result = await window.AfrilangCompilerClient.runInstant(getSource(), payload);
       if (result.gui && canvas) {
         canvas.style.display = 'block';
       }
       output.textContent = result.output || (result.gui ? '(GUI active)' : '(no output)');
-      status.textContent = result.clientSide
-        ? (result.gui ? '✓ GUI (WASM)' : '✓ Browser (WASM)')
-        : (result.gui ? '✓ GUI (Canvas)' : '✓ Browser (JS)');
+      status.textContent = result.gui ? '✓ GUI (Browser)' : (result.clientSide ? '✓ Browser (WASM)' : '✓ Browser (JS)');
       status.classList.remove('running');
     } catch (e) {
       output.textContent = String(e.message || e);

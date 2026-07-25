@@ -460,9 +460,10 @@ def _playground_examples():
 
     examples = list(CodeExample.objects.all())
     for ex in examples:
-        # Label "desktop" only when Browser Canvas cannot run it (game2d/game3d).
-        ex.desktop_only = requires_desktop_display(ex.source) and not is_browser_gui(ex.source)
-        ex.browser_gui = is_browser_gui(ex.source)
+        # Plus de label "desktop" pour GUI : Browser Canvas/WebGL les couvre.
+        # On garde desktop_only seulement si vraiment non exécutable (rare).
+        ex.desktop_only = False
+        ex.browser_gui = is_browser_gui(ex.source) or requires_desktop_display(ex.source)
     return examples
 
 
@@ -606,8 +607,8 @@ def api_example(request, slug):
         'slug': ex.slug,
         'title': ex.title,
         'source': ex.source,
-        'desktop_only': requires_desktop_display(src) and not is_browser_gui(src),
-        'browser_gui': is_browser_gui(src),
+        'desktop_only': False,
+        'browser_gui': is_browser_gui(src) or requires_desktop_display(src),
     })
 
 
@@ -654,6 +655,43 @@ def api_wasm_asset(request, session_id, filename):
         raise Http404
     content_type = 'application/javascript' if filename.endswith('.js') else 'application/wasm'
     return FileResponse(path.open('rb'), content_type=content_type)
+
+
+@require_GET
+def api_assets(request, relpath=''):
+    """Sert examples/assets (et chemins relatifs sous le dépôt) pour le runtime Canvas."""
+    from pathlib import Path
+
+    from django.conf import settings
+    from django.http import HttpResponseForbidden
+
+    raw = (relpath or '').replace('\\', '/').lstrip('/')
+    if not raw or '..' in raw.split('/'):
+        raise Http404
+    root = Path(settings.AFRILANG_ROOT).resolve()
+    candidates = [
+        root / raw,
+        root / 'examples' / raw,
+        root / 'examples' / 'assets' / Path(raw).name,
+    ]
+    for cand in candidates:
+        try:
+            resolved = cand.resolve()
+            resolved.relative_to(root)
+        except (ValueError, OSError):
+            continue
+        if resolved.is_file():
+            # Limiter aux assets médias / données de démo
+            suffix = resolved.suffix.lower()
+            allowed = {
+                '.png', '.jpg', '.jpeg', '.gif', '.webp', '.bmp',
+                '.wav', '.ogg', '.mp3', '.m4a',
+                '.obj', '.gltf', '.glb', '.txt', '.vert', '.frag',
+            }
+            if suffix not in allowed:
+                return HttpResponseForbidden('Type de fichier non autorisé')
+            return FileResponse(resolved.open('rb'))
+    raise Http404
 
 
 def page_not_found(request, exception):
