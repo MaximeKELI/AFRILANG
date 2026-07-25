@@ -13,11 +13,11 @@ else
     say "False branch"
 end
 `,
-  cookbook: `# Mini-programme commenté
+  cookbook: `// Mini-programme commenté
 create score = 85
 create grades = list of "A", "B", "C"
 
-if score is greater than or equal to 80 then
+if score is greater than 79 then
     say "Bravo : {score}"
     say grades at 0
 else
@@ -102,11 +102,11 @@ say first(nums)
 create words = list of "a", "b", "c"
 say first(words)
 `,
-  constraints: `function twiceNum<T>(x T) returns T where T is number
-    return x + x
+  constraints: `function onlyNumber<T>(x T) returns T where T is number
+    return x
 end
 
-say twiceNum(21)
+say onlyNumber(21)
 `,
   generators: `generator function compteur(n int) returns list int
     create i int = 0
@@ -128,8 +128,8 @@ create xs = 1..3
 say length of xs
 say xs at 0
 `,
-  optionals: `create empty number? = nothing
-say empty or else 0
+  optionals: `create absent number? = nothing
+say absent or else 0
 
 function half(x number) returns number or error
     if x is less than 0 then

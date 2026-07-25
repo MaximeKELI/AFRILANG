@@ -152,8 +152,8 @@ def _deepen_syntax(pages):
                     ['<code>is not equal to</code>', 'inégalité'],
                     ['<code>is greater than</code>', 'strictement supérieur'],
                     ['<code>is less than</code>', 'strictement inférieur'],
-                    ['<code>is greater than or equal to</code>', '≥'],
-                    ['<code>is less than or equal to</code>', '≤'],
+                    ['<code>is greater than</code> / <code>is less than</code>', 'comparaisons strictes'],
+                    ['<code>&gt;=</code> / <code>&lt;=</code>', 'si supportés par la cible'],
                 ],
             ),
             h2('13. Exemple complet commenté'),
@@ -163,7 +163,7 @@ def _deepen_syntax(pages):
                 'quand vous lisez un tutoriel ou une page de référence.'
             ),
             code(
-                '# Score d’un joueur et message selon le seuil\n'
+                '// Score d’un joueur et message selon le seuil\n'
                 'create score = 85\n'
                 'create grades = list of "A", "B", "C"\n\n'
                 'if score is greater than or equal to 80 then\n'
@@ -213,8 +213,8 @@ def _deepen_syntax(pages):
                     ['<code>is not equal to</code>', 'inequality'],
                     ['<code>is greater than</code>', 'strictly greater'],
                     ['<code>is less than</code>', 'strictly less'],
-                    ['<code>is greater than or equal to</code>', '≥'],
-                    ['<code>is less than or equal to</code>', '≤'],
+                    ['<code>is greater than</code> / <code>is less than</code>', 'comparaisons strictes'],
+                    ['<code>&gt;=</code> / <code>&lt;=</code>', 'si supportés par la cible'],
                 ],
             ),
             h2('13. Fully commented example'),
@@ -222,7 +222,7 @@ def _deepen_syntax(pages):
                 'This mini-program combines variables, conditionals, loops, and lists.'
             ),
             code(
-                '# Player score and message by threshold\n'
+                '// Player score and message by threshold\n'
                 'create score = 85\n'
                 'create grades = list of "A", "B", "C"\n\n'
                 'if score is greater than or equal to 80 then\n'

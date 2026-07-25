@@ -4,7 +4,7 @@
 create score = 85
 create grades = list of "A", "B", "C"
 
-if score is greater than or equal to 80 then
+if score is greater than 79 then
     say "Bravo : {score}"
     say grades at 0
 else

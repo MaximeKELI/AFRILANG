@@ -27,6 +27,8 @@ def _description_from_source(source: str) -> str:
         stripped = line.strip()
         if stripped.startswith('#'):
             lines.append(stripped.lstrip('#').strip())
+        elif stripped.startswith('//'):
+            lines.append(stripped[2:].strip())
         elif stripped:
             break
     return ' '.join(lines)[:500]

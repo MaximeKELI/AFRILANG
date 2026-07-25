@@ -12,10 +12,10 @@ for each x in 1..<5 do
     set total = total + x
     say x
 end
-say "somme = {total}"
+say total
 
 create xs = 1..3
-say "liste 1..3 longueur :"
-say length of xs
+say "liste 1..3 :"
 say xs at 0
+say xs at 1
 say xs at 2

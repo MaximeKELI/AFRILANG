@@ -1,8 +1,8 @@
 // Optionnels (T?) et Result (T or error) — API complète
 // Voir docs : /docs/types/
 
-create empty number? = nothing
-say empty or else 0
+create absent number? = nothing
+say absent or else 0
 
 create present number? = 9
 match present
