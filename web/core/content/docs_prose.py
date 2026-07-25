@@ -633,30 +633,57 @@ def _functional_page():
                 "La liste d’origine n’est pas modifiée. "
                 "Utile pour doubler des nombres, formater des textes, etc."
             ),
-            code("create doubled = map each n in nums with n * 2"),
+            p(
+                "Forme idiomatique recommandée (bloc) — plus claire dès que "
+                "l’expression grandit :"
+            ),
+            code(
+                "create nums = list of 1, 2, 3, 4, 5\n\n"
+                "create doubled = map each x in nums do\n"
+                "    return x * 2\n"
+                "end\n\n"
+                "say doubled at 0"
+            ),
             h2("3. filter — garder selon une condition"),
             p(
                 "<code>filter each x in liste where condition</code> ne conserve "
                 "que les éléments pour lesquels la condition est vraie. "
                 "La longueur du résultat est ≤ celle d’origine."
             ),
-            code("create positives = filter each n in nums where n is greater than 0"),
+            code(
+                "create nums = list of 1, 2, 3, 4, 5\n"
+                "create bigOnes = filter each x in nums where x is greater than 3\n"
+                "say length of bigOnes"
+            ),
             h2("4. reduce — agréger"),
             p(
-                "Reduce part d’une valeur initiale et « plie » la liste en une seule valeur "
-                "(somme, produit, concaténation…). "
-                "Lisez la page exemples / specs pour la forme exacte "
-                "<code>reduce … with each …</code> dans votre version."
+                "Reduce part d’une valeur initiale (accumulateur) et « plie » la liste "
+                "en une seule valeur : somme, produit, concaténation de textes, etc. "
+                "À chaque élément, vous recevez l’accumulateur courant et l’élément, "
+                "puis vous renvoyez le nouvel accumulateur."
+            ),
+            code(
+                "create nums = list of 1, 2, 3, 4, 5\n\n"
+                "create total = reduce nums from 0 with each acc, x do\n"
+                "    return acc + x\n"
+                "end\n\n"
+                "say total"
+            ),
+            p(
+                "Ici <code>from 0</code> est la valeur de départ. "
+                "Premier tour : <code>acc = 0</code>, <code>x = 1</code> → 1 ; "
+                "puis 1+2, 3+3, 6+4, 10+5 → <strong>15</strong>."
             ),
             h2("5. Quand préférer une boucle ?"),
             p(
                 "Si vous avez des effets de bord complexes (plusieurs listes, "
                 "conditions croisées, I/O), une boucle <code>for each</code> reste claire. "
-                "Pour une transformation pure d’une liste, préférez map/filter."
+                "Pour une transformation pure d’une liste, préférez map/filter/reduce."
             ),
             callout(
                 'Voir aussi <a href="/docs/syntax/">Syntaxe</a> (listes) et '
-                "<code>examples/</code>."
+                'les exemples <a href="/playground/?example=natural-list-ops">'
+                'natural-list-ops</a> / <a href="/playground/?example=lambdas">lambdas</a>.'
             ),
         ],
         [
@@ -672,26 +699,51 @@ def _functional_page():
             h2("2. map — transform each item"),
             p(
                 "<code>map each x in list with expression</code> builds a "
-                "<strong>new</strong> list of the same length; the original is unchanged."
+                "<strong>new</strong> list of the same length; the original is unchanged. "
+                "Prefer the block form when the body grows:"
             ),
-            code("create doubled = map each n in nums with n * 2"),
+            code(
+                "create nums = list of 1, 2, 3, 4, 5\n\n"
+                "create doubled = map each x in nums do\n"
+                "    return x * 2\n"
+                "end\n\n"
+                "say doubled at 0"
+            ),
             h2("3. filter — keep by condition"),
             p(
                 "<code>filter each x in list where condition</code> keeps matching items only."
             ),
-            code("create positives = filter each n in nums where n is greater than 0"),
+            code(
+                "create nums = list of 1, 2, 3, 4, 5\n"
+                "create bigOnes = filter each x in nums where x is greater than 3\n"
+                "say length of bigOnes"
+            ),
             h2("4. reduce — aggregate"),
             p(
-                "Reduce folds a list into one value (sum, join, …). "
-                "See examples/specs for the exact <code>reduce … with each …</code> form."
+                "Reduce folds a list into one value from an initial accumulator "
+                "(sum, product, string join, …). Each step receives the current "
+                "accumulator and the next item, then returns the new accumulator."
+            ),
+            code(
+                "create nums = list of 1, 2, 3, 4, 5\n\n"
+                "create total = reduce nums from 0 with each acc, x do\n"
+                "    return acc + x\n"
+                "end\n\n"
+                "say total"
+            ),
+            p(
+                "Here <code>from 0</code> is the start value. "
+                "First step: <code>acc = 0</code>, <code>x = 1</code> → 1; "
+                "then 1+2 … ending at <strong>15</strong>."
             ),
             h2("5. When to prefer a loop?"),
             p(
                 "Complex side effects → <code>for each</code>. "
-                "Pure list transforms → map/filter."
+                "Pure list transforms → map/filter/reduce."
             ),
             callout(
-                'Also see <a href="/docs/syntax/">Syntax</a> and <code>examples/</code>.'
+                'Also see <a href="/docs/syntax/">Syntax</a> and playground '
+                '<a href="/playground/?example=natural-list-ops">natural-list-ops</a>.'
             ),
         ],
     )
@@ -722,38 +774,78 @@ def _pattern_page():
             p(
                 "Un <code>enum</code> liste des cas nommés. "
                 "Certains cas portent des données (<code>case Error with message text</code>). "
-                "C’est le bon outil pour des états discrets d’un domaine."
+                "C’est le bon outil pour des états discrets d’un domaine "
+                "(succès/échec, étapes d’un workflow, etc.)."
             ),
             code(
                 "enum Status\n"
                 "    case Ok\n"
                 "    case Error with message text\n"
-                "end"
+                "end\n\n"
+                'create e = Status.Error with "failed"'
             ),
-            h2("3. match"),
+            h2("3. match (instruction)"),
             p(
                 "<code>match</code> examine une valeur et choisit la branche "
                 "<code>case</code> correspondante. "
-                "Avec <code>with msg</code>, vous liez le payload à une variable locale. "
+                "Avec <code>with msg</code>, vous liez le payload à une variable locale "
+                "utilisable dans la branche. "
                 "<code>default</code> couvre le reste. "
                 "Chaque branche (et le match) se ferme avec <code>end</code>."
             ),
             code(
                 "match e\n"
-                "    case Error with msg then say msg\n"
+                "    case Error with msg then\n"
+                "        say msg\n"
                 "    end\n"
-                '    default say "ok"\n'
+                "    default\n"
+                '        say "ok"\n'
+                "    end\n"
                 "end"
             ),
-            h2("4. Unions taguées"),
+            h2("4. Match en expression"),
             p(
-                "Une union regroupe des formes différentes (ex. formes géométriques). "
-                "Le match devient alors le moyen sûr de calculer une aire ou un affichage "
-                "sans casts hasardeux."
+                "Le même <code>match</code> peut produire une valeur, utilisable dans "
+                "<code>create</code>, <code>return</code> ou <code>say</code>. "
+                "Chaque bras est alors une expression (pas seulement des instructions)."
+            ),
+            code(
+                "create label = match e\n"
+                '    case Ok then "success"\n'
+                "    end\n"
+                "    case Error with msg then msg\n"
+                "    end\n"
+                '    default "unknown"\n'
+                "    end\n"
+                "end\n\n"
+                "say label"
+            ),
+            h2("5. Unions taguées"),
+            p(
+                "Une <code>union</code> regroupe des formes différentes "
+                "(ex. formes géométriques). "
+                "C’est l’équivalent d’un enum pour des variantes de données. "
+                "Le <code>match</code> devient le moyen sûr de calculer une aire "
+                "ou un libellé sans conversions hasardeuses."
+            ),
+            code(
+                "union Shape\n"
+                "    case Circle with radius number\n"
+                "    case Rect with width number, height number\n"
+                "end\n\n"
+                "create s = Shape.Circle with 5\n\n"
+                "match s\n"
+                "    case Circle with r then\n"
+                "        say r\n"
+                "    end\n"
+                "    case Rect with w, h then\n"
+                "        say w\n"
+                "    end\n"
+                "end"
             ),
             callout(
-                'Pratique : <code>examples/</code> + page '
-                '<a href="/docs/types/">Types</a> pour optionnels/Result.'
+                'Ensuite : motifs avancés plus bas sur cette page, puis '
+                '<a href="/docs/types/">Types</a> pour optionnels / Result.'
             ),
         ],
         [
@@ -770,33 +862,70 @@ def _pattern_page():
             h2("2. Enums"),
             p(
                 "An <code>enum</code> lists named cases; some carry data "
-                "(<code>case Error with message text</code>)."
+                "(<code>case Error with message text</code>). "
+                "Use it for discrete domain states."
             ),
             code(
                 "enum Status\n"
                 "    case Ok\n"
                 "    case Error with message text\n"
-                "end"
+                "end\n\n"
+                'create e = Status.Error with "failed"'
             ),
-            h2("3. match"),
+            h2("3. match (statement)"),
             p(
                 "<code>match</code> picks a <code>case</code>. "
                 "<code>with msg</code> binds payload. "
-                "<code>default</code> covers the rest. Close with <code>end</code>."
+                "<code>default</code> covers the rest. Close each arm with <code>end</code>."
             ),
             code(
                 "match e\n"
-                "    case Error with msg then say msg\n"
+                "    case Error with msg then\n"
+                "        say msg\n"
                 "    end\n"
-                '    default say "ok"\n'
+                "    default\n"
+                '        say "ok"\n'
+                "    end\n"
                 "end"
             ),
-            h2("4. Tagged unions"),
+            h2("4. Match as expression"),
             p(
-                "Unions group different shapes; match is the safe way to compute on them."
+                "The same <code>match</code> can yield a value for "
+                "<code>create</code>, <code>return</code>, or <code>say</code>."
+            ),
+            code(
+                "create label = match e\n"
+                '    case Ok then "success"\n'
+                "    end\n"
+                "    case Error with msg then msg\n"
+                "    end\n"
+                '    default "unknown"\n'
+                "    end\n"
+                "end\n\n"
+                "say label"
+            ),
+            h2("5. Tagged unions"),
+            p(
+                "A <code>union</code> groups different shapes. "
+                "Match is the safe way to compute on them without unsafe casts."
+            ),
+            code(
+                "union Shape\n"
+                "    case Circle with radius number\n"
+                "    case Rect with width number, height number\n"
+                "end\n\n"
+                "create s = Shape.Circle with 5\n\n"
+                "match s\n"
+                "    case Circle with r then\n"
+                "        say r\n"
+                "    end\n"
+                "    case Rect with w, h then\n"
+                "        say w\n"
+                "    end\n"
+                "end"
             ),
             callout(
-                'Practice: <code>examples/</code> + '
+                'Next: advanced patterns below on this page, then '
                 '<a href="/docs/types/">Types</a> for optionals/Result.'
             ),
         ],

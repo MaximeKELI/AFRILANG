@@ -17,6 +17,7 @@ from .docs_methodical_more import (
     tooling_page,
     wasm_page,
 )
+from .docs_annotate import annotate_documentation_pages
 from .docs_detailed import register_detailed_documentation
 from .docs_prose import enrich_language_pages_with_prose
 
@@ -39,6 +40,7 @@ def register_methodical_documentation(pages):
     pages['contributing'] = contributing_page()
     enrich_language_pages_with_prose(pages)
     register_detailed_documentation(pages)
+    annotate_documentation_pages(pages)
 
 
 def _overview():
