@@ -103,9 +103,11 @@ Contraintes de types (MVP) : `where T is number|int|text|bool|…` ou
 `where T implements InterfaceName` après la signature :
 
 ```afr
-function twiceNum<T>(x T) returns T where T is number
-    return x + x
+function onlyNumber<T>(x T) returns T where T is number
+    return x
 end
+
+say onlyNumber(21)
 ```
 
 ## Macros (MVP)

@@ -108,8 +108,8 @@ end
 
 say onlyNumber(21)
 `,
-  generators: `generator function compteur(n int) returns list int
-    create i int = 0
+  generators: `generator function compteur(n number) returns list number
+    create i number = 0
     while i is less than n do
         yield i
         set i = i + 1

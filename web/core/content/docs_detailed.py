@@ -152,8 +152,6 @@ def _deepen_syntax(pages):
                     ['<code>is not equal to</code>', 'inégalité'],
                     ['<code>is greater than</code>', 'strictement supérieur'],
                     ['<code>is less than</code>', 'strictement inférieur'],
-                    ['<code>is greater than</code> / <code>is less than</code>', 'comparaisons strictes'],
-                    ['<code>&gt;=</code> / <code>&lt;=</code>', 'si supportés par la cible'],
                 ],
             ),
             h2('13. Exemple complet commenté'),
@@ -166,7 +164,7 @@ def _deepen_syntax(pages):
                 '// Score d’un joueur et message selon le seuil\n'
                 'create score = 85\n'
                 'create grades = list of "A", "B", "C"\n\n'
-                'if score is greater than or equal to 80 then\n'
+                'if score is greater than 79 then\n'
                 '    say "Bravo : {score}"\n'
                 '    say grades at 0\n'
                 'else\n'
@@ -213,8 +211,6 @@ def _deepen_syntax(pages):
                     ['<code>is not equal to</code>', 'inequality'],
                     ['<code>is greater than</code>', 'strictly greater'],
                     ['<code>is less than</code>', 'strictly less'],
-                    ['<code>is greater than</code> / <code>is less than</code>', 'comparaisons strictes'],
-                    ['<code>&gt;=</code> / <code>&lt;=</code>', 'si supportés par la cible'],
                 ],
             ),
             h2('13. Fully commented example'),
@@ -225,7 +221,7 @@ def _deepen_syntax(pages):
                 '// Player score and message by threshold\n'
                 'create score = 85\n'
                 'create grades = list of "A", "B", "C"\n\n'
-                'if score is greater than or equal to 80 then\n'
+                'if score is greater than 79 then\n'
                 '    say "Great: {score}"\n'
                 '    say grades at 0\n'
                 'else\n'
@@ -263,11 +259,11 @@ def _deepen_types(pages):
                 '<code>where T implements NomInterface</code> — T doit implémenter l’interface',
             ]),
             code(
-                'function twiceNum<T>(x T) returns T where T is number\n'
-                '    return x + x\n'
+                'function onlyNumber<T>(x T) returns T where T is number\n'
+                '    return x\n'
                 'end\n\n'
-                'say twiceNum(21)   // OK\n'
-                '// twiceNum("x")  // erreur de compilation'
+                'say onlyNumber(21)   // OK\n'
+                '// onlyNumber("x")  // erreur de compilation'
             ),
             p(
                 'Les contraintes sont vérifiées à la compilation (MVP). '
@@ -284,8 +280,8 @@ def _deepen_types(pages):
                 '<code>match</code> avec <code>case value v</code> / <code>case nothing</code>',
             ]),
             code(
-                'create a number? = nothing\n'
-                'say a or else 0\n\n'
+                'create absent number? = nothing\n'
+                'say absent or else 0\n\n'
                 'create maybe number? = 9\n'
                 'match maybe\n'
                 '    case value v then\n'
@@ -354,11 +350,11 @@ def _deepen_types(pages):
                 '<code>where T implements InterfaceName</code> — T must implement the interface',
             ]),
             code(
-                'function twiceNum<T>(x T) returns T where T is number\n'
-                '    return x + x\n'
+                'function onlyNumber<T>(x T) returns T where T is number\n'
+                '    return x\n'
                 'end\n\n'
-                'say twiceNum(21)   // OK\n'
-                '// twiceNum("x")  // compile error'
+                'say onlyNumber(21)   // OK\n'
+                '// onlyNumber("x")  // compile error'
             ),
             p(
                 'Constraints are checked at compile time (MVP). '
@@ -373,8 +369,8 @@ def _deepen_types(pages):
                 '<code>match</code> with <code>case value v</code> / <code>case nothing</code>',
             ]),
             code(
-                'create a number? = nothing\n'
-                'say a or else 0\n\n'
+                'create absent number? = nothing\n'
+                'say absent or else 0\n\n'
                 'create maybe number? = 9\n'
                 'match maybe\n'
                 '    case value v then\n'
@@ -905,8 +901,8 @@ def _iteration_page():
                 '(souvent <code>returns list T</code>).'
             ),
             code(
-                'generator function compteur(n int) returns list int\n'
-                '    create i int = 0\n'
+                'generator function compteur(n number) returns list number\n'
+                '    create i number = 0\n'
                 '    while i is less than n do\n'
                 '        yield i\n'
                 '        set i = i + 1\n'
@@ -995,8 +991,8 @@ def _iteration_page():
                 'with <code>yield</code>, without building the full list upfront.'
             ),
             code(
-                'generator function counter(n int) returns list int\n'
-                '    create i int = 0\n'
+                'generator function counter(n number) returns list number\n'
+                '    create i number = 0\n'
                 '    while i is less than n do\n'
                 '        yield i\n'
                 '        set i = i + 1\n'
