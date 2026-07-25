@@ -36,6 +36,7 @@ def i18n_ui(request):
     from django.utils import translation
 
     from .content.docs_nav import get_docs_nav
+    from .content.privacy import PRIVACY_VERSION, get_privacy_summary
     from .content.site_ui import get_ui
     from .i18n_helpers import current_lang
 
@@ -46,4 +47,6 @@ def i18n_ui(request):
         'languages': settings.LANGUAGES,
         'LANGUAGE_CODE': translation.get_language(),
         'docs_nav': get_docs_nav(lang),
+        'privacy_version': PRIVACY_VERSION,
+        'privacy_summary': get_privacy_summary(lang),
     }

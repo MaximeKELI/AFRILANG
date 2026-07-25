@@ -37,6 +37,27 @@ UI = {
         'cookie_text': 'Ce site utilise des cookies de session pour la langue et le playground.',
         'cookie_accept': 'Accepter',
         'cookie_decline': 'Refuser',
+        'footer_legal': 'Légal',
+        'nav_privacy': 'Confidentialité',
+        'privacy_gate_title': 'Politique de confidentialité',
+        'privacy_gate_lead': (
+            'Avant d’accéder pleinement au site AFRILANG, veuillez lire et accepter '
+            'notre politique de confidentialité. Elle explique quelles données nous '
+            'traitons (session, langue, playground) et quels sont vos droits.'
+        ),
+        'privacy_gate_summary_title': 'En résumé',
+        'privacy_gate_checkbox': (
+            'J’ai lu et j’accepte la Politique de confidentialité d’AFRILANG '
+            '(version en vigueur).'
+        ),
+        'privacy_gate_accept': 'J’accepte et j’entre sur le site',
+        'privacy_gate_read_full': 'Lire la politique complète',
+        'privacy_gate_required': 'Cochez la case pour continuer.',
+        'privacy_gate_page_cta': (
+            'Si vous n’avez pas encore accepté, vous pouvez le faire ici pour '
+            'accéder à l’ensemble du site.'
+        ),
+        'privacy_gate_version_label': 'Version de la politique',
         'meta_default': (
             'AFRILANG — langage orienté objet à syntaxe naturelle, transpile vers C++17, '
             'bibliothèque standard riche, outils LSP et playground.'
@@ -387,6 +408,27 @@ UI = {
         'cookie_text': 'This site uses session cookies for language preference and the playground.',
         'cookie_accept': 'Accept',
         'cookie_decline': 'Decline',
+        'footer_legal': 'Legal',
+        'nav_privacy': 'Privacy',
+        'privacy_gate_title': 'Privacy Policy',
+        'privacy_gate_lead': (
+            'Before fully accessing the AFRILANG website, please read and accept '
+            'our Privacy Policy. It explains what data we process (session, language, '
+            'playground) and what rights you have.'
+        ),
+        'privacy_gate_summary_title': 'At a glance',
+        'privacy_gate_checkbox': (
+            'I have read and accept the AFRILANG Privacy Policy '
+            '(current version).'
+        ),
+        'privacy_gate_accept': 'I accept and enter the site',
+        'privacy_gate_read_full': 'Read the full policy',
+        'privacy_gate_required': 'Please check the box to continue.',
+        'privacy_gate_page_cta': (
+            'If you have not accepted yet, you can do so here to unlock '
+            'the full site.'
+        ),
+        'privacy_gate_version_label': 'Policy version',
         'meta_default': (
             'AFRILANG — natural-syntax OOP language transpiling to C++17, '
             'rich standard library, LSP tooling and web playground.'

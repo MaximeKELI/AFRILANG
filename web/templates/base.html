@@ -14,6 +14,23 @@
     }
   })();
   </script>
+  <script>
+  (function () {
+    try {
+      var raw = localStorage.getItem('afr_privacy_consent');
+      var ok = false;
+      if (raw) {
+        try {
+          var d = JSON.parse(raw);
+          ok = d && d.accepted === true;
+        } catch (e) {
+          ok = raw.indexOf('accepted') === 0;
+        }
+      }
+      if (!ok) document.documentElement.classList.add('privacy-pending');
+    } catch (e) {}
+  })();
+  </script>
   <title>{% block title %}AFRILANG{% endblock %}</title>
   <meta name="description" content="{% block meta %}{{ ui.meta_default }}{% endblock %}">
   <meta name="author" content="AFRILANG">
@@ -60,7 +77,7 @@
   </script>
   {% bootstrap_javascript %}
 </head>
-<body class="afr-body">
+<body class="afr-body"{% block body_attrs %}{% endblock %}>
   <a class="skip-link" href="#main-content">{{ ui.skip_link }}</a>
 
   <nav class="navbar navbar-expand-lg afr-navbar sticky-top" role="navigation" aria-label="{% trans 'Main navigation' %}">
@@ -102,7 +119,7 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}" href="{% url 'download' %}">{{ ui.nav_download }}</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name == 'language' or request.resolver_match.url_name == 'explore' or request.resolver_match.url_name == 'libraries' or request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' or request.resolver_match.url_name == 'tutorial' or request.resolver_match.url_name == 'tutorial_step' or request.resolver_match.url_name == 'community' or request.resolver_match.url_name == 'benchmarks' or request.resolver_match.url_name == 'showcase' or request.resolver_match.url_name == 'releases' or request.resolver_match.url_name == 'api_reference' %}active{% endif %}"
+            <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name == 'language' or request.resolver_match.url_name == 'explore' or request.resolver_match.url_name == 'libraries' or request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' or request.resolver_match.url_name == 'tutorial' or request.resolver_match.url_name == 'tutorial_step' or request.resolver_match.url_name == 'community' or request.resolver_match.url_name == 'benchmarks' or request.resolver_match.url_name == 'showcase' or request.resolver_match.url_name == 'releases' or request.resolver_match.url_name == 'api_reference' or request.resolver_match.url_name == 'privacy' %}active{% endif %}"
                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{ ui.nav_more }}
             </a>
@@ -115,6 +132,7 @@
               <li role="none"><hr class="dropdown-divider"></li>
               <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'community' %}">{{ ui.nav_community }}</a></li>
               <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'showcase' %}">{{ ui.nav_showcase }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'privacy' %}">{{ ui.nav_privacy }}</a></li>
               <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'benchmarks' %}">{{ ui.nav_benchmarks }}</a></li>
               <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'releases' %}">Changelog</a></li>
               <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'api_reference' %}">{{ ui.nav_api }}</a></li>
@@ -185,15 +203,54 @@
           <h6>{{ ui.footer_versions }}</h6>
           <a href="{% url 'download' %}">{{ ui.nav_download }}</a>
           <a href="{% url 'releases' %}">Changelog</a>
+          <a href="{% url 'privacy' %}">{{ ui.nav_privacy }}</a>
           <span class="small text-secondary-custom d-block">{{ ui.footer_lang }} {{ SITE_STATS.version }}</span>
           <span class="small text-secondary-custom d-block">{{ ui.footer_compiler }} {{ SITE_STATS.compiler_version }}</span>
         </div>
       </div>
       <div class="text-center mt-4 pt-3 border-top small text-secondary-custom">
         © AFRILANG — {{ ui.footer_tagline }}
+        · <a href="{% url 'privacy' %}" class="link-secondary">{{ ui.nav_privacy }}</a>
       </div>
     </div>
   </footer>
+
+  <div id="privacy-gate" class="privacy-gate d-none" role="dialog" aria-modal="true"
+       aria-labelledby="privacy-gate-title" aria-describedby="privacy-gate-lead"
+       data-privacy-version="{{ privacy_version }}">
+    <div class="privacy-gate-backdrop" aria-hidden="true"></div>
+    <div class="privacy-gate-panel">
+      <div class="privacy-gate-brand mb-3">
+        <strong>AFRILANG</strong>
+        <span class="small text-secondary-custom d-block">{{ ui.privacy_gate_version_label }} {{ privacy_version }}</span>
+      </div>
+      <h2 class="h4 mb-2" id="privacy-gate-title">{{ ui.privacy_gate_title }}</h2>
+      <p class="small text-secondary-custom" id="privacy-gate-lead">{{ ui.privacy_gate_lead }}</p>
+      <h3 class="h6 mt-3">{{ ui.privacy_gate_summary_title }}</h3>
+      <ul class="privacy-gate-summary small text-secondary-custom">
+        {% for item in privacy_summary %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      <p class="mb-3">
+        <a href="{% url 'privacy' %}" class="link-primary" id="privacy-gate-full-link">
+          {{ ui.privacy_gate_read_full }} →
+        </a>
+      </p>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" value="1" id="privacy-gate-check">
+        <label class="form-check-label small" for="privacy-gate-check">
+          {{ ui.privacy_gate_checkbox }}
+        </label>
+      </div>
+      <p class="privacy-gate-error small text-danger d-none" id="privacy-gate-error" role="alert">
+        {{ ui.privacy_gate_required }}
+      </p>
+      <button type="button" class="btn btn-afr-primary w-100 mt-2" id="privacy-gate-accept" disabled>
+        {{ ui.privacy_gate_accept }}
+      </button>
+    </div>
+  </div>
 
   <div id="cookie-banner" class="cookie-banner d-none" role="dialog" aria-label="{% trans 'Cookie consent' %}">
     <p class="mb-2 small">{{ ui.cookie_text }}</p>

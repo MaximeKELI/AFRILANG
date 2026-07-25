@@ -820,6 +820,82 @@ main.afr-main-full {
   }
 }
 
+/* ── Privacy consent gate (blocking) ── */
+.privacy-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.privacy-gate.d-none {
+  display: none !important;
+}
+
+.privacy-gate-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.privacy-gate-panel {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  max-height: min(92vh, 720px);
+  overflow: auto;
+  background: var(--afr-surface);
+  border: 1px solid var(--afr-border);
+  border-radius: calc(var(--afr-radius) + 4px);
+  padding: 1.5rem 1.5rem 1.35rem;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.35);
+}
+
+.privacy-gate-summary {
+  padding-left: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.privacy-gate-summary li {
+  margin-bottom: 0.35rem;
+}
+
+body.privacy-locked {
+  overflow: hidden;
+}
+
+html.privacy-pending body.afr-body:not([data-privacy-allow="1"]) > .navbar,
+html.privacy-pending body.afr-body:not([data-privacy-allow="1"]) > main,
+html.privacy-pending body.afr-body:not([data-privacy-allow="1"]) > footer {
+  filter: blur(1.5px);
+}
+
+body.privacy-locked > .navbar,
+body.privacy-locked > main,
+body.privacy-locked > footer,
+body.privacy-locked > .skip-link {
+  pointer-events: none;
+  user-select: none;
+  filter: blur(1.5px);
+}
+
+.afr-privacy-page {
+  max-width: 52rem;
+}
+
+.afr-privacy-accept-bar {
+  background: var(--afr-bg-muted, var(--afr-surface));
+  border-color: var(--afr-border) !important;
+}
+
+[data-afr-theme="dark"] .privacy-gate-backdrop {
+  background: rgba(2, 6, 23, 0.82);
+}
+
 /* ── Dark theme ── */
 [data-afr-theme="dark"] {
   --afr-primary: #60a5fa;
