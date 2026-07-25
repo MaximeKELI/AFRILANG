@@ -13,6 +13,12 @@
     return document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
   }
 
+  function looksLikeGui(source) {
+    return /open\s+window|while\s+window\s+is\s+open|show\s+frame|clear\s+background|draw\s+text/i.test(
+      source || ''
+    );
+  }
+
   function loadWasmCompiler() {
     if (wasmReady) return Promise.resolve(wasmModule);
     if (wasmLoadAttempted) return Promise.resolve(null);
@@ -87,20 +93,32 @@
         lines.push(Array.prototype.slice.call(arguments).map(String).join(' '));
       },
     };
-    var runner = new Function('console', '"use strict";\n' + js);
-    runner(fakeConsole);
-    return lines.join('\n');
+    var runner = new Function('console', 'AfrilangUI', '"use strict";\n' + js);
+    var result = runner(fakeConsole, global.AfrilangUI || null);
+    if (result && typeof result.then === 'function') {
+      return result.then(function () {
+        return lines.join('\n');
+      });
+    }
+    return Promise.resolve(lines.join('\n'));
   }
 
   async function runInstant(source) {
     var js = await compileSource(source);
-    var output = runJavaScript(js);
-    return { ok: true, output: output, clientSide: wasmReady };
+    var output = await runJavaScript(js);
+    var gui = looksLikeGui(source) || /AfrilangUI|__ui\.openWindow/.test(js);
+    return {
+      ok: true,
+      output: output || (gui ? '(GUI — canvas à droite ; fermez la fenêtre pour terminer)' : ''),
+      clientSide: wasmReady,
+      gui: gui,
+    };
   }
 
   global.AfrilangCompilerClient = {
     compileSource: compileSource,
     runInstant: runInstant,
     loadWasmCompiler: loadWasmCompiler,
+    looksLikeGui: looksLikeGui,
   };
 })(window);

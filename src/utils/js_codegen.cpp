@@ -73,6 +73,29 @@ bool statementsSupported(const std::vector<std::unique_ptr<StatementNode>>& stmt
             if (!exprStmt->expression || !expressionSupported(*exprStmt->expression)) return false;
             continue;
         }
+        if (const auto* openWin = dynamic_cast<const OpenWindowStatementNode*>(stmt.get())) {
+            if (!expressionSupported(*openWin->title) || !expressionSupported(*openWin->width) ||
+                !expressionSupported(*openWin->height)) {
+                return false;
+            }
+            continue;
+        }
+        if (dynamic_cast<const CloseWindowStatementNode*>(stmt.get())) continue;
+        if (dynamic_cast<const ShowFrameStatementNode*>(stmt.get())) continue;
+        if (const auto* clearBg = dynamic_cast<const ClearBackgroundStatementNode*>(stmt.get())) {
+            if (!expressionSupported(*clearBg->red) || !expressionSupported(*clearBg->green) ||
+                !expressionSupported(*clearBg->blue)) {
+                return false;
+            }
+            continue;
+        }
+        if (const auto* drawText = dynamic_cast<const DrawTextStatementNode*>(stmt.get())) {
+            if (!expressionSupported(*drawText->text) || !expressionSupported(*drawText->x) ||
+                !expressionSupported(*drawText->y) || !expressionSupported(*drawText->fontSize)) {
+                return false;
+            }
+            continue;
+        }
         return false;
     }
     return true;
@@ -83,6 +106,12 @@ bool expressionSupported(const ExpressionNode& expr) {
     if (dynamic_cast<const NumberLiteralNode*>(&expr)) return true;
     if (dynamic_cast<const BoolLiteralNode*>(&expr)) return true;
     if (dynamic_cast<const IdentifierNode*>(&expr)) return true;
+    if (dynamic_cast<const WindowIsOpenExpressionNode*>(&expr)) return true;
+    if (const auto* button = dynamic_cast<const ButtonClickedExpressionNode*>(&expr)) {
+        return expressionSupported(*button->label) && expressionSupported(*button->x) &&
+               expressionSupported(*button->y) && expressionSupported(*button->width) &&
+               expressionSupported(*button->height);
+    }
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
         static const char* ops[] = {"+", "-", "*", "/", ">", "<", "==", "!=", "&&", "||",
                                     ">=", "<="};
@@ -133,7 +162,7 @@ std::string compileSourceToJavaScript(const std::string& source,
     const SemanticResult semantic = analyzer.analyze();
     if (!supportsJavaScriptPlayground(*program, semantic)) {
         throw CompileError("JS playground: sous-ensemble non supporté "
-                           "(pas d'imports/classes/async/UI ; fonctions OK)",
+                           "(pas d'imports/classes/async/game2d ; UI std/ui OK)",
                            0, 0, virtualPath);
     }
     JsCodeGenerator gen(*program, semantic);
@@ -147,7 +176,7 @@ bool supportsJavaScriptPlayground(const ProgramNode& program,
     if (!program.enums.empty()) return false;
     if (!program.interfaces.empty() || !program.records.empty()) return false;
     if (!program.externs.empty() || !program.tests.empty()) return false;
-    if (semantic.usesAsync || semantic.usesGenerators || semantic.usesUi) return false;
+    if (semantic.usesAsync || semantic.usesGenerators) return false;
     for (const auto& func : program.functions) {
         if (func->isAsync || func->isGenerator || func->isOperator || func->isAbstract) {
             return false;
@@ -168,11 +197,19 @@ std::string JsCodeGenerator::generate() const {
 
 void JsCodeGenerator::generate(std::ostream& out) const {
     out << "\"use strict\";\n";
+    const bool ui = semantic_.usesUi;
+    if (ui) {
+        out << "return (async function(__ui) {\n";
+        out << "  if (!__ui) throw new Error(\"AfrilangUI runtime manquant\");\n";
+    }
     for (const auto& func : program_.functions) {
         emitFunction(out, *func);
     }
     for (const auto& stmt : program_.statements) {
-        emitStatement(out, *stmt, 0);
+        emitStatement(out, *stmt, ui ? 1 : 0);
+    }
+    if (ui) {
+        out << "})(typeof AfrilangUI !== \"undefined\" ? AfrilangUI : null);\n";
     }
 }
 
@@ -289,6 +326,24 @@ void JsCodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& ex
         out << "]";
         return;
     }
+    if (dynamic_cast<const WindowIsOpenExpressionNode*>(&expr)) {
+        out << "__ui.isOpen()";
+        return;
+    }
+    if (const auto* button = dynamic_cast<const ButtonClickedExpressionNode*>(&expr)) {
+        out << "__ui.drawButton(";
+        emitExpression(out, *button->label);
+        out << ", ";
+        emitExpression(out, *button->x);
+        out << ", ";
+        emitExpression(out, *button->y);
+        out << ", ";
+        emitExpression(out, *button->width);
+        out << ", ";
+        emitExpression(out, *button->height);
+        out << ")";
+        return;
+    }
 }
 
 void JsCodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt,
@@ -340,14 +395,65 @@ void JsCodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt
     }
 
     if (const auto* whileStmt = dynamic_cast<const WhileStatementNode*>(&stmt)) {
+        const bool windowLoop =
+            dynamic_cast<const WindowIsOpenExpressionNode*>(whileStmt->condition.get()) != nullptr;
         out << "while (";
         emitExpression(out, *whileStmt->condition);
         out << ") {\n";
+        if (windowLoop) {
+            indent(out, indentLevel + 1);
+            out << "__ui.beginFrame();\n";
+        }
         for (const auto& bodyStmt : whileStmt->body) {
             emitStatement(out, *bodyStmt, indentLevel + 1);
         }
         indent(out, indentLevel);
         out << "}\n";
+        return;
+    }
+
+    if (const auto* openWin = dynamic_cast<const OpenWindowStatementNode*>(&stmt)) {
+        out << "__ui.openWindow(";
+        emitExpression(out, *openWin->title);
+        out << ", ";
+        emitExpression(out, *openWin->width);
+        out << ", ";
+        emitExpression(out, *openWin->height);
+        out << ");\n";
+        return;
+    }
+
+    if (dynamic_cast<const CloseWindowStatementNode*>(&stmt)) {
+        out << "__ui.closeWindow();\n";
+        return;
+    }
+
+    if (dynamic_cast<const ShowFrameStatementNode*>(&stmt)) {
+        out << "await __ui.showFrame();\n";
+        return;
+    }
+
+    if (const auto* clearBg = dynamic_cast<const ClearBackgroundStatementNode*>(&stmt)) {
+        out << "__ui.clearBackground(";
+        emitExpression(out, *clearBg->red);
+        out << ", ";
+        emitExpression(out, *clearBg->green);
+        out << ", ";
+        emitExpression(out, *clearBg->blue);
+        out << ");\n";
+        return;
+    }
+
+    if (const auto* drawText = dynamic_cast<const DrawTextStatementNode*>(&stmt)) {
+        out << "__ui.drawText(";
+        emitExpression(out, *drawText->text);
+        out << ", ";
+        emitExpression(out, *drawText->x);
+        out << ", ";
+        emitExpression(out, *drawText->y);
+        out << ", ";
+        emitExpression(out, *drawText->fontSize);
+        out << ");\n";
         return;
     }
 

@@ -651,15 +651,28 @@ end'''),
 
 
 def _extend_oop(pages):
+    # La page POO de base (docs_pages) est déjà documentée avec prose.
+    # Ne pas ré-empiler des sections code-only (doublons).
+    lead = pages['oop']['fr'].get('lead', '')
+    if 'pourquoi' in lead or 'constructeurs' in lead:
+        return
     fr = pages['oop']['fr']['blocks']
     en = pages['oop']['en']['blocks']
     fr.extend([
         h2('Records'),
+        p(
+            'Un <code>record</code> regroupe des champs sans hiérarchie de classes. '
+            'Idéal pour des points, configs, ou petites structures de données.'
+        ),
         code('''record Point
     field x number
     field y number
-end'''),
+end
+
+create p = Point with x 3, y 4
+say p.x'''),
         h2('POO avancée'),
+        p('Mots-clés supplémentaires pour un contrôle fin de la hiérarchie :'),
         ul([
             '<code>static field</code> / <code>static function</code>',
             '<code>abstract class</code> / <code>abstract function</code>',
@@ -669,8 +682,16 @@ end'''),
             '<code>protected field</code>',
         ]),
         h2('Polymorphisme'),
+        p(
+            'Typez une variable ou une liste par une interface / classe parente, '
+            'puis stockez des instances concrètes :'
+        ),
         code('create pet Speakable = new Dog()\ncreate pets list of Speakable = list of new Dog()'),
         h2('Surcharge d\'opérateurs'),
+        p(
+            'Définissez le comportement de <code>+</code>, <code>==</code>, etc. '
+            'sur vos classes avec <code>operator</code> :'
+        ),
         code('''operator + (other Vector) returns Vector
     return new Vector(x + other.x, y + other.y)
 end'''),
@@ -681,11 +702,19 @@ end'''),
     ])
     en.extend([
         h2('Records'),
+        p(
+            'A <code>record</code> groups fields without a class hierarchy. '
+            'Ideal for points, configs, or small data structures.'
+        ),
         code('''record Point
     field x number
     field y number
-end'''),
+end
+
+create p = Point with x 3, y 4
+say p.x'''),
         h2('Advanced OOP'),
+        p('Extra keywords for finer hierarchy control:'),
         ul([
             '<code>static field</code> / <code>static function</code>',
             '<code>abstract class</code> / <code>abstract function</code>',
@@ -695,8 +724,16 @@ end'''),
             '<code>protected field</code>',
         ]),
         h2('Polymorphism'),
+        p(
+            'Type a variable or list by an interface / parent class, '
+            'then store concrete instances:'
+        ),
         code('create pet Speakable = new Dog()\ncreate pets list of Speakable = list of new Dog()'),
         h2('Operator overloading'),
+        p(
+            'Define how <code>+</code>, <code>==</code>, etc. behave on your classes '
+            'with <code>operator</code>:'
+        ),
         code('''operator + (other Vector) returns Vector
     return new Vector(x + other.x, y + other.y)
 end'''),

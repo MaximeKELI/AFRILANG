@@ -188,8 +188,12 @@ document.getElementById('runInstant').addEventListener('click', async () => {
   output.classList.remove('error');
   try {
     const result = await window.AfrilangCompilerClient.runInstant(editor.value);
-    output.textContent = result.output || '(no output)';
-    status.textContent = result.clientSide ? 'OK (WASM client)' : 'OK (server JS)';
+    const canvas = document.getElementById('wasm-canvas');
+    if (result.gui && canvas) canvas.style.display = 'block';
+    output.textContent = result.output || (result.gui ? '(GUI active)' : '(no output)');
+    status.textContent = result.gui
+      ? (result.clientSide ? 'OK GUI (WASM)' : 'OK GUI (Canvas)')
+      : (result.clientSide ? 'OK (WASM client)' : 'OK (server JS)');
   } catch (e) {
     status.textContent = 'Error';
     output.textContent = String(e.message || e);
@@ -226,6 +230,11 @@ document.getElementById('runWasmBrowser').addEventListener('click', async () => 
 });
 
 async function runCode(endpoint, busyLabel) {
+  if (window.AfrilangCompilerClient?.looksLikeGui?.(editor.value) &&
+      !/import\s+"std\/game2d"|import\s+"std\/game3d"/.test(editor.value)) {
+    document.getElementById('runInstant').click();
+    return;
+  }
   status.textContent = busyLabel;
   output.textContent = '';
   try {
@@ -235,6 +244,10 @@ async function runCode(endpoint, busyLabel) {
       body: JSON.stringify({ source: editor.value })
     });
     const data = await res.json();
+    if (data.suggestBrowser) {
+      document.getElementById('runInstant').click();
+      return;
+    }
     output.textContent = data.output || '(no output)';
     status.textContent = data.ok ? 'OK' : 'Error (code ' + data.exitCode + ')';
     output.classList.toggle('error', !data.ok);

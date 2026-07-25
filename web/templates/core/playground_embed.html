@@ -62,6 +62,7 @@
           <span class="small text-secondary-custom">{{ ui.playground_page.output }}</span>
           <button type="button" class="btn btn-afr-outline btn-sm py-0" id="copyOutput">{{ ui.playground_page.copy_output }}</button>
         </div>
+        <canvas id="wasm-canvas" class="w-100" style="display:none; background:#0b1020; height: 220px; outline:none;" tabindex="0"></canvas>
         <pre id="output" class="playground-output mb-0" role="log" aria-live="polite">{{ ui.playground_page.output_hint }}</pre>
       </div>
     </div>
@@ -69,6 +70,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js" crossorigin="anonymous"></script>
   <script src="{% static 'js/afrilang-cm-mode.js' %}"></script>
+  <script src="{% static 'js/afrilang-ui.js' %}"></script>
   <script src="{% static 'js/compiler-client.js' %}"></script>
   <script>
   window.AFR_PLAYGROUND = {

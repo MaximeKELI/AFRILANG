@@ -456,11 +456,13 @@ def tutorial(request, step=None):
 
 
 def _playground_examples():
-    from .services.afrilang import requires_desktop_display
+    from .services.afrilang import is_browser_gui, requires_desktop_display
 
     examples = list(CodeExample.objects.all())
     for ex in examples:
-        ex.desktop_only = requires_desktop_display(ex.source)
+        # Label "desktop" only when Browser Canvas cannot run it (game2d/game3d).
+        ex.desktop_only = requires_desktop_display(ex.source) and not is_browser_gui(ex.source)
+        ex.browser_gui = is_browser_gui(ex.source)
     return examples
 
 
@@ -596,14 +598,16 @@ def api_check(request):
 
 @require_GET
 def api_example(request, slug):
-    from .services.afrilang import requires_desktop_display
+    from .services.afrilang import is_browser_gui, requires_desktop_display
 
     ex = get_object_or_404(CodeExample, slug=slug)
+    src = ex.source or ''
     return JsonResponse({
         'slug': ex.slug,
         'title': ex.title,
         'source': ex.source,
-        'desktop_only': requires_desktop_display(ex.source or ''),
+        'desktop_only': requires_desktop_display(src) and not is_browser_gui(src),
+        'browser_gui': is_browser_gui(src),
     })
 
 

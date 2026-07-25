@@ -245,47 +245,328 @@ PAGES['types'] = _page(
 
 PAGES['oop'] = _page(
     'oop', 'Programmation orientée objet', 'Object-oriented programming',
-    'Classes, héritage, encapsulation, interfaces et records.',
-    'Classes, inheritance, encapsulation, interfaces and records.',
+    'Classes, constructeurs, héritage, interfaces, records — avec le pourquoi de chaque concept.',
+    'Classes, constructors, inheritance, interfaces, records — with the why behind each concept.',
     [
-        h2('Classes'),
+        callout(
+            '<strong>En une phrase</strong> — Une classe regroupe des données (champs) et '
+            'des comportements (méthodes). On crée des instances avec <code>new</code>.'
+        ),
+        h2('1. Classes et constructeur'),
+        p(
+            'Déclarez une <code>class</code>, des <code>field</code> '
+            '(souvent <code>public</code> ou <code>private</code>), et des méthodes '
+            '<code>function</code>. Le constructeur s’appelle <code>init</code> : '
+            'il s’exécute quand vous faites <code>new Classe(…)</code>. '
+            'À l’intérieur, <code>this</code> désigne l’instance courante.'
+        ),
+        p(
+            'Dans l’exemple ci-dessous : chaque <code>Dog</code> a un <code>name</code>. '
+            'À la création, <code>init</code> range le nom. '
+            '<code>speak</code> utilise ce nom pour afficher un message. '
+            'Puis on crée <code>rex</code> et on appelle <code>rex.speak()</code>.'
+        ),
         code('''class Dog
     public field name text
+
     function init(n text)
         set this.name = n
     end
+
     function speak()
         say name + " says Woof!"
     end
 end
+
 create rex = new Dog("Rex")
 rex.speak()'''),
-        h2('Héritage'),
-        code('class Car extends Vehicle\n    function describe() returns text\n        return super.describe() + model\n    end\nend'),
-        h2('Interfaces'),
-        code('interface Speakable\n    function speak()\nend\nclass Robot implements Speakable\n    function speak()\n        say "Beep"\n    end\nend'),
-        h2('Classes génériques'),
-        code('class Box<T>\n    public field value T\nend\ncreate b = new Box<number>(42)'),
+        p(
+            '<strong>Lecture</strong> — <code>public field name text</code> déclare un champ '
+            'accessible depuis l’extérieur. <code>set this.name = n</code> assigne le '
+            'paramètre du constructeur. Sans <code>end</code>, le parseur ne sait pas '
+            'où s’arrête la classe ou la méthode.'
+        ),
+        h2('2. Héritage'),
+        p(
+            '<code>extends</code> crée une spécialisation : la classe fille réutilise '
+            'ou redéfinit le comportement du parent. '
+            '<code>super</code> appelle explicitement la version parente '
+            '(utile pour enrichir un message ou une description).'
+        ),
+        code('''class Vehicle
+    function describe() returns text
+        return "Vehicle "
+    end
+end
+
+class Car extends Vehicle
+    public field model text
+
+    function describe() returns text
+        return super.describe() + model
+    end
+end'''),
+        p(
+            '<strong>Lecture</strong> — <code>Car</code> hérite de <code>Vehicle</code>. '
+            'En redéfinissant <code>describe</code>, on compose le texte parent via '
+            '<code>super.describe()</code> puis on ajoute <code>model</code>. '
+            'Le type de retour <code>returns text</code> doit rester compatible.'
+        ),
+        h2('3. Interfaces'),
+        p(
+            'Une <code>interface</code> décrit un contrat (« qui sait parler ») '
+            'sans fournir le corps des méthodes. '
+            'Une classe <code>implements</code> l’interface et doit fournir '
+            'chaque méthode. Cela permet de traiter différents objets '
+            'de façon uniforme tant qu’ils respectent le contrat.'
+        ),
+        code('''interface Speakable
+    function speak()
+end
+
+class Robot implements Speakable
+    function speak()
+        say "Beep"
+    end
+end
+
+create pet Speakable = new Robot()
+pet.speak()'''),
+        p(
+            '<strong>Lecture</strong> — <code>Speakable</code> n’a pas d’implémentation. '
+            '<code>Robot</code> doit définir <code>speak</code>. '
+            'La variable <code>pet</code> est typée par l’interface : on peut y mettre '
+            'n’importe quel objet qui implémente <code>Speakable</code>.'
+        ),
+        h2('4. Classes génériques et records'),
+        p(
+            'Comme pour les fonctions, une classe peut être paramétrée '
+            '(<code>Box&lt;T&gt;</code>). '
+            'Les <strong>records</strong> conviennent quand vous n’avez besoin '
+            'que de champs groupés, sans hiérarchie complexe.'
+        ),
+        code('''class Box<T>
+    public field value T
+
+    function init(v T)
+        set this.value = v
+    end
+end
+
+create b = new Box<number>(42)
+say b.value
+
+record Point
+    field x number
+    field y number
+end
+
+create p = Point with x 3, y 4
+say p.x'''),
+        p(
+            '<strong>Lecture</strong> — <code>Box&lt;number&gt;</code> fixe T = number. '
+            '<code>Point with x 3, y 4</code> construit un record en nommant les champs. '
+            'Pas besoin de <code>new</code> pour un record.'
+        ),
+        h2('5. Mots-clés POO utiles'),
+        ul([
+            '<code>static field</code> / <code>static function</code> — partagés par la classe',
+            '<code>abstract class</code> / <code>abstract function</code> — non instanciable / à redéfinir',
+            '<code>final class</code> / <code>final function</code> — non extensible / non redéfinissable',
+            '<code>property</code> — getter/setter auto',
+            '<code>destroy … end</code> — destructeur',
+            '<code>protected field</code> — visible dans la hiérarchie',
+        ]),
+        h2('6. Surcharge d’opérateurs'),
+        p(
+            'Dans une classe, déclarez <code>operator +</code>, <code>-</code>, '
+            '<code>*</code>, <code>/</code>, <code>==</code>, <code>!=</code>, '
+            '<code>&lt;</code>, <code>&gt;</code> pour définir le comportement '
+            'des opérateurs sur vos types.'
+        ),
+        code('''class Vector
+    public field x number
+    public field y number
+
+    function init(ax number, ay number)
+        set this.x = ax
+        set this.y = ay
+    end
+
+    operator + (other Vector) returns Vector
+        return new Vector(x + other.x, y + other.y)
+    end
+end
+
+create a = new Vector(1, 2)
+create b = new Vector(3, 4)
+create c = a + b
+say c.x'''),
+        p(
+            '<strong>Lecture</strong> — <code>a + b</code> appelle '
+            '<code>operator +</code> sur <code>a</code> avec <code>b</code> '
+            'comme <code>other</code>. Le résultat est un nouveau <code>Vector</code>.'
+        ),
+        callout(
+            '<strong>Pratique :</strong> '
+            '<a href="/playground/?example=oop">oop</a>, '
+            '<a href="/playground/?example=inheritance">inheritance</a>, '
+            '<a href="/playground/?example=operators-demo">operators-demo</a>. '
+            'Suite : <a href="/docs/pattern-matching/">Pattern matching →</a>'
+        ),
     ],
     [
-        h2('Classes'),
+        callout(
+            '<strong>In one sentence</strong> — A class groups data (fields) and '
+            'behavior (methods). Create instances with <code>new</code>.'
+        ),
+        h2('1. Classes and constructor'),
+        p(
+            'Declare a <code>class</code>, <code>field</code>s '
+            '(often <code>public</code> or <code>private</code>), and '
+            '<code>function</code> methods. The constructor is <code>init</code>: '
+            'it runs on <code>new Class(…)</code>. Inside, <code>this</code> is the instance.'
+        ),
+        p(
+            'Below: each <code>Dog</code> has a <code>name</code>. '
+            '<code>init</code> stores it; <code>speak</code> prints a message. '
+            'Then we create <code>rex</code> and call <code>rex.speak()</code>.'
+        ),
         code('''class Dog
     public field name text
+
     function init(n text)
         set this.name = n
     end
+
     function speak()
         say name + " says Woof!"
     end
 end
+
 create rex = new Dog("Rex")
 rex.speak()'''),
-        h2('Inheritance'),
-        code('class Car extends Vehicle\n    function describe() returns text\n        return super.describe() + model\n    end\nend'),
-        h2('Interfaces'),
-        code('interface Speakable\n    function speak()\nend\nclass Robot implements Speakable\n    function speak()\n        say "Beep"\n    end\nend'),
-        h2('Generic classes'),
-        code('class Box<T>\n    public field value T\nend\ncreate b = new Box<number>(42)'),
+        p(
+            '<strong>Reading</strong> — <code>public field name text</code> declares '
+            'an externally visible field. <code>set this.name = n</code> assigns the '
+            'constructor argument. Every block ends with <code>end</code>.'
+        ),
+        h2('2. Inheritance'),
+        p(
+            '<code>extends</code> specializes a parent. '
+            '<code>super</code> calls the parent implementation explicitly.'
+        ),
+        code('''class Vehicle
+    function describe() returns text
+        return "Vehicle "
+    end
+end
+
+class Car extends Vehicle
+    public field model text
+
+    function describe() returns text
+        return super.describe() + model
+    end
+end'''),
+        p(
+            '<strong>Reading</strong> — <code>Car</code> inherits <code>Vehicle</code>. '
+            'Overriding <code>describe</code> composes the parent text via '
+            '<code>super.describe()</code> then appends <code>model</code>.'
+        ),
+        h2('3. Interfaces'),
+        p(
+            'An <code>interface</code> is a contract without method bodies. '
+            'A class <code>implements</code> it and must provide each method.'
+        ),
+        code('''interface Speakable
+    function speak()
+end
+
+class Robot implements Speakable
+    function speak()
+        say "Beep"
+    end
+end
+
+create pet Speakable = new Robot()
+pet.speak()'''),
+        p(
+            '<strong>Reading</strong> — <code>pet</code> is typed as the interface, '
+            'so any <code>Speakable</code> implementor can be assigned.'
+        ),
+        h2('4. Generic classes and records'),
+        p(
+            'Classes can take type parameters (<code>Box&lt;T&gt;</code>). '
+            'Records fit when you only need grouped fields.'
+        ),
+        code('''class Box<T>
+    public field value T
+
+    function init(v T)
+        set this.value = v
+    end
+end
+
+create b = new Box<number>(42)
+say b.value
+
+record Point
+    field x number
+    field y number
+end
+
+create p = Point with x 3, y 4
+say p.x'''),
+        p(
+            '<strong>Reading</strong> — <code>Box&lt;number&gt;</code> fixes T. '
+            '<code>Point with x 3, y 4</code> builds a record without <code>new</code>.'
+        ),
+        h2('5. Useful OOP keywords'),
+        ul([
+            '<code>static field</code> / <code>static function</code> — shared by the class',
+            '<code>abstract class</code> / <code>abstract function</code> — not instantiable / must override',
+            '<code>final class</code> / <code>final function</code> — not extensible / not overridable',
+            '<code>property</code> — auto getter/setter',
+            '<code>destroy … end</code> — destructor',
+            '<code>protected field</code> — visible in the hierarchy',
+        ]),
+        h2('6. Operator overloading'),
+        p(
+            'Declare <code>operator +</code>, <code>-</code>, <code>*</code>, '
+            '<code>/</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, '
+            '<code>&gt;</code> inside a class.'
+        ),
+        code('''class Vector
+    public field x number
+    public field y number
+
+    function init(ax number, ay number)
+        set this.x = ax
+        set this.y = ay
+    end
+
+    operator + (other Vector) returns Vector
+        return new Vector(x + other.x, y + other.y)
+    end
+end
+
+create a = new Vector(1, 2)
+create b = new Vector(3, 4)
+create c = a + b
+say c.x'''),
+        p(
+            '<strong>Reading</strong> — <code>a + b</code> calls '
+            '<code>operator +</code> on <code>a</code> with <code>b</code> as '
+            '<code>other</code>.'
+        ),
+        callout(
+            '<strong>Practice:</strong> '
+            '<a href="/playground/?example=oop">oop</a>, '
+            '<a href="/playground/?example=inheritance">inheritance</a>, '
+            '<a href="/playground/?example=operators-demo">operators-demo</a>. '
+            'Next: <a href="/docs/pattern-matching/">Pattern matching →</a>'
+        ),
     ],
 )
 

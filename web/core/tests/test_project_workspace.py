@@ -107,6 +107,15 @@ class DesktopGuiGateTests(SimpleTestCase):
         self.assertTrue(requires_desktop_display('while window is open do\nend\n'))
         self.assertFalse(requires_desktop_display('say "hello"\nclass Dog\nend\n'))
 
+    def test_browser_gui_vs_game_blocked(self):
+        from core.services.afrilang import blocks_javascript_playground, is_browser_gui
+
+        gui = 'open window titled "Hi"\nwhile window is open do\nshow frame\nend\n'
+        self.assertTrue(is_browser_gui(gui))
+        self.assertFalse(blocks_javascript_playground(gui))
+        self.assertTrue(blocks_javascript_playground('import "std/game2d"\n'))
+        self.assertFalse(is_browser_gui('import "std/game2d"\nopen window titled "x"\n'))
+
     def test_run_project_refuses_gui(self):
         result = run_project(
             'gui.afr',
@@ -115,7 +124,20 @@ class DesktopGuiGateTests(SimpleTestCase):
         self.assertFalse(result['ok'])
         self.assertEqual(result['exitCode'], 2)
         self.assertIn('fenêtre graphique', result['output'])
-        self.assertIn('application mobile', result['output'])
+
+    def test_run_project_suggests_browser_for_natural_ui(self):
+        result = run_project(
+            'gui.afr',
+            {
+                'gui.afr': (
+                    'open window titled "Demo" with width 100, height 100\n'
+                    'while window is open do\nshow frame\nend\n'
+                ),
+            },
+        )
+        self.assertFalse(result['ok'])
+        self.assertTrue(result.get('suggestBrowser'))
+        self.assertIn('Browser', result['output'])
 
 
 if __name__ == '__main__':

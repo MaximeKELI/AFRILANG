@@ -5,6 +5,12 @@
   let wasmReady = false;
   let wasmLoadAttempted = false;
 
+  function looksLikeGui(source) {
+    return /open\s+window|while\s+window\s+is\s+open|show\s+frame|clear\s+background|draw\s+text/i.test(
+      source || ''
+    );
+  }
+
   function loadWasmCompiler() {
     if (wasmReady) return Promise.resolve(wasmModule);
     if (wasmLoadAttempted) return Promise.resolve(null);
@@ -64,16 +70,30 @@
         lines.push(args.map((v) => String(v)).join(' '));
       }
     };
-    const runner = new Function('console', '"use strict";\n' + js);
-    runner(fakeConsole);
-    return lines.join('\n');
+    const runner = new Function('console', 'AfrilangUI', '"use strict";\n' + js);
+    const result = runner(fakeConsole, global.AfrilangUI || null);
+    if (result && typeof result.then === 'function') {
+      return result.then(() => lines.join('\n'));
+    }
+    return Promise.resolve(lines.join('\n'));
   }
 
   async function runInstant(source) {
     const js = await compileSource(source);
-    const output = runJavaScript(js);
-    return { ok: true, output, clientSide: wasmReady };
+    const output = await runJavaScript(js);
+    const gui = looksLikeGui(source) || /__ui\.openWindow/.test(js);
+    return {
+      ok: true,
+      output: output || (gui ? '(GUI — canvas ; fermez la fenêtre pour terminer)' : ''),
+      clientSide: wasmReady,
+      gui,
+    };
   }
 
-  global.AfrilangCompilerClient = { compileSource, runInstant, loadWasmCompiler };
+  global.AfrilangCompilerClient = {
+    compileSource,
+    runInstant,
+    loadWasmCompiler,
+    looksLikeGui,
+  };
 })(window);

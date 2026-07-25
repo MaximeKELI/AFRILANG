@@ -20,7 +20,7 @@ MAX_FILE_BYTES = 200 * 1024
 MAX_PROJECT_BYTES = 1024 * 1024
 
 # Exemples / programmes qui ouvrent une fenêtre ou une boucle d'événements :
-# le playground web / l'app mobile sont headless — on refuse au lieu d'attendre le timeout.
+# le Run natif du playground est headless — on refuse (ou on bascule Browser côté client).
 _DESKTOP_MARKERS = (
     'import "std/ui"',
     'import "std/game2d"',
@@ -29,13 +29,28 @@ _DESKTOP_MARKERS = (
     'while window is open',
 )
 
+# Jeux 2D/3D : pas encore de backend navigateur (Canvas couvre std/ui naturel).
+_JS_BLOCKED_MARKERS = (
+    'import "std/game2d"',
+    'import "std/game3d"',
+)
+
 _DESKTOP_MESSAGE = (
     'Cet exemple nécessite une fenêtre graphique (SDL) et le compilateur '
-    'AFRILANG en local — il ne peut pas tourner dans le playground web '
-    'ni dans l’application mobile.\n\n'
-    'Sur votre machine (Linux / macOS / Windows) :\n'
+    'AFRILANG en local — il ne peut pas tourner via Run natif ni dans '
+    'l’application mobile.\n\n'
+    'UI simple (open window / draw text / boutons) : utilisez le bouton '
+    '« Browser » du playground.\n'
+    'Jeux (std/game2d, std/game3d) : sur votre machine :\n'
     '  afrilang run examples/<fichier>.afr\n\n'
     'Choisissez un autre exemple (hello, list_ops, oop, …) pour l’exécuter ici.'
+)
+
+_BROWSER_GUI_MESSAGE = (
+    'Interface graphique détectée.\n\n'
+    'Dans le playground web, utilisez le bouton « Browser » — la fenêtre '
+    's’affiche dans le canvas à droite (pas besoin de SDL sur le serveur).\n\n'
+    'En local : afrilang run examples/<fichier>.afr'
 )
 
 
@@ -62,8 +77,29 @@ def _repo_root() -> Path:
 
 
 def requires_desktop_display(source: str) -> bool:
-    """True si le programme ouvre une UI / boucle fenêtre (incompatible playground)."""
+    """True si le programme ouvre une UI / boucle fenêtre (incompatible Run natif headless)."""
     return any(marker in source for marker in _DESKTOP_MARKERS)
+
+
+def is_browser_gui(source: str) -> bool:
+    """True si l'UI peut tourner dans le playground via Canvas (syntaxe naturelle, sans imports)."""
+    if blocks_javascript_playground(source):
+        return False
+    # Le transpileur JS playground n'accepte pas encore les imports (ex. import "std/ui").
+    if 'import "' in source or "import '" in source:
+        return False
+    return (
+        'open window' in source
+        or 'while window is open' in source
+        or 'clear background' in source
+        or 'draw text' in source
+        or 'show frame' in source
+    )
+
+
+def blocks_javascript_playground(source: str) -> bool:
+    """True si compile-js / Browser ne peut pas exécuter ce programme."""
+    return any(marker in source for marker in _JS_BLOCKED_MARKERS)
 
 
 def normalize_project_path(raw: str) -> str:
@@ -223,12 +259,15 @@ def _combined_sources(files: dict[str, str]) -> str:
 
 def run_project(entry: str, files: dict[str, str], target: str = 'native') -> dict:
     entry_norm, files_norm = validate_project_files(entry, files)
-    if requires_desktop_display(_combined_sources(files_norm)):
+    combined = _combined_sources(files_norm)
+    if requires_desktop_display(combined):
+        msg = _BROWSER_GUI_MESSAGE if is_browser_gui(combined) else _DESKTOP_MESSAGE
         return {
             'ok': False,
-            'output': _DESKTOP_MESSAGE,
+            'output': msg,
             'exitCode': 2,
             'duration_ms': 0,
+            'suggestBrowser': is_browser_gui(combined),
         }
 
     bin_path = _bin()
@@ -328,7 +367,7 @@ def check_source(source: str) -> dict:
 
 
 def compile_to_js(source: str) -> dict:
-    if requires_desktop_display(source):
+    if blocks_javascript_playground(source):
         return {'ok': False, 'output': _DESKTOP_MESSAGE}
 
     bin_path = _bin()
@@ -355,7 +394,7 @@ def compile_to_js(source: str) -> dict:
 
 def compile_project_to_js(entry: str, files: dict[str, str]) -> dict:
     entry_norm, files_norm = validate_project_files(entry, files)
-    if requires_desktop_display(_combined_sources(files_norm)):
+    if blocks_javascript_playground(_combined_sources(files_norm)):
         return {'ok': False, 'output': _DESKTOP_MESSAGE}
 
     bin_path = _bin()

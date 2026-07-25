@@ -50,12 +50,14 @@
       </section>
       <section class="panel">
         <div class="panel-header">Output</div>
+        <canvas id="wasm-canvas" style="display:none;width:100%;background:#0b1020;height:320px;outline:none;" tabindex="0"></canvas>
         <pre id="output">(click Run)</pre>
       </section>
     </div>
   </main>
 
   <footer data-afr-footer></footer>
+  <script src="/afrilang-ui.js"></script>
   <script src="/wasm-runner.js"></script>
   <script src="/compiler-client.js"></script>
   <script src="/site.js"></script>
