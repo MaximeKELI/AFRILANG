@@ -13,7 +13,7 @@ class StaticViewSitemap(Sitemap):
         views = [
             'home', 'language', 'explore', 'packages', 'playground', 'tutorial', 'benchmarks', 'showcase',
             'libraries', 'playground_embed_docs',
-            'download', 'community', 'api_reference', 'examples',
+            'download', 'community', 'privacy', 'api_reference', 'examples',
             'stdlib', 'releases', 'docs_search',
         ]
         docs = [url_name for _, url_name in NAV_META]

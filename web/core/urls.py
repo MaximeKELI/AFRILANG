@@ -11,6 +11,7 @@ urlpatterns = [
     path('download/', views.download, name='download'),
     path('download/bin/<slug:platform>/', views.download_binary, name='download_binary'),
     path('community/', views.community, name='community'),
+    path('privacy/', views.privacy, name='privacy'),
     path('api-docs/', views.api_reference, name='api_reference'),
     path('docs/', views.docs_overview, name='docs'),
     path('docs/overview/', views.docs_overview, name='docs_overview'),

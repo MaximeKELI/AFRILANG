@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ privacy.title }} — AFRILANG{% endblock %}
+{% block meta %}{{ privacy.lead }}{% endblock %}
+{% block og_title %}{{ privacy.title }} — AFRILANG{% endblock %}
+{% block og_desc %}{{ privacy.lead }}{% endblock %}
+
+{% block body_attrs %} data-privacy-allow="1"{% endblock %}
+
+{% block content %}
+<article class="afr-privacy-page" id="privacy-policy">
+  <header class="afr-page-header">
+    <div class="section-label">{% if current_lang == 'en' %}Legal{% else %}Mentions légales{% endif %}</div>
+    <h1 class="h2">{{ privacy.title }}</h1>
+    <p class="lead">{{ privacy.lead }}</p>
+    <p class="small text-secondary-custom mb-0">
+      {% if current_lang == 'en' %}Version{% else %}Version{% endif %}
+      {{ privacy.version }}
+      ·
+      {% if current_lang == 'en' %}Last updated{% else %}Dernière mise à jour{% endif %}
+      {{ privacy.updated }}
+    </p>
+  </header>
+
+  <div class="afr-privacy-body">
+    {% for block in privacy.blocks %}
+      {% if block.type == 'h2' %}
+        <h2 class="h4 mt-4">{{ block.text }}</h2>
+      {% elif block.type == 'h3' %}
+        <h3 class="h5 mt-3">{{ block.text }}</h3>
+      {% elif block.type == 'p' %}
+        <p class="text-secondary-custom">{{ block.html }}</p>
+      {% elif block.type == 'ul' %}
+        <ul class="text-secondary-custom">
+          {% for item in block.items %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% elif block.type == 'table' %}
+        <div class="table-responsive my-3">
+          <table class="docs-table">
+            <thead>
+              <tr>
+                {% for h in block.headers %}
+                  <th scope="col">{{ h }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in block.rows %}
+                <tr>
+                  {% for cell in row %}
+                    <td>{{ cell|safe }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% elif block.type == 'callout' %}
+        <div class="docs-callout{% if block.variant == 'warning' %} docs-callout-warning{% endif %} my-3">
+          {{ block.html }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="afr-privacy-accept-bar mt-5 p-3 border rounded" id="privacy-page-accept">
+    <p class="small mb-2">{{ ui.privacy_gate_page_cta }}</p>
+    <button type="button" class="btn btn-afr-primary" id="privacy-page-accept-btn">
+      {{ ui.privacy_gate_accept }}
+    </button>
+  </div>
+</article>
+{% endblock %}

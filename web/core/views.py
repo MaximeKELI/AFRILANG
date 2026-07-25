@@ -187,6 +187,13 @@ def community(request):
     return render(request, 'core/community.html')
 
 
+def privacy(request):
+    from .content.privacy import get_privacy_page
+    return render(request, 'core/privacy.html', {
+        'privacy': get_privacy_page(request.LANGUAGE_CODE),
+    })
+
+
 def api_reference(request):
     return render(request, 'core/api.html')
 
