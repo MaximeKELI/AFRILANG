@@ -13,6 +13,21 @@ else
     say "False branch"
 end
 `,
+  cookbook: `# Mini-programme commenté
+create score = 85
+create grades = list of "A", "B", "C"
+
+if score is greater than or equal to 80 then
+    say "Bravo : {score}"
+    say grades at 0
+else
+    say "Continue"
+end
+
+for each g in grades do
+    say g
+end
+`,
   oop: `class Greeter
     function hello()
         say "Hello from a class!"
@@ -52,6 +67,24 @@ else
     say "no nickname"
 end
 `,
+  matchAdvanced: `function classify(n number) returns text
+    return match n
+        case 0 then "zéro"
+        end
+        case 1 to 10 then "petit"
+        end
+        case 11 or 12 or 13 then "ado"
+        end
+        case _ then "grand"
+        end
+    end
+end
+
+say classify(0)
+say classify(7)
+say classify(12)
+say classify(99)
+`,
   generics: `function identity<T>(x T) returns T
     return x
 end
@@ -68,6 +101,61 @@ say first(nums)
 
 create words = list of "a", "b", "c"
 say first(words)
+`,
+  constraints: `function twiceNum<T>(x T) returns T where T is number
+    return x + x
+end
+
+say twiceNum(21)
+`,
+  generators: `generator function compteur(n int) returns list int
+    create i int = 0
+    while i is less than n do
+        yield i
+        set i = i + 1
+    end
+end
+
+for each v in compteur(5) do
+    say v
+end
+`,
+  ranges: `for each x in 1..5 do
+    say x
+end
+
+create xs = 1..3
+say length of xs
+say xs at 0
+`,
+  optionals: `create empty number? = nothing
+say empty or else 0
+
+function half(x number) returns number or error
+    if x is less than 0 then
+        return error "négatif"
+    end
+    return x / 2
+end
+
+say half(8) or else 0
+say half(-1) or else -99
+`,
+  macros: `macro shout(msg)
+    say msg
+end
+
+macro assertEq(a, b)
+    assert a is equal to b
+end
+
+shout!("macros ok")
+assertEq!(2 + 2, 4)
+`,
+  interp: `create name = "AFRILANG"
+create version = 1
+say "Hello {name}!"
+say "Version {version}.0"
 `,
   wasm: `say "Phase E WASM OK"
 

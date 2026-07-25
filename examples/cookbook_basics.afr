@@ -1,0 +1,22 @@
+// Cookbook : mini-programme commenté (variables, if, listes, boucles)
+// Idéal pour découvrir la syntaxe naturelle
+
+create score = 85
+create grades = list of "A", "B", "C"
+
+if score is greater than or equal to 80 then
+    say "Bravo : {score}"
+    say grades at 0
+else
+    say "Continue"
+end
+
+for each g in grades do
+    say g
+end
+
+create i int = 0
+while i is less than 3 do
+    say "tick {i}"
+    set i = i + 1
+end

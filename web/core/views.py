@@ -101,6 +101,14 @@ def docs_pattern(request):
     return _doc_view(request, 'docs_pattern')
 
 
+def docs_iteration(request):
+    return _doc_view(request, 'docs_iteration')
+
+
+def docs_macros(request):
+    return _doc_view(request, 'docs_macros')
+
+
 def docs_modules(request):
     return _doc_view(request, 'docs_modules')
 

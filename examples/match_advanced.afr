@@ -1,0 +1,55 @@
+// Match avancé : plages, or-patterns, joker, Result, optionnels
+// Voir docs : /docs/pattern-matching/
+
+function classify(n number) returns text
+    return match n
+        case 0 then "zéro"
+        end
+        case 1 to 10 then "petit"
+        end
+        case 11 or 12 or 13 then "ado"
+        end
+        case _ then "grand"
+        end
+    end
+end
+
+say classify(0)
+say classify(7)
+say classify(12)
+say classify(99)
+
+function half(x number) returns number or error
+    if x is equal to 0 then
+        return error "zero"
+    end
+    return x / 2
+end
+
+match half(10)
+    case ok v then
+        say v
+    end
+    case error m then
+        say m
+    end
+end
+
+create maybe text? = nothing
+match maybe
+    case value v then
+        say v
+    end
+    case nothing then
+        say "rien"
+    end
+end
+
+match true
+    case true then
+        say "oui"
+    end
+    case false then
+        say "non"
+    end
+end

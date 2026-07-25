@@ -1,4 +1,5 @@
-// Demo macros MVP : macro name(params) ... end + name!(args)
+// Macros MVP : définition + appel avec !
+// Voir docs : /docs/macros/
 
 macro shout(msg)
     say msg
@@ -10,3 +11,4 @@ end
 
 shout!("macros ok")
 assertEq!(2 + 2, 4)
+shout!("deux plus deux égal quatre")

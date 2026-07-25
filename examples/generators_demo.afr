@@ -1,0 +1,28 @@
+// Générateurs : yield des valeurs une à une
+// Voir docs : /docs/iteration/
+
+generator function compteur(n int) returns list int
+    create i int = 0
+    while i is less than n do
+        yield i
+        set i = i + 1
+    end
+end
+
+say "Compteur 0..4 :"
+for each v in compteur(5) do
+    say v
+end
+
+generator function carres(n int) returns list int
+    create i int = 1
+    while i is less than or equal to n do
+        yield i * i
+        set i = i + 1
+    end
+end
+
+say "Carrés 1..4 :"
+for each s in carres(4) do
+    say s
+end

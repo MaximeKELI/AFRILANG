@@ -1,0 +1,14 @@
+// Interpolation de chaînes {variable} et accolades littérales
+// Voir docs : /docs/syntax/
+
+create name = "AFRILANG"
+create version = 1
+say "Hello {name}!"
+say "Version {version}.0"
+
+create city = "Dakar"
+create msg = "Bienvenue à {city}"
+say msg
+
+// Accolades littérales : {{ et }}
+say "JSON tip: use {{ and }} for literal braces"

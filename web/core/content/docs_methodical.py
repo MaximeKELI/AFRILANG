@@ -17,6 +17,7 @@ from .docs_methodical_more import (
     tooling_page,
     wasm_page,
 )
+from .docs_detailed import register_detailed_documentation
 from .docs_prose import enrich_language_pages_with_prose
 
 
@@ -37,6 +38,7 @@ def register_methodical_documentation(pages):
     pages['wasm'] = wasm_page()
     pages['contributing'] = contributing_page()
     enrich_language_pages_with_prose(pages)
+    register_detailed_documentation(pages)
 
 
 def _overview():
@@ -72,18 +74,20 @@ def _overview():
             table(['Étape', 'Page', 'Vous savez…'], [
                 ['1', '<a href="/docs/getting-started/">Premiers pas</a>', 'Installer et lancer <code>hello.afr</code>'],
                 ['2', '<a href="/docs/syntax/">Syntaxe</a>', 'Variables, if, boucles, listes, fonctions'],
-                ['3', '<a href="/docs/types/">Types</a>', 'number/text/bool, optionnels, Result'],
+                ['3', '<a href="/docs/types/">Types</a>', 'number/text/bool, optionnels, Result, where'],
                 ['4', '<a href="/docs/functional/">Lambdas</a>', 'map / filter / reduce naturels'],
-                ['5', '<a href="/docs/oop/">POO</a>', 'Classes, héritage, interfaces'],
+                ['5', '<a href="/docs/oop/">POO</a>', 'Classes, héritage, interfaces, opérateurs'],
                 ['6', '<a href="/docs/pattern-matching/">Pattern matching</a>', 'Enums, unions, match'],
-                ['7', '<a href="/docs/modules/">Modules</a>', 'import / use / export'],
-                ['8', '<a href="/docs/exceptions/">Exceptions</a> + Result', 'Erreurs contrôlées'],
-                ['9', '<a href="/docs/async/">Async</a>', 'await, sleep, I/O async'],
-                ['10', '<a href="/docs/stdlib/">Stdlib</a>', 'Core vs expérimental'],
-                ['11', '<a href="/docs/package-manager/">Paquets</a>', 'toml, lock, publish'],
-                ['12', '<a href="/docs/testing/">Tests</a>', '<code>test</code>, <code>--specs</code>'],
-                ['13', '<a href="/docs/tooling/">Outils</a> + <a href="/docs/wasm/">WASM</a>', 'LSP, IDE, cibles'],
-                ['14', '<a href="/docs/contributing/">Contribuer</a>', 'PR, conventions, CI'],
+                ['7', '<a href="/docs/iteration/">Itération</a>', 'Générateurs, plages, protocole'],
+                ['8', '<a href="/docs/macros/">Macros</a>', 'macro … !()'],
+                ['9', '<a href="/docs/modules/">Modules</a>', 'import / use / export'],
+                ['10', '<a href="/docs/exceptions/">Exceptions</a> + Result', 'Erreurs contrôlées'],
+                ['11', '<a href="/docs/async/">Async</a>', 'await, sleep, I/O async'],
+                ['12', '<a href="/docs/stdlib/">Stdlib</a>', 'Core vs expérimental'],
+                ['13', '<a href="/docs/package-manager/">Paquets</a>', 'toml, lock, publish'],
+                ['14', '<a href="/docs/testing/">Tests</a>', '<code>test</code>, <code>--specs</code>'],
+                ['15', '<a href="/docs/tooling/">Outils</a> + <a href="/docs/wasm/">WASM</a>', 'LSP, IDE, cibles'],
+                ['16', '<a href="/docs/contributing/">Contribuer</a>', 'PR, conventions, CI'],
             ]),
             h2('3. Trois façons de pratiquer'),
             ul([
@@ -130,18 +134,20 @@ def _overview():
             table(['Step', 'Page', 'You can…'], [
                 ['1', '<a href="/docs/getting-started/">Getting started</a>', 'Install and run <code>hello.afr</code>'],
                 ['2', '<a href="/docs/syntax/">Syntax</a>', 'Variables, if, loops, lists, functions'],
-                ['3', '<a href="/docs/types/">Types</a>', 'number/text/bool, optionals, Result'],
+                ['3', '<a href="/docs/types/">Types</a>', 'number/text/bool, optionals, Result, where'],
                 ['4', '<a href="/docs/functional/">Lambdas</a>', 'Natural map / filter / reduce'],
-                ['5', '<a href="/docs/oop/">OOP</a>', 'Classes, inheritance, interfaces'],
+                ['5', '<a href="/docs/oop/">OOP</a>', 'Classes, inheritance, interfaces, operators'],
                 ['6', '<a href="/docs/pattern-matching/">Pattern matching</a>', 'Enums, unions, match'],
-                ['7', '<a href="/docs/modules/">Modules</a>', 'import / use / export'],
-                ['8', '<a href="/docs/exceptions/">Exceptions</a> + Result', 'Controlled errors'],
-                ['9', '<a href="/docs/async/">Async</a>', 'await, sleep, async I/O'],
-                ['10', '<a href="/docs/stdlib/">Stdlib</a>', 'Core vs experimental'],
-                ['11', '<a href="/docs/package-manager/">Packages</a>', 'toml, lock, publish'],
-                ['12', '<a href="/docs/testing/">Testing</a>', '<code>test</code>, <code>--specs</code>'],
-                ['13', '<a href="/docs/tooling/">Tooling</a> + <a href="/docs/wasm/">WASM</a>', 'LSP, IDE, targets'],
-                ['14', '<a href="/docs/contributing/">Contributing</a>', 'PRs, conventions, CI'],
+                ['7', '<a href="/docs/iteration/">Iteration</a>', 'Generators, ranges, protocol'],
+                ['8', '<a href="/docs/macros/">Macros</a>', 'macro … !()'],
+                ['9', '<a href="/docs/modules/">Modules</a>', 'import / use / export'],
+                ['10', '<a href="/docs/exceptions/">Exceptions</a> + Result', 'Controlled errors'],
+                ['11', '<a href="/docs/async/">Async</a>', 'await, sleep, async I/O'],
+                ['12', '<a href="/docs/stdlib/">Stdlib</a>', 'Core vs experimental'],
+                ['13', '<a href="/docs/package-manager/">Packages</a>', 'toml, lock, publish'],
+                ['14', '<a href="/docs/testing/">Testing</a>', '<code>test</code>, <code>--specs</code>'],
+                ['15', '<a href="/docs/tooling/">Tooling</a> + <a href="/docs/wasm/">WASM</a>', 'LSP, IDE, targets'],
+                ['16', '<a href="/docs/contributing/">Contributing</a>', 'PRs, conventions, CI'],
             ]),
             h2('3. Three ways to practice'),
             ul([

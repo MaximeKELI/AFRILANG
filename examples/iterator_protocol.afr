@@ -1,0 +1,23 @@
+// Protocole d'itération : hasNext() + next()
+// Voir docs : /docs/iteration/
+
+class Countdown
+    public field current number
+
+    function hasNext() returns bool
+        return current is greater than 0
+    end
+
+    function next() returns number
+        set current = current - 1
+        return current + 1
+    end
+end
+
+create c = new Countdown()
+set c.current = 3
+
+say "Countdown :"
+for each v in c do
+    say v
+end

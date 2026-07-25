@@ -1,0 +1,47 @@
+// Optionnels (T?) et Result (T or error) — API complète
+// Voir docs : /docs/types/
+
+create empty number? = nothing
+say empty or else 0
+
+create present number? = 9
+match present
+    case value v then
+        say v
+    end
+    case nothing then
+        say "vide"
+    end
+end
+
+function half(x number) returns number or error
+    if x is less than 0 then
+        return error "négatif"
+    end
+    return x / 2
+end
+
+function chain(a number, b number) returns number or error
+    create x = half(a) or return
+    create y = half(b) or return
+    return x + y
+end
+
+say half(8) or else 0
+say half(-1) or else -99
+
+create ok = chain(8, 4)
+if ok is error then
+    say ok.message
+else
+    say ok.value
+end
+
+match half(10)
+    case ok v then
+        say v
+    end
+    case error m then
+        say m
+    end
+end

@@ -127,7 +127,16 @@ shout!("hello")
 assertEq!(1 + 1, 2)
 ```
 
+| Propriété | Statut MVP |
+|-----------|------------|
+| Substitution d'identifiants / expressions | Oui |
+| Récursion de macros | Non |
+| Introspection AST / hygiène | Non |
+| Alias FR `macrocommande` | Oui |
+
 Alias FR : `macrocommande`.
+
+Guide web : `/docs/macros/`. Exemple : `examples/macros_demo.afr`.
 
 ## Maps
 
@@ -313,6 +322,12 @@ end
 
 ## Générateurs et itération
 
+Trois façons courantes de parcourir une séquence :
+
+1. **Liste** — `for each x in maListe do`
+2. **Plage** — `for each x in 1..n do` (littéral)
+3. **Générateur / itérateur** — `for each x in compteur(n) do`
+
 ```afr
 generator function compteur(n int) returns list int
     create i int = 0
@@ -339,6 +354,16 @@ for each item in monIterateur do
     say item
 end
 ```
+
+| Forme | Sens |
+|-------|------|
+| `a..b` | inclusif (a et b inclus) |
+| `a..<b` | exclusif à droite |
+| `yield` | produit une valeur depuis un générateur |
+| `hasNext` / `next` | protocole pour classes itérables |
+
+Guide web : `/docs/iteration/`. Exemples : `examples/generators_demo.afr`,
+`examples/ranges_demo.afr`, `examples/iterator_protocol.afr`.
 
 ## Interfaces (traits)
 

@@ -1,0 +1,14 @@
+// Contraintes génériques : where T is …
+// Voir docs : /docs/types/
+
+function twiceNum<T>(x T) returns T where T is number
+    return x + x
+end
+
+function identityAny<T>(x T) returns T
+    return x
+end
+
+say twiceNum(21)
+say identityAny(7)
+say identityAny("ok")

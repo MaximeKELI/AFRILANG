@@ -12,6 +12,8 @@ from core.models import CodeExample
 FEATURED = {
     'hello', 'conditions', 'oop', 'generics', 'async_demo', 'traits_demo',
     'match_expr_demo', 'stdlib_demo', 'list_ops', 'natural_list_ops',
+    'generators_demo', 'macros_demo', 'optionals_result', 'cookbook_basics',
+    'match_advanced', 'ranges_demo',
 }
 
 

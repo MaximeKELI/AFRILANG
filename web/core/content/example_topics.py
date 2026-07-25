@@ -13,7 +13,8 @@ EXAMPLE_TOPICS = [
         'label_en': 'Basics',
         'slugs': [
             'hello', 'conditions', 'while', 'natural', 'functions', 'defaults',
-            'fields', 'educational', 'language-demo',
+            'fields', 'educational', 'language-demo', 'cookbook-basics',
+            'string-interp',
         ],
     },
     {
@@ -22,13 +23,17 @@ EXAMPLE_TOPICS = [
         'label_en': 'Collections',
         'slugs': [
             'lists', 'list-ops', 'natural-list-ops', 'maps', 'polymorphic-list',
+            'ranges-demo',
         ],
     },
     {
         'id': 'types',
         'label_fr': 'Types & génériques',
         'label_en': 'Types & generics',
-        'slugs': ['generics', 'generic-class', 'result', 'records'],
+        'slugs': [
+            'generics', 'generic-class', 'generics-constraints', 'result',
+            'records', 'optionals-result',
+        ],
     },
     {
         'id': 'oop',
@@ -43,7 +48,23 @@ EXAMPLE_TOPICS = [
         'id': 'pattern',
         'label_fr': 'Pattern matching',
         'label_en': 'Pattern matching',
-        'slugs': ['traits-demo', 'unions-demo', 'match-expr-demo'],
+        'slugs': [
+            'traits-demo', 'unions-demo', 'match-expr-demo', 'match-advanced',
+        ],
+    },
+    {
+        'id': 'iteration',
+        'label_fr': 'Itération & générateurs',
+        'label_en': 'Iteration & generators',
+        'slugs': [
+            'generators-demo', 'ranges-demo', 'iterator-protocol',
+        ],
+    },
+    {
+        'id': 'macros',
+        'label_fr': 'Macros',
+        'label_en': 'Macros',
+        'slugs': ['macros-demo'],
     },
     {
         'id': 'modules',

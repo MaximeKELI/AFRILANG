@@ -8,6 +8,8 @@ NAV_META = [
     ('functional', 'docs_functional'),
     ('oop', 'docs_oop'),
     ('pattern-matching', 'docs_pattern'),
+    ('iteration', 'docs_iteration'),
+    ('macros', 'docs_macros'),
     ('modules', 'docs_modules'),
     ('exceptions', 'docs_exceptions'),
     ('async', 'docs_async'),
@@ -30,6 +32,8 @@ NAV_LABELS = {
     'functional': {'fr': 'Lambdas & collections', 'en': 'Lambdas & collections'},
     'oop': {'fr': 'POO', 'en': 'OOP'},
     'pattern-matching': {'fr': 'Pattern matching', 'en': 'Pattern matching'},
+    'iteration': {'fr': 'Itération & générateurs', 'en': 'Iteration & generators'},
+    'macros': {'fr': 'Macros', 'en': 'Macros'},
     'modules': {'fr': 'Modules', 'en': 'Modules'},
     'exceptions': {'fr': 'Exceptions', 'en': 'Exceptions'},
     'async': {'fr': 'Async / await', 'en': 'Async / await'},
@@ -72,6 +76,14 @@ NAV_DESC = {
     'pattern-matching': {
         'fr': 'Enums, unions, match expression',
         'en': 'Enums, unions, match expressions',
+    },
+    'iteration': {
+        'fr': 'yield, plages 1..n, protocole hasNext/next',
+        'en': 'yield, 1..n ranges, hasNext/next protocol',
+    },
+    'macros': {
+        'fr': 'macro … end, appel avec !, limites MVP',
+        'en': 'macro … end, call with !, MVP limits',
     },
     'modules': {
         'fr': 'export/private, import, use, chemins std/pkg',
