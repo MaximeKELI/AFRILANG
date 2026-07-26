@@ -1,0 +1,33 @@
+// Wave-2 metier packages (offline)
+
+import "pkg/apiclient/apiclient.afr"
+use apiclient
+import "pkg/places/places.afr"
+use places
+import "pkg/moneyx/moneyx.afr"
+use moneyx
+import "pkg/csvtable/csvtable.afr"
+use csvtable
+
+say "=== apiclient ==="
+say defaultRetryLabel()
+if delaysMatchDefault(100, 1000) then
+    say "retry plan ok"
+end
+
+say "=== places ==="
+say searchUrl("Lome", "tg")
+create sample = "[{\"display_name\":\"Lomé, Togo\",\"lat\":\"6.13\",\"lon\":\"1.22\"}]"
+say firstDisplayName(sample)
+
+say "=== moneyx ==="
+say formatXof(1500)
+say formatXof(totalWithFee(10000, 25, 1))
+
+say "=== csvtable ==="
+create csv = "ville,pop\nLome,2000000\nKara,100000"
+say cell(csv, 1, 0)
+if dataRowCount(csv) is equal to 2 then
+    say "two data rows"
+end
+say "metier wave2 OK"

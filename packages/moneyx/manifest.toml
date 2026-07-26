@@ -1,0 +1,6 @@
+name = "moneyx"
+version = "0.1.0"
+description = "XOF/CFA money helpers: round, fee, format, mobile-money style splits"
+main = "moneyx.afr"
+license = "MIT"
+tags = ["money", "finance", "xof", "cfa", "metier"]

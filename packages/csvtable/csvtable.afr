@@ -1,0 +1,68 @@
+import "std/csv"
+import "std/str"
+
+use csv
+use str
+
+module csvtable
+    function rowsOf(csvText text) returns list text
+        return split(csvText, "\n")
+    end
+
+    function rowCount(csvText text) returns int
+        create rows = rowsOf(csvText)
+        return length of rows
+    end
+
+    function headerLine(csvText text) returns text
+        create rows = rowsOf(csvText)
+        if length of rows is less than 1 then
+            return ""
+        end
+        return rows at 0
+    end
+
+    function dataRowCount(csvText text) returns int
+        create n = rowCount(csvText)
+        if n is less than 1 then
+            return 0
+        end
+        return n - 1
+    end
+
+    function fieldAt(line text, index int) returns text
+        create fields = splitLine(line)
+        if index is less than 0 then
+            return ""
+        end
+        if index is greater than length of fields - 1 then
+            return ""
+        end
+        return fields at index
+    end
+
+    function rowAt(csvText text, rowIndex int) returns text
+        create rows = rowsOf(csvText)
+        if rowIndex is less than 0 then
+            return ""
+        end
+        if rowIndex is greater than length of rows - 1 then
+            return ""
+        end
+        return rows at rowIndex
+    end
+
+    function cell(csvText text, rowIndex int, colIndex int) returns text
+        create line = rowAt(csvText, rowIndex)
+        return fieldAt(line, colIndex)
+    end
+
+    function hasHeader(csvText text, expected text) returns bool
+        return headerLine(csvText) is equal to expected
+    end
+
+    function joinRow3(a text, b text, c text) returns text
+        create fields = list of a, b, c
+        return joinFields(fields)
+    end
+end

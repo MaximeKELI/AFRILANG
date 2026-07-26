@@ -1,0 +1,121 @@
+import "std/http"
+import "std/json"
+import "std/str"
+import "std/thread"
+
+use http
+use json
+use str
+use thread
+
+module apiclient
+    function backoffDelay(attempt int, baseMs int) returns int
+        create factor int = 1
+        create i int = 0
+        while i is less than attempt do
+            set factor = factor * 2
+            set i = i + 1
+        end
+        return baseMs * factor
+    end
+
+    function nextDelayMs(attempt int, baseMs int, maxMs int) returns int
+        create delay int = backoffDelay(attempt, baseMs)
+        if delay is greater than maxMs then
+            return maxMs
+        end
+        return delay
+    end
+
+    function shouldRetryAttempt(attempt int, maxAttempts int) returns bool
+        return attempt is less than maxAttempts
+    end
+
+    // Empty / HTML error pages / obvious failures → retry candidate.
+    function isTransientBody(body text) returns bool
+        if body is equal to "" then
+            return true
+        end
+        create t text = toLower(trim(body))
+        if contains(t, "timeout") then
+            return true
+        end
+        if contains(t, "temporarily") then
+            return true
+        end
+        if contains(t, "unavailable") then
+            return true
+        end
+        if contains(t, "502") then
+            return true
+        end
+        if contains(t, "503") then
+            return true
+        end
+        if contains(t, "504") then
+            return true
+        end
+        return false
+    end
+
+    function isSuccessBody(body text) returns bool
+        if body is equal to "" then
+            return false
+        end
+        if isTransientBody(body) then
+            return false
+        end
+        return true
+    end
+
+    function canRetry(attempt int, maxAttempts int, body text) returns bool
+        if shouldRetryAttempt(attempt, maxAttempts) then
+            return isTransientBody(body)
+        end
+        return false
+    end
+
+    // GET with exponential backoff. Smoke tests never call this (network).
+    function getWithRetry(url text, maxAttempts int, baseMs int, maxMs int) returns text
+        create attempt int = 0
+        create body text = ""
+        while attempt is less than maxAttempts do
+            set body = httpGet(url)
+            if isSuccessBody(body) then
+                return body
+            end
+            if canRetry(attempt, maxAttempts, body) then
+                create waitMs int = nextDelayMs(attempt, baseMs, maxMs)
+                sleepMs(waitMs)
+                set attempt = attempt + 1
+            else
+                return body
+            end
+        end
+        return body
+    end
+
+    function getJsonFieldWithRetry(url text, key text, maxAttempts int, baseMs int, maxMs int) returns text
+        create raw text = getWithRetry(url, maxAttempts, baseMs, maxMs)
+        if raw is equal to "" then
+            return ""
+        end
+        create doc json = parse(raw)
+        return getString(doc, key)
+    end
+
+    function defaultRetryLabel() returns text
+        return "attempts=3;delays=100,200,400;cap=1000"
+    end
+
+    function delaysMatchDefault(baseMs int, maxMs int) returns bool
+        if nextDelayMs(0, baseMs, maxMs) is equal to 100 then
+            if nextDelayMs(1, baseMs, maxMs) is equal to 200 then
+                if nextDelayMs(2, baseMs, maxMs) is equal to 400 then
+                    return true
+                end
+            end
+        end
+        return false
+    end
+end

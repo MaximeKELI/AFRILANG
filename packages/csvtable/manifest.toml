@@ -1,0 +1,6 @@
+name = "csvtable"
+version = "0.1.0"
+description = "CSV table helpers: header check, row field, column pick over std/csv + std/str"
+main = "csvtable.afr"
+license = "MIT"
+tags = ["csv", "data", "table", "metier"]

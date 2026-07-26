@@ -192,13 +192,13 @@ plages, log textuel). Lister : `afrilang pkg list --blessed`.
 | Qualité | `checkx`, `validate`, `testing` | `validate`, `test` |
 | Temps | `datetime`, `timespan`, `stopwatch` | `time` |
 | Réseau / URL | `urlx`, `queryx` | `net`, `url` |
-| Métier (runtime) | `httpx`, `geox`, `datax`, `webapi`, `storex`, `deployx` | `metier`, `http`, `geo`, `data` |
+| Métier (runtime) | `httpx`, `geox`, `datax`, `webapi`, `storex`, `deployx`, `apiclient`, `places`, `moneyx`, `csvtable` | `metier`, `http`, `geo`, `data` |
 | IA / LLM | `llmx` | `ai`, `llm` |
 | Lib / util | `resultx`, `optionx`, `uuid`, `semverx`, `backoff` | `lib`, `util` |
 
-Paquets **métier** (v0.1) : wrappers AFRILANG sur stdlib réelle (`std/http`, `std/geo`,
-`std/csv`/`fs`/`json`, `std/web`, `std/sql`/`orm`) — pas des kits texte. Démo :
-`examples/apps/pkg_metier_demo`.
+Paquets **métier** : wrappers AFRILANG sur stdlib réelle (HTTP, CSV/JSON/FS, web,
+SQL/ORM, math geo, money) — pas des kits texte. Démo : `examples/apps/pkg_metier_demo`
+(`main.afr`, `metier2_demo.afr`, `storex_demo.afr`).
 
 Les manifests portent `license = "MIT"` et `tags = [...]` ; `afrilang pkg reindex`
 propage ces champs dans `packages/index.json` et `site/packages.json`.

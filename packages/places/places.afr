@@ -1,0 +1,78 @@
+import "std/http"
+import "std/json"
+import "std/str"
+import "std/url"
+
+use http
+use json
+use str
+use url
+
+module places
+    function nominatimBase() returns text
+        return "https://nominatim.openstreetmap.org"
+    end
+
+    // Build search URL (caller must set a User-Agent per Nominatim policy when using http).
+    function searchUrl(query text, countryCode text) returns text
+        create q text = encode(query)
+        create endpoint text = nominatimBase() + "/search?format=json&limit=1&q=" + q
+        if countryCode is equal to "" then
+            return endpoint
+        end
+        return endpoint + "&countrycodes=" + countryCode
+    end
+
+    function reverseUrl(lat text, lon text) returns text
+        return nominatimBase() + "/reverse?format=json&lat=" + lat + "&lon=" + lon
+    end
+
+    function firstDisplayName(responseText text) returns text
+        if responseText is equal to "" then
+            return ""
+        end
+        create arr json = parse(responseText)
+        if arrayLength(arr) is equal to 0 then
+            return ""
+        end
+        create hit json = arrayGet(arr, 0)
+        return getString(hit, "display_name")
+    end
+
+    function firstLat(responseText text) returns text
+        if responseText is equal to "" then
+            return ""
+        end
+        create arr json = parse(responseText)
+        if arrayLength(arr) is equal to 0 then
+            return ""
+        end
+        create hit json = arrayGet(arr, 0)
+        return getString(hit, "lat")
+    end
+
+    function firstLon(responseText text) returns text
+        if responseText is equal to "" then
+            return ""
+        end
+        create arr json = parse(responseText)
+        if arrayLength(arr) is equal to 0 then
+            return ""
+        end
+        create hit json = arrayGet(arr, 0)
+        return getString(hit, "lon")
+    end
+
+    function reverseDisplayName(responseText text) returns text
+        if responseText is equal to "" then
+            return ""
+        end
+        create doc json = parse(responseText)
+        return getString(doc, "display_name")
+    end
+
+    function searchPlace(query text, countryCode text) returns text
+        create endpoint text = searchUrl(query, countryCode)
+        return httpGet(endpoint)
+    end
+end

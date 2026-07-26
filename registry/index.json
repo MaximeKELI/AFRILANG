@@ -670,6 +670,41 @@
       "sig": "9e009101754a2c5ffcd245129d1ece7d00d708b749f57d20e84e6850a6fd5f14565e1d3c0764c75a3b94c5f85fd9eed53cd0860dc522bae25c8e88a241cc4f01"
     },
     {
+      "name": "apiclient",
+      "version": "0.1.0",
+      "description": "HTTP API client with retry/backoff for flaky networks (std/http + std/thread)",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/apiclient",
+      "sha256": "dbbc840fda0dd019434efde566f6d7e298a93e48b7b09512917d9a6c8afd8d0e",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "http",
+        "api",
+        "retry",
+        "backoff",
+        "metier"
+      ]
+    },
+    {
+      "name": "csvtable",
+      "version": "0.1.0",
+      "description": "CSV table helpers: header check, row field, column pick over std/csv + std/str",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/csvtable",
+      "sha256": "c6261e2de2bf5a0c62f26236112ca17751790655657ccb8ecb90af6718ac05ee",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "csv",
+        "data",
+        "table",
+        "metier"
+      ]
+    },
+    {
       "name": "datax",
       "version": "0.1.0",
       "description": "CSV/JSON file helpers over std/csv, std/fs, std/json, std/str",
@@ -784,6 +819,42 @@
       "license": "MIT",
       "tags": [
         "lib"
+      ]
+    },
+    {
+      "name": "moneyx",
+      "version": "0.1.0",
+      "description": "XOF/CFA money helpers: round, fee, format, mobile-money style splits",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/moneyx",
+      "sha256": "b746aac15004844cbafa7ce17e54be019988a9ce1369fa4a3f769f31218b84b2",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "money",
+        "finance",
+        "xof",
+        "cfa",
+        "metier"
+      ]
+    },
+    {
+      "name": "places",
+      "version": "0.1.0",
+      "description": "OpenStreetMap / Nominatim URL + JSON helpers for place search",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/places",
+      "sha256": "76b78aa7f99fe3d30069088fdad00199560287f2e2cda45f9a3115982b99ca5e",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "geo",
+        "osm",
+        "nominatim",
+        "places",
+        "metier"
       ]
     },
     {

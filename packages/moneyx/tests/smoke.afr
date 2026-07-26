@@ -1,0 +1,25 @@
+import "pkg/moneyx/moneyx.afr"
+use moneyx
+
+test "round and format"
+    assert roundXof(12.4) is equal to 12
+    assert roundXof(12.6) is equal to 13
+    assert formatXof(1500) is equal to "1500 XOF"
+    assert formatWithCurrency(100, "GNF") is equal to "100 GNF"
+end
+
+test "fees"
+    // 1000 + 2% + 25 flat → fee = 25+20 = 45
+    assert feeAmount(1000, 25, 2) is equal to 45
+    assert totalWithFee(1000, 25, 2) is equal to 1045
+    assert netAfterFee(1000, 25, 2) is equal to 955
+end
+
+test "split and fx"
+    assert splitShare(1000, 4) is equal to 250
+    assert splitShare(100, 0) is equal to 100
+    assert percentOf(200, 10) is equal to 20
+    assert toXof(10, 100) is equal to 1000
+    assert fromXof(0, 0) is equal to 0
+    assert fromXof(200, 100) is equal to 2
+end

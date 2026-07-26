@@ -1,0 +1,6 @@
+name = "apiclient"
+version = "0.1.0"
+description = "HTTP API client with retry/backoff for flaky networks (std/http + std/thread)"
+main = "apiclient.afr"
+license = "MIT"
+tags = ["http", "api", "retry", "backoff", "metier"]

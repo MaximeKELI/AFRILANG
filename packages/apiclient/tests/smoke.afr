@@ -1,0 +1,35 @@
+import "pkg/apiclient/apiclient.afr"
+use apiclient
+import "std/str"
+use str
+
+test "isTransientBody"
+    assert isTransientBody("")
+    assert isTransientBody("Gateway Timeout")
+    assert isTransientBody("503 Service Unavailable")
+    assert isTransientBody("{\"ok\":true}") is equal to false
+end
+
+test "isSuccessBody"
+    assert isSuccessBody("{\"status\":\"ok\"}")
+    assert isSuccessBody("") is equal to false
+    assert isSuccessBody("timeout error") is equal to false
+end
+
+test "canRetry"
+    assert canRetry(0, 3, "")
+    assert canRetry(2, 3, "503")
+    assert canRetry(3, 3, "") is equal to false
+    assert canRetry(0, 3, "{\"ok\":true}") is equal to false
+end
+
+test "nextDelayMs"
+    assert nextDelayMs(0, 100, 5000) is equal to 100
+    assert nextDelayMs(1, 100, 5000) is equal to 200
+    assert nextDelayMs(10, 100, 500) is equal to 500
+end
+
+test "default plan"
+    assert delaysMatchDefault(100, 1000)
+    assert defaultRetryLabel() is equal to "attempts=3;delays=100,200,400;cap=1000"
+end

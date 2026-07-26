@@ -1,0 +1,6 @@
+name = "places"
+version = "0.1.0"
+description = "OpenStreetMap / Nominatim URL + JSON helpers for place search"
+main = "places.afr"
+license = "MIT"
+tags = ["geo", "osm", "nominatim", "places", "metier"]

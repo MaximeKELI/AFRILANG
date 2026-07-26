@@ -1,0 +1,61 @@
+import "std/math"
+use math
+
+module moneyx
+    // Round to nearest whole unit (XOF has no subdivision in practice).
+    function roundXof(amount number) returns number
+        return round(amount)
+    end
+
+    function formatXof(amount number) returns text
+        create n = roundXof(amount)
+        return "{n} XOF"
+    end
+
+    function formatWithCurrency(amount number, code text) returns text
+        create n = roundXof(amount)
+        return "{n} {code}"
+    end
+
+    // Flat + percent fee (e.g. mobile money): fee = flat + percent% of amount.
+    function feeAmount(amount number, flat number, percent number) returns number
+        return roundXof(flat + amount * percent / 100)
+    end
+
+    function totalWithFee(amount number, flat number, percent number) returns number
+        return roundXof(amount + feeAmount(amount, flat, percent))
+    end
+
+    function netAfterFee(amount number, flat number, percent number) returns number
+        create fee = feeAmount(amount, flat, percent)
+        create net = amount - fee
+        if net is less than 0 then
+            return 0
+        end
+        return roundXof(net)
+    end
+
+    // Split bill across n people (ceil-ish via round of share).
+    function splitShare(total number, people number) returns number
+        if people is less than 1 then
+            return roundXof(total)
+        end
+        return roundXof(total / people)
+    end
+
+    function percentOf(amount number, percent number) returns number
+        return roundXof(amount * percent / 100)
+    end
+
+    // Convert using a rate quoted as "1 foreign = rate XOF".
+    function toXof(foreignAmount number, rate number) returns number
+        return roundXof(foreignAmount * rate)
+    end
+
+    function fromXof(xofAmount number, rate number) returns number
+        if rate is equal to 0 then
+            return 0
+        end
+        return xofAmount / rate
+    end
+end
