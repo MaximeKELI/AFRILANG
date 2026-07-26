@@ -28,7 +28,7 @@ class WelcomePage extends StatelessWidget {
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 640),
-          child: Padding(
+          child: SingleChildScrollView(
             padding: const EdgeInsets.all(32),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -47,26 +47,28 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'AFRIBLOCK',
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 36,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: -0.5,
-                            color: Colors.white,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'AFRIBLOCK',
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 36,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: -0.5,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Desktop IDE for AFRILANG',
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 15,
-                            color: AfriblockColors.textMuted,
+                          Text(
+                            'Desktop IDE for AFRILANG',
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 15,
+                              color: AfriblockColors.textMuted,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
