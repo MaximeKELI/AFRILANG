@@ -347,13 +347,20 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         codegen.setCrossTarget(crossTarget);
         codegen.setCoverageMode(options.coverageMode);
 
-        result.generatedCpp = baseName + ".generated.cpp";
-        std::string executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
+        // Place artifacts next to the source (absolute). Avoids depending on
+        // cwd — xdg-desktop-portal mounts under /run/user/*/doc/ often break
+        // fs::absolute(relative) when the grant/cwd vanishes.
+        const fs::path outDir = srcPath.parent_path().empty() ? fs::path(".")
+                                                             : srcPath.parent_path();
+        result.generatedCpp = (outDir / (baseName + ".generated.cpp")).string();
+        std::string executable = options.outputExecutable.empty()
+                                     ? (outDir / baseName).string()
+                                     : options.outputExecutable;
         if (fs::exists(executable) && fs::is_directory(executable)) {
-            executable = baseName + "_bin";
+            executable = (outDir / (baseName + "_bin")).string();
         }
         if (isWasmTarget(crossTarget)) {
-            executable = baseName + ".js";
+            executable = (outDir / (baseName + ".js")).string();
         }
         result.executable = executable;
 
@@ -468,7 +475,13 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                                srcPath.string());
         }
         if (options.useCache) {
-            cache.store(srcPath.string(), fingerprint, fs::absolute(result.executable).string());
+            std::string absExe = result.executable;
+            try {
+                absExe = fs::absolute(result.executable).string();
+            } catch (...) {
+                // Keep relative/absolute path as-is if cwd is unavailable.
+            }
+            cache.store(srcPath.string(), fingerprint, absExe);
         }
         const auto compileMs = std::chrono::duration_cast<std::chrono::milliseconds>(
             std::chrono::steady_clock::now() - compileStart).count();
@@ -524,10 +537,12 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 
         return result;
     } catch (const CompileError& e) {
+        result.success = false;
         result.diagnostics.push_back(e.toDiagnostic());
         std::cerr << e.format();
         return result;
     } catch (const std::exception& e) {
+        result.success = false;
         reportCliException(e, sourcePath);
         Diagnostic d;
         d.severity = DiagnosticSeverity::Error;
