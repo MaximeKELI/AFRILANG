@@ -43,4 +43,20 @@ module geox
     function distanceM(lat1 number, lon1 number, lat2 number, lon2 number) returns number
         return distanceKm(lat1, lon1, lat2, lon2) * 1000
     end
+
+    function boundingBoxOk(lat number, lon number, minLat number, minLon number, maxLat number, maxLon number) returns bool
+        if lat is less than minLat then
+            return false
+        end
+        if lat is greater than maxLat then
+            return false
+        end
+        if lon is less than minLon then
+            return false
+        end
+        if lon is greater than maxLon then
+            return false
+        end
+        return true
+    end
 end

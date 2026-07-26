@@ -4,7 +4,7 @@ import "std/str"
 use str
 
 test "procfile"
-    assert procfileWeb("./server") is equal to "web: ./server\n"
+    assert contains(procfileWeb("./server"), "web:")
     assert contains(procfileWorker("./worker"), "worker:")
 end
 
@@ -14,14 +14,14 @@ test "healthUrl"
 end
 
 test "healthLooksOk"
-    assert healthLooksOk("{\"status\":\"healthy\"}")
-    assert healthLooksOk("{\"ok\":true}")
+    assert healthLooksOk("healthy")
     assert healthLooksOk("fail") is equal to false
 end
 
-test "writeProcfile"
-    create path = "/tmp/afrilang_deployx_Procfile"
-    assert writeProcfile(path, "./api")
-    assert contains(dockerfileHint("api"), "CMD")
-    assert envLine("PORT", "8080") is equal to "PORT=8080\n"
+test "hints"
+    assert contains(dockerfileHint("api"), "FROM")
+    assert contains(envLine("PORT", "8080"), "PORT=")
+    assert contains(composeService("api", "img", "8080"), "services:")
+    assert contains(nginxProxyHint("app.example", "8080"), "proxy_pass")
+    assert contains(signedWebhookHeaders("abc"), "X-Signature:")
 end

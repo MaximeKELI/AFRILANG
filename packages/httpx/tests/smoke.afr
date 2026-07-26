@@ -18,6 +18,7 @@ end
 test "object1 and escape"
     assert object1("city", "Lomé") is equal to "{\"city\":\"Lomé\"}"
     assert object1("msg", "say \"hi\"") is equal to "{\"msg\":\"say \\\"hi\\\"\"}"
+    assert object2("a", "1", "b", "2") is equal to "{\"a\":\"1\",\"b\":\"2\"}"
 end
 
 test "looksLikeJson"
@@ -29,4 +30,6 @@ end
 test "getStringField offline"
     assert getStringField("{\"status\":\"ok\"}", "status") is equal to "ok"
     assert getStringField("", "status") is equal to ""
+    assert getBoolField("{\"ok\":true}", "ok")
+    assert getBoolField("", "ok") is equal to false
 end

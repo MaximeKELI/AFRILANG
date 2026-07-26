@@ -38,6 +38,11 @@ module httpx
         return "{\"" + httpxEscapeJson(key) + "\":\"" + httpxEscapeJson(value) + "\"}"
     end
 
+    function object2(k1 text, v1 text, k2 text, v2 text) returns text
+        return "{\"" + httpxEscapeJson(k1) + "\":\"" + httpxEscapeJson(v1) + "\",\"" + httpxEscapeJson(k2) + "\":\"" + httpxEscapeJson(v2) + "\"}"
+    end
+
+
     function getText(url text) returns text
         return httpGet(url)
     end
@@ -58,12 +63,25 @@ module httpx
         return httpPostHeaders(url, body, jsonAuthHeaders(token))
     end
 
+    function postForm(url text, formBody text) returns text
+        create headers text = "Content-Type: application/x-www-form-urlencoded\n"
+        return httpPostHeaders(url, formBody, headers)
+    end
+
     function getStringField(responseText text, key text) returns text
         if responseText is equal to "" then
             return ""
         end
         create doc json = parse(responseText)
         return getString(doc, key)
+    end
+
+    function getBoolField(responseText text, key text) returns bool
+        if responseText is equal to "" then
+            return false
+        end
+        create doc json = parse(responseText)
+        return getBool(doc, key)
     end
 
     function looksLikeJson(text text) returns bool

@@ -688,6 +688,23 @@
       ]
     },
     {
+      "name": "cronish",
+      "version": "0.1.0",
+      "description": "Simple schedule helpers over std/datetime (daily / hourly / due checks)",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/cronish",
+      "sha256": "911fbf4e243cc37ec301eba0e86ace3d2631f11cc5a1314e5d6059377eb9249a",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "time",
+        "schedule",
+        "datetime",
+        "metier"
+      ]
+    },
+    {
       "name": "csvtable",
       "version": "0.1.0",
       "description": "CSV table helpers: header check, row field, column pick over std/csv + std/str",
@@ -744,7 +761,7 @@
       "method": "git",
       "url": "https://github.com/MaximeKELI/AFRILANG.git",
       "path": "packages/deployx",
-      "sha256": "e23c68b2c6cb1424ffef9b424f18999713ae300656be168e67b546257f518cab",
+      "sha256": "29d526b9f81017e05cf1172eef0644971c5c1a041db382d2773b00ae5f5ea244",
       "blessed": false,
       "license": "MIT",
       "tags": [
@@ -756,13 +773,30 @@
       ]
     },
     {
+      "name": "formx",
+      "version": "0.1.0",
+      "description": "application/x-www-form-urlencoded helpers over std/url + std/str",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/formx",
+      "sha256": "062fee69a2d511969232d3648f6122eeeb63d32d9ff2e0e5673fc6fc203664c8",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "http",
+        "form",
+        "url",
+        "metier"
+      ]
+    },
+    {
       "name": "geox",
       "version": "0.1.0",
       "description": "Geo helpers (haversine km, midpoint, within-radius) over std/math",
       "method": "git",
       "url": "https://github.com/MaximeKELI/AFRILANG.git",
       "path": "packages/geox",
-      "sha256": "6688929ebacfc356257048c0ff9cef5c4b47dd1dd4e175190ea5b403bbcf6308",
+      "sha256": "e46f89762c2c3d10d2d3f7276f5fd19b02efc74954891be8d00fe4a9b690254b",
       "blessed": false,
       "license": "MIT",
       "tags": [
@@ -773,13 +807,31 @@
       ]
     },
     {
+      "name": "hmacx",
+      "version": "0.1.0",
+      "description": "HMAC-SHA256 signing helpers for webhooks over std/crypto",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/hmacx",
+      "sha256": "66ff3430a19a37708ac182444d54519149c1831f9764206cb21b037222ce513b",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "crypto",
+        "hmac",
+        "webhook",
+        "security",
+        "metier"
+      ]
+    },
+    {
       "name": "httpx",
       "version": "0.1.0",
       "description": "HTTP + JSON client helpers (Bearer, Content-Type, GET/POST JSON) over std/http",
       "method": "git",
       "url": "https://github.com/MaximeKELI/AFRILANG.git",
       "path": "packages/httpx",
-      "sha256": "463b87e63d78433eccd472230def90f8a14785e8dffff81989ef0489f727d605",
+      "sha256": "481a56e81062a91b483be084d9be99b70dac732c2658e77ecdcf4af93bae0278",
       "blessed": false,
       "license": "MIT",
       "tags": [
@@ -787,6 +839,40 @@
         "json",
         "api",
         "web",
+        "metier"
+      ]
+    },
+    {
+      "name": "i18nx",
+      "version": "0.1.0",
+      "description": "Tiny i18n helpers FR/EN (+ Wolof labels) for AFRILANG apps",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/i18nx",
+      "sha256": "5f3360041cb0bb04266109db2de57d121ec4e32b08504f81bf9cc204554383c6",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "i18n",
+        "locale",
+        "africa",
+        "metier"
+      ]
+    },
+    {
+      "name": "jwtish",
+      "version": "0.1.0",
+      "description": "JWT-shaped token split/decode helpers (no signature verify) over std/base64 + std/json",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/jwtish",
+      "sha256": "23905eec32eda72c73ea4e9fddfe062b7a0f3189f902d602639ddc3a9f116fe9",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "jwt",
+        "auth",
+        "base64",
         "metier"
       ]
     },
@@ -840,6 +926,40 @@
       ]
     },
     {
+      "name": "pagex",
+      "version": "0.1.0",
+      "description": "API pagination helpers (offset, page count, meta JSON text)",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/pagex",
+      "sha256": "40f0a9ebf82707be4fe83fe2e9371ca4a9c2321c5c8a8fb1fd73b49f163a703e",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "api",
+        "pagination",
+        "http",
+        "metier"
+      ]
+    },
+    {
+      "name": "phonex",
+      "version": "0.1.0",
+      "description": "West Africa phone normalize (SN/CI/TG/BJ) to E.164-ish text",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/phonex",
+      "sha256": "5292209e13938b93cb9212b8db0de1ca9036b407b52fa1fb78ac5991d4350606",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "phone",
+        "mobile",
+        "africa",
+        "metier"
+      ]
+    },
+    {
       "name": "places",
       "version": "0.1.0",
       "description": "OpenStreetMap / Nominatim URL + JSON helpers for place search",
@@ -854,6 +974,40 @@
         "osm",
         "nominatim",
         "places",
+        "metier"
+      ]
+    },
+    {
+      "name": "seedcsv",
+      "version": "0.1.0",
+      "description": "Demo CSV seed builders (users, markets, XOF tx) over std/csv + std/str",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/seedcsv",
+      "sha256": "69bc4f50fd61d84b16bb0b7ca179e783749b48597e170b053756cc1b53e485bb",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "csv",
+        "seed",
+        "data",
+        "metier"
+      ]
+    },
+    {
+      "name": "statsx",
+      "version": "0.1.0",
+      "description": "Lightweight stats wrappers (mean, stddev, linreg) over std/stats",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/statsx",
+      "sha256": "9d9de23e90fa1a2e69cec983b3977e6ef80fe447fdc2a682c933ee85d0823375",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "stats",
+        "ml",
+        "data",
         "metier"
       ]
     },
@@ -896,7 +1050,7 @@
       "method": "git",
       "url": "https://github.com/MaximeKELI/AFRILANG.git",
       "path": "packages/webapi",
-      "sha256": "9f46f2cf036c4c8d74874a767505d456d064a983bf08b8cdc908935f8b221f25",
+      "sha256": "c7d54794c22f218766760f0c06b4ef2180c3d430cbaf9d8159684b6f1471e88f",
       "blessed": false,
       "license": "MIT",
       "tags": [

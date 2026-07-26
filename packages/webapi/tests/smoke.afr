@@ -1,5 +1,7 @@
 import "pkg/webapi/webapi.afr"
 use webapi
+import "std/str"
+use str
 
 test "json helpers"
     assert jsonOk() is equal to "{\"ok\":true}"
@@ -12,6 +14,9 @@ test "health router"
     create router = makeHealthRouter()
     assert get(router, "/") is equal to "{\"ok\":true}"
     assert get(router, "/health") is equal to "{\"status\":\"healthy\"}"
+    assert get(router, "/ready") is equal to "{\"status\":\"ready\"}"
+    assert notFoundJson() is equal to "{\"ok\":false,\"error\":\"not_found\"}"
+    assert contains(corsHeaders(), "Access-Control-Allow-Origin")
 end
 
 test "custom routes"

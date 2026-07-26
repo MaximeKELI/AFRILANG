@@ -27,3 +27,8 @@ test "distanceM"
     create m = distanceM(0, 0, 0, 0)
     assert m is equal to 0
 end
+
+test "bbox"
+    assert boundingBoxOk(6.13, 1.22, 5.0, 0.0, 7.0, 2.0)
+    assert boundingBoxOk(0.0, 0.0, 5.0, 0.0, 7.0, 2.0) is equal to false
+end

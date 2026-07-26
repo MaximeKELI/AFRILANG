@@ -51,4 +51,16 @@ module deployx
     function envLine(key text, value text) returns text
         return key + "=" + value + "\n"
     end
+
+    function composeService(name text, image text, port text) returns text
+        return "services:\n  " + name + ":\n    image: " + image + "\n    ports:\n      - \"" + port + ":" + port + "\"\n"
+    end
+
+    function nginxProxyHint(serverName text, upstreamPort text) returns text
+        return "server_name " + serverName + "; proxy_pass http://127.0.0.1:" + upstreamPort + ";"
+    end
+
+    function signedWebhookHeaders(signatureHex text) returns text
+        return "Content-Type: application/json\nX-Signature: " + signatureHex + "\n"
+    end
 end

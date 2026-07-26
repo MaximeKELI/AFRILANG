@@ -28,11 +28,20 @@ module webapi
         return "{\"" + webapiEscapeJson(key) + "\":\"" + webapiEscapeJson(value) + "\"}"
     end
 
+    function corsHeaders() returns text
+        return "Access-Control-Allow-Origin: *\nAccess-Control-Allow-Methods: GET, POST, OPTIONS\n"
+    end
+
+    function notFoundJson() returns text
+        return jsonError("not_found")
+    end
+
     // Router with GET /health → {"status":"healthy"} and GET / → {"ok":true}.
     function makeHealthRouter() returns int
         create router = createRouter()
         addRoute(router, "GET", "/", jsonOk())
         addRoute(router, "GET", "/health", jsonStatus("healthy"))
+        addRoute(router, "GET", "/ready", jsonStatus("ready"))
         return router
     end
 
