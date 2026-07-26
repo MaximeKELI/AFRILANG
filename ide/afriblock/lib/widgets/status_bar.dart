@@ -60,7 +60,16 @@ class StatusBar extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           InkWell(
-            onTap: () => wb.toggleAiChat(),
+            onTap: () async {
+              if (!wb.settings.aiEnabled ||
+                  wb.settings.aiModel == 'llama3.2' ||
+                  wb.settings.aiModel == 'llama3') {
+                await wb.enableLocalAi();
+                wb.toggleAiChat();
+              } else {
+                wb.toggleAiChat();
+              }
+            },
             child: Text(
               wb.aiStatusLabel,
               style: GoogleFonts.plusJakartaSans(

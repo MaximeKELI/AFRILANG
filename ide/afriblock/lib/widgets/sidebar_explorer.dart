@@ -656,6 +656,16 @@ class _AiChatPanelState extends State<_AiChatPanel> {
               ),
             ),
           ),
+          if (!wb.settings.aiEnabled ||
+              wb.settings.aiModel == 'llama3.2' ||
+              wb.settings.aiModel == 'llama3')
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+              child: FilledButton.tonal(
+                onPressed: () => wb.enableLocalAi(),
+                child: const Text('Activer IA locale'),
+              ),
+            ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Wrap(

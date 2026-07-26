@@ -41,10 +41,9 @@ class SettingsStore {
     aiBaseUrl = prefs.getString(_keyAiBaseUrl) ?? 'http://127.0.0.1:11434/v1';
     aiApiKey = prefs.getString(_keyAiApiKey) ?? '';
     aiModel = prefs.getString(_keyAiModel) ?? 'afrilang-local';
-    // Migrate: older builds defaulted to llama3.2 and hung when Ollama was down.
-    if (aiModel.trim() == 'llama3.2' &&
-        (aiApiKey.isEmpty) &&
-        prefs.getString(_keyAiModel) == null) {
+    // Prefer offline engine when no API key (avoids hanging on dead Ollama).
+    if (aiApiKey.isEmpty &&
+        (aiModel == 'llama3.2' || aiModel == 'llama3' || aiModel == 'llama3.1')) {
       aiModel = 'afrilang-local';
     }
     final t = prefs.getString(_keyTheme);

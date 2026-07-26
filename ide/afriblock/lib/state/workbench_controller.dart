@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 
 import '../ai/ai_assist_service.dart';
+import '../ai/local_afr_suggest.dart';
 import '../core/command_bus.dart';
 import '../core/event_bus.dart';
 import '../debug/debug_service.dart';
@@ -187,6 +188,17 @@ class WorkbenchController extends ChangeNotifier {
       apiKey: settings.aiApiKey,
       model: settings.aiModel,
     ));
+  }
+
+  Future<void> enableLocalAi() async {
+    settings.aiEnabled = true;
+    settings.aiInlineSuggest = true;
+    settings.aiModel = LocalAfrSuggest.modelId;
+    await settings.saveAiSettings();
+    syncAiConfig();
+    statusMessage = 'IA locale afrilang-local activée';
+    notifyListeners();
+    scheduleInlineSuggest(immediate: true);
   }
 
   void _registerCommands() {
@@ -830,12 +842,16 @@ description = "Projet créé avec AFRIBLOCK"
     if (activeTabIndex != null) closeTab(activeTabIndex!);
   }
 
-  void updateActiveContent(String content) {
+  void updateActiveContent(String content, {bool external = false}) {
     final tab = activeTab;
     if (tab == null) return;
     final wasDirty = tab.dirty;
     final hadGhost = ghostSuggestion != null;
-    tab.applyEdit(content);
+    if (external) {
+      tab.applyExternalEdit(content);
+    } else {
+      tab.applyEdit(content);
+    }
     lsp.didChange(
       File(tab.path).uri.toString(),
       content,
@@ -843,7 +859,7 @@ description = "Projet créé avec AFRIBLOCK"
     );
     ghostSuggestion = null;
     // Avoid rebuild-on-every-keystroke (was racing the TextField and wiping edits).
-    if (wasDirty != tab.dirty || hadGhost) {
+    if (external || wasDirty != tab.dirty || hadGhost) {
       notifyListeners();
     }
     scheduleInlineSuggest();
@@ -1254,7 +1270,7 @@ description = "Projet créé avec AFRIBLOCK"
       replaceQuery,
       from: findMatches[findIndex].start,
     );
-    updateActiveContent(next);
+    updateActiveContent(next, external: true);
     updateFindQuery(findQuery);
   }
 
@@ -1262,7 +1278,7 @@ description = "Projet créé avec AFRIBLOCK"
     final tab = activeTab;
     if (tab == null || findQuery.isEmpty) return;
     final next = FindReplaceEngine.replaceAll(tab.content, findQuery, replaceQuery);
-    updateActiveContent(next);
+    updateActiveContent(next, external: true);
     updateFindQuery(findQuery);
   }
 
@@ -1280,7 +1296,10 @@ description = "Projet créé avec AFRIBLOCK"
     final tab = activeTab;
     if (tab == null) return;
     final expanded = expandSnippet(snippet.body);
-    updateActiveContent(tab.content + (tab.content.endsWith('\n') ? '' : '\n') + expanded);
+    updateActiveContent(
+      tab.content + (tab.content.endsWith('\n') ? '' : '\n') + expanded,
+      external: true,
+    );
     hideOverlay();
     statusMessage = 'Inserted snippet ${snippet.label}';
     notifyListeners();
@@ -1291,14 +1310,17 @@ description = "Projet créé avec AFRIBLOCK"
     if (tab == null) return;
     // caret unknown → duplicate last line
     final offset = tab.content.length;
-    updateActiveContent(TextOps.duplicateLine(tab.content, offset));
+    updateActiveContent(TextOps.duplicateLine(tab.content, offset), external: true);
   }
 
   void toggleActiveComment() {
     final tab = activeTab;
     if (tab == null) return;
     final offset = tab.content.isEmpty ? 0 : tab.content.length - 1;
-    updateActiveContent(TextOps.toggleLineComment(tab.content, offset));
+    updateActiveContent(
+      TextOps.toggleLineComment(tab.content, offset),
+      external: true,
+    );
   }
 
   Future<void> formatActive() async {
@@ -1323,7 +1345,7 @@ description = "Projet créé avec AFRIBLOCK"
   Future<void> discardActiveChanges() async {
     final tab = activeTab;
     if (tab == null || !tab.dirty) return;
-    tab.content = tab.savedContent;
+    tab.applyExternalEdit(tab.savedContent);
     tab.dirty = false;
     statusMessage = 'Discarded changes in ${tab.name}';
     notifyListeners();

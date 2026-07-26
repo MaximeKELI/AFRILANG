@@ -7,7 +7,7 @@ import 'openai_compatible_client.dart';
 
 class AiAssistConfig {
   const AiAssistConfig({
-    this.enabled = false,
+    this.enabled = true,
     this.inlineSuggest = true,
     this.baseUrl = 'http://127.0.0.1:11434/v1',
     this.apiKey = '',
@@ -59,16 +59,13 @@ class AiAssistService {
     );
   }
 
-  /// Inline completion after [caret]. Prefers remote; falls back to local.
+  /// Inline completion after [caret]. Local engine first; remote optional.
   Future<String?> propose({
     required String path,
     required String content,
     required int caret,
   }) async {
     if (!config.enabled || !config.inlineSuggest) return null;
-    if (!path.toLowerCase().endsWith('.afr')) {
-      return LocalAfrSuggest.suggest(content, caret);
-    }
 
     final local = LocalAfrSuggest.suggest(content, caret);
     final remote = _remote();
@@ -79,27 +76,28 @@ class AiAssistService {
       lastError = null;
       final before = content.substring(0, caret.clamp(0, content.length));
       final after = content.substring(caret.clamp(0, content.length));
-      final reply = await remote.chat([
-        AiChatMessage(
-          role: 'system',
-          content:
-              'You are an AFRILANG coding assistant inside AFRIBLOCK IDE. '
-              'Propose ONLY the code continuation that should be inserted at the cursor. '
-              'No markdown fences, no explanations, no repeating text already before the cursor. '
-              'AFRILANG keywords: create set say function end if then else while for in class import use match case.',
-        ),
-        AiChatMessage(
-          role: 'user',
-          content:
-              'File: $path\n'
-              'CODE BEFORE CURSOR:\n$before\n'
-              'CODE AFTER CURSOR:\n$after\n'
-              'Write only the continuation.',
-        ),
-      ], maxTokens: 120);
+      final reply = await remote
+          .chat([
+            AiChatMessage(
+              role: 'system',
+              content:
+                  'You are an AFRILANG coding assistant inside AFRIBLOCK IDE. '
+                  'Propose ONLY the code continuation that should be inserted at the cursor. '
+                  'No markdown fences, no explanations, no repeating text already before the cursor. '
+                  'AFRILANG keywords: create set say function end if then else while for in class import use match case.',
+            ),
+            AiChatMessage(
+              role: 'user',
+              content:
+                  'File: $path\n'
+                  'CODE BEFORE CURSOR:\n$before\n'
+                  'CODE AFTER CURSOR:\n$after\n'
+                  'Write only the continuation.',
+            ),
+          ], maxTokens: 120)
+          .timeout(const Duration(seconds: 4));
       final cont = continuationOnly(before, reply);
       if (cont.isEmpty) return local;
-      // Cap ghost length for UX.
       if (cont.length > 280) return cont.substring(0, 280);
       return cont;
     } catch (e) {
