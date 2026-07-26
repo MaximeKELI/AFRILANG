@@ -449,8 +449,12 @@ class WorkbenchController extends ChangeNotifier {
       rootNode = await files.loadTree(folder);
       workspaceRoot = folder;
       explorerSelection = folder;
-      await settings.pushRecent(folder);
       await projects.detect(folder);
+      try {
+        await settings.pushRecent(folder);
+      } catch (_) {
+        // SharedPreferences unavailable in some test / headless contexts.
+      }
       await _indexFiles(folder);
       await tests.discover(folder);
       await git.refresh(folder);
