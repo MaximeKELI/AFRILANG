@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Fail if docs treat catalog volume as the core stdlib.
+# Fail if docs treat catalog volume as the core stdlib, or claim ISO certification.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 README="$ROOT/README.md"
@@ -25,4 +25,33 @@ if ! grep -q 'experimental catalog' "$ROOT/scripts/gen_catalog_lib.py"; then
   echo "docs honesty: gen_catalog_lib.py must stamp experimental catalog headers." >&2
   exit 1
 fi
+
+# Banned certification / ISO claims (allow negation lines).
+BANNED="$ROOT/tests/gaps/trust/banned_phrases.txt"
+if [[ -f "$BANNED" ]]; then
+  while IFS= read -r phrase || [[ -n "$phrase" ]]; do
+    [[ -z "$phrase" || "$phrase" =~ ^# ]] && continue
+    hits="$(grep -RniF --include='*.md' -e "$phrase" \
+      "$ROOT/README.md" "$ROOT/CHANGELOG.md" "$ROOT/SECURITY.md" "$ROOT/docs" 2>/dev/null || true)"
+    if [[ -n "$hits" ]]; then
+      bad="$(echo "$hits" | grep -viE \
+        'not an iso|pas une|must not|n.est pas|no iso|not.*iso|pas un projet iso|there is no iso|pas .certifié|pas «|pas \"|atténu' || true)"
+      if [[ -n "$bad" ]]; then
+        echo "docs honesty: banned phrase '$phrase' found:" >&2
+        echo "$bad" >&2
+        exit 1
+      fi
+    fi
+  done < "$BANNED"
+fi
+
+# Large catalog counts in CHANGELOG must stay labeled (simple/moyen/catalog/experimental).
+if [[ -f "$ROOT/CHANGELOG.md" ]]; then
+  if grep -E '\*\*[0-9]{3,}[[:space:]]+biblioth' "$ROOT/CHANGELOG.md" \
+    | grep -viE 'simple|moyenne|moyen|complexe|catalog|experimental|génér' >/dev/null; then
+    echo "docs honesty: CHANGELOG large library counts must be labeled catalog/experimental." >&2
+    exit 1
+  fi
+fi
+
 echo "docs honesty ok"

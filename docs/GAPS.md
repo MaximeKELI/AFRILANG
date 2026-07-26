@@ -19,7 +19,8 @@ AFRILANG_GAPS_QUICK=1 bash scripts/test_gaps.sh
 | 6 | Concurrence | Async coroutines + `std/thread` natif — [`CONCURRENCY.md`](CONCURRENCY.md) | `scripts/test_gap_06_concurrency.sh` |
 | 7 | Interop | FFI allowlist + gate `ALLOW_FFI` — [`INTEROP.md`](INTEROP.md) | `scripts/test_gap_07_interop.sh` |
 | 8 | Tooling IDE | check / fmt / LSP subset — [`TOOLING.md`](TOOLING.md) | `scripts/test_gap_08_tooling.sh` |
-| 9 | Distribution & cloud | install / release scripts | `scripts/test_gap_09_dist.sh` |
-| 10 | Norme & confiance | Docs honesty + PLATFORM | `scripts/test_gap_10_trust.sh` |
+| 9 | Distribution & cloud | install / release / sha256 — [`DIST.md`](DIST.md) | `scripts/test_gap_09_dist.sh` |
+| 10 | Norme & confiance | Docs honesty + PLATFORM — [`TRUST.md`](TRUST.md) | `scripts/test_gap_10_trust.sh` |
 
-See also [`PLATFORM.md`](PLATFORM.md), [`WASM_COMPAT.md`](WASM_COMPAT.md), [`CORE_STDLIB.md`](CORE_STDLIB.md).
+See also [`PLATFORM.md`](PLATFORM.md), [`WASM_COMPAT.md`](WASM_COMPAT.md), [`CORE_STDLIB.md`](CORE_STDLIB.md),
+[`DIST.md`](DIST.md), [`TRUST.md`](TRUST.md).

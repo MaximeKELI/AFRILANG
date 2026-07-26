@@ -35,6 +35,19 @@ Secondary hosts inherit host C++ linking. Process spawn, SDL paths, and sandbox 
 | `linux-arm64` | Cross to `aarch64-linux-gnu-g++` |
 | `wasm32` | Emscripten → Node (or web pack) |
 
+## Release artifact tags (`install.sh` / `package-release.sh`)
+
+| Tag | Meaning |
+|-----|---------|
+| `linux-x86_64` | Linux amd64 release tarball |
+| `linux-arm64` | Linux aarch64 release tarball |
+| `macos-arm64` | Apple Silicon release tarball |
+| `macos-x86_64` | Intel Mac release tarball |
+| `windows-x86_64` | Windows release zip |
+
+These tags are what GitHub Releases and `install.sh` use — distinct from CLI `--target`
+(`native` / `linux-x64` alias / `wasm32`).
+
 ## Recommendation
 
 - Develop and CI on **Linux native**.

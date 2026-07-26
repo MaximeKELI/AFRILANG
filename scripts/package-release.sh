@@ -86,7 +86,22 @@ ARCHIVE_BASE="afrilang-${VERSION}-${PLATFORM}"
 if [[ "$PLATFORM" == windows-* ]]; then
   (cd "$DIST_DIR" && zip -rq "${ARCHIVE_BASE}.zip" "$(basename "$STAGING")")
   echo "Created $DIST_DIR/${ARCHIVE_BASE}.zip"
+  ARCHIVE_FILE="${ARCHIVE_BASE}.zip"
 else
   tar -C "$DIST_DIR" -czf "$DIST_DIR/${ARCHIVE_BASE}.tar.gz" "$(basename "$STAGING")"
   echo "Created $DIST_DIR/${ARCHIVE_BASE}.tar.gz"
+  ARCHIVE_FILE="${ARCHIVE_BASE}.tar.gz"
 fi
+
+# Local integrity file for the archive (CI/gap9 verify; not a signature).
+(
+  cd "$DIST_DIR"
+  if command -v sha256sum >/dev/null 2>&1; then
+    sha256sum "$ARCHIVE_FILE" > "${ARCHIVE_FILE}.sha256"
+  elif command -v shasum >/dev/null 2>&1; then
+    shasum -a 256 "$ARCHIVE_FILE" > "${ARCHIVE_FILE}.sha256"
+  fi
+  if [[ -f "${ARCHIVE_FILE}.sha256" ]]; then
+    echo "Created $DIST_DIR/${ARCHIVE_FILE}.sha256"
+  fi
+)
