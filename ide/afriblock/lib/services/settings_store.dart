@@ -28,7 +28,7 @@ class SettingsStore {
   bool aiInlineSuggest = true;
   String aiBaseUrl = 'http://127.0.0.1:11434/v1';
   String aiApiKey = '';
-  String aiModel = 'llama3.2';
+  String aiModel = 'afrilang-local';
 
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
@@ -40,7 +40,7 @@ class SettingsStore {
     aiInlineSuggest = prefs.getBool(_keyAiInline) ?? true;
     aiBaseUrl = prefs.getString(_keyAiBaseUrl) ?? 'http://127.0.0.1:11434/v1';
     aiApiKey = prefs.getString(_keyAiApiKey) ?? '';
-    aiModel = prefs.getString(_keyAiModel) ?? 'llama3.2';
+    aiModel = prefs.getString(_keyAiModel) ?? 'afrilang-local';
     final t = prefs.getString(_keyTheme);
     themeMode = switch (t) {
       'light' => AfriThemeMode.light,

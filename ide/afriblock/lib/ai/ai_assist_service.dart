@@ -11,7 +11,7 @@ class AiAssistConfig {
     this.inlineSuggest = true,
     this.baseUrl = 'http://127.0.0.1:11434/v1',
     this.apiKey = '',
-    this.model = 'llama3.2',
+    this.model = LocalAfrSuggest.modelId,
   });
 
   final bool enabled;
@@ -20,8 +20,14 @@ class AiAssistConfig {
   final String apiKey;
   final String model;
 
-  bool get hasRemote =>
-      enabled && baseUrl.trim().isNotEmpty && model.trim().isNotEmpty;
+  bool get hasRemote {
+    if (!enabled) return false;
+    final m = model.trim().toLowerCase();
+    if (m.isEmpty || m == 'local' || m == LocalAfrSuggest.modelId) {
+      return false;
+    }
+    return baseUrl.trim().isNotEmpty;
+  }
 }
 
 /// Orchestrates local + remote AFRILANG coding assistance.
@@ -110,7 +116,29 @@ class AiAssistService {
     }
     final remote = _remote();
     if (remote == null) {
-      throw StateError('Configure AI base URL and model in Settings');
+      busy = true;
+      lastError = null;
+      try {
+        if (chatLog.isEmpty) {
+          chatLog.add(AiChatMessage(
+            role: 'system',
+            content: 'Local AFRILANG assist (${LocalAfrSuggest.modelId}).',
+          ));
+        }
+        final buf = StringBuffer(userMessage);
+        if (fileContext != null && fileContext.isNotEmpty) {
+          buf.writeln('\n\n--- Current file ---\n$fileContext');
+        }
+        chatLog.add(AiChatMessage(role: 'user', content: buf.toString()));
+        final reply = LocalAfrSuggest.chatReply(
+          userMessage,
+          fileContext: fileContext,
+        );
+        chatLog.add(AiChatMessage(role: 'assistant', content: reply));
+        return reply;
+      } finally {
+        busy = false;
+      }
     }
     busy = true;
     lastError = null;
@@ -133,7 +161,16 @@ class AiAssistService {
       return reply;
     } catch (e) {
       lastError = e.toString();
-      rethrow;
+      // Offline fallback for chat
+      final reply = LocalAfrSuggest.chatReply(
+        userMessage,
+        fileContext: fileContext,
+      );
+      chatLog.add(AiChatMessage(
+        role: 'assistant',
+        content: '$reply\n\n_(distant indisponible : $e)_',
+      ));
+      return reply;
     } finally {
       busy = false;
     }

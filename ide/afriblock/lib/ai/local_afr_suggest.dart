@@ -1,9 +1,14 @@
 import '../editor/snippets.dart';
 import 'ai_completion_parse.dart';
 
-/// Offline AFRILANG-aware inline suggestions (snippets + keywords).
+/// Petite IA locale AFRILANG : règles + contexte (pas de réseau / pas de LLM).
+///
+/// Fournit des suggestions inline et des réponses chat heuristiques
+/// (expliquer le fichier, lister symboles, proposer des squelettes).
 class LocalAfrSuggest {
-  static const _keywords = <String>[
+  static const modelId = 'afrilang-local';
+
+  static const keywords = <String>[
     'create',
     'set',
     'say',
@@ -37,60 +42,389 @@ class LocalAfrSuggest {
     'true',
     'false',
     'null',
+    'text',
+    'number',
+    'bool',
+    'list',
+    'map',
+    'void',
   ];
+
+  static const _types = ['text', 'number', 'bool', 'list', 'map', 'void'];
 
   /// Returns text to insert *after* [caret], or null.
   static String? suggest(String content, int caret) {
-    if (!shouldTriggerInlineSuggest(content, caret) &&
-        caret == content.length) {
-      // Allow mid-word keyword completion at EOF.
-    } else if (!shouldTriggerInlineSuggest(content, caret) &&
-        caret < content.length) {
-      return null;
+    final c = caret.clamp(0, content.length);
+    final midWordBlocked = !shouldTriggerInlineSuggest(content, c) &&
+        c < content.length;
+    if (midWordBlocked) {
+      // Still allow completing a partial identifier at EOF / before space.
+      final ch = content[c];
+      if (ch != '\n' && ch != ' ' && ch != '\t') return null;
     }
 
-    final before = content.substring(0, caret.clamp(0, content.length));
+    final before = content.substring(0, c);
     final word = _currentWord(before);
-    if (word.isEmpty) {
-      // After newline or space — offer a common starter.
-      if (before.endsWith('\n') || before.isEmpty) {
-        return 'say ""\n';
-      }
-      return null;
+    final line = _currentLine(before);
+    final indent = _lineIndent(line);
+    final lineTrim = line.trimLeft();
+    final ids = harvestIdentifiers(content);
+
+    // 1) Mid-word / prefix: snippets then keywords
+    if (word.isNotEmpty) {
+      final snip = _snippetCompletion(word);
+      if (snip != null) return snip;
+      final kw = _keywordCompletion(word);
+      if (kw != null) return kw;
+      final idHit = _identifierCompletion(word, ids);
+      if (idHit != null) return idHit;
     }
 
-    // Snippet by prefix
+    // 2) Contextual continuations (empty word — after space / newline)
+    final ctx = _contextSuggest(
+      before: before,
+      lineTrim: lineTrim,
+      indent: indent,
+      ids: ids,
+      word: word,
+    );
+    if (ctx != null) return ctx;
+
+    // 3) Fresh line starter
+    if (word.isEmpty && (before.endsWith('\n') || before.isEmpty)) {
+      if (ids.isEmpty) return 'say "Hello AFRILANG"\n';
+      return 'say ${ids.first}\n';
+    }
+
+    return null;
+  }
+
+  /// Heuristic chat reply (offline “explain / suggest”).
+  static String chatReply(String userMessage, {String? fileContext}) {
+    final q = userMessage.toLowerCase();
+    final src = fileContext ?? '';
+    final body = src.contains('--- Current file ---')
+        ? src.split('--- Current file ---').last.trim()
+        : src;
+    // Strip leading "File: path"
+    final code = body.contains('\n')
+        ? body.substring(body.indexOf('\n') + 1).trim()
+        : body;
+
+    if (q.contains('expliq') || q.contains('explain') || q.contains('analys')) {
+      return explainFile(code.isEmpty ? src : code);
+    }
+    if (q.contains('fonction') || q.contains('function') || q.contains('squelette')) {
+      return 'Voici un squelette AFRILANG :\n\n'
+          '```afrilang\n'
+          'function main()\n'
+          '    say "ok"\n'
+          'end\n'
+          '```\n';
+    }
+    if (q.contains('boucle') || q.contains('loop') || q.contains('for')) {
+      return 'Boucle typique :\n\n'
+          '```afrilang\n'
+          'for item in items\n'
+          '    say item\n'
+          'end\n'
+          '```\n';
+    }
+    if (q.contains('si ') || q.contains('if ') || q.contains('condition')) {
+      return 'Condition :\n\n'
+          '```afrilang\n'
+          'if ready then\n'
+          '    say "go"\n'
+          'else\n'
+          '    say "wait"\n'
+          'end\n'
+          '```\n';
+    }
+
+    final ids = harvestIdentifiers(code);
+    final fns = harvestFunctions(code);
+    final buf = StringBuffer()
+      ..writeln('*(moteur local afrilang-local — pas de LLM distant)*')
+      ..writeln();
+    if (fns.isNotEmpty) {
+      buf.writeln('Fonctions détectées : ${fns.join(', ')}');
+    }
+    if (ids.isNotEmpty) {
+      buf.writeln('Identifiants : ${ids.take(12).join(', ')}');
+    }
+    if (fns.isEmpty && ids.isEmpty) {
+      buf.writeln(
+        'Je peux expliquer un fichier, proposer un squelette `function`, '
+        'une boucle `for`, ou une condition `if`. '
+        'Ouvre un `.afr` et clique « Expliquer le fichier ».',
+      );
+    } else {
+      buf.writeln(
+        'Demande « explique », « fonction », « boucle » ou « condition » '
+        'pour une proposition concrète.',
+      );
+    }
+    return buf.toString();
+  }
+
+  static String explainFile(String code) {
+    final lines = code.split('\n');
+    final fns = harvestFunctions(code);
+    final ids = harvestIdentifiers(code);
+    final says = RegExp(r'\b(?:say|dire)\b')
+        .allMatches(code)
+        .length;
+    final creates = RegExp(r'\bcreate\b').allMatches(code).length;
+    final buf = StringBuffer()
+      ..writeln('## Analyse locale')
+      ..writeln('- Lignes : ${lines.where((l) => l.trim().isNotEmpty).length}')
+      ..writeln('- `create` : $creates')
+      ..writeln('- `say`/`dire` : $says')
+      ..writeln('- Fonctions : ${fns.isEmpty ? "(aucune)" : fns.join(", ")}')
+      ..writeln(
+        '- Variables / ids : ${ids.isEmpty ? "(aucun)" : ids.take(20).join(", ")}',
+      )
+      ..writeln()
+      ..writeln(
+        'Suggestion : vérifier que chaque `function`/`if`/`for`/`class` '
+        'a un `end` (ou `fin`) correspondant.',
+      );
+
+    final open = _unclosedBlocks(code);
+    if (open.isNotEmpty) {
+      buf
+        ..writeln()
+        ..writeln('Blocs potentiellement ouverts : ${open.join(" → ")}');
+    }
+    return buf.toString();
+  }
+
+  static Set<String> harvestIdentifiers(String content) {
+    final out = <String>{};
+    final re = RegExp(
+      r'\b(?:create|set)\s+([A-Za-z_][A-Za-z0-9_]*)',
+      caseSensitive: false,
+    );
+    for (final m in re.allMatches(content)) {
+      out.add(m.group(1)!);
+    }
+    for (final f in harvestFunctions(content)) {
+      out.add(f);
+    }
+    return out;
+  }
+
+  static List<String> harvestFunctions(String content) {
+    final out = <String>[];
+    final re = RegExp(
+      r'\b(?:function|fonction)\s+([A-Za-z_][A-Za-z0-9_]*)',
+      caseSensitive: false,
+    );
+    for (final m in re.allMatches(content)) {
+      out.add(m.group(1)!);
+    }
+    return out;
+  }
+
+  // --- internals ---
+
+  static String? _snippetCompletion(String word) {
     for (final snip in kAfrilangSnippets) {
-      if (snip.prefix.isNotEmpty &&
-          snip.prefix.startsWith(word) &&
-          snip.prefix != word) {
+      if (snip.prefix.isEmpty) continue;
+      if (snip.prefix.startsWith(word) && snip.prefix != word) {
         final body = expandSnippet(snip.body);
-        // Replace partial word: return suffix after word.
         return body.substring(word.length.clamp(0, body.length));
       }
       if (snip.prefix == word) {
         final body = expandSnippet(snip.body);
-        // Word already typed equals prefix — expand rest of snippet.
-        if (body.startsWith(word)) {
-          return body.substring(word.length);
-        }
+        if (body.startsWith(word)) return body.substring(word.length);
         return body;
       }
     }
+    return null;
+  }
 
-    // Keyword completion
-    final matches = _keywords
+  static String? _keywordCompletion(String word) {
+    final matches = keywords
         .where((k) => k.startsWith(word.toLowerCase()) && k != word.toLowerCase())
-        .toList();
+        .toList()
+      ..sort((a, b) => a.length.compareTo(b.length));
     if (matches.isEmpty) return null;
-    matches.sort((a, b) => a.length.compareTo(b.length));
-    final best = matches.first;
-    return best.substring(word.length);
+    return matches.first.substring(word.length);
+  }
+
+  static String? _identifierCompletion(String word, Set<String> ids) {
+    final hits = ids
+        .where((id) =>
+            id.toLowerCase().startsWith(word.toLowerCase()) &&
+            id.toLowerCase() != word.toLowerCase())
+        .toList()
+      ..sort((a, b) => a.length.compareTo(b.length));
+    if (hits.isEmpty) return null;
+    return hits.first.substring(word.length);
+  }
+
+  static String? _contextSuggest({
+    required String before,
+    required String lineTrim,
+    required String indent,
+    required Set<String> ids,
+    required String word,
+  }) {
+    if (word.isNotEmpty) return null;
+
+    // create <name> …
+    final createName = RegExp(r'^create\s+([A-Za-z_][A-Za-z0-9_]*)\s*$',
+            caseSensitive: false)
+        .firstMatch(lineTrim);
+    if (createName != null) {
+      return ' as text = ""';
+    }
+    if (RegExp(r'^create\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      return ' name as text = ""';
+    }
+    final createAs = RegExp(r'^create\s+\w+\s+as\s*$', caseSensitive: false)
+        .firstMatch(lineTrim);
+    if (createAs != null) {
+      return ' text = ""';
+    }
+    final createType = RegExp(
+      r'^create\s+\w+\s+as\s+(\w*)$',
+      caseSensitive: false,
+    ).firstMatch(lineTrim);
+    if (createType != null) {
+      final partial = createType.group(1)!.toLowerCase();
+      for (final t in _types) {
+        if (t.startsWith(partial) && t != partial) {
+          final suffix = t.substring(partial.length);
+          final lit = switch (t) {
+            'number' => '0',
+            'bool' => 'false',
+            'list' => '[]',
+            'map' => '{}',
+            'void' => 'null',
+            _ => '""',
+          };
+          return '$suffix = $lit';
+        }
+      }
+    }
+
+    // set …
+    if (RegExp(r'^set\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      if (ids.isNotEmpty) return ' ${ids.first} = ';
+      return ' name = ';
+    }
+    final setName = RegExp(r'^set\s+([A-Za-z_][A-Za-z0-9_]*)\s*$',
+            caseSensitive: false)
+        .firstMatch(lineTrim);
+    if (setName != null) return ' = ';
+
+    // say / dire
+    if (RegExp(r'^(say|dire)\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      if (ids.isNotEmpty) return ' ${ids.first}';
+      return ' ""';
+    }
+
+    // if / si without then
+    if (RegExp(r'^(if|si)\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      final fr = lineTrim.toLowerCase().startsWith('si');
+      return fr
+          ? ' pret alors\n${indent}    say ""\nsinon\n${indent}    say ""\n${indent}fin\n'
+          : ' ready then\n${indent}    say ""\nelse\n${indent}    say ""\n${indent}end\n';
+    }
+
+    // function / fonction name
+    if (RegExp(r'^(function|fonction)\s*$', caseSensitive: false)
+        .hasMatch(lineTrim)) {
+      final fr = lineTrim.toLowerCase().startsWith('fonc');
+      return fr
+          ? ' main()\n${indent}    say ""\n${indent}fin\n'
+          : ' main()\n${indent}    say ""\n${indent}end\n';
+    }
+
+    // for / pour
+    if (RegExp(r'^(for|pour)\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      final fr = lineTrim.toLowerCase().startsWith('pour');
+      return fr
+          ? ' item dans items\n${indent}    say item\n${indent}fin\n'
+          : ' item in items\n${indent}    say item\n${indent}end\n';
+    }
+
+    // class
+    if (RegExp(r'^(class|classe)\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      final fr = lineTrim.toLowerCase().startsWith('classe');
+      return fr
+          ? ' Nom\n${indent}    create x as number = 0\n${indent}fin\n'
+          : ' Name\n${indent}    create x as number = 0\n${indent}end\n';
+    }
+
+    // match
+    if (RegExp(r'^match\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      return ' value\n${indent}    case x:\n${indent}        say x\n${indent}end\n';
+    }
+
+    // Close unclosed block on empty new line with indent
+    if (before.endsWith('\n')) {
+      final open = _unclosedBlocks(before);
+      if (open.isNotEmpty) {
+        final closer = open.last == 'fr' ? 'fin' : 'end';
+        // Suggest closer when indent would decrease (heuristic: same/less indent)
+        if (indent.isEmpty || indent.length <= 4) {
+          return '$closer\n';
+        }
+      }
+    }
+
+    // After `=` on create/set — suggest literal
+    if (RegExp(r'(create|set).*=\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+      if (lineTrim.toLowerCase().contains(' as number')) return '0';
+      if (lineTrim.toLowerCase().contains(' as bool')) return 'false';
+      if (lineTrim.toLowerCase().contains(' as list')) return '[]';
+      if (lineTrim.toLowerCase().contains(' as map')) return '{}';
+      return '""';
+    }
+
+    return null;
+  }
+
+  /// Stack of open block kinds: 'en' (end) or 'fr' (fin).
+  static List<String> _unclosedBlocks(String content) {
+    final stack = <String>[];
+    final token = RegExp(
+      r'\b(function|fonction|if|si|while|for|pour|class|classe|match|else|sinon|end|fin)\b',
+      caseSensitive: false,
+    );
+    for (final m in token.allMatches(content)) {
+      final t = m.group(1)!.toLowerCase();
+      if (t == 'end') {
+        if (stack.isNotEmpty && stack.last == 'en') stack.removeLast();
+      } else if (t == 'fin') {
+        if (stack.isNotEmpty && stack.last == 'fr') stack.removeLast();
+      } else if (t == 'else' || t == 'sinon') {
+        // same block
+      } else if (t == 'fonction' || t == 'si' || t == 'pour' || t == 'classe') {
+        stack.add('fr');
+      } else {
+        stack.add('en');
+      }
+    }
+    return stack;
   }
 
   static String _currentWord(String before) {
     if (before.isEmpty) return '';
     final m = RegExp(r'[A-Za-z_][A-Za-z0-9_]*$').firstMatch(before);
+    return m?.group(0) ?? '';
+  }
+
+  static String _currentLine(String before) {
+    final i = before.lastIndexOf('\n');
+    return i < 0 ? before : before.substring(i + 1);
+  }
+
+  static String _lineIndent(String line) {
+    final m = RegExp(r'^[ \t]*').firstMatch(line);
     return m?.group(0) ?? '';
   }
 }

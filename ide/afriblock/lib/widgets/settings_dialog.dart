@@ -97,7 +97,9 @@ Future<void> showAfriblockSettings(BuildContext context) async {
                       controller: aiModelCtrl,
                       decoration: const InputDecoration(
                         labelText: 'Model',
-                        hintText: 'llama3.2',
+                        hintText: 'afrilang-local  |  llama3.2',
+                        helperText:
+                            'afrilang-local = IA interne offline ; sinon API OpenAI-compatible',
                         border: OutlineInputBorder(),
                       ),
                       style: afriblockMono(fontSize: 12),
@@ -132,7 +134,9 @@ Future<void> showAfriblockSettings(BuildContext context) async {
                       : aiBaseCtrl.text.trim();
                   wb.settings.aiApiKey = aiKeyCtrl.text;
                   wb.settings.aiModel =
-                      aiModelCtrl.text.trim().isEmpty ? 'llama3.2' : aiModelCtrl.text.trim();
+                      aiModelCtrl.text.trim().isEmpty
+                          ? 'afrilang-local'
+                          : aiModelCtrl.text.trim();
                   await wb.settings.saveAiSettings();
                   wb.syncAiConfig();
                   await wb.refreshToolchain();
