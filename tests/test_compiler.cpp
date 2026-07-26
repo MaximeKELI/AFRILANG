@@ -18,6 +18,7 @@
 
 #include "afrilang/sandbox.hpp"
 #include "afrilang/passes.hpp"
+#include "afrilang/target.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -431,6 +432,27 @@ static void testIntAndJsonTypes() {
     afrilang::SemanticAnalyzer analyzer(*program, nullptr, "test.afr");
     const auto result = analyzer.analyze();
     expect(result.globalVariables.at("x").kind == afrilang::TypeKind::Int, "int variable type");
+}
+
+static void testNormalizeCrossTarget() {
+    expect(afrilang::normalizeCrossTarget("") == "native", "empty -> native");
+    expect(afrilang::normalizeCrossTarget("native") == "native", "native");
+    expect(afrilang::normalizeCrossTarget("linux-x64") == "native", "linux-x64 alias");
+    expect(afrilang::normalizeCrossTarget("linux-arm64") == "linux-arm64", "arm64");
+    expect(afrilang::normalizeCrossTarget("wasm32") == "wasm32", "wasm32");
+    expect(afrilang::isKnownCrossTarget("native"), "known native");
+    expect(afrilang::isKnownCrossTarget("linux-x64"), "known linux-x64");
+    expect(afrilang::isKnownCrossTarget("wasm32"), "known wasm");
+    expect(!afrilang::isKnownCrossTarget("windows"), "reject windows");
+    expect(!afrilang::isKnownCrossTarget("macos"), "reject macos");
+    expect(afrilang::isWasmTarget("wasm32"), "isWasm");
+    expect(!afrilang::isWasmTarget("native"), "native not wasm");
+    expect(afrilang::isWasmNativeOnlyModule("http"), "http native-only");
+    expect(!afrilang::isWasmNativeOnlyModule("json"), "json ok on wasm");
+    expect(afrilang::firstWasmUnsupportedModule({"json"}) == "", "json alone ok");
+    expect(afrilang::firstWasmUnsupportedModule({"http"}) == "http", "http unsupported");
+    expect(afrilang::hostRunnablePath("hello").find("hello") != std::string::npos,
+           "hostRunnablePath keeps name");
 }
 
 static void testCompileCacheHash() {
@@ -966,6 +988,7 @@ int main() {
     testPathComponentValidation();
     testNetworkServeGate();
     testIntAndJsonTypes();
+    testNormalizeCrossTarget();
     testCompileCacheHash();
     testLexerUnexpectedCharRecovers();
     testLexerUnterminatedStringRecovers();

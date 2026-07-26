@@ -1,0 +1,6 @@
+// Gap 4 smoke — cheap compute (Mid-IR / g++ path)
+create n = 0
+repeat 100 times
+    set n = n + 1
+end
+assert n is equal to 100

@@ -1,0 +1,4 @@
+// Rejected on wasm32 — used by scripts/test_gap_03_platform.sh
+import "std/http"
+use http
+say httpGet("http://example.com/")

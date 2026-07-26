@@ -47,6 +47,10 @@ jobs:
         if: matrix.compiler == 'g++'
         run: bash scripts/check_tooling_smoke.sh
 
+      - name: Industrial gaps (2–10 quick)
+        if: matrix.compiler == 'g++'
+        run: AFRILANG_GAPS_QUICK=1 bash scripts/test_gaps.sh 2 3 4 5 6 7 8 9 10
+
       - name: Ecosystem smoke (init / pkg / test)
         run: |
           ./build/afrilang init smoke_app
@@ -215,6 +219,11 @@ jobs:
           ./build/afrilang run tests/stdlib/stats.afr --target wasm32 --run
           ./build/afrilang run tests/stdlib/path.afr --target wasm32 --run
           ./build/afrilang run tests/stdlib/re.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/proba.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/datetime.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/yaml.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/unicode.afr --target wasm32 --run
+          bash scripts/test_gap_03_platform.sh
 
       - name: Check Emscripten script
         run: |

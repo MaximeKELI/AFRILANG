@@ -17,6 +17,7 @@
 #include <mutex>
 #include <sstream>
 #include <string>
+#include <system_error>
 #include <unordered_map>
 #include <vector>
 
@@ -84,19 +85,25 @@ std::string resolveCatalogPath() {
         if (fileExists(explicitPath)) return explicitPath;
     }
     if (const char* home = std::getenv("AFRILANG_HOME")) {
-        const std::string p = std::string(home) + "/share/afrilang/catalog/complex.json";
+        const std::string p =
+            (std::filesystem::path(home) / "share" / "afrilang" / "catalog" / "complex.json")
+                .string();
         if (fileExists(p)) return p;
     }
     if (fileExists(AFRILANG_SOURCE_CATALOG)) return AFRILANG_SOURCE_CATALOG;
     if (fileExists(AFRILANG_INSTALL_CATALOG)) return AFRILANG_INSTALL_CATALOG;
     const std::string exeDir = executableDir();
     if (!exeDir.empty()) {
-        const std::string candidates[] = {
-            exeDir + "/../share/afrilang/catalog/complex.json",
-            exeDir + "/share/afrilang/catalog/complex.json",
+        const std::filesystem::path base(exeDir);
+        const std::filesystem::path candidates[] = {
+            base / ".." / "share" / "afrilang" / "catalog" / "complex.json",
+            base / "share" / "afrilang" / "catalog" / "complex.json",
         };
         for (const auto& c : candidates) {
-            if (fileExists(c)) return c;
+            std::error_code ec;
+            const auto canon = std::filesystem::weakly_canonical(c, ec);
+            const std::string path = ec ? c.string() : canon.string();
+            if (fileExists(path)) return path;
         }
     }
     return {};

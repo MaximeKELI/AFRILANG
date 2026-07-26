@@ -13,7 +13,10 @@ Plateformes host : voir [`PLATFORM.md`](PLATFORM.md).
 | Stdlib core | `json`, `str`, `math`, `stats`, `proba`, `collections`, `args`, `path`, `log`, `re`, `datetime`, `yaml`, `unicode` |
 | Async | `std/async` — `sleep`, coroutines (Emscripten) |
 | Démos CI | `examples/tier8_demo.afr`, `examples/tier8_stdlib.afr`, `examples/wasm_core_smoke.afr` |
-| Conformité WASM (subset) | conformance pack + `tests/stdlib/{str,json,collections,math,stats,path,re}.afr` |
+| Conformité WASM (subset) | conformance pack + `tests/stdlib/{str,json,collections,math,stats,path,re,proba,datetime,yaml,unicode}.afr` |
+
+Le front-end **rejette** les imports natifs-only sous `--target wasm32` (message + `docs/PLATFORM.md`)
+avant codegen — voir `firstWasmUnsupportedModule` dans `include/afrilang/target.hpp`.
 
 ## Natif uniquement (pas WASM)
 

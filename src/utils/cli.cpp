@@ -234,7 +234,7 @@ static ExecResult runCompiledProgram(const std::string& crossTarget,
     if (isWasmTarget(crossTarget)) {
         return execSandboxed("node", {executable}, config);
     }
-    return execSandboxed("./" + executable, {}, config);
+    return execSandboxed(hostRunnablePath(executable), {}, config);
 }
 
 CompileResult Pipeline::compileFile(const std::string& sourcePath,
@@ -305,6 +305,24 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             for (const auto& d : result.diagnostics) printer.report(d);
             std::cerr << printer.formatAll();
             return result;
+        }
+
+        if (isWasmTarget(crossTarget)) {
+            const std::string bad = firstWasmUnsupportedModule(semantic.usedModules);
+            if (!bad.empty()) {
+                Diagnostic d;
+                d.severity = DiagnosticSeverity::Error;
+                d.code = ErrorCode::Generic;
+                d.message = "Module std/" + bad +
+                            " n'est pas supporté en --target wasm32 (natif uniquement). "
+                            "Voir docs/WASM_COMPAT.md et docs/PLATFORM.md.";
+                d.file = srcPath.string();
+                result.diagnostics.push_back(std::move(d));
+                DiagnosticEngine printer(options.errorLimit);
+                for (const auto& x : result.diagnostics) printer.report(x);
+                std::cerr << printer.formatAll();
+                return result;
+            }
         }
 
         afrilang::passes::runOptionalPasses(*program);

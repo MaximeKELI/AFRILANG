@@ -88,7 +88,13 @@ install_from_source() {
   cmake -S "$dest" -B "$dest/build" -DCMAKE_BUILD_TYPE=Release
   cmake --build "$dest/build" -j"$jobs"
   mkdir -p "$dest/bin"
-  cp "$dest/build/afrilang" "$dest/bin/"
+  if [[ -f "$dest/build/afrilang.exe" ]]; then
+    cp "$dest/build/afrilang.exe" "$dest/bin/"
+  elif [[ -f "$dest/build/Release/afrilang.exe" ]]; then
+    cp "$dest/build/Release/afrilang.exe" "$dest/bin/"
+  else
+    cp "$dest/build/afrilang" "$dest/bin/"
+  fi
   echo "${VERSION:-dev}" > "$dest/VERSION"
 }
 

@@ -1,0 +1,4 @@
+// Allowed on wasm32 (stdlib core subset)
+import "std/str"
+use str
+assert toUpper("ab") is equal to "AB"

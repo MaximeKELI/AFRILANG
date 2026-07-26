@@ -1,0 +1,4 @@
+// Gap 6 — concurrency surface sync smoke
+create x = 1
+set x = x + 1
+assert x is equal to 2

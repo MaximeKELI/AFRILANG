@@ -606,7 +606,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsIo) out << "#include \"io.hpp\"\n";
     if (needsJson) out << "#include \"json.hpp\"\n";
     if (needsFs) out << "#include \"fs.hpp\"\n";
-    if (needsHttp) out << "#include \"http.hpp\"\n";
+    if (needsHttp && !wasmBuild) out << "#include \"http.hpp\"\n";
     if (needsStr) out << "#include \"str.hpp\"\n";
     if (needsLog) out << "#include \"log.hpp\"\n";
     if (needsMath) out << "#include \"math.hpp\"\n";
@@ -620,9 +620,9 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsCollections) out << "#include \"collections.hpp\"\n";
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
-    if (needsSql) out << "#include \"sql.hpp\"\n";
-    if (needsWeb) out << "#include \"web.hpp\"\n";
-    if (needsOrm) out << "#include \"orm.hpp\"\n";
+    if (needsSql && !wasmBuild) out << "#include \"sql.hpp\"\n";
+    if (needsWeb && !wasmBuild) out << "#include \"web.hpp\"\n";
+    if (needsOrm && !wasmBuild) out << "#include \"orm.hpp\"\n";
     if (needsThread && !wasmBuild) {
         out << "#include \"thread.hpp\"\n";
         linkLibraries_.insert("-pthread");
@@ -630,17 +630,15 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsWeb && !wasmBuild) {
         linkLibraries_.insert("-pthread");
     }
-    if (needsThread && wasmBuild) {
-        out << "#include \"thread.hpp\"\n";
-    }
+    // Native-only modules are rejected for wasm32 earlier (firstWasmUnsupportedModule).
     if (needsBigint) out << "#include \"bigint.hpp\"\n";
-    if (needsCrypto) out << "#include \"crypto.hpp\"\n";
+    if (needsCrypto && !wasmBuild) out << "#include \"crypto.hpp\"\n";
     if (needsProcess) out << "#include \"process.hpp\"\n";
-    if (needsNet) out << "#include \"net.hpp\"\n";
+    if (needsNet && !wasmBuild) out << "#include \"net.hpp\"\n";
     if (needsYaml) out << "#include \"yaml.hpp\"\n";
     if (needsDatetime) out << "#include \"datetime.hpp\"\n";
     if (needsEnv) out << "#include \"env.hpp\"\n";
-    if (needsTempfile) out << "#include \"tempfile.hpp\"\n";
+    if (needsTempfile && !wasmBuild) out << "#include \"tempfile.hpp\"\n";
     if (needsBase64) out << "#include \"base64.hpp\"\n";
     if (needsUrl) out << "#include \"url.hpp\"\n";
     if (needsRandom) out << "#include \"random.hpp\"\n";
@@ -654,11 +652,13 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
     if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
-    if (semantic_.usesUi) out << "#include \"ui.hpp\"\n";
-    if (semantic_.usedModules.count("game2d") > 0) out << "#include \"game2d.hpp\"\n";
-    if (semantic_.usesGame3d) out << "#include \"game3d.hpp\"\n";
-    if (semantic_.usedModules.count("gamestate") > 0) out << "#include \"gamestate.hpp\"\n";
-    if (semantic_.usedModules.count("gamenet") > 0) out << "#include \"gamenet.hpp\"\n";
+    if (semantic_.usesUi && !wasmBuild) out << "#include \"ui.hpp\"\n";
+    if (semantic_.usedModules.count("game2d") > 0 && !wasmBuild) out << "#include \"game2d.hpp\"\n";
+    if (semantic_.usesGame3d && !wasmBuild) out << "#include \"game3d.hpp\"\n";
+    if (semantic_.usedModules.count("gamestate") > 0 && !wasmBuild) {
+        out << "#include \"gamestate.hpp\"\n";
+    }
+    if (semantic_.usedModules.count("gamenet") > 0 && !wasmBuild) out << "#include \"gamenet.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (semantic_.usesGenerators) out << "#include \"generator.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";

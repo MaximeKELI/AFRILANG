@@ -39,7 +39,8 @@ Secondary hosts inherit host C++ linking. Process spawn, SDL paths, and sandbox 
 
 - Develop and CI on **Linux native**.
 - Secondary host smokes (macOS / Windows MSYS2) run `version` + `hello` + conformance subset — not stdlib/FFI parity.
-- Use WASM for sandboxed demos (no SDL/net/fs/threads).
+- Use WASM for sandboxed demos (no SDL/net/fs/threads); native-only imports are **rejected** at compile time.
 - Mobile (`mobile/afrilang`) is a **Flutter client** of the web API — not a native AFRILANG runtime.
+- Gap tests: `bash scripts/test_gaps.sh 3` — see [`GAPS.md`](GAPS.md).
 
-See also [`SECURITY.md`](../SECURITY.md) and NORMATIVE §9.
+See also [`SECURITY.md`](../SECURITY.md), [`WASM_COMPAT.md`](WASM_COMPAT.md), [`GAPS.md`](GAPS.md).

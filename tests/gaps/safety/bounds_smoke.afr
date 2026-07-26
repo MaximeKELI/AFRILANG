@@ -1,0 +1,4 @@
+// Gap 5 — bounds / safety surface
+create xs = list of 1, 2, 3
+assert xs at 0 is equal to 1
+assert length of xs is equal to 3
