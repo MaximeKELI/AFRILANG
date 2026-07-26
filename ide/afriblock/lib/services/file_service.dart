@@ -26,6 +26,27 @@ class FileService {
     await file.writeAsString(content);
   }
 
+  Future<bool> exists(String path) async =>
+      await File(path).exists() || await Directory(path).exists();
+
+  Future<void> createDirectory(String path) async {
+    final dir = Directory(path);
+    if (await dir.exists()) {
+      throw StateError('Folder already exists: $path');
+    }
+    await dir.create(recursive: true);
+  }
+
+  /// Creates a new file; fails if it already exists.
+  Future<void> createFile(String path, {String content = ''}) async {
+    final file = File(path);
+    if (await file.exists()) {
+      throw StateError('File already exists: $path');
+    }
+    await file.parent.create(recursive: true);
+    await file.writeAsString(content);
+  }
+
   Future<WorkspaceNode> loadTree(String rootPath, {int maxDepth = 6}) async {
     final root = Directory(rootPath);
     if (!await root.exists()) {

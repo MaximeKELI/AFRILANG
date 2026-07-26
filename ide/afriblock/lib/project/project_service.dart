@@ -76,6 +76,9 @@ const kDefaultTargets = <BuildTarget>[
 class ProjectService {
   AfrilangProject? project;
 
+  /// Parse `afrilang.toml` text (also used by unit tests).
+  AfrilangProject parseTomlText(String root, String text) => _parseToml(root, text);
+
   Future<AfrilangProject?> detect(String workspaceRoot) async {
     final toml = File(p.join(workspaceRoot, 'afrilang.toml'));
     if (!await toml.exists()) {

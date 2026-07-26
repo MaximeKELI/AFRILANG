@@ -9,6 +9,7 @@ import '../widgets/activity_bar.dart';
 import '../widgets/bottom_panel.dart';
 import '../widgets/command_palette.dart';
 import '../widgets/editor_area.dart';
+import '../widgets/editor_overlays.dart';
 import '../widgets/settings_dialog.dart';
 import '../widgets/sidebar_explorer.dart';
 import '../widgets/status_bar.dart';
@@ -47,10 +48,15 @@ class WorkbenchShell extends StatelessWidget {
             () => wb.togglePanel(),
         const SingleActivator(LogicalKeyboardKey.keyJ, meta: true):
             () => wb.togglePanel(),
-        const SingleActivator(LogicalKeyboardKey.backslash, control: true):
-            () => wb.toggleSplit(),
-        const SingleActivator(LogicalKeyboardKey.backslash, meta: true):
-            () => wb.toggleSplit(),
+        const SingleActivator(LogicalKeyboardKey.keyF, control: true):
+            () => wb.showOverlay(OverlayMode.findReplace),
+        const SingleActivator(LogicalKeyboardKey.keyF, meta: true):
+            () => wb.showOverlay(OverlayMode.findReplace),
+        const SingleActivator(LogicalKeyboardKey.keyG, control: true):
+            () => wb.showOverlay(OverlayMode.goToLine),
+        const SingleActivator(LogicalKeyboardKey.keyG, meta: true):
+            () => wb.showOverlay(OverlayMode.goToLine),
+        const SingleActivator(LogicalKeyboardKey.f4): () => wb.toggleSplit(),
         const SingleActivator(LogicalKeyboardKey.escape): () {
           if (wb.overlay != OverlayMode.none) wb.hideOverlay();
         },
@@ -90,6 +96,9 @@ class WorkbenchShell extends StatelessWidget {
             ),
             if (wb.overlay == OverlayMode.commandPalette) const CommandPalette(),
             if (wb.overlay == OverlayMode.quickOpen) const QuickOpenOverlay(),
+            if (wb.overlay == OverlayMode.findReplace) const FindReplaceOverlay(),
+            if (wb.overlay == OverlayMode.goToLine) const GoToLineOverlay(),
+            if (wb.overlay == OverlayMode.snippets) const SnippetsOverlay(),
           ],
         ),
       ),
@@ -120,13 +129,24 @@ class _TitleBar extends StatelessWidget {
           const SizedBox(width: 16),
           _MenuBtn(label: 'File', items: [
             _MenuAction('Open Folder…', () => wb.openFolder()),
+            _MenuAction('New AFRILANG File…', () => wb.createNewAfrFile()),
             _MenuAction('Save', () => wb.saveActive()),
+            _MenuAction('Discard Changes', () => wb.discardActiveChanges()),
             _MenuAction('Close Editor', () => wb.closeActiveTab()),
+          ]),
+          _MenuBtn(label: 'Edit', items: [
+            _MenuAction('Find…', () => wb.showOverlay(OverlayMode.findReplace)),
+            _MenuAction('Go to Line…', () => wb.showOverlay(OverlayMode.goToLine)),
+            _MenuAction('Insert Snippet…', () => wb.showOverlay(OverlayMode.snippets)),
+            _MenuAction('Duplicate Line', () => wb.duplicateActiveLine()),
+            _MenuAction('Toggle Comment', () => wb.toggleActiveComment()),
+            _MenuAction('Format Document', () => wb.formatActive()),
           ]),
           _MenuBtn(label: 'Run', items: [
             _MenuAction('Build', () => wb.buildActiveTarget()),
             _MenuAction('Run', () => wb.runActive()),
             _MenuAction('Check', () => wb.checkActive()),
+            _MenuAction('Lint', () => wb.lintWorkspace()),
             _MenuAction('Debug', () => wb.startDebug()),
             _MenuAction('Test', () => wb.runTests()),
           ]),

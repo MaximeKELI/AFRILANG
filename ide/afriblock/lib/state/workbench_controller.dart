@@ -7,6 +7,10 @@ import 'package:path/path.dart' as p;
 import '../core/command_bus.dart';
 import '../core/event_bus.dart';
 import '../debug/debug_service.dart';
+import '../editor/find_replace.dart';
+import '../editor/path_name_rules.dart';
+import '../editor/snippets.dart';
+import '../editor/text_ops.dart';
 import '../git/git_service.dart';
 import '../lsp/lsp_client.dart';
 import '../models/editor_tab.dart';
@@ -36,7 +40,7 @@ enum SidebarView {
 
 enum BottomTab { problems, output, debugConsole, terminal, testResults }
 
-enum OverlayMode { none, commandPalette, quickOpen }
+enum OverlayMode { none, commandPalette, quickOpen, findReplace, goToLine, snippets }
 
 class WorkbenchController extends ChangeNotifier {
   WorkbenchController({
@@ -79,6 +83,8 @@ class WorkbenchController extends ChangeNotifier {
   bool ready = false;
   String? workspaceRoot;
   WorkspaceNode? rootNode;
+  /// Last clicked explorer path (file or folder) — used as create target.
+  String? explorerSelection;
   final List<EditorTab> tabs = [];
   int? activeTabIndex;
 
@@ -120,7 +126,15 @@ class WorkbenchController extends ChangeNotifier {
   List<SearchHit> searchHits = [];
   String searchQuery = '';
 
+  /// In-file find state
+  String findQuery = '';
+  String replaceQuery = '';
+  List<FindMatch> findMatches = [];
+  int findIndex = 0;
+  int? goToLineRequest;
+
   final List<String> workspaceFiles = [];
+  final List<String> recentFiles = [];
 
   EditorTab? get activeTab =>
       activeTabIndex == null || activeTabIndex! >= tabs.length
@@ -163,11 +177,73 @@ class WorkbenchController extends ChangeNotifier {
         run: (wb) => wb.saveActive(),
       ),
       IdeCommandDef(
+        id: 'file.newAfr',
+        label: 'File: New File…',
+        category: 'File',
+        run: (wb) async {
+          wb.statusMessage = 'Use Explorer ＋ or File → New File…';
+          wb.notifyListeners();
+        },
+      ),
+      IdeCommandDef(
+        id: 'file.newFolder',
+        label: 'File: New Folder…',
+        category: 'File',
+        run: (wb) async {
+          wb.statusMessage = 'Use Explorer ＋ or File → New Folder…';
+          wb.notifyListeners();
+        },
+      ),
+      IdeCommandDef(
         id: 'file.quickOpen',
         label: 'Go to File…',
         shortcut: 'Ctrl+P',
         category: 'Navigation',
         run: (wb) async => wb.showOverlay(OverlayMode.quickOpen),
+      ),
+      IdeCommandDef(
+        id: 'edit.find',
+        label: 'Edit: Find…',
+        shortcut: 'Ctrl+F',
+        category: 'Edit',
+        run: (wb) async => wb.showOverlay(OverlayMode.findReplace),
+      ),
+      IdeCommandDef(
+        id: 'edit.goToLine',
+        label: 'Go to Line…',
+        shortcut: 'Ctrl+G',
+        category: 'Navigation',
+        run: (wb) async => wb.showOverlay(OverlayMode.goToLine),
+      ),
+      IdeCommandDef(
+        id: 'edit.snippets',
+        label: 'Insert Snippet…',
+        category: 'Edit',
+        run: (wb) async => wb.showOverlay(OverlayMode.snippets),
+      ),
+      IdeCommandDef(
+        id: 'edit.duplicateLine',
+        label: 'Edit: Duplicate Line',
+        category: 'Edit',
+        run: (wb) async => wb.duplicateActiveLine(),
+      ),
+      IdeCommandDef(
+        id: 'edit.toggleComment',
+        label: 'Edit: Toggle Line Comment',
+        category: 'Edit',
+        run: (wb) async => wb.toggleActiveComment(),
+      ),
+      IdeCommandDef(
+        id: 'afrilang.fmt',
+        label: 'AFRILANG: Format Document',
+        category: 'AFRILANG',
+        run: (wb) => wb.formatActive(),
+      ),
+      IdeCommandDef(
+        id: 'afrilang.lint',
+        label: 'AFRILANG: Lint Workspace',
+        category: 'AFRILANG',
+        run: (wb) => wb.lintWorkspace(),
       ),
       IdeCommandDef(
         id: 'workbench.commandPalette',
@@ -406,7 +482,103 @@ class WorkbenchController extends ChangeNotifier {
   void toggleExpand(WorkspaceNode node) {
     if (!node.isDirectory) return;
     node.expanded = !node.expanded;
+    explorerSelection = node.path;
     notifyListeners();
+  }
+
+  void selectExplorerPath(String path, {required bool isDirectory}) {
+    explorerSelection = path;
+    notifyListeners();
+  }
+
+  /// Directory where New File / New Folder should land.
+  String createTargetDirectory() {
+    final root = workspaceRoot;
+    if (root == null) return '.';
+    final sel = explorerSelection;
+    if (sel == null) return root;
+    final asDir = Directory(sel);
+    if (asDir.existsSync()) return sel;
+    return File(sel).parent.path;
+  }
+
+  Future<void> refreshExplorer() async {
+    final root = workspaceRoot;
+    if (root == null) return;
+    final expanded = <String>{};
+    void collect(WorkspaceNode? n) {
+      if (n == null) return;
+      if (n.isDirectory && n.expanded) expanded.add(n.path);
+      for (final c in n.children) {
+        collect(c);
+      }
+    }
+
+    collect(rootNode);
+    rootNode = await files.loadTree(root);
+    void restore(WorkspaceNode n) {
+      if (expanded.contains(n.path)) n.expanded = true;
+      for (final c in n.children) {
+        restore(c);
+      }
+    }
+
+    if (rootNode != null) restore(rootNode!);
+    await _indexFiles(root);
+    notifyListeners();
+  }
+
+  Future<void> createFileInWorkspace(
+    String rawName, {
+    String? parentDir,
+    bool preferAfr = true,
+  }) async {
+    final root = workspaceRoot;
+    if (root == null) throw StateError('Open a folder first');
+    final parent = parentDir ?? createTargetDirectory();
+    final err = PathNameRules.validateSegment(rawName, isFolder: false);
+    if (err != null) throw StateError(err);
+    final name = PathNameRules.ensureAfrExtension(rawName, forceAfr: preferAfr);
+    final path = PathNameRules.joinUnder(parent, name);
+    if (!p.isWithin(root, path) && p.normalize(path) != p.normalize(root)) {
+      // allow files directly under root; reject escape
+      final normRoot = p.normalize(root);
+      final normPath = p.normalize(path);
+      if (!normPath.startsWith(normRoot + p.separator) && normPath != normRoot) {
+        throw StateError('Path outside workspace');
+      }
+    }
+    const starter = '// New AFRILANG file\nsay "Hello AFRIBLOCK"\n';
+    final content = name.endsWith('.afr') ? starter : '';
+    await files.createFile(path, content: content);
+    await refreshExplorer();
+    await openFile(path);
+    statusMessage = 'Created ${relativePath(path)}';
+    notifyListeners();
+  }
+
+  Future<void> createFolderInWorkspace(String rawName, {String? parentDir}) async {
+    final root = workspaceRoot;
+    if (root == null) throw StateError('Open a folder first');
+    final parent = parentDir ?? createTargetDirectory();
+    final err = PathNameRules.validateSegment(rawName, isFolder: true);
+    if (err != null) throw StateError(err);
+    final path = PathNameRules.joinUnder(parent, rawName);
+    final normRoot = p.normalize(root);
+    final normPath = p.normalize(path);
+    if (!normPath.startsWith(normRoot + p.separator) && normPath != normRoot) {
+      throw StateError('Path outside workspace');
+    }
+    await files.createDirectory(path);
+    explorerSelection = path;
+    await refreshExplorer();
+    statusMessage = 'Created folder ${relativePath(path)}';
+    notifyListeners();
+  }
+
+  @Deprecated('Use createFileInWorkspace via dialog')
+  Future<void> createNewAfrFile() async {
+    await createFileInWorkspace('untitled.afr');
   }
 
   Future<void> openFile(String path, {int? line}) async {
@@ -427,6 +599,13 @@ class WorkbenchController extends ChangeNotifier {
       }
     }
     await refreshOutline();
+    recentFiles
+      ..remove(path)
+      ..insert(0, path);
+    if (recentFiles.length > 20) {
+      recentFiles.removeRange(20, recentFiles.length);
+    }
+    if (line != null) goToLineRequest = line;
     statusMessage = line == null ? path : '$path:$line';
     notifyListeners();
   }
@@ -686,12 +865,15 @@ class WorkbenchController extends ChangeNotifier {
 
   List<String> quickOpenMatches(String query) {
     final q = query.trim().toLowerCase();
-    final pool = workspaceFiles.isEmpty
-        ? tabs.map((t) => t.path).toList()
-        : workspaceFiles;
-    if (q.isEmpty) return pool.take(40).toList();
-    return pool
-        .where((f) => p.basename(f).toLowerCase().contains(q) || f.toLowerCase().contains(q))
+    final pool = <String>[
+      ...recentFiles,
+      ...workspaceFiles.where((f) => !recentFiles.contains(f)),
+    ];
+    final effective = pool.isEmpty ? tabs.map((t) => t.path).toList() : pool;
+    if (q.isEmpty) return effective.take(40).toList();
+    return effective
+        .where((f) =>
+            p.basename(f).toLowerCase().contains(q) || f.toLowerCase().contains(q))
         .take(60)
         .toList();
   }
@@ -700,6 +882,122 @@ class WorkbenchController extends ChangeNotifier {
     final root = workspaceRoot;
     if (root == null) return absolute;
     return p.relative(absolute, from: root);
+  }
+
+  List<String> breadcrumbsForActive() {
+    final tab = activeTab;
+    if (tab == null) return const [];
+    return TextOps.breadcrumbs(relativePath(tab.path));
+  }
+
+  void updateFindQuery(String query) {
+    findQuery = query;
+    final tab = activeTab;
+    if (tab == null) {
+      findMatches = [];
+      findIndex = 0;
+      notifyListeners();
+      return;
+    }
+    findMatches = FindReplaceEngine.findAll(tab.content, query);
+    findIndex = findMatches.isEmpty ? 0 : findIndex.clamp(0, findMatches.length - 1);
+    notifyListeners();
+  }
+
+  void findNext() {
+    if (findMatches.isEmpty) return;
+    findIndex = (findIndex + 1) % findMatches.length;
+    notifyListeners();
+  }
+
+  void findPrev() {
+    if (findMatches.isEmpty) return;
+    findIndex = (findIndex - 1 + findMatches.length) % findMatches.length;
+    notifyListeners();
+  }
+
+  void replaceCurrent() {
+    final tab = activeTab;
+    if (tab == null || findMatches.isEmpty) return;
+    final next = FindReplaceEngine.replaceFirst(
+      tab.content,
+      findQuery,
+      replaceQuery,
+      from: findMatches[findIndex].start,
+    );
+    updateActiveContent(next);
+    updateFindQuery(findQuery);
+  }
+
+  void replaceAllInFile() {
+    final tab = activeTab;
+    if (tab == null || findQuery.isEmpty) return;
+    final next = FindReplaceEngine.replaceAll(tab.content, findQuery, replaceQuery);
+    updateActiveContent(next);
+    updateFindQuery(findQuery);
+  }
+
+  void requestGoToLine(int line) {
+    goToLineRequest = line;
+    hideOverlay();
+    notifyListeners();
+  }
+
+  void clearGoToLineRequest() {
+    goToLineRequest = null;
+  }
+
+  void insertSnippet(AfrilangSnippet snippet) {
+    final tab = activeTab;
+    if (tab == null) return;
+    final expanded = expandSnippet(snippet.body);
+    updateActiveContent(tab.content + (tab.content.endsWith('\n') ? '' : '\n') + expanded);
+    hideOverlay();
+    statusMessage = 'Inserted snippet ${snippet.label}';
+    notifyListeners();
+  }
+
+  void duplicateActiveLine() {
+    final tab = activeTab;
+    if (tab == null) return;
+    // caret unknown → duplicate last line
+    final offset = tab.content.length;
+    updateActiveContent(TextOps.duplicateLine(tab.content, offset));
+  }
+
+  void toggleActiveComment() {
+    final tab = activeTab;
+    if (tab == null) return;
+    final offset = tab.content.isEmpty ? 0 : tab.content.length - 1;
+    updateActiveContent(TextOps.toggleLineComment(tab.content, offset));
+  }
+
+  Future<void> formatActive() async {
+    final tab = activeTab;
+    if (tab == null) return;
+    await _formatTab(tab);
+    tab.markSaved();
+    await files.writeFile(tab.path, tab.content);
+    statusMessage = 'Formatted ${tab.name}';
+    notifyListeners();
+  }
+
+  Future<void> lintWorkspace() async {
+    if (workspaceRoot == null) {
+      statusMessage = 'No workspace';
+      notifyListeners();
+      return;
+    }
+    await _streamCli(['lint'], revealProblems: true);
+  }
+
+  Future<void> discardActiveChanges() async {
+    final tab = activeTab;
+    if (tab == null || !tab.dirty) return;
+    tab.content = tab.savedContent;
+    tab.dirty = false;
+    statusMessage = 'Discarded changes in ${tab.name}';
+    notifyListeners();
   }
 
   @override

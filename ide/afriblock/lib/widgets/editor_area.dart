@@ -50,7 +50,26 @@ class EditorArea extends StatelessWidget {
     }
 
     if (!wb.splitEditor) {
-      return editorStack(wb.activeTabIndex);
+      return Column(
+        children: [
+          if (wb.breadcrumbsForActive().isNotEmpty)
+            Container(
+              height: 26,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              alignment: Alignment.centerLeft,
+              color: AfriblockColors.surface,
+              child: Text(
+                wb.breadcrumbsForActive().join(' › '),
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 11.5,
+                  color: AfriblockColors.textMuted,
+                ),
+              ),
+            ),
+          Expanded(child: editorStack(wb.activeTabIndex)),
+        ],
+      );
     }
 
     return Row(

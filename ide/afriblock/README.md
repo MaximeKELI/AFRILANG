@@ -83,6 +83,9 @@ Package desktop builds: `bash scripts/package-afriblock.sh`.
 | E | PTY terminal, Git SCM, Find in Files |
 | F | Editor split, themes, plugin host + SDK doc, packaging script |
 
+Extra editor UX: Find/Replace (`Ctrl+F`), Go to Line (`Ctrl+G`), snippets,
+new `.afr` file, duplicate line, toggle comment, breadcrumbs, lint workspace.
+
 ```
 lib/
   workbench/ core/ project/ lsp/ debug/ git/ search/ terminal/ plugins/
