@@ -1,3 +1,6 @@
+// Dialog helpers use a global NavigatorKey; context-after-await is intentional.
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -39,15 +42,18 @@ Future<String> defaultProjectsRoot() async {
 }
 
 /// Creates a full AFRILANG project on disk and opens it in the IDE.
-Future<void> promptNewProject(BuildContext context) async {
-  final wb = context.read<WorkbenchController>();
+Future<void> promptNewProject([BuildContext? context]) async {
+  final ctx = _navContext ?? context;
+  if (ctx == null) return;
+  final wb = Provider.of<WorkbenchController>(ctx, listen: false);
   final projectsRoot = await defaultProjectsRoot();
   final nameCtrl = TextEditingController(text: 'mon_projet');
   final parentCtrl = TextEditingController(text: projectsRoot);
   String? error;
 
+  final dialogCtx = _navContext ?? ctx;
   final ok = await showDialog<bool>(
-    context: _navContext ?? context,
+    context: dialogCtx,
     builder: (ctx) {
       return StatefulBuilder(
         builder: (ctx, setLocal) {
@@ -176,7 +182,7 @@ Future<void> promptCreateFile(BuildContext context, {String? parentDir}) async {
       ),
     );
     if (choice == 'project') {
-      await promptNewProject(context);
+      await promptNewProject();
       if (wb.workspaceRoot == null) return;
     } else if (choice == 'untitled') {
       wb.openUntitledBuffer();
@@ -187,8 +193,10 @@ Future<void> promptCreateFile(BuildContext context, {String? parentDir}) async {
   }
 
   final parent = parentDir ?? wb.createTargetDirectory();
+  final nav = _navContext;
+  if (nav == null) return;
   final name = await _promptName(
-    ctx,
+    nav,
     title: 'Nouveau fichier',
     hint: 'main.afr',
     subtitle: 'dans ${wb.relativePath(parent)}',
@@ -224,7 +232,7 @@ Future<void> promptCreateFolder(BuildContext context, {String? parentDir}) async
       ),
     );
     if (go == true) {
-      await promptNewProject(context);
+      await promptNewProject();
       if (wb.workspaceRoot == null) return;
     } else {
       return;
@@ -232,8 +240,10 @@ Future<void> promptCreateFolder(BuildContext context, {String? parentDir}) async
   }
 
   final parent = parentDir ?? wb.createTargetDirectory();
+  final nav = _navContext;
+  if (nav == null) return;
   final name = await _promptName(
-    ctx,
+    nav,
     title: 'Nouveau dossier',
     hint: 'src',
     subtitle: 'dans ${wb.relativePath(parent)}',
