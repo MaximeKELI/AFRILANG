@@ -20,6 +20,8 @@ struct CacheFingerprintInput {
     bool coverageMode = false;
     std::string runtimeDir;
     std::string stdlibStamp;
+    /** Host opt/LTO/extra flags — invalidate cache when AFRILANG_OPT_LEVEL etc. change. */
+    std::string optStamp;
 };
 
 class CompileCache {

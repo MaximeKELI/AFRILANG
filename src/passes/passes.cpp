@@ -5,6 +5,7 @@
 #include <cmath>
 #include <memory>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -16,8 +17,10 @@ bool almostEqual(double a, double b) {
 }
 
 std::unique_ptr<ExpressionNode> foldExpr(std::unique_ptr<ExpressionNode> expr);
-
+std::unique_ptr<ExpressionNode> cloneExpr(const ExpressionNode* e);
 void foldStmtList(std::vector<std::unique_ptr<StatementNode>>& stmts);
+void foldStmt(std::unique_ptr<StatementNode>& stmt);
+void pruneUnreachable(std::vector<std::unique_ptr<StatementNode>>& stmts);
 
 const NumberLiteralNode* asNumber(const ExpressionNode* e) {
     return dynamic_cast<const NumberLiteralNode*>(e);
@@ -27,6 +30,259 @@ const BoolLiteralNode* asBool(const ExpressionNode* e) {
 }
 const StringLiteralNode* asString(const ExpressionNode* e) {
     return dynamic_cast<const StringLiteralNode*>(e);
+}
+const IdentifierNode* asIdent(const ExpressionNode* e) {
+    return dynamic_cast<const IdentifierNode*>(e);
+}
+
+bool isLiteralExpr(const ExpressionNode* e) {
+    return asNumber(e) || asBool(e) || asString(e);
+}
+
+std::unique_ptr<ExpressionNode> cloneExpr(const ExpressionNode* e) {
+    if (!e) return nullptr;
+    if (const auto* n = asNumber(e)) {
+        return std::make_unique<NumberLiteralNode>(n->value, n->isInteger);
+    }
+    if (const auto* b = asBool(e)) return std::make_unique<BoolLiteralNode>(b->value);
+    if (const auto* s = asString(e)) return std::make_unique<StringLiteralNode>(s->value);
+    if (const auto* id = asIdent(e)) return std::make_unique<IdentifierNode>(id->name);
+    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(e)) {
+        return std::make_unique<BinaryOpNode>(bin->op, cloneExpr(bin->left.get()),
+                                              cloneExpr(bin->right.get()));
+    }
+    if (const auto* un = dynamic_cast<const UnaryOpNode*>(e)) {
+        return std::make_unique<UnaryOpNode>(un->op, cloneExpr(un->operand.get()));
+    }
+    return nullptr;
+}
+
+using ConstEnv = std::unordered_map<std::string, std::unique_ptr<ExpressionNode>>;
+
+std::unique_ptr<ExpressionNode> substEnv(std::unique_ptr<ExpressionNode> expr, const ConstEnv& env) {
+    if (!expr) return expr;
+    if (auto* id = dynamic_cast<IdentifierNode*>(expr.get())) {
+        const auto it = env.find(id->name);
+        if (it != env.end() && it->second) return cloneExpr(it->second.get());
+        return expr;
+    }
+    if (auto* bin = dynamic_cast<BinaryOpNode*>(expr.get())) {
+        bin->left = substEnv(std::move(bin->left), env);
+        bin->right = substEnv(std::move(bin->right), env);
+        return expr;
+    }
+    if (auto* un = dynamic_cast<UnaryOpNode*>(expr.get())) {
+        un->operand = substEnv(std::move(un->operand), env);
+        return expr;
+    }
+    if (auto* call = dynamic_cast<CallExpressionNode*>(expr.get())) {
+        call->callee = substEnv(std::move(call->callee), env);
+        for (auto& arg : call->arguments) arg = substEnv(std::move(arg), env);
+        return expr;
+    }
+    if (auto* list = dynamic_cast<ListLiteralNode*>(expr.get())) {
+        for (auto& el : list->elements) el = substEnv(std::move(el), env);
+        return expr;
+    }
+    if (auto* idx = dynamic_cast<IndexExpressionNode*>(expr.get())) {
+        idx->object = substEnv(std::move(idx->object), env);
+        idx->index = substEnv(std::move(idx->index), env);
+        return expr;
+    }
+    if (auto* orElse = dynamic_cast<OrElseExprNode*>(expr.get())) {
+        orElse->value = substEnv(std::move(orElse->value), env);
+        orElse->fallback = substEnv(std::move(orElse->fallback), env);
+        return expr;
+    }
+    return expr;
+}
+
+std::unique_ptr<ExpressionNode> substFold(std::unique_ptr<ExpressionNode> expr, const ConstEnv& env) {
+    return foldExpr(substEnv(std::move(expr), env));
+}
+
+void countIdentUses(const ExpressionNode* e, std::unordered_map<std::string, int>& uses) {
+    if (!e) return;
+    if (const auto* id = asIdent(e)) {
+        ++uses[id->name];
+        return;
+    }
+    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(e)) {
+        countIdentUses(bin->left.get(), uses);
+        countIdentUses(bin->right.get(), uses);
+        return;
+    }
+    if (const auto* un = dynamic_cast<const UnaryOpNode*>(e)) {
+        countIdentUses(un->operand.get(), uses);
+        return;
+    }
+    if (const auto* call = dynamic_cast<const CallExpressionNode*>(e)) {
+        countIdentUses(call->callee.get(), uses);
+        for (const auto& arg : call->arguments) countIdentUses(arg.get(), uses);
+        return;
+    }
+    if (const auto* list = dynamic_cast<const ListLiteralNode*>(e)) {
+        for (const auto& el : list->elements) countIdentUses(el.get(), uses);
+        return;
+    }
+    if (const auto* idx = dynamic_cast<const IndexExpressionNode*>(e)) {
+        countIdentUses(idx->object.get(), uses);
+        countIdentUses(idx->index.get(), uses);
+        return;
+    }
+    if (const auto* orElse = dynamic_cast<const OrElseExprNode*>(e)) {
+        countIdentUses(orElse->value.get(), uses);
+        countIdentUses(orElse->fallback.get(), uses);
+    }
+}
+
+void countStmtUses(const StatementNode* stmt, std::unordered_map<std::string, int>& uses) {
+    if (!stmt) return;
+    if (const auto* a = dynamic_cast<const AssignStatementNode*>(stmt)) {
+        countIdentUses(a->value.get(), uses);
+        return;
+    }
+    if (const auto* s = dynamic_cast<const SetStatementNode*>(stmt)) {
+        countIdentUses(s->target.get(), uses);
+        countIdentUses(s->value.get(), uses);
+        return;
+    }
+    if (const auto* say = dynamic_cast<const SayStatementNode*>(stmt)) {
+        countIdentUses(say->value.get(), uses);
+        return;
+    }
+    if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(stmt)) {
+        countIdentUses(ret->value.get(), uses);
+        return;
+    }
+    if (const auto* asrt = dynamic_cast<const AssertStatementNode*>(stmt)) {
+        countIdentUses(asrt->condition.get(), uses);
+        return;
+    }
+    if (const auto* ex = dynamic_cast<const ExpressionStatementNode*>(stmt)) {
+        countIdentUses(ex->expression.get(), uses);
+        return;
+    }
+    if (const auto* iff = dynamic_cast<const IfStatementNode*>(stmt)) {
+        countIdentUses(iff->condition.get(), uses);
+        for (const auto& st : iff->thenBody) countStmtUses(st.get(), uses);
+        for (const auto& st : iff->elseBody) countStmtUses(st.get(), uses);
+        return;
+    }
+    if (const auto* w = dynamic_cast<const WhileStatementNode*>(stmt)) {
+        countIdentUses(w->condition.get(), uses);
+        for (const auto& st : w->body) countStmtUses(st.get(), uses);
+        return;
+    }
+    if (const auto* fr = dynamic_cast<const ForRangeStatementNode*>(stmt)) {
+        countIdentUses(fr->start.get(), uses);
+        countIdentUses(fr->end.get(), uses);
+        countIdentUses(fr->step.get(), uses);
+        for (const auto& st : fr->body) countStmtUses(st.get(), uses);
+        return;
+    }
+    if (const auto* fe = dynamic_cast<const ForEachStatementNode*>(stmt)) {
+        countIdentUses(fe->list.get(), uses);
+        for (const auto& st : fe->body) countStmtUses(st.get(), uses);
+    }
+}
+
+void dcePureAndUnused(std::vector<std::unique_ptr<StatementNode>>& stmts) {
+    std::unordered_map<std::string, int> uses;
+    for (const auto& st : stmts) countStmtUses(st.get(), uses);
+
+    std::vector<std::unique_ptr<StatementNode>> out;
+    out.reserve(stmts.size());
+    for (auto& stmt : stmts) {
+        if (auto* ex = dynamic_cast<ExpressionStatementNode*>(stmt.get())) {
+            if (isLiteralExpr(ex->expression.get()) || asIdent(ex->expression.get())) {
+                continue; // pure no-op
+            }
+        }
+        if (auto* a = dynamic_cast<AssignStatementNode*>(stmt.get())) {
+            if (a->propagate == ResultPropagation::None && isLiteralExpr(a->value.get()) &&
+                uses[a->name] == 0) {
+                continue; // unused literal binding
+            }
+        }
+        out.push_back(std::move(stmt));
+    }
+    stmts = std::move(out);
+}
+
+void localConstPropList(std::vector<std::unique_ptr<StatementNode>>& stmts, ConstEnv env);
+
+void localConstPropList(std::vector<std::unique_ptr<StatementNode>>& stmts, ConstEnv env) {
+    for (auto& stmt : stmts) {
+        if (!stmt) continue;
+        if (auto* assign = dynamic_cast<AssignStatementNode*>(stmt.get())) {
+            if (assign->value) assign->value = substFold(std::move(assign->value), env);
+            if (isLiteralExpr(assign->value.get())) {
+                env[assign->name] = cloneExpr(assign->value.get());
+            } else {
+                env.erase(assign->name);
+            }
+            continue;
+        }
+        if (auto* setStmt = dynamic_cast<SetStatementNode*>(stmt.get())) {
+            if (setStmt->value) setStmt->value = substFold(std::move(setStmt->value), env);
+            if (auto* tid = dynamic_cast<IdentifierNode*>(setStmt->target.get())) {
+                if (isLiteralExpr(setStmt->value.get())) {
+                    env[tid->name] = cloneExpr(setStmt->value.get());
+                } else {
+                    env.erase(tid->name);
+                }
+            } else {
+                env.clear();
+            }
+            continue;
+        }
+        if (auto* say = dynamic_cast<SayStatementNode*>(stmt.get())) {
+            if (say->value) say->value = substFold(std::move(say->value), env);
+            continue;
+        }
+        if (auto* ret = dynamic_cast<ReturnStatementNode*>(stmt.get())) {
+            if (ret->value) ret->value = substFold(std::move(ret->value), env);
+            continue;
+        }
+        if (auto* assertStmt = dynamic_cast<AssertStatementNode*>(stmt.get())) {
+            if (assertStmt->condition)
+                assertStmt->condition = substFold(std::move(assertStmt->condition), env);
+            continue;
+        }
+        if (auto* raiseStmt = dynamic_cast<RaiseStatementNode*>(stmt.get())) {
+            if (raiseStmt->message)
+                raiseStmt->message = substFold(std::move(raiseStmt->message), env);
+            continue;
+        }
+        if (auto* exprStmt = dynamic_cast<ExpressionStatementNode*>(stmt.get())) {
+            if (exprStmt->expression)
+                exprStmt->expression = substFold(std::move(exprStmt->expression), env);
+            continue;
+        }
+        if (auto* ifStmt = dynamic_cast<IfStatementNode*>(stmt.get())) {
+            ifStmt->condition = substFold(std::move(ifStmt->condition), env);
+            auto copyEnv = [](const ConstEnv& src) {
+                ConstEnv dst;
+                for (const auto& [k, v] : src) {
+                    if (v) dst[k] = cloneExpr(v.get());
+                }
+                return dst;
+            };
+            ConstEnv thenEnv = copyEnv(env);
+            ConstEnv elseEnv = copyEnv(env);
+            localConstPropList(ifStmt->thenBody, std::move(thenEnv));
+            localConstPropList(ifStmt->elseBody, std::move(elseEnv));
+            // Conservative: drop facts that may diverge across branches
+            env.clear();
+            continue;
+        }
+        // Loops / other: invalidate and fall back to structural fold
+        env.clear();
+        foldStmt(stmt);
+    }
+    pruneUnreachable(stmts);
+    dcePureAndUnused(stmts);
 }
 
 std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
@@ -103,6 +359,32 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
         }
     }
 
+    // Strength reduce: x * 2 → x + x (then re-fold if x is literal)
+    if (bin->op == "*") {
+        if (const auto* rn = asNumber(bin->right.get()); rn && almostEqual(rn->value, 2.0)) {
+            auto dup = cloneExpr(bin->left.get());
+            if (dup) {
+                return foldExpr(std::make_unique<BinaryOpNode>("+", std::move(bin->left),
+                                                               std::move(dup)));
+            }
+        }
+        if (const auto* ln = asNumber(bin->left.get()); ln && almostEqual(ln->value, 2.0)) {
+            auto dup = cloneExpr(bin->right.get());
+            if (dup) {
+                return foldExpr(std::make_unique<BinaryOpNode>("+", std::move(bin->right),
+                                                               std::move(dup)));
+            }
+        }
+    }
+    // x - x → 0 when both sides are the same identifier
+    if (bin->op == "-") {
+        const auto* li = asIdent(bin->left.get());
+        const auto* ri = asIdent(bin->right.get());
+        if (li && ri && li->name == ri->name) {
+            return std::make_unique<NumberLiteralNode>(0.0, true);
+        }
+    }
+
     return bin;
 }
 
@@ -175,6 +457,7 @@ void foldStmt(std::unique_ptr<StatementNode>& stmt);
 void foldStmtList(std::vector<std::unique_ptr<StatementNode>>& stmts) {
     for (auto& stmt : stmts) foldStmt(stmt);
     pruneUnreachable(stmts);
+    localConstPropList(stmts, ConstEnv{});
 }
 
 void foldStmt(std::unique_ptr<StatementNode>& stmt) {

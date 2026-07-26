@@ -20,7 +20,7 @@ done
 AFRILANG_OPT_LEVEL=1 "$AFR" run "$ROOT/examples/hello.afr" >/dev/null
 
 # Micro benchmark JSON
-"$AFR" benchmark --json --micro >/tmp/afrilang_gap4_micro.json
+"$AFR" benchmark --json --micro 2>/dev/null >/tmp/afrilang_gap4_micro.json
 python3 - <<'PY'
 import json
 d=json.load(open("/tmp/afrilang_gap4_micro.json"))
@@ -31,6 +31,6 @@ print(f"  micro {r.get('file', r.get('name', '?'))}: compile={r['compile_ms']}ms
 PY
 
 if [[ -x "$ROOT/build/afrilang_tests" ]]; then
-  "$ROOT/build/afrilang_tests" >/dev/null
+  "$ROOT/build/afrilang_tests" >/dev/null 2>&1
 fi
 echo "[gap4] ok"

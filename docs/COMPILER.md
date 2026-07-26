@@ -14,13 +14,16 @@
 Il existe un **mid-end langage** (pas un IR SSA / LLVM) :
 
 1. **Mid-IR CFG** (`include/afrilang/ir/ir.hpp`, `src/passes/mid_ir.cpp`) — lower AST →
-   blocs / termineurs, const-prop, simplify-cfg, DCE des blocs inatteignables, raise AST.
-2. **Passe AST résiduelle** (`src/passes/passes.cpp`) — constant folding et cleanup sur
-   formes non couvertes par le Mid-IR.
+   blocs / termineurs, fold de littéraux + identités (`x+0`, `x*1`, …), simplify-cfg,
+   DCE des blocs inatteignables, raise AST.
+2. **Passe AST résiduelle** (`src/passes/passes.cpp`) — même famille de folds + cleanup
+   sur formes non couvertes par le Mid-IR.
 
-Les optimisations lourdes restent déléguées au compilateur hôte (`-O2`).
+Les optimisations lourdes restent déléguées au compilateur hôte (`-O2` ; catalogue
+complex → `-O1` ; override `AFRILANG_OPT_LEVEL` / LTO `AFRILANG_LTO=1`).
 Pas de claim « aussi rapide que Rust/C++ » ni backend LLVM.
 
+Preuves & flags : [`PERF.md`](PERF.md). Gaps : [`GAPS.md`](GAPS.md).
 Voir aussi : `docs/PLATFORM.md`, `docs/WASM_COMPAT.md`.
 
 ## Sûreté d’indexation et d’accès

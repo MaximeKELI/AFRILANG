@@ -2,8 +2,10 @@
 
 #include <algorithm>
 #include <cmath>
+#include <functional>
 #include <memory>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -62,6 +64,27 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
             return std::make_unique<NumberLiteralNode>(0.0, rn->isInteger);
         }
         if (bin->op == "/" && almostEqual(rn->value, 1.0)) return std::move(bin->left);
+        if (bin->op == "*" && almostEqual(rn->value, 2.0)) {
+            // Strength reduce x*2 → x+x (clone left)
+            if (auto* id = dynamic_cast<IdentifierNode*>(bin->left.get())) {
+                auto left2 = std::make_unique<IdentifierNode>(id->name);
+                return foldExpr(std::make_unique<BinaryOpNode>("+", std::move(bin->left),
+                                                               std::move(left2)));
+            }
+            if (asNumber(bin->left.get())) {
+                auto left2 = std::make_unique<NumberLiteralNode>(
+                    asNumber(bin->left.get())->value, asNumber(bin->left.get())->isInteger);
+                return foldExpr(std::make_unique<BinaryOpNode>("+", std::move(bin->left),
+                                                               std::move(left2)));
+            }
+        }
+    }
+    if (bin->op == "-") {
+        const auto* li = dynamic_cast<IdentifierNode*>(bin->left.get());
+        const auto* ri = dynamic_cast<IdentifierNode*>(bin->right.get());
+        if (li && ri && li->name == ri->name) {
+            return std::make_unique<NumberLiteralNode>(0.0, true);
+        }
     }
     if (const auto* lb = asBool(bin->left.get())) {
         if (const auto* rb = asBool(bin->right.get())) {
@@ -345,12 +368,70 @@ void markReachable(FunctionIR& ir, int id) {
 
 void simplifyCfg(FunctionIR& ir) {
     for (auto& b : ir.blocks) {
+        // Per-block local const-prop (literal bindings only)
+        std::unordered_map<std::string, std::unique_ptr<ExpressionNode>> env;
+        std::function<std::unique_ptr<ExpressionNode>(std::unique_ptr<ExpressionNode>)> subst;
+        subst = [&](std::unique_ptr<ExpressionNode> e) -> std::unique_ptr<ExpressionNode> {
+            if (!e) return e;
+            if (auto* id = dynamic_cast<IdentifierNode*>(e.get())) {
+                const auto it = env.find(id->name);
+                if (it != env.end() && it->second) {
+                    if (const auto* n = asNumber(it->second.get())) {
+                        return std::make_unique<NumberLiteralNode>(n->value, n->isInteger);
+                    }
+                    if (const auto* bv = asBool(it->second.get())) {
+                        return std::make_unique<BoolLiteralNode>(bv->value);
+                    }
+                    if (const auto* s = asString(it->second.get())) {
+                        return std::make_unique<StringLiteralNode>(s->value);
+                    }
+                }
+            }
+            if (auto* bin = dynamic_cast<BinaryOpNode*>(e.get())) {
+                bin->left = subst(std::move(bin->left));
+                bin->right = subst(std::move(bin->right));
+            } else if (auto* un = dynamic_cast<UnaryOpNode*>(e.get())) {
+                un->operand = subst(std::move(un->operand));
+            }
+            return e;
+        };
         for (auto& in : b.instrs) {
-            if (in.value) in.value = foldExpr(std::move(in.value));
-            if (in.target) in.target = foldExpr(std::move(in.target));
+            if (in.value) in.value = foldExpr(subst(std::move(in.value)));
+            if (in.target) in.target = foldExpr(subst(std::move(in.target)));
+            if (in.kind == InstrKind::Assign) {
+                if (asNumber(in.value.get()) || asBool(in.value.get()) || asString(in.value.get())) {
+                    if (const auto* n = asNumber(in.value.get())) {
+                        env[in.name] = std::make_unique<NumberLiteralNode>(n->value, n->isInteger);
+                    } else if (const auto* bv = asBool(in.value.get())) {
+                        env[in.name] = std::make_unique<BoolLiteralNode>(bv->value);
+                    } else if (const auto* s = asString(in.value.get())) {
+                        env[in.name] = std::make_unique<StringLiteralNode>(s->value);
+                    }
+                } else {
+                    env.erase(in.name);
+                }
+            } else if (in.kind == InstrKind::Set) {
+                if (auto* tid = dynamic_cast<IdentifierNode*>(in.target.get())) {
+                    if (asNumber(in.value.get()) || asBool(in.value.get()) ||
+                        asString(in.value.get())) {
+                        if (const auto* n = asNumber(in.value.get())) {
+                            env[tid->name] =
+                                std::make_unique<NumberLiteralNode>(n->value, n->isInteger);
+                        } else if (const auto* bv = asBool(in.value.get())) {
+                            env[tid->name] = std::make_unique<BoolLiteralNode>(bv->value);
+                        } else if (const auto* s = asString(in.value.get())) {
+                            env[tid->name] = std::make_unique<StringLiteralNode>(s->value);
+                        }
+                    } else {
+                        env.erase(tid->name);
+                    }
+                } else {
+                    env.clear();
+                }
+            }
         }
         if (b.term.kind == TermKind::Branch && b.term.cond) {
-            b.term.cond = foldExpr(std::move(b.term.cond));
+            b.term.cond = foldExpr(subst(std::move(b.term.cond)));
             if (const auto* c = asBool(b.term.cond.get())) {
                 Terminator j;
                 j.kind = TermKind::Jump;
@@ -358,7 +439,7 @@ void simplifyCfg(FunctionIR& ir) {
                 b.term = std::move(j);
             }
         }
-        if (b.term.value) b.term.value = foldExpr(std::move(b.term.value));
+        if (b.term.value) b.term.value = foldExpr(subst(std::move(b.term.value)));
     }
     for (auto& b : ir.blocks) b.reachable = false;
     if (!ir.blocks.empty()) markReachable(ir, 0);

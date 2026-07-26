@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-07-26T17:56:11Z",
+  "compiler_version": "1.0.0",
+  "platform": "linux-x86_64",
+  "results": [
+    {
+      "file": "hello.afr",
+      "slug": "hello",
+      "compile_ms": 76,
+      "exec_ms": 17,
+      "total_ms": 125
+    }
+  ],
+  "comparisons": [
+    {
+      "name": "hello",
+      "label": "hello.afr",
+      "afrilang_exec_ms": 18,
+      "python_ms": 35
+    }
+  ],
+  "is_sample": true,
+  "note": "Informational host sample; regenerate with: afrilang benchmark --json --micro"
+}

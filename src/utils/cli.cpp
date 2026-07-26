@@ -375,6 +375,15 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         fpIn.coverageMode = options.coverageMode;
         fpIn.runtimeDir = runtimeDir;
         fpIn.stdlibStamp = "stdlib-v2-batteries";
+        {
+            std::ostringstream opt;
+            if (const char* e = std::getenv("AFRILANG_OPT_LEVEL")) opt << "O=" << e;
+            else opt << "O=default";
+            if (const char* l = std::getenv("AFRILANG_LTO")) opt << ";LTO=" << l;
+            else opt << ";LTO=0";
+            if (const char* x = std::getenv("AFRILANG_EXTRA_CXXFLAGS")) opt << ";X=" << x;
+            fpIn.optStamp = opt.str();
+        }
         const std::string fingerprint = CompileCache::buildFingerprint(fpIn);
 
         if (options.useCache) {

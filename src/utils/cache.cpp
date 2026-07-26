@@ -80,6 +80,7 @@ std::string CompileCache::buildFingerprint(const CacheFingerprintInput& input) {
     acc << "cov=" << (input.coverageMode ? '1' : '0') << '\n';
     acc << "runtime=" << runtimeFingerprint(input.runtimeDir) << '\n';
     acc << "stdlib=" << input.stdlibStamp << '\n';
+    acc << "opt=" << input.optStamp << '\n';
     acc << "source=" << hashContent(input.sourceContent) << '\n';
     for (const auto& imp : input.importContents) {
         acc << "import=" << hashContent(imp) << '\n';

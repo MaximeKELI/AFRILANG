@@ -1215,7 +1215,11 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
         if (decorator == "inline") emitInline = true;
     }
     if (emitInline) {
+#if defined(__GNUC__) || defined(__clang__)
+        out << "[[gnu::always_inline]] inline ";
+#else
         out << "inline ";
+#endif
     }
     if (func.isStatic) {
         out << "static ";
