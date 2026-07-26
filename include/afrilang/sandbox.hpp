@@ -47,4 +47,13 @@ int runCommand(const std::vector<std::string>& args,
 
 bool isPathInsideRoot(const std::string& root, const std::string& candidate);
 
+#if !defined(_WIN32)
+/** Strip Flutter/Dart snap dirs from PATH and prefer host /usr/bin. */
+std::string sanitizeHostToolchainPath(const char* pathEnv);
+/** Filter LD_LIBRARY_PATH / LIBRARY_PATH / … — empty means unset. */
+std::string sanitizeColonPathList(const char* value);
+/** Apply PATH + lib-path sanitization to the current process environ. */
+void ensureHostToolchainPath();
+#endif
+
 } // namespace afrilang

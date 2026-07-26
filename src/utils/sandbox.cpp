@@ -42,101 +42,6 @@ namespace afrilang {
 
 namespace {
 
-#if !defined(_WIN32)
-// Flutter snap prepends /snap/flutter/.../usr/bin with binutils too old for
-// g++ --gdwarf-5. Strip those entries and prefer host /usr/bin for assembles.
-std::string sanitizeHostToolchainPath(const char* pathEnv) {
-    std::string cleaned;
-    const std::string prefer[] = {"/usr/bin", "/bin", "/usr/local/bin"};
-    auto appendUnique = [&](const std::string& part) {
-        if (part.empty()) return;
-        if (!cleaned.empty()) {
-            // Already present?
-            std::string needle = ":" + part + ":";
-            if ((":" + cleaned + ":").find(needle) != std::string::npos) return;
-        } else if (cleaned == part) {
-            return;
-        }
-        if (!cleaned.empty()) cleaned += ':';
-        cleaned += part;
-    };
-    for (const auto& p : prefer) appendUnique(p);
-    if (pathEnv == nullptr || pathEnv[0] == '\0') return cleaned;
-
-    std::string cur;
-    for (const char* p = pathEnv;; ++p) {
-        if (*p == ':' || *p == '\0') {
-            if (!cur.empty()) {
-                const bool snapFlutter =
-                    cur.find("/snap/flutter/") != std::string::npos ||
-                    cur.find("/snap/dart-sdk/") != std::string::npos;
-                if (!snapFlutter) appendUnique(cur);
-            }
-            cur.clear();
-            if (*p == '\0') break;
-        } else {
-            cur += *p;
-        }
-    }
-    return cleaned;
-}
-
-// Filter colon-separated path lists (LD_LIBRARY_PATH, LIBRARY_PATH, …).
-// Unlike PATH we do not prepend /usr/bin — empty result means unset.
-std::string sanitizeColonPathList(const char* value) {
-    if (value == nullptr || value[0] == '\0') return {};
-    std::string cleaned;
-    std::string cur;
-    auto appendUnique = [&](const std::string& part) {
-        if (part.empty()) return;
-        if (part.find("/snap/flutter/") != std::string::npos ||
-            part.find("/snap/dart-sdk/") != std::string::npos) {
-            return;
-        }
-        if (!cleaned.empty()) {
-            const std::string needle = ":" + part + ":";
-            if ((":" + cleaned + ":").find(needle) != std::string::npos) return;
-        }
-        if (!cleaned.empty()) cleaned += ':';
-        cleaned += part;
-    };
-    for (const char* p = value;; ++p) {
-        if (*p == ':' || *p == '\0') {
-            appendUnique(cur);
-            cur.clear();
-            if (*p == '\0') break;
-        } else {
-            cur += *p;
-        }
-    }
-    return cleaned;
-}
-
-void ensureHostToolchainPath() {
-    const char* path = std::getenv("PATH");
-    const std::string clean = sanitizeHostToolchainPath(path);
-    if (!clean.empty()) {
-        ::setenv("PATH", clean.c_str(), 1);
-    }
-    // Snap Flutter puts its old glibc on LD_LIBRARY_PATH / LIBRARY_PATH;
-    // host g++ then links libstdc++ against symbols missing from that libc.
-    static const char* kLibVars[] = {
-        "LD_LIBRARY_PATH", "LIBRARY_PATH", "COMPILER_PATH",
-        "C_INCLUDE_PATH", "CPLUS_INCLUDE_PATH", "CPATH", "PKG_CONFIG_PATH",
-    };
-    for (const char* key : kLibVars) {
-        const char* v = std::getenv(key);
-        if (v == nullptr) continue;
-        const std::string cleaned = sanitizeColonPathList(v);
-        if (cleaned.empty()) {
-            ::unsetenv(key);
-        } else if (cleaned != v) {
-            ::setenv(key, cleaned.c_str(), 1);
-        }
-    }
-}
-#endif
-
 std::string readOutputCapped(const std::string& path, std::size_t maxBytes, bool& truncated) {
     std::ifstream in(path, std::ios::binary);
     if (!in) return {};
@@ -524,6 +429,98 @@ pid_t spawnProcess(const std::string& executable,
 #endif // !_WIN32
 
 } // namespace
+
+#if !defined(_WIN32)
+// Flutter snap prepends /snap/flutter/.../usr/bin with binutils too old for
+// g++ --gdwarf-5. Strip those entries and prefer host /usr/bin for assembles.
+std::string sanitizeHostToolchainPath(const char* pathEnv) {
+    std::string cleaned;
+    const std::string prefer[] = {"/usr/bin", "/bin", "/usr/local/bin"};
+    auto appendUnique = [&](const std::string& part) {
+        if (part.empty()) return;
+        if (!cleaned.empty()) {
+            const std::string needle = ":" + part + ":";
+            if ((":" + cleaned + ":").find(needle) != std::string::npos) return;
+        }
+        if (!cleaned.empty()) cleaned += ':';
+        cleaned += part;
+    };
+    for (const auto& p : prefer) appendUnique(p);
+    if (pathEnv == nullptr || pathEnv[0] == '\0') return cleaned;
+
+    std::string cur;
+    for (const char* p = pathEnv;; ++p) {
+        if (*p == ':' || *p == '\0') {
+            if (!cur.empty()) {
+                const bool snapFlutter =
+                    cur.find("/snap/flutter/") != std::string::npos ||
+                    cur.find("/snap/dart-sdk/") != std::string::npos;
+                if (!snapFlutter) appendUnique(cur);
+            }
+            cur.clear();
+            if (*p == '\0') break;
+        } else {
+            cur += *p;
+        }
+    }
+    return cleaned;
+}
+
+// Filter colon-separated path lists (LD_LIBRARY_PATH, LIBRARY_PATH, …).
+// Unlike PATH we do not prepend /usr/bin — empty result means unset.
+std::string sanitizeColonPathList(const char* value) {
+    if (value == nullptr || value[0] == '\0') return {};
+    std::string cleaned;
+    std::string cur;
+    auto appendUnique = [&](const std::string& part) {
+        if (part.empty()) return;
+        if (part.find("/snap/flutter/") != std::string::npos ||
+            part.find("/snap/dart-sdk/") != std::string::npos) {
+            return;
+        }
+        if (!cleaned.empty()) {
+            const std::string needle = ":" + part + ":";
+            if ((":" + cleaned + ":").find(needle) != std::string::npos) return;
+        }
+        if (!cleaned.empty()) cleaned += ':';
+        cleaned += part;
+    };
+    for (const char* p = value;; ++p) {
+        if (*p == ':' || *p == '\0') {
+            appendUnique(cur);
+            cur.clear();
+            if (*p == '\0') break;
+        } else {
+            cur += *p;
+        }
+    }
+    return cleaned;
+}
+
+void ensureHostToolchainPath() {
+    const char* path = std::getenv("PATH");
+    const std::string clean = sanitizeHostToolchainPath(path);
+    if (!clean.empty()) {
+        ::setenv("PATH", clean.c_str(), 1);
+    }
+    // Snap Flutter puts its old glibc on LD_LIBRARY_PATH / LIBRARY_PATH;
+    // host g++ then links libstdc++ against symbols missing from that libc.
+    static const char* kLibVars[] = {
+        "LD_LIBRARY_PATH", "LIBRARY_PATH", "COMPILER_PATH",
+        "C_INCLUDE_PATH", "CPLUS_INCLUDE_PATH", "CPATH", "PKG_CONFIG_PATH",
+    };
+    for (const char* key : kLibVars) {
+        const char* v = std::getenv(key);
+        if (v == nullptr) continue;
+        const std::string cleaned = sanitizeColonPathList(v);
+        if (cleaned.empty()) {
+            ::unsetenv(key);
+        } else if (cleaned != v) {
+            ::setenv(key, cleaned.c_str(), 1);
+        }
+    }
+}
+#endif
 
 bool isPathInsideRoot(const std::string& root, const std::string& candidate) {
     try {

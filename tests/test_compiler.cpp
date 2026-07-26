@@ -840,6 +840,74 @@ static void testJsonStringLiteralParse() {
     analyzer.analyze();
 }
 
+static void testHostToolchainSanitize() {
+#if defined(_WIN32)
+    (void)0;
+#else
+    {
+        const std::string clean = afrilang::sanitizeHostToolchainPath(
+            "/snap/flutter/current/usr/bin:/home/u/.local/bin:/usr/bin:/bin");
+        expect(clean.find("/snap/flutter/") == std::string::npos,
+               "sanitizeHostToolchainPath strips snap flutter");
+        expect(clean.rfind("/usr/bin", 0) == 0, "sanitizeHostToolchainPath prefers /usr/bin");
+        expect(clean.find("/home/u/.local/bin") != std::string::npos,
+               "sanitizeHostToolchainPath keeps user bins");
+    }
+    {
+        const std::string clean = afrilang::sanitizeHostToolchainPath(
+            "/snap/dart-sdk/bin:/opt/tools:/usr/local/bin");
+        expect(clean.find("/snap/dart-sdk/") == std::string::npos,
+               "sanitizeHostToolchainPath strips snap dart-sdk");
+        expect(clean.find("/opt/tools") != std::string::npos,
+               "sanitizeHostToolchainPath keeps /opt/tools");
+    }
+    {
+        const std::string empty = afrilang::sanitizeHostToolchainPath(nullptr);
+        expect(empty.find("/usr/bin") != std::string::npos,
+               "sanitizeHostToolchainPath nullptr still prefers host bins");
+    }
+    {
+        const std::string libs = afrilang::sanitizeColonPathList(
+            "/snap/flutter/current/usr/lib/x86_64-linux-gnu:/opt/extra/lib");
+        expect(libs == "/opt/extra/lib",
+               "sanitizeColonPathList keeps non-snap LD entries");
+    }
+    {
+        const std::string onlySnap = afrilang::sanitizeColonPathList(
+            "/snap/flutter/current/usr/lib/x86_64-linux-gnu");
+        expect(onlySnap.empty(), "sanitizeColonPathList empties snap-only LIBRARY_PATH");
+    }
+    {
+        const std::string dup = afrilang::sanitizeColonPathList("/opt/a:/opt/a:/opt/b");
+        expect(dup == "/opt/a:/opt/b", "sanitizeColonPathList dedupes");
+    }
+    {
+        // ensureHostToolchainPath mutates process environ — save/restore.
+        const char* oldPath = std::getenv("PATH");
+        const char* oldLd = std::getenv("LD_LIBRARY_PATH");
+        const std::string savedPath = oldPath ? oldPath : "";
+        const std::string savedLd = oldLd ? oldLd : "";
+        const bool hadLd = oldLd != nullptr;
+
+        ::setenv("PATH", "/snap/flutter/current/usr/bin:/usr/bin:/bin", 1);
+        ::setenv("LD_LIBRARY_PATH",
+                 "/snap/flutter/current/usr/lib/x86_64-linux-gnu:/usr/lib", 1);
+        afrilang::ensureHostToolchainPath();
+        const char* path = std::getenv("PATH");
+        const char* ld = std::getenv("LD_LIBRARY_PATH");
+        expect(path != nullptr && std::string(path).find("/snap/flutter/") == std::string::npos,
+               "ensureHostToolchainPath cleans PATH");
+        expect(ld != nullptr && std::string(ld) == "/usr/lib",
+               "ensureHostToolchainPath cleans LD_LIBRARY_PATH");
+
+        if (savedPath.empty()) ::unsetenv("PATH");
+        else ::setenv("PATH", savedPath.c_str(), 1);
+        if (!hadLd) ::unsetenv("LD_LIBRARY_PATH");
+        else ::setenv("LD_LIBRARY_PATH", savedLd.c_str(), 1);
+    }
+#endif
+}
+
 static void testAskAsNumber() {
     const std::string src =
         "ask \"Name: \" into name\n"
@@ -1107,6 +1175,7 @@ int main() {
     testStringInterpolationCall();
     testJsonStringLiteralParse();
     testAskAsNumber();
+    testHostToolchainSanitize();
     std::cout << "\n";
     if (failures == 0) {
         std::cout << "Tous les tests passent.\n";
