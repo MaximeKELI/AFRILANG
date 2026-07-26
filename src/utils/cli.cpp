@@ -397,6 +397,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             if (const char* m = std::getenv("AFRILANG_MARCH")) opt << ";MARCH=" << m;
             if (const char* g = std::getenv("AFRILANG_GC_SECTIONS")) opt << ";GC=" << g;
             if (const char* x = std::getenv("AFRILANG_EXTRA_CXXFLAGS")) opt << ";X=" << x;
+            if (const char* f = std::getenv("AFRILANG_ALLOW_FFI")) opt << ";FFI=" << f;
+            else opt << ";FFI=0";
+            if (const char* i = std::getenv("AFRILANG_INSECURE")) opt << ";INSEC=" << i;
             fpIn.optStamp = opt.str();
         }
         const std::string fingerprint = CompileCache::buildFingerprint(fpIn);

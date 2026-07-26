@@ -31,6 +31,7 @@ fi
 echo "$OUT" | grep -qiE 'FFI|autorisée|allowlist|non autor' \
   || echo "$OUT" | grep -qi 'not_a_real_ffi_lib' \
   || { echo "reject message missing:" >&2; echo "$OUT" >&2; exit 1; }
+echo "  ffi unknown-lib reject ok"
 
 # Secure gate: without ALLOW_FFI, even libm must fail
 unset AFRILANG_ALLOW_FFI
@@ -46,6 +47,7 @@ if [[ "$RC2" -eq 0 ]]; then
 fi
 echo "$OUT2" | grep -qiE 'FFI|ALLOW_FFI|sécurisé|secure' \
   || { echo "secure-gate message missing:" >&2; echo "$OUT2" >&2; exit 1; }
+echo "  ffi secure-gate ok"
 
 # Unit allowlist test
 if [[ -x "$ROOT/build/afrilang_tests" ]]; then

@@ -1,7 +1,6 @@
 // Symbolic comparisons alongside natural language forms
-create a = 3
-
 test "symbolic compare"
+    create a = 3
     assert a > 2
     assert a >= 3
     assert a < 4
@@ -11,6 +10,7 @@ test "symbolic compare"
 end
 
 test "natural parity"
+    create a = 3
     assert a is greater than 2
     assert a is greater than or equal to 3
     assert a is less than 4
