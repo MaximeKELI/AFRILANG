@@ -17,6 +17,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <functional>
 #include <unordered_map>
 
 namespace afrilang {
@@ -99,6 +100,88 @@ std::string cppTypeFromAfrName(const std::string& typeName,
         if (isParam(inner)) return "std::optional<" + inner + ">";
     }
     return typeFromName(typeName).toCpp();
+}
+
+bool isTextConcatPair(TypeKind left, TypeKind right) {
+    const bool leftText = left == TypeKind::Text;
+    const bool rightText = right == TypeKind::Text;
+    const bool leftNum = left == TypeKind::Number || left == TypeKind::Int;
+    const bool rightNum = right == TypeKind::Number || right == TypeKind::Int;
+    return (leftText && rightText) || (leftText && rightNum) || (leftNum && rightText);
+}
+
+bool stmtWritesName(const StatementNode* stmt, const std::string& name) {
+    if (!stmt) return false;
+    if (const auto* set = dynamic_cast<const SetStatementNode*>(stmt)) {
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(set->target.get())) {
+            if (id->name == name) return true;
+        }
+        return false;
+    }
+    if (const auto* idx = dynamic_cast<const IndexAssignStatementNode*>(stmt)) {
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(idx->object.get())) {
+            if (id->name == name) return true;
+        }
+        return false;
+    }
+    if (const auto* ifStmt = dynamic_cast<const IfStatementNode*>(stmt)) {
+        for (const auto& s : ifStmt->thenBody) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        for (const auto& s : ifStmt->elseBody) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        return false;
+    }
+    if (const auto* whileStmt = dynamic_cast<const WhileStatementNode*>(stmt)) {
+        for (const auto& s : whileStmt->body) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        return false;
+    }
+    if (const auto* repeat = dynamic_cast<const RepeatStatementNode*>(stmt)) {
+        for (const auto& s : repeat->body) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        return false;
+    }
+    if (const auto* forRange = dynamic_cast<const ForRangeStatementNode*>(stmt)) {
+        for (const auto& s : forRange->body) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        return false;
+    }
+    if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(stmt)) {
+        for (const auto& s : forEach->body) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        return false;
+    }
+    if (const auto* tryStmt = dynamic_cast<const TryStatementNode*>(stmt)) {
+        for (const auto& s : tryStmt->tryBody) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        for (const auto& s : tryStmt->catchBody) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        for (const auto& s : tryStmt->finallyBody) {
+            if (stmtWritesName(s.get(), name)) return true;
+        }
+        return false;
+    }
+    return false;
+}
+
+bool paramIsMutated(const FunctionNode& func, const std::string& name) {
+    for (const auto& s : func.body) {
+        if (stmtWritesName(s.get(), name)) return true;
+    }
+    return false;
+}
+
+bool prefersConstRefParam(const AfrType& paramType) {
+    return paramType.kind == TypeKind::Text || paramType.kind == TypeKind::List ||
+           paramType.kind == TypeKind::Map;
 }
 
 std::vector<std::string> effectiveTypeParams(const FunctionNode& func,
@@ -1085,6 +1168,8 @@ std::string CodeGenerator::paramList(const FunctionNode& func, const ClassInfo* 
         const AfrType paramType = typeFromName(param.typeName);
         if (paramType.kind == TypeKind::Class) {
             out << "const " << paramType.className << "& " << param.name;
+        } else if (prefersConstRefParam(paramType) && !paramIsMutated(func, param.name)) {
+            out << "const " << cppTypeFromAfrName(param.typeName, tparams) << "& " << param.name;
         } else {
             out << cppTypeFromAfrName(param.typeName, tparams) << " " << param.name;
         }
@@ -1547,6 +1632,10 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << constPrefix << "std::vector<" << elemCpp << "> " << assign->name;
             if (usePushBack) {
                 out << ";\n";
+                if (!list->elements.empty()) {
+                    indent(out, indentLevel);
+                    out << assign->name << ".reserve(" << list->elements.size() << ");\n";
+                }
                 for (const auto& element : list->elements) {
                     indent(out, indentLevel);
                     out << assign->name << ".push_back(";
@@ -2397,9 +2486,15 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         out << "afrilang::runtime::str::concat({";
         for (std::size_t i = 0; i < interp->parts.size(); ++i) {
             if (i > 0) out << ", ";
-            out << "afrilang::runtime::str::toString(";
-            emitExpression(out, *interp->parts[i], ownerClass);
-            out << ")";
+            const AfrType pt = inferExpressionAfrType(*interp->parts[i]);
+            if (pt.kind == TypeKind::Text ||
+                dynamic_cast<const StringLiteralNode*>(interp->parts[i].get())) {
+                emitExpression(out, *interp->parts[i], ownerClass);
+            } else {
+                out << "afrilang::runtime::str::toString(";
+                emitExpression(out, *interp->parts[i], ownerClass);
+                out << ")";
+            }
         }
         out << "})";
         return;
@@ -2462,18 +2557,38 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         if (bin->op == "+") {
             const AfrType leftType = inferExpressionAfrType(*bin->left);
             const AfrType rightType = inferExpressionAfrType(*bin->right);
-            const bool leftText = leftType.kind == TypeKind::Text;
-            const bool rightText = rightType.kind == TypeKind::Text;
-            const bool leftNum = leftType.kind == TypeKind::Number || leftType.kind == TypeKind::Int;
-            const bool rightNum = rightType.kind == TypeKind::Number || rightType.kind == TypeKind::Int;
-
-            if ((leftText && rightText) || (leftText && rightNum) || (leftNum && rightText)) {
+            if (isTextConcatPair(leftType.kind, rightType.kind)) {
+                std::vector<const ExpressionNode*> parts;
+                std::function<void(const ExpressionNode&)> collect =
+                    [&](const ExpressionNode& e) {
+                        if (const auto* b = dynamic_cast<const BinaryOpNode*>(&e)) {
+                            if (b->op == "+") {
+                                const AfrType lt = inferExpressionAfrType(*b->left);
+                                const AfrType rt = inferExpressionAfrType(*b->right);
+                                if (isTextConcatPair(lt.kind, rt.kind)) {
+                                    collect(*b->left);
+                                    collect(*b->right);
+                                    return;
+                                }
+                            }
+                        }
+                        parts.push_back(&e);
+                    };
+                collect(expr);
                 out << "afrilang::runtime::str::concat({";
-                out << "afrilang::runtime::str::toString(";
-                emitExpression(out, *bin->left, ownerClass);
-                out << "), afrilang::runtime::str::toString(";
-                emitExpression(out, *bin->right, ownerClass);
-                out << ")})";
+                for (std::size_t i = 0; i < parts.size(); ++i) {
+                    if (i > 0) out << ", ";
+                    const AfrType pt = inferExpressionAfrType(*parts[i]);
+                    if (pt.kind == TypeKind::Text ||
+                        dynamic_cast<const StringLiteralNode*>(parts[i])) {
+                        emitExpression(out, *parts[i], ownerClass);
+                    } else {
+                        out << "afrilang::runtime::str::toString(";
+                        emitExpression(out, *parts[i], ownerClass);
+                        out << ")";
+                    }
+                }
+                out << "})";
                 return;
             }
         }
@@ -2662,8 +2777,15 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* unary = dynamic_cast<const UnaryOpNode*>(&expr)) {
-        out << unary->op;
-        emitExpression(out, *unary->operand, ownerClass);
+        if (unary->op == "not") {
+            out << "(!";
+            emitExpression(out, *unary->operand, ownerClass);
+            out << ")";
+        } else {
+            out << "(" << unary->op;
+            emitExpression(out, *unary->operand, ownerClass);
+            out << ")";
+        }
         return;
     }
 
@@ -2809,7 +2931,9 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         const AfrType resultType = typeFromName(mapEach->resultElementTypeName);
         out << "afrilang::runtime::collections::" << fn << "(";
         emitExpression(out, *mapEach->list, ownerClass);
-        out << ", [&](" << elemType.toCpp() << " " << mapEach->itemName << ") -> "
+        out << ", [&](" << (mapEach->elementTypeName == "text" ? "const " : "")
+            << elemType.toCpp() << (mapEach->elementTypeName == "text" ? "& " : " ")
+            << mapEach->itemName << ") -> "
             << resultType.toCpp() << " {\n";
         for (const auto& bodyStmt : mapEach->body) {
             emitStatement(out, *bodyStmt, 1, ownerClass);
@@ -2825,7 +2949,9 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         const AfrType resultType = typeFromName(flatMapEach->resultElementTypeName);
         out << "afrilang::runtime::collections::" << fn << "(";
         emitExpression(out, *flatMapEach->list, ownerClass);
-        out << ", [&](" << elemType.toCpp() << " " << flatMapEach->itemName << ") -> "
+        out << ", [&](" << (flatMapEach->elementTypeName == "text" ? "const " : "")
+            << elemType.toCpp() << (flatMapEach->elementTypeName == "text" ? "& " : " ")
+            << flatMapEach->itemName << ") -> "
             << "std::vector<" << resultType.toCpp() << "> {\n";
         for (const auto& bodyStmt : flatMapEach->body) {
             emitStatement(out, *bodyStmt, 1, ownerClass);
@@ -2840,7 +2966,9 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         const AfrType elemType = typeFromName(filterEach->elementTypeName);
         out << "afrilang::runtime::collections::" << fn << "(";
         emitExpression(out, *filterEach->list, ownerClass);
-        out << ", [&](" << elemType.toCpp() << " " << filterEach->itemName << ") -> bool {\n";
+        out << ", [&](" << (filterEach->elementTypeName == "text" ? "const " : "")
+            << elemType.toCpp() << (filterEach->elementTypeName == "text" ? "& " : " ")
+            << filterEach->itemName << ") -> bool {\n";
         out << "        return ";
         emitExpression(out, *filterEach->condition, ownerClass);
         out << ";\n    })";
@@ -2855,6 +2983,7 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         out << "    const auto& _src = ";
         emitExpression(out, *comprehension->list, ownerClass);
         out << ";\n";
+        out << "    _out.reserve(_src.size());\n";
         out << "    for (const auto& " << comprehension->itemName << " : _src) {\n";
         out << "        if (!(";
         emitExpression(out, *comprehension->condition, ownerClass);

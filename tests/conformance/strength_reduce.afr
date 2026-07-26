@@ -21,3 +21,11 @@ test "not not fold"
     create d = not not flag
     assert d is equal to true
 end
+
+test "bool compare fold"
+    create flag = true
+    create a = flag is equal to true
+    create b = flag is equal to false
+    assert a is equal to true
+    assert b is equal to false
+end

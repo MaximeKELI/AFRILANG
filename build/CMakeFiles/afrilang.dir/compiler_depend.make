@@ -189,6 +189,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/src/co
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/c++/15/algorithm \
+  /usr/include/c++/15/array \
   /usr/include/c++/15/backward/auto_ptr.h \
   /usr/include/c++/15/backward/binders.h \
   /usr/include/c++/15/bit \
@@ -259,6 +260,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/src/co
   /usr/include/c++/15/bits/shared_ptr_base.h \
   /usr/include/c++/15/bits/sstream.tcc \
   /usr/include/c++/15/bits/std_abs.h \
+  /usr/include/c++/15/bits/std_function.h \
   /usr/include/c++/15/bits/stl_algo.h \
   /usr/include/c++/15/bits/stl_algobase.h \
   /usr/include/c++/15/bits/stl_bvector.h \
@@ -291,6 +293,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/src/co
   /usr/include/c++/15/cerrno \
   /usr/include/c++/15/clocale \
   /usr/include/c++/15/codecvt \
+  /usr/include/c++/15/compare \
   /usr/include/c++/15/concepts \
   /usr/include/c++/15/cstddef \
   /usr/include/c++/15/cstdint \
@@ -311,6 +314,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/admin20/AFRILANG/src/co
   /usr/include/c++/15/ext/type_traits.h \
   /usr/include/c++/15/filesystem \
   /usr/include/c++/15/fstream \
+  /usr/include/c++/15/functional \
   /usr/include/c++/15/initializer_list \
   /usr/include/c++/15/iomanip \
   /usr/include/c++/15/ios \
@@ -7991,6 +7995,10 @@ CMakeFiles/afrilang.dir/src/utils/semver.cpp.o:
 
 /usr/include/c++/15/bits/exception_defines.h:
 
+/usr/include/c++/15/compare:
+
+/usr/include/c++/15/bits/cxxabi_forced.h:
+
 /usr/include/c++/15/bits/shared_ptr_base.h:
 
 /usr/include/c++/15/bits/stl_uninitialized.h:
@@ -8031,12 +8039,6 @@ CMakeFiles/afrilang.dir/src/utils/semver.cpp.o:
 
 /usr/include/openssl/macros.h:
 
-/usr/include/c++/15/cstddef:
-
-/home/admin20/AFRILANG/include/afrilang/i18n.hpp:
-
-/usr/include/endian.h:
-
 /usr/include/c++/15/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/15/bits/charconv.h:
@@ -8064,10 +8066,6 @@ CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o:
 /usr/include/openssl/sslerr_legacy.h:
 
 /usr/include/c++/15/bits/parse_numbers.h:
-
-/usr/include/sched.h:
-
-/usr/include/netdb.h:
 
 /home/admin20/AFRILANG/include/afrilang/educational.hpp:
 
@@ -8201,10 +8199,6 @@ CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/ctype_inline.h:
 
-/usr/include/wctype.h:
-
-/home/admin20/AFRILANG/include/afrilang/lexer.hpp:
-
 /usr/include/asm-generic/int-ll64.h:
 
 /usr/include/c++/15/bits/fs_path.h:
@@ -8287,13 +8281,13 @@ CMakeFiles/afrilang.dir/src/passes/passes.cpp.o:
 
 /usr/include/c++/15/bits/random.tcc:
 
-/usr/lib/i386-linux-gnu/libz.so.1:
+/usr/include/c++/15/cstddef:
 
-/usr/include/pthread.h:
+/home/admin20/AFRILANG/include/afrilang/i18n.hpp:
 
-/usr/include/c++/15/bits/cxxabi_forced.h:
+/usr/include/endian.h:
 
-/usr/include/c++/15/compare:
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
 
 /usr/include/c++/15/bits/string_view.tcc:
 
@@ -8473,10 +8467,6 @@ CMakeFiles/afrilang.dir/src/utils/cache.cpp.o:
 
 /usr/include/x86_64-linux-gnu/sys/prctl.h:
 
-/usr/lib/x86_64-linux-gnu/libc.so.6:
-
-/usr/include/linux/types.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/c++/15/ext/alloc_traits.h:
@@ -8589,6 +8579,14 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
+/usr/include/x86_64-linux-gnu/openssl/configuration.h:
+
+/usr/include/c++/15/bits/std_function.h:
+
+/usr/include/c++/15/bits/codecvt.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /home/admin20/AFRILANG/include/afrilang/ast.hpp:
@@ -8633,14 +8631,6 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.o:
 
 /usr/include/openssl/cterr.h:
 
-/usr/include/c++/15/bits/codecvt.h:
-
-/usr/include/x86_64-linux-gnu/openssl/configuration.h:
-
-/usr/include/c++/15/bits/std_function.h:
-
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
@@ -8668,6 +8658,22 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.o:
 /usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a:
 
 /usr/include/c++/15/bits/stl_deque.h:
+
+/usr/lib/x86_64-linux-gnu/libc.so.6:
+
+/usr/include/linux/types.h:
+
+/usr/lib/i386-linux-gnu/libz.so.1:
+
+/usr/include/pthread.h:
+
+/usr/include/netdb.h:
+
+/usr/include/sched.h:
+
+/home/admin20/AFRILANG/include/afrilang/lexer.hpp:
+
+/usr/include/wctype.h:
 
 /usr/include/c++/15/tr1/hypergeometric.tcc:
 
@@ -8746,8 +8752,6 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o:
 /usr/include/c++/15/cstring:
 
 /home/admin20/AFRILANG/src/utils/security.cpp:
-
-/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
 
 /usr/include/c++/15/cmath:
 
@@ -9077,9 +9081,9 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libz.so.1:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
-
 /usr/include/c++/15/functional:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
 
 /usr/include/linux/prctl.h:
 

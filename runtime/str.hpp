@@ -9,7 +9,8 @@
 namespace afrilang::runtime::str {
 
 inline std::string toString(const char* value) { return value ? std::string(value) : std::string(); }
-inline std::string toString(const std::string& value) { return value; }
+inline const std::string& toString(const std::string& value) { return value; }
+inline std::string toString(std::string&& value) { return std::move(value); }
 
 inline std::string toString(double value) {
     if (value == static_cast<int>(value)) {
@@ -77,12 +78,16 @@ inline std::vector<std::string> split(const std::string& text, const std::string
 }
 
 inline std::string join(const std::vector<std::string>& parts, const std::string& sep) {
-    std::ostringstream out;
+    if (parts.empty()) return {};
+    std::size_t total = sep.size() * (parts.size() - 1);
+    for (const auto& p : parts) total += p.size();
+    std::string out;
+    out.reserve(total);
     for (std::size_t i = 0; i < parts.size(); ++i) {
-        if (i > 0) out << sep;
-        out << parts[i];
+        if (i > 0) out += sep;
+        out += parts[i];
     }
-    return out.str();
+    return out;
 }
 
 inline bool startsWith(const std::string& text, const std::string& prefix) {

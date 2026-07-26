@@ -1,4 +1,4 @@
-# Performance & compiler backend (gap #4) — extreme+
+# Performance & compiler backend (gap #4) — max
 
 > Honest: Mid-IR + host `g++`/`clang++`. **No LLVM backend.** Numbers vary by machine.
 
@@ -6,25 +6,25 @@
 
 ```
 AST → Mid-IR CFG (fold + per-block const-prop + dead blocks)
-    → AST fold (identity / strength-reduce / local const-prop / DCE)
+    → AST fold (identity / strength-reduce / local const-prop / DCE / flatten)
     → C++ codegen → g++/clang/em++
 ```
 
 See [`COMPILER.md`](COMPILER.md).
 
-### Mid-end capabilities (2026-07 extreme+)
+### Mid-end capabilities (2026-07 max)
 
 | Pass | What it does |
 |------|----------------|
 | Literal fold | `2+2`, comparisons, string `+` |
-| Identity / annihilator | `x+0`, `x*1`, `0*x`, `/1`, bool short-circuit |
-| Strength reduce | `x*2/4/8` → nested adds, `x-x` → `0` |
-| Boolean | `not not x` → `x` |
+| Identity / annihilator | `x+0`, `x*1`, `0*x`, `/1`, `0-x→-x`, bool short-circuit |
+| Strength reduce | `x*2/4/8` (both sides), `x-x→0` |
+| Boolean | `not not`, `-(-x)`, `x==true`, `x&&x` / `x\|\|x` |
 | Local const-prop | `create n=10; create a=n+1` → `a=11` (linear blocks) |
+| CFG / flatten | constant branch; `if(true)` inlined; `while(false)` dropped |
 | DCE | pure expr-stmts (littéraux / identifiants seuls) |
-| CFG | constant branch → jump; unreachable blocks cleared |
 
-**Codegen:** `repeat`/`for` integer ranges use `int64_t`; constant `repeat` ≤8 is unrolled; `@inline` → `always_inline` + `noexcept` (free functions).
+**Codegen:** `repeat`/`for` integer → `int64_t`; unroll `repeat` ≤8; flatten nested text `+`; skip redundant `toString` on text; `const T&` params for unmutated text/list/map; `@inline` → `always_inline` + `noexcept`.
 
 **Not** SSA / full variable const-prop across loops / alias analysis.
 
@@ -48,14 +48,16 @@ Le fingerprint de cache inclut `optStamp` (invalidation si ces env changent).
 
 ## Runtime
 
-- `str::concat` pré-réserve la capacité totale
-- `optionalRequire(const optional&)` retourne `const T&` (évite une copie)
+- `str::concat` / `join` pré-réservent
+- `toString(const string&)` → `const string&` (pas de copie)
+- `mapText` / `filterText` / `flatMapText` prennent `const string&`
+- `optionalRequire(const optional&)` → `const T&`
 
 ## Benchmarks
 
 ```bash
 afrilang benchmark                 # suite exemples
-afrilang benchmark --micro         # hello + micros gap4 (fold/loop/const-prop)
+afrilang benchmark --micro         # hello + micros gap4
 afrilang benchmark --json --micro
 bash scripts/test_gap_04_perf.sh
 ```

@@ -312,6 +312,10 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
         if (bin->op == "*" && almostEqual(ln->value, 0.0)) {
             return std::make_unique<NumberLiteralNode>(0.0, ln->isInteger);
         }
+        // 0 - x → -x
+        if (bin->op == "-" && almostEqual(ln->value, 0.0)) {
+            return foldExpr(std::make_unique<UnaryOpNode>("-", std::move(bin->right)));
+        }
     }
     if (const auto* rn = asNumber(bin->right.get())) {
         if (bin->op == "+" && almostEqual(rn->value, 0.0)) return std::move(bin->left);
@@ -335,11 +339,28 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
         if (bin->op == "||" && lb->value) return std::make_unique<BoolLiteralNode>(true);
         if (bin->op == "&&" && lb->value) return std::move(bin->right);
         if (bin->op == "||" && !lb->value) return std::move(bin->right);
+        // true == x → x ; false == x → not x (and != duals)
+        if (bin->op == "==") {
+            if (lb->value) return std::move(bin->right);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->right)));
+        }
+        if (bin->op == "!=") {
+            if (!lb->value) return std::move(bin->right);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->right)));
+        }
     }
     if (const auto* rb = asBool(bin->right.get())) {
         // Safe only when right is pure literal (already is)
         if (bin->op == "&&" && rb->value) return std::move(bin->left);
         if (bin->op == "||" && !rb->value) return std::move(bin->left);
+        if (bin->op == "==") {
+            if (rb->value) return std::move(bin->left);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->left)));
+        }
+        if (bin->op == "!=") {
+            if (!rb->value) return std::move(bin->left);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->left)));
+        }
     }
 
     if (const auto* ls = asString(bin->left.get())) {
@@ -350,6 +371,8 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
             if (bin->op == "==") return std::make_unique<BoolLiteralNode>(ls->value == rs->value);
             if (bin->op == "!=") return std::make_unique<BoolLiteralNode>(ls->value != rs->value);
         }
+        // "" + s → s only when right is also a string literal (type-safe); covered above.
+        // s + "" with identifier: skip (number + "" is text concat).
     }
 
     // Strength reduce: x*2/4/8 → nested adds (FP-safe; then re-fold)
@@ -401,6 +424,14 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
             return std::make_unique<NumberLiteralNode>(0.0, true);
         }
     }
+    // x && x / x || x → x
+    if (bin->op == "&&" || bin->op == "||") {
+        const auto* li = asIdent(bin->left.get());
+        const auto* ri = asIdent(bin->right.get());
+        if (li && ri && li->name == ri->name) {
+            return std::move(bin->left);
+        }
+    }
 
     return bin;
 }
@@ -414,12 +445,13 @@ std::unique_ptr<ExpressionNode> foldUnary(std::unique_ptr<UnaryOpNode> un) {
         if (const auto* b = asBool(un->operand.get())) {
             if (un->op == "not") return std::make_unique<BoolLiteralNode>(!b->value);
         }
-        // not not x → x
-        if (un->op == "not") {
-            if (auto* inner = dynamic_cast<UnaryOpNode*>(un->operand.get())) {
-                if (inner->op == "not") {
-                    return foldExpr(std::move(inner->operand));
-                }
+        // not not x → x ; -(-x) → x
+        if (auto* inner = dynamic_cast<UnaryOpNode*>(un->operand.get())) {
+            if (un->op == "not" && inner->op == "not") {
+                return foldExpr(std::move(inner->operand));
+            }
+            if (un->op == "-" && inner->op == "-") {
+                return foldExpr(std::move(inner->operand));
             }
         }
     }
@@ -481,6 +513,26 @@ void foldStmt(std::unique_ptr<StatementNode>& stmt);
 
 void foldStmtList(std::vector<std::unique_ptr<StatementNode>>& stmts) {
     for (auto& stmt : stmts) foldStmt(stmt);
+    // Flatten if(true){...} and drop while(false)
+    std::vector<std::unique_ptr<StatementNode>> flat;
+    flat.reserve(stmts.size());
+    for (auto& stmt : stmts) {
+        if (!stmt) continue;
+        if (auto* ifStmt = dynamic_cast<IfStatementNode*>(stmt.get())) {
+            if (const auto* b = asBool(ifStmt->condition.get()); b && b->value &&
+                ifStmt->elseBody.empty()) {
+                for (auto& s : ifStmt->thenBody) flat.push_back(std::move(s));
+                continue;
+            }
+        }
+        if (auto* whileStmt = dynamic_cast<WhileStatementNode*>(stmt.get())) {
+            if (const auto* b = asBool(whileStmt->condition.get()); b && !b->value) {
+                continue;
+            }
+        }
+        flat.push_back(std::move(stmt));
+    }
+    stmts = std::move(flat);
     pruneUnreachable(stmts);
     localConstPropList(stmts, ConstEnv{});
 }

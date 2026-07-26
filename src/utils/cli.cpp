@@ -374,7 +374,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         fpIn.debugSymbols = options.debugSymbols;
         fpIn.coverageMode = options.coverageMode;
         fpIn.runtimeDir = runtimeDir;
-        fpIn.stdlibStamp = "stdlib-v3-perf-plus";
+        fpIn.stdlibStamp = "stdlib-v3-perf-max";
         {
             std::ostringstream opt;
             if (const char* e = std::getenv("AFRILANG_OPT_LEVEL")) opt << "O=" << e;

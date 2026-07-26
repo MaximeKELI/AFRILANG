@@ -55,6 +55,19 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
         if (bin->op == "*" && almostEqual(ln->value, 0.0)) {
             return std::make_unique<NumberLiteralNode>(0.0, ln->isInteger);
         }
+        if (bin->op == "-" && almostEqual(ln->value, 0.0)) {
+            return foldExpr(std::make_unique<UnaryOpNode>("-", std::move(bin->right)));
+        }
+        // Left-factor strength reduce: 2/4/8 * x
+        if (bin->op == "*" &&
+            (almostEqual(ln->value, 2.0) || almostEqual(ln->value, 4.0) ||
+             almostEqual(ln->value, 8.0))) {
+            // Reuse right-factor path by swapping into a synthetic right-factor fold.
+            auto swapped = std::make_unique<BinaryOpNode>(
+                "*", std::move(bin->right),
+                std::make_unique<NumberLiteralNode>(ln->value, ln->isInteger));
+            return foldBinary(std::move(swapped));
+        }
     }
     if (const auto* rn = asNumber(bin->right.get())) {
         if (bin->op == "+" && almostEqual(rn->value, 0.0)) return std::move(bin->left);
@@ -120,6 +133,13 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
             return std::make_unique<NumberLiteralNode>(0.0, true);
         }
     }
+    if (bin->op == "&&" || bin->op == "||") {
+        const auto* li = dynamic_cast<IdentifierNode*>(bin->left.get());
+        const auto* ri = dynamic_cast<IdentifierNode*>(bin->right.get());
+        if (li && ri && li->name == ri->name) {
+            return std::move(bin->left);
+        }
+    }
     if (const auto* lb = asBool(bin->left.get())) {
         if (const auto* rb = asBool(bin->right.get())) {
             if (bin->op == "&&") return std::make_unique<BoolLiteralNode>(lb->value && rb->value);
@@ -131,10 +151,26 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
         if (bin->op == "||" && lb->value) return std::make_unique<BoolLiteralNode>(true);
         if (bin->op == "&&" && lb->value) return std::move(bin->right);
         if (bin->op == "||" && !lb->value) return std::move(bin->right);
+        if (bin->op == "==") {
+            if (lb->value) return std::move(bin->right);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->right)));
+        }
+        if (bin->op == "!=") {
+            if (!lb->value) return std::move(bin->right);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->right)));
+        }
     }
     if (const auto* rb = asBool(bin->right.get())) {
         if (bin->op == "&&" && rb->value) return std::move(bin->left);
         if (bin->op == "||" && !rb->value) return std::move(bin->left);
+        if (bin->op == "==") {
+            if (rb->value) return std::move(bin->left);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->left)));
+        }
+        if (bin->op == "!=") {
+            if (!rb->value) return std::move(bin->left);
+            return foldExpr(std::make_unique<UnaryOpNode>("not", std::move(bin->left)));
+        }
     }
     if (const auto* ls = asString(bin->left.get())) {
         if (const auto* rs = asString(bin->right.get())) {
@@ -155,10 +191,9 @@ std::unique_ptr<ExpressionNode> foldUnary(std::unique_ptr<UnaryOpNode> un) {
         if (const auto* b = asBool(un->operand.get())) {
             if (un->op == "not") return std::make_unique<BoolLiteralNode>(!b->value);
         }
-        if (un->op == "not") {
-            if (auto* inner = dynamic_cast<UnaryOpNode*>(un->operand.get())) {
-                if (inner->op == "not") return foldExpr(std::move(inner->operand));
-            }
+        if (auto* inner = dynamic_cast<UnaryOpNode*>(un->operand.get())) {
+            if (un->op == "not" && inner->op == "not") return foldExpr(std::move(inner->operand));
+            if (un->op == "-" && inner->op == "-") return foldExpr(std::move(inner->operand));
         }
     }
     return un;

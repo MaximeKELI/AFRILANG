@@ -99,6 +99,7 @@ inline std::vector<double> mapNumbers(const std::vector<double>& items,
 inline std::vector<double> filterNumbers(const std::vector<double>& items,
                                          std::function<bool(double)> fn) {
     std::vector<double> out;
+    out.reserve(items.size());
     for (double v : items) {
         if (fn(v)) out.push_back(v);
     }
@@ -114,7 +115,7 @@ inline double reduceNumbers(const std::vector<double>& items,
 }
 
 inline std::vector<std::string> mapText(const std::vector<std::string>& items,
-                                        std::function<std::string(std::string)> fn) {
+                                        std::function<std::string(const std::string&)> fn) {
     std::vector<std::string> out;
     out.reserve(items.size());
     for (const auto& s : items) out.push_back(fn(s));
@@ -122,8 +123,9 @@ inline std::vector<std::string> mapText(const std::vector<std::string>& items,
 }
 
 inline std::vector<std::string> filterText(const std::vector<std::string>& items,
-                                           std::function<bool(std::string)> fn) {
+                                           std::function<bool(const std::string&)> fn) {
     std::vector<std::string> out;
+    out.reserve(items.size());
     for (const auto& s : items) {
         if (fn(s)) out.push_back(s);
     }
@@ -131,10 +133,10 @@ inline std::vector<std::string> filterText(const std::vector<std::string>& items
 }
 
 inline std::string reduceText(const std::vector<std::string>& items,
-                              std::function<std::string(std::string, std::string)> fn,
+                              std::function<std::string(std::string, const std::string&)> fn,
                               std::string initial) {
     std::string acc = std::move(initial);
-    for (const auto& s : items) acc = fn(acc, s);
+    for (const auto& s : items) acc = fn(std::move(acc), s);
     return acc;
 }
 
@@ -151,8 +153,9 @@ inline std::vector<double> flatMapNumbers(
 
 inline std::vector<std::string> flatMapText(
     const std::vector<std::string>& items,
-    std::function<std::vector<std::string>(std::string)> fn) {
+    std::function<std::vector<std::string>(const std::string&)> fn) {
     std::vector<std::string> out;
+    out.reserve(items.size());
     for (const auto& s : items) {
         auto mapped = fn(s);
         out.insert(out.end(), mapped.begin(), mapped.end());
