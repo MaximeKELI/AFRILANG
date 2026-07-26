@@ -70,17 +70,7 @@ class LocalAfrSuggest {
     final lineTrim = line.trimLeft();
     final ids = harvestIdentifiers(content);
 
-    // 1) Mid-word / prefix: snippets then keywords
-    if (word.isNotEmpty) {
-      final snip = _snippetCompletion(word);
-      if (snip != null) return snip;
-      final kw = _keywordCompletion(word);
-      if (kw != null) return kw;
-      final idHit = _identifierCompletion(word, ids);
-      if (idHit != null) return idHit;
-    }
-
-    // 2) Contextual continuations (empty word — after space / newline)
+    // 1) Contextual continuations (line-aware, even mid-token after create/set)
     final ctx = _contextSuggest(
       before: before,
       lineTrim: lineTrim,
@@ -89,6 +79,16 @@ class LocalAfrSuggest {
       word: word,
     );
     if (ctx != null) return ctx;
+
+    // 2) Mid-word / prefix: snippets then keywords then identifiers
+    if (word.isNotEmpty) {
+      final snip = _snippetCompletion(word);
+      if (snip != null) return snip;
+      final kw = _keywordCompletion(word);
+      if (kw != null) return kw;
+      final idHit = _identifierCompletion(word, ids);
+      if (idHit != null) return idHit;
+    }
 
     // 3) Fresh line starter
     if (word.isEmpty && (before.endsWith('\n') || before.isEmpty)) {
@@ -102,17 +102,10 @@ class LocalAfrSuggest {
   /// Heuristic chat reply (offline “explain / suggest”).
   static String chatReply(String userMessage, {String? fileContext}) {
     final q = userMessage.toLowerCase();
-    final src = fileContext ?? '';
-    final body = src.contains('--- Current file ---')
-        ? src.split('--- Current file ---').last.trim()
-        : src;
-    // Strip leading "File: path"
-    final code = body.contains('\n')
-        ? body.substring(body.indexOf('\n') + 1).trim()
-        : body;
+    final code = _extractCode(fileContext);
 
     if (q.contains('expliq') || q.contains('explain') || q.contains('analys')) {
-      return explainFile(code.isEmpty ? src : code);
+      return explainFile(code);
     }
     if (q.contains('fonction') || q.contains('function') || q.contains('squelette')) {
       return 'Voici un squelette AFRILANG :\n\n'
@@ -130,7 +123,11 @@ class LocalAfrSuggest {
           'end\n'
           '```\n';
     }
-    if (q.contains('si ') || q.contains('if ') || q.contains('condition')) {
+    if (q.contains('si ') ||
+        q.contains('if ') ||
+        q.contains('condition') ||
+        q.trim() == 'si' ||
+        q.trim() == 'if') {
       return 'Condition :\n\n'
           '```afrilang\n'
           'if ready then\n'
@@ -165,6 +162,19 @@ class LocalAfrSuggest {
       );
     }
     return buf.toString();
+  }
+
+  static String _extractCode(String? fileContext) {
+    if (fileContext == null || fileContext.isEmpty) return '';
+    var src = fileContext.trim();
+    if (src.contains('--- Current file ---')) {
+      src = src.split('--- Current file ---').last.trim();
+    }
+    if (src.startsWith('File:')) {
+      final nl = src.indexOf('\n');
+      if (nl >= 0) src = src.substring(nl + 1).trim();
+    }
+    return src;
   }
 
   static String explainFile(String code) {
@@ -271,8 +281,6 @@ class LocalAfrSuggest {
     required Set<String> ids,
     required String word,
   }) {
-    if (word.isNotEmpty) return null;
-
     // create <name> …
     final createName = RegExp(r'^create\s+([A-Za-z_][A-Za-z0-9_]*)\s*$',
             caseSensitive: false)
@@ -310,8 +318,9 @@ class LocalAfrSuggest {
       }
     }
 
-    // set …
-    if (RegExp(r'^set\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+    // set … (exact keyword alone → expand; "set name" → assign)
+    if (RegExp(r'^set\s*$', caseSensitive: false).hasMatch(lineTrim) ||
+        (lineTrim.toLowerCase() == 'set' && word.toLowerCase() == 'set')) {
       if (ids.isNotEmpty) return ' ${ids.first} = ';
       return ' name = ';
     }
@@ -319,6 +328,12 @@ class LocalAfrSuggest {
             caseSensitive: false)
         .firstMatch(lineTrim);
     if (setName != null) return ' = ';
+
+    // Remaining contexts need trailing space / empty word (avoid fighting snippets)
+    if (word.isNotEmpty &&
+        !RegExp(r'^(create|set)\b', caseSensitive: false).hasMatch(lineTrim)) {
+      return null;
+    }
 
     // say / dire
     if (RegExp(r'^(say|dire)\s*$', caseSensitive: false).hasMatch(lineTrim)) {
@@ -365,11 +380,10 @@ class LocalAfrSuggest {
     }
 
     // Close unclosed block on empty new line with indent
-    if (before.endsWith('\n')) {
+    if (word.isEmpty && before.endsWith('\n')) {
       final open = _unclosedBlocks(before);
       if (open.isNotEmpty) {
         final closer = open.last == 'fr' ? 'fin' : 'end';
-        // Suggest closer when indent would decrease (heuristic: same/less indent)
         if (indent.isEmpty || indent.length <= 4) {
           return '$closer\n';
         }
@@ -377,7 +391,8 @@ class LocalAfrSuggest {
     }
 
     // After `=` on create/set — suggest literal
-    if (RegExp(r'(create|set).*=\s*$', caseSensitive: false).hasMatch(lineTrim)) {
+    if (word.isEmpty &&
+        RegExp(r'(create|set).*=\s*$', caseSensitive: false).hasMatch(lineTrim)) {
       if (lineTrim.toLowerCase().contains(' as number')) return '0';
       if (lineTrim.toLowerCase().contains(' as bool')) return 'false';
       if (lineTrim.toLowerCase().contains(' as list')) return '[]';
