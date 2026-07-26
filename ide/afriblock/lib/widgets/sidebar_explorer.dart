@@ -641,18 +641,21 @@ class _AiChatPanelState extends State<_AiChatPanel> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
-          child: Text(
-            wb.settings.aiEnabled
-                ? 'Model: ${wb.settings.aiModel}'
-                : 'AI disabled — enable in Settings',
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11,
-              color: AfriblockColors.textMuted,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+            child: Text(
+              !wb.settings.aiEnabled
+                  ? 'AI disabled — enable in Settings'
+                  : (wb.settings.aiModel == 'afrilang-local' ||
+                          wb.settings.aiModel == 'local')
+                      ? 'Moteur local afrilang-local (offline)'
+                      : 'Model: ${wb.settings.aiModel}',
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 11,
+                color: AfriblockColors.textMuted,
+              ),
             ),
           ),
-        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Wrap(
