@@ -25,6 +25,7 @@ import '../services/build_service.dart';
 import '../services/file_service.dart';
 import '../services/process_env.dart';
 import '../services/settings_store.dart';
+import '../services/workspace_paths.dart';
 import '../terminal/terminal_service.dart';
 import '../theme/afriblock_theme.dart';
 
@@ -169,6 +170,12 @@ class WorkbenchController extends ChangeNotifier {
         shortcut: 'Ctrl+K Ctrl+O',
         category: 'File',
         run: (wb) => wb.openFolder(),
+      ),
+      IdeCommandDef(
+        id: 'file.openExamples',
+        label: 'File: Open AFRILANG Examples',
+        category: 'File',
+        run: (wb) => wb.openAfrilangExamples(),
       ),
       IdeCommandDef(
         id: 'file.save',
@@ -450,6 +457,10 @@ class WorkbenchController extends ChangeNotifier {
     }
     if (folder == null) return;
 
+    final picked = folder;
+    folder = await resolveWorkspacePath(folder);
+    final portal = isDocumentPortalPath(picked) || isDocumentPortalPath(folder);
+
     try {
       rootNode = await files.loadTree(folder);
       workspaceRoot = folder;
@@ -474,12 +485,37 @@ class WorkbenchController extends ChangeNotifier {
             ? 'Opened workspace: $folder\n'
             : 'Opened project ${proj.name} ($folder)\nmain=${proj.main} output=${proj.output}\n',
       );
+      if (portal) {
+        final examples = suggestAfrilangExamplesDir(
+          await settings.resolveAfrilangBinary(),
+        );
+        appendOutput(
+          'Attention: ce dossier passe par le portail documents '
+          '(/run/user/.../doc/) — chemins éphémères, builds souvent cassés.\n'
+          'Préférez un chemin réel (ex. ${examples ?? "~/…/AFRILANG/examples"}).\n',
+        );
+        statusMessage =
+            'Portail documents détecté — ouvrez le vrai dossier examples';
+      }
       notifyListeners();
     } catch (e) {
       statusMessage = 'Open failed: $e';
       appendOutput('Open failed: $e\n');
       notifyListeners();
     }
+  }
+
+  /// Opens the toolchain `examples/` directory (real path, not portal).
+  Future<void> openAfrilangExamples() async {
+    final bin = await settings.resolveAfrilangBinary();
+    final examples = suggestAfrilangExamplesDir(bin);
+    if (examples == null) {
+      statusMessage =
+          'Dossier examples introuvable. Définissez le chemin afrilang.';
+      notifyListeners();
+      return;
+    }
+    await openFolder(examples);
   }
 
   /// Creates `parent/name/` with afrilang.toml + src/main.afr, then opens it.

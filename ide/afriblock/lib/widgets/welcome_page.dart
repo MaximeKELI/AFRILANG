@@ -128,6 +128,19 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                     OutlinedButton.icon(
+                      onPressed: () => wb.openAfrilangExamples(),
+                      icon: const Icon(Icons.science_outlined),
+                      label: const Text('Examples AFRILANG'),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AfriblockColors.text,
+                        side: const BorderSide(color: AfriblockColors.border),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 14,
+                        ),
+                      ),
+                    ),
+                    OutlinedButton.icon(
                       onPressed: () => wb.showOverlay(OverlayMode.commandPalette),
                       icon: const Icon(Icons.terminal),
                       label: const Text('Command Palette'),
