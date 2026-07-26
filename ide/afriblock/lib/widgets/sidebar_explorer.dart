@@ -92,10 +92,31 @@ class _ExplorerBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final proj = wb.projects.project;
     if (wb.rootNode == null) {
-      return Center(
-        child: FilledButton(
-          onPressed: () => wb.openFolder(),
-          child: const Text('Open Folder'),
+      return Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const ExplorerCreateBar(),
+            const SizedBox(height: 12),
+            Text(
+              'Pas encore de projet ouvert.',
+              style: GoogleFonts.plusJakartaSans(color: AfriblockColors.textMuted),
+            ),
+            const SizedBox(height: 12),
+            FilledButton.icon(
+              onPressed: () => promptNewProject(context),
+              icon: const Icon(Icons.rocket_launch),
+              label: const Text('Nouveau projet'),
+              style: FilledButton.styleFrom(backgroundColor: AfriblockColors.accent, foregroundColor: Colors.black),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () => promptOpenFolder(context),
+              icon: const Icon(Icons.folder_open),
+              label: const Text('Ouvrir un dossier'),
+            ),
+          ],
         ),
       );
     }
