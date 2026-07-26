@@ -61,13 +61,18 @@ flutter run -d linux
 
 ## Architecture
 
+World-class target architecture (AFRILANG-only):
+[`docs/AFRIBLOCK_ARCHITECTURE.md`](../../docs/AFRIBLOCK_ARCHITECTURE.md).
+
 ```
 lib/
   workbench/     # shell layout (Code OSS-inspired)
-  widgets/       # explorer, editor, panel, palette
-  services/      # FileService, AfrilangCli, SettingsStore
+  widgets/       # explorer, editor, panel, palette, …
+  services/      # File, CLI, LSP, Git, Search, Terminal, Debug, …
   state/         # WorkbenchController
-  theme/         # AFRIBLOCK dark identity
+  project/       # afrilang.toml + targets
+  core/          # commands, plugins, event bus
+  theme/         # AFRIBLOCK identity
 ```
 
 Coexists with [`vscode-afrilang`](../../vscode-afrilang/) and

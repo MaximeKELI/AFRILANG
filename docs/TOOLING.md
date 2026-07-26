@@ -33,8 +33,8 @@ rename/refs are text-oriented; not an incremental semantic index.
 ## AFRIBLOCK (desktop IDE)
 
 `ide/afriblock/` — Flutter desktop workbench (Linux / Windows / macOS) for
-editing `.afr` and driving `afrilang run` / `check`. v0.1 is **not** an LSP
-client; see [`ide/afriblock/README.md`](../ide/afriblock/README.md).
+editing `.afr` and driving `afrilang` build/run/check. Architecture target:
+[`AFRIBLOCK_ARCHITECTURE.md`](AFRIBLOCK_ARCHITECTURE.md).
 
 ## Tests
 
@@ -58,3 +58,5 @@ Fixtures: `tests/gaps/tooling/`.
 - [`LANGUAGE.md`](LANGUAGE.md) — syntax tour
 - `vscode-afrilang/README.md`
 - `ide/afriblock/README.md`
+- [`AFRIBLOCK_ARCHITECTURE.md`](AFRIBLOCK_ARCHITECTURE.md)
+
