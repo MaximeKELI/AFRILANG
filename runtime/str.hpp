@@ -24,7 +24,10 @@ inline std::string toString(int value) { return std::to_string(value); }
 inline std::string toString(bool value) { return value ? "true" : "false"; }
 
 inline std::string concat(std::initializer_list<std::string> parts) {
+    std::size_t total = 0;
+    for (const auto& part : parts) total += part.size();
     std::string out;
+    out.reserve(total);
     for (const auto& part : parts) {
         out += part;
     }

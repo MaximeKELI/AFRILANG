@@ -1,0 +1,12 @@
+{
+  "source": "/home/admin20/AFRILANG/tests/gaps/perf/fold_identity.afr",
+  "variables": [
+    {"name":"lit","type":"number","scope":"global"},
+    {"name":"z","type":"number","scope":"global"},
+    {"name":"c","type":"number","scope":"global"},
+    {"name":"b","type":"number","scope":"global"},
+    {"name":"d","type":"number","scope":"global"},
+    {"name":"a","type":"number","scope":"global"},
+    {"name":"n","type":"number","scope":"global"}
+  ]
+}

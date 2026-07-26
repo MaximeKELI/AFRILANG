@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-07-26T18:13:05Z",
+  "compiler_version": "1.0.0",
+  "platform": "linux-x86_64",
+  "results": [
+    {
+      "file": "hello.afr",
+      "slug": "hello",
+      "compile_ms": 1042,
+      "exec_ms": 24,
+      "total_ms": 1121
+    },
+    {
+      "file": "loop_smoke.afr",
+      "slug": "loop_smoke",
+      "compile_ms": 805,
+      "exec_ms": 36,
+      "total_ms": 893
+    },
+    {
+      "file": "fold_identity.afr",
+      "slug": "fold_identity",
+      "compile_ms": 841,
+      "exec_ms": 22,
+      "total_ms": 898
+    },
+    {
+      "file": "const_prop.afr",
+      "slug": "const_prop",
+      "compile_ms": 676,
+      "exec_ms": 16,
+      "total_ms": 723
+    },
+    {
+      "file": "loop_hot.afr",
+      "slug": "loop_hot",
+      "compile_ms": 1038,
+      "exec_ms": 25,
+      "total_ms": 1103
+    }
+  ],
+  "comparisons": [
+    {
+      "name": "hello",
+      "label": "hello.afr",
+      "afrilang_exec_ms": 24,
+      "python_ms": 41
+    }
+  ],
+  "is_sample": false
+}

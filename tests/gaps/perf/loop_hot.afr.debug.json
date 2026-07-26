@@ -1,0 +1,6 @@
+{
+  "source": "/home/admin20/AFRILANG/tests/gaps/perf/loop_hot.afr",
+  "variables": [
+    {"name":"n","type":"number","scope":"global"}
+  ]
+}

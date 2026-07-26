@@ -27,6 +27,7 @@ if [[ "$MICRO_MODE" -eq 1 ]]; then
     "$ROOT/tests/gaps/perf/fold_identity.afr"
     "$ROOT/tests/gaps/perf/const_prop.afr"
     "$ROOT/tests/gaps/perf/loop_hot.afr"
+    "$ROOT/tests/gaps/perf/unroll_small.afr"
   )
 else
   PATHS=(

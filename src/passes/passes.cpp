@@ -352,20 +352,44 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
         }
     }
 
-    // Strength reduce: x * 2 → x + x (then re-fold if x is literal)
+    // Strength reduce: x*2/4/8 → nested adds (FP-safe; then re-fold)
     if (bin->op == "*") {
-        if (const auto* rn = asNumber(bin->right.get()); rn && almostEqual(rn->value, 2.0)) {
-            auto dup = cloneExpr(bin->left.get());
-            if (dup) {
-                return foldExpr(std::make_unique<BinaryOpNode>("+", std::move(bin->left),
-                                                               std::move(dup)));
-            }
+        const NumberLiteralNode* factor = nullptr;
+        std::unique_ptr<ExpressionNode>* base = nullptr;
+        if (const auto* rn = asNumber(bin->right.get());
+            rn && (almostEqual(rn->value, 2.0) || almostEqual(rn->value, 4.0) ||
+                   almostEqual(rn->value, 8.0))) {
+            factor = rn;
+            base = &bin->left;
+        } else if (const auto* ln = asNumber(bin->left.get());
+                   ln && (almostEqual(ln->value, 2.0) || almostEqual(ln->value, 4.0) ||
+                          almostEqual(ln->value, 8.0))) {
+            factor = ln;
+            base = &bin->right;
         }
-        if (const auto* ln = asNumber(bin->left.get()); ln && almostEqual(ln->value, 2.0)) {
-            auto dup = cloneExpr(bin->right.get());
-            if (dup) {
-                return foldExpr(std::make_unique<BinaryOpNode>("+", std::move(bin->right),
-                                                               std::move(dup)));
+        if (factor && base && *base) {
+            const int k = static_cast<int>(factor->value + 0.5);
+            auto x = std::move(*base);
+            if (k == 2) {
+                auto a = cloneExpr(x.get());
+                return foldExpr(
+                    std::make_unique<BinaryOpNode>("+", std::move(x), std::move(a)));
+            }
+            if (k == 4) {
+                auto a = cloneExpr(x.get());
+                auto s2 = std::make_unique<BinaryOpNode>("+", std::move(x), std::move(a));
+                auto b = cloneExpr(s2.get());
+                return foldExpr(
+                    std::make_unique<BinaryOpNode>("+", std::move(s2), std::move(b)));
+            }
+            if (k == 8) {
+                auto a = cloneExpr(x.get());
+                auto s2 = std::make_unique<BinaryOpNode>("+", std::move(x), std::move(a));
+                auto b = cloneExpr(s2.get());
+                auto s4 = std::make_unique<BinaryOpNode>("+", std::move(s2), std::move(b));
+                auto c = cloneExpr(s4.get());
+                return foldExpr(
+                    std::make_unique<BinaryOpNode>("+", std::move(s4), std::move(c)));
             }
         }
     }
@@ -389,6 +413,14 @@ std::unique_ptr<ExpressionNode> foldUnary(std::unique_ptr<UnaryOpNode> un) {
         }
         if (const auto* b = asBool(un->operand.get())) {
             if (un->op == "not") return std::make_unique<BoolLiteralNode>(!b->value);
+        }
+        // not not x → x
+        if (un->op == "not") {
+            if (auto* inner = dynamic_cast<UnaryOpNode*>(un->operand.get())) {
+                if (inner->op == "not") {
+                    return foldExpr(std::move(inner->operand));
+                }
+            }
         }
     }
     return un;

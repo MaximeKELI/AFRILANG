@@ -374,13 +374,15 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         fpIn.debugSymbols = options.debugSymbols;
         fpIn.coverageMode = options.coverageMode;
         fpIn.runtimeDir = runtimeDir;
-        fpIn.stdlibStamp = "stdlib-v3-perf-extreme";
+        fpIn.stdlibStamp = "stdlib-v3-perf-plus";
         {
             std::ostringstream opt;
             if (const char* e = std::getenv("AFRILANG_OPT_LEVEL")) opt << "O=" << e;
-            else opt << "O=default";
+            else opt << "O=default3";
             if (const char* l = std::getenv("AFRILANG_LTO")) opt << ";LTO=" << l;
             else opt << ";LTO=0";
+            if (const char* m = std::getenv("AFRILANG_MARCH")) opt << ";MARCH=" << m;
+            if (const char* g = std::getenv("AFRILANG_GC_SECTIONS")) opt << ";GC=" << g;
             if (const char* x = std::getenv("AFRILANG_EXTRA_CXXFLAGS")) opt << ";X=" << x;
             fpIn.optStamp = opt.str();
         }

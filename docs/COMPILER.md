@@ -19,8 +19,9 @@ Il existe un **mid-end langage** (pas un IR SSA / LLVM) :
 2. **Passe AST résiduelle** (`src/passes/passes.cpp`) — identity / strength-reduce
    (`x*2`→`x+x`) / const-prop linéaire / DCE assigns littéraux inutilisés.
 
-Les optimisations lourdes restent déléguées au compilateur hôte (`-O2` ; catalogue
-complex → `-O1` ; override `AFRILANG_OPT_LEVEL` / LTO `AFRILANG_LTO=1`).
+Les optimisations lourdes restent déléguées au compilateur hôte (`-O3` ; catalogue
+complex → `-O1` ; override `AFRILANG_OPT_LEVEL` / LTO `AFRILANG_LTO=1` /
+`AFRILANG_MARCH` / GC sections).
 Fingerprint cache : `optStamp`. Détail : [`PERF.md`](PERF.md).
 
 ## Sûreté d’indexation et d’accès

@@ -1,0 +1,12 @@
+// Constant repeat ≤8 is unrolled in codegen
+create n = 0
+repeat 4 times
+    set n = n + 1
+end
+assert n is equal to 4
+
+create m = 0
+for i from 1 to 5 do
+    set m = m + i
+end
+assert m is equal to 15

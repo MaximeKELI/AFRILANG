@@ -1230,6 +1230,9 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
         ? func.name
         : mangleGlobalFunctionName(func.name);
     out << returnCpp << " " << emittedName << "(" << paramList(func, ownerClass) << ")";
+    if (emitInline && !ownerClass) {
+        out << " noexcept";
+    }
 
     if (ownerClass && !func.isStatic) {
         bool shouldOverride = false;
@@ -2162,7 +2165,22 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* repeat = dynamic_cast<const RepeatStatementNode*>(&stmt)) {
-        out << "for (int _i = 0; _i < static_cast<int>(";
+        // Unroll tiny constant repeats (≤8) for denser hot paths.
+        if (const auto* n = dynamic_cast<const NumberLiteralNode*>(repeat->count.get())) {
+            if (n->isInteger && n->value >= 0 && n->value <= 8.0) {
+                const int times = static_cast<int>(n->value);
+                for (int i = 0; i < times; ++i) {
+                    out << "{\n";
+                    for (const auto& bodyStmt : repeat->body) {
+                        emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+                    }
+                    indent(out, indentLevel);
+                    out << "}\n";
+                }
+                return;
+            }
+        }
+        out << "for (std::int64_t _i = 0; _i < static_cast<std::int64_t>(";
         emitExpression(out, *repeat->count, ownerClass);
         out << "); ++_i) {\n";
         for (const auto& bodyStmt : repeat->body) {
@@ -2243,17 +2261,38 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* forRange = dynamic_cast<const ForRangeStatementNode*>(&stmt)) {
-        out << "for (double " << forRange->varName << " = ";
-        emitExpression(out, *forRange->start, ownerClass);
-        out << "; " << forRange->varName << " <= ";
-        emitExpression(out, *forRange->end, ownerClass);
-        out << "; " << forRange->varName << " += ";
-        if (forRange->step) {
-            emitExpression(out, *forRange->step, ownerClass);
+        const auto* startN = dynamic_cast<const NumberLiteralNode*>(forRange->start.get());
+        const auto* endN = dynamic_cast<const NumberLiteralNode*>(forRange->end.get());
+        const auto* stepN = forRange->step
+            ? dynamic_cast<const NumberLiteralNode*>(forRange->step.get())
+            : nullptr;
+        const bool intRange = startN && startN->isInteger && endN && endN->isInteger &&
+                              (!forRange->step || (stepN && stepN->isInteger));
+        if (intRange) {
+            out << "for (std::int64_t " << forRange->varName << " = ";
+            emitExpression(out, *forRange->start, ownerClass);
+            out << "; " << forRange->varName << " <= ";
+            emitExpression(out, *forRange->end, ownerClass);
+            out << "; " << forRange->varName << " += ";
+            if (forRange->step) {
+                emitExpression(out, *forRange->step, ownerClass);
+            } else {
+                out << "1";
+            }
+            out << ") {\n";
         } else {
-            out << "1.0";
+            out << "for (double " << forRange->varName << " = ";
+            emitExpression(out, *forRange->start, ownerClass);
+            out << "; " << forRange->varName << " <= ";
+            emitExpression(out, *forRange->end, ownerClass);
+            out << "; " << forRange->varName << " += ";
+            if (forRange->step) {
+                emitExpression(out, *forRange->step, ownerClass);
+            } else {
+                out << "1.0";
+            }
+            out << ") {\n";
         }
-        out << ") {\n";
         for (const auto& bodyStmt : forRange->body) {
             emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
         }
@@ -3840,10 +3879,10 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         }
     }
     args.push_back("-std=" + (usesCoroutines && !wasmBuild ? std::string("c++20") : std::string("c++17")));
-    // Host opt level: AFRILANG_OPT_LEVEL overrides. Complex catalog defaults to -O1
+    // Host opt level: AFRILANG_OPT_LEVEL overrides. Default -O3; complex catalog → -O1
     // (was -O0) to keep compile memory bounded; set AFRILANG_OPT_LEVEL=0 if g++ OOMs.
     {
-        std::string opt = "-O2";
+        std::string opt = "-O3";
         if (const char* env = std::getenv("AFRILANG_OPT_LEVEL")) {
             const std::string v = env;
             if (v == "0" || v == "1" || v == "2" || v == "3" || v == "s" || v == "g" ||
@@ -3855,7 +3894,7 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         } else if (usesComplexCatalog && !wasmBuild) {
             opt = "-O1";
         } else if (wasmBuild) {
-            opt = "-O2";
+            opt = "-O3";
         }
         args.push_back(opt);
     }
@@ -3872,6 +3911,22 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     if (const char* lto = std::getenv("AFRILANG_LTO")) {
         if (!wasmBuild && (lto[0] == '1' || lto[0] == 'y' || lto[0] == 'Y')) {
             args.push_back("-flto");
+        }
+    }
+    if (const char* march = std::getenv("AFRILANG_MARCH")) {
+        if (!wasmBuild && march[0] != '\0') {
+            args.push_back(std::string("-march=") + march);
+        }
+    }
+    // Dead-strip unused sections (default on); AFRILANG_GC_SECTIONS=0 to disable.
+    if (!wasmBuild) {
+        bool gc = true;
+        if (const char* g = std::getenv("AFRILANG_GC_SECTIONS")) {
+            gc = !(g[0] == '0' || g[0] == 'n' || g[0] == 'N');
+        }
+        if (gc) {
+            args.push_back("-ffunction-sections");
+            args.push_back("-fdata-sections");
         }
     }
     if (const char* sanitize = std::getenv("AFRILANG_SANITIZE")) {
@@ -3946,6 +4001,16 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     }
     args.push_back("-o");
     args.push_back(executablePath);
+    if (!wasmBuild) {
+        bool gc = true;
+        if (const char* g = std::getenv("AFRILANG_GC_SECTIONS")) {
+            gc = !(g[0] == '0' || g[0] == 'n' || g[0] == 'N');
+        }
+        if (gc) {
+            args.push_back("-Wl,--gc-sections");
+        }
+        args.push_back("-pie");
+    }
     args.push_back(outputPath);
     if (!runtimeDir_.empty()) {
         args.push_back("-I" + runtimeDir_);

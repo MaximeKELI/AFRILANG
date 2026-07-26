@@ -1009,6 +1009,23 @@ static void testIdentityFoldPass() {
     expect(zero != nullptr && zero->value == 0.0, "0*n -> 0");
 }
 
+static void testStrengthReduceMul() {
+    const std::string src = "create x = 3\ncreate t = x * 4\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "srmul.afr");
+    analyzer.analyze();
+    afrilang::passes::runOptionalPasses(*program);
+    expect(program->statements.size() >= 2, "strength reduce keeps assigns");
+    const auto* tAssign = dynamic_cast<const afrilang::AssignStatementNode*>(
+        program->statements[1].get());
+    expect(tAssign != nullptr, "second is assign t");
+    // After *4 → nested adds and const-prop, expect literal 12
+    const auto* lit = dynamic_cast<const afrilang::NumberLiteralNode*>(tAssign->value.get());
+    expect(lit != nullptr && lit->value == 12.0, "x*4 folds to 12");
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -1063,6 +1080,7 @@ int main() {
     testConstantFoldPass();
     testConstPropPass();
     testIdentityFoldPass();
+    testStrengthReduceMul();
     testCacheFingerprintVersionInvalidates();
     testCacheMetaKeyDistinctPaths();
     testPipelineMissingFile();

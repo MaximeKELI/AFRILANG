@@ -5,3 +5,19 @@ test "identity fold still correct"
     assert a is equal to 7
     assert b is equal to 7
 end
+
+test "strength reduce mul 2/4/8"
+    create x number = 3
+    create t2 = x * 2
+    create t4 = x * 4
+    create t8 = x * 8
+    assert t2 is equal to 6
+    assert t4 is equal to 12
+    assert t8 is equal to 24
+end
+
+test "not not fold"
+    create flag yesno = true
+    create d = not not flag
+    assert d is equal to true
+end
