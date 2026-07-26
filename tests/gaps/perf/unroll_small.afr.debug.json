@@ -1,0 +1,7 @@
+{
+  "source": "/home/admin20/AFRILANG/tests/gaps/perf/unroll_small.afr",
+  "variables": [
+    {"name":"m","type":"number","scope":"global"},
+    {"name":"n","type":"number","scope":"global"}
+  ]
+}
