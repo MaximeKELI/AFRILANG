@@ -2,6 +2,7 @@
 
 #include <cctype>
 #include <cstdint>
+#include <fstream>
 #include <sstream>
 #include <string>
 #include <unordered_map>
@@ -391,6 +392,30 @@ inline std::string stringifyPretty(const Value& v, double indent) {
     if (width < 0) width = 0;
     stringifyPrettyInto(v, out, width, 0);
     return out;
+}
+
+inline Value parseFile(const std::string& path) {
+    std::ifstream file(path);
+    if (!file) return Value{};
+    std::ostringstream buffer;
+    buffer << file.rdbuf();
+    return parseValue(buffer.str());
+}
+
+inline bool writeValueFile(const std::string& path, const Value& value) {
+    std::ofstream file(path);
+    if (!file) return false;
+    file << stringifyValue(value);
+    file.flush();
+    return true;
+}
+
+inline bool writePrettyFile(const std::string& path, const Value& value, double indent) {
+    std::ofstream file(path);
+    if (!file) return false;
+    file << stringifyPretty(value, indent);
+    file.flush();
+    return true;
 }
 
 } // namespace json

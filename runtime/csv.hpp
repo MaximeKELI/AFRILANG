@@ -1,5 +1,6 @@
 #pragma once
 
+#include <fstream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -35,7 +36,8 @@ inline std::string joinFields(const std::vector<std::string>& fields) {
     for (std::size_t i = 0; i < fields.size(); ++i) {
         if (i > 0) out << ',';
         const std::string& field = fields[i];
-        if (field.find(',') != std::string::npos || field.find('"') != std::string::npos) {
+        if (field.find(',') != std::string::npos || field.find('"') != std::string::npos ||
+            field.find('\n') != std::string::npos) {
             out << '"';
             for (char c : field) {
                 if (c == '"') out << "\"\"";
@@ -47,6 +49,51 @@ inline std::string joinFields(const std::vector<std::string>& fields) {
         }
     }
     return out.str();
+}
+
+inline std::string readText(const std::string& path) {
+    std::ifstream file(path);
+    if (!file) return "";
+    std::ostringstream buffer;
+    buffer << file.rdbuf();
+    return buffer.str();
+}
+
+inline bool writeText(const std::string& path, const std::string& content) {
+    std::ofstream file(path);
+    if (!file) return false;
+    file << content;
+    return static_cast<bool>(file);
+}
+
+inline std::vector<std::string> readRows(const std::string& path) {
+    std::vector<std::string> rows;
+    const std::string text = readText(path);
+    if (text.empty()) return rows;
+    std::string line;
+    for (char c : text) {
+        if (c == '\n') {
+            if (!line.empty() && line.back() == '\r') line.pop_back();
+            rows.push_back(line);
+            line.clear();
+        } else {
+            line.push_back(c);
+        }
+    }
+    if (!line.empty()) {
+        if (line.back() == '\r') line.pop_back();
+        rows.push_back(line);
+    }
+    return rows;
+}
+
+inline std::string headerRow(const std::string& path) {
+    const auto rows = readRows(path);
+    return rows.empty() ? "" : rows.front();
+}
+
+inline double rowCount(const std::string& path) {
+    return static_cast<double>(readRows(path).size());
 }
 
 } // namespace afrilang::runtime::csv

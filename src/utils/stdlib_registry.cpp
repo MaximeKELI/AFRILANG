@@ -267,6 +267,11 @@ void StdlibRegistry::injectJsonModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("getPath", {{"value", "json"}, {"path", "text"}}, "json"));
     fns.push_back(makeStubFunction("stringifyPretty", {{"value", "json"}, {"indent", "number"}}, "text"));
     fns.push_back(makeStubFunction("makeObject", {{"key", "text"}, {"value", "text"}}, "json"));
+    fns.push_back(makeStubFunction("parseFile", {{"path", "text"}}, "json"));
+    fns.push_back(makeStubFunction("writeFile", {{"path", "text"}, {"value", "json"}}, "bool"));
+    fns.push_back(makeStubFunction("writePretty",
+                                   {{"path", "text"}, {"value", "json"}, {"indent", "number"}},
+                                   "bool"));
     injectModule(program, "json", std::move(fns));
 }
 
@@ -293,6 +298,19 @@ void StdlibRegistry::injectHttpModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("httpPostHeaders",
                                    {{"url", "text"}, {"body", "text"}, {"headersText", "text"}},
                                    "text"));
+    fns.push_back(makeStubFunction("httpPut", {{"url", "text"}, {"body", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpPatch", {{"url", "text"}, {"body", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpDelete", {{"url", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpMethod",
+                                   {{"method", "text"}, {"url", "text"}, {"body", "text"}}, "text"));
+    fns.push_back(makeStubFunction(
+        "httpExchange",
+        {{"method", "text"}, {"url", "text"}, {"body", "text"}, {"headersText", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpGetTimeout", {{"url", "text"}, {"timeoutMs", "number"}},
+                                   "text"));
+    fns.push_back(makeStubFunction("httpGetStatus", {{"url", "text"}}, "number"));
+    fns.push_back(makeStubFunction("httpStatusOf", {{"exchange", "text"}}, "number"));
+    fns.push_back(makeStubFunction("httpBodyOf", {{"exchange", "text"}}, "text"));
     fns.push_back(makeStubFunction("httpGetAsync", {{"url", "text"}}, "text", true));
     fns.push_back(makeStubFunction("httpPostAsync", {{"url", "text"}, {"body", "text"}}, "text", true));
     injectModule(program, "http", std::move(fns));
@@ -695,10 +713,21 @@ void StdlibRegistry::injectWebModule(ProgramNode& program) {
 void StdlibRegistry::injectOrmModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("findAll", {{"path", "text"}, {"table", "text"}}, "text"));
+    fns.push_back(makeStubFunction("findWhere",
+                                   {{"path", "text"}, {"table", "text"}, {"where", "text"}}, "text"));
     fns.push_back(makeStubFunction("insert", {{"path", "text"}, {"table", "text"},
                                               {"columns", "text"}, {"values", "text"}}, "int"));
+    fns.push_back(makeStubFunction(
+        "updateRows",
+        {{"path", "text"}, {"table", "text"}, {"setClause", "text"}, {"where", "text"}}, "bool"));
     fns.push_back(makeStubFunction("deleteRows", {{"path", "text"}, {"table", "text"},
                                                   {"where", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("createTable",
+                                   {{"path", "text"}, {"table", "text"}, {"columnsSql", "text"}},
+                                   "bool"));
+    fns.push_back(makeStubFunction("dropTable", {{"path", "text"}, {"table", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("tableExists", {{"path", "text"}, {"table", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("listTables", {{"path", "text"}}, "text"));
     injectModule(program, "orm", std::move(fns));
 }
 
@@ -1188,6 +1217,11 @@ void StdlibRegistry::injectCsvModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("splitLine", {{"line", "text"}}, "list text"));
     fns.push_back(makeStubFunction("joinFields", {{"fields", "list text"}}, "text"));
+    fns.push_back(makeStubFunction("readText", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("writeText", {{"path", "text"}, {"content", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("readRows", {{"path", "text"}}, "list text"));
+    fns.push_back(makeStubFunction("headerRow", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("rowCount", {{"path", "text"}}, "number"));
     injectModule(program, "csv", std::move(fns));
 }
 

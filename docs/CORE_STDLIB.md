@@ -1,62 +1,65 @@
 # Core stdlib AFRILANG
 
-La masse de fichiers sous `stdlib/` (catalogues générés) sert surtout à la complétion / signatures IDE.  
-**Seuls les modules ci-dessous sont considérés « core »** : backend C++ réel dans `runtime/`, compatibilité 1.x, documentation prioritaire.
+La masse de fichiers sous `stdlib/` (catalogues générés : simple / medium / complex) sert
+surtout à la **complétion IDE**. Ce n’est **pas** l’équivalent d’une stdlib Python.
 
-Voir aussi `STDLIB_API.md` (API prioritaire Vague 3), `STDLIB_GEN.md`, et `isLegacyStdlibModule` dans `src/utils/stdlib_registry.cpp`.  
-Suite de tests : `afrilang test --specs`.
+**Seuls les modules « core »** (ci-dessous) ont un backend C++ dédié dans `runtime/`,
+des tests sous `tests/stdlib/`, et une promesse de stabilité 1.x.
+
+Voir aussi `STDLIB_API.md`, `STDLIB_GEN.md`, et `isLegacyStdlibModule` dans
+`src/utils/stdlib_registry.cpp`.
+
+## Core vs kits vs ultras
+
+| Couche | Exemple | Réalité |
+|--------|---------|---------|
+| **Core** | `std/http`, `std/orm`, `std/json` | Runtime dédié, tests, docs prioritaires |
+| **Kits** (`giskit*`, `gamekit*`, …) | `std/giskit042` | Vrais snippets C++ minces — **pas** un framework GIS/jeu |
+| **Ultras** (`dbultra*`, `gisultra*`, …) | `std/c/dbultra001` | Clones répétés autour du même noyau — **pas** 500 bases différentes |
+
+Les `.afr` à corps vide = signatures ; le codegen injecte le C++ réel au compile-time.
 
 ## Modules core (stabilisés)
 
-| Module | Import typique | Domaine | Specs |
-|--------|----------------|---------|-------|
+| Module | Import | Domaine | Specs |
+|--------|--------|---------|-------|
 | io | `std/io` | Entrées / sorties | `tests/stdlib/io.afr` |
-| json | `std/json` | JSON | `tests/stdlib/json.afr` |
+| json | `std/json` | JSON (+ fichiers) | `tests/stdlib/json.afr` |
 | fs | `std/fs` | Fichiers | `tests/stdlib/fs.afr` |
-| http | `std/http` | HTTP sync | `tests/stdlib/http.afr` (offline reject) |
+| http | `std/http` | HTTP client (GET/POST/PUT/PATCH/DELETE, status, timeout) | `tests/stdlib/http.afr` |
+| csv | `std/csv` | CSV (+ fichiers) | `tests/stdlib/csv.afr` |
+| sql | `std/sql` | SQLite query/exec | (via demos + orm) |
+| orm | `std/orm` | SQLite ORM-lite | `tests/stdlib/orm.afr` |
+| web | `std/web` | Router HTTP démo | `tests/stdlib/web.afr` |
+| thread | `std/thread` | Threads / mutex / channels | `tests/stdlib/thread.afr` |
+| async | `std/async` | `sleep` (+ Task interne) | demos async |
 | str | `std/str` | Chaînes | `tests/stdlib/str.afr` |
-| log / logging | `std/log` | Journalisation | `tests/stdlib/log.afr` |
+| logging | `std/log` | Journalisation | `tests/stdlib/log.afr` |
 | math | `std/math` | Math | `tests/stdlib/math.afr` |
-| stats | `std/stats` | Statistiques descriptives | `tests/stdlib/stats.afr` |
-| proba | `std/proba` | Probabilités / distributions | `tests/stdlib/proba.afr` |
-| time / chrono | `std/time` | Temps | `tests/stdlib/time.afr` |
+| stats | `std/stats` | Stats | `tests/stdlib/stats.afr` |
+| proba | `std/proba` | Probabilités | `tests/stdlib/proba.afr` |
+| chrono / datetime | `std/chrono`, `std/datetime` | Temps | `tests/stdlib/time.afr` |
 | re | `std/re` | Regex | `tests/stdlib/re.afr` |
 | collections | `std/collections` | Structures | `tests/stdlib/collections.afr` |
-| args | `std/args` | CLI args | `tests/stdlib/args.afr` |
-| path | `std/path` | Chemins | `tests/stdlib/path.afr` |
-| async | `std/async` | Coroutines | (couvert via demos / suite async) |
-| ui | `std/ui` | Fenêtres (natif) | (SDL — hors smoke headless) |
-| game2d / game3d | `std/game2d` | Jeux | (SDL — hors smoke headless) |
-| env | `std/env` | Environnement | `tests/stdlib/env.afr` |
-| random | `std/random` | Aléatoire | `tests/stdlib/random.afr` |
-| crypto | `std/crypto` | Hash, HMAC, AES-GCM, CSPRNG | `tests/stdlib/crypto.afr` |
-| process | `std/process` | Spawn, pipes, exit (posix_spawn) | `tests/stdlib/process.afr` |
-| net | `std/net` | TCP + HTTP minimal (+ TLS OpenSSL) | `tests/stdlib/net.afr` |
-| csv | `std/csv` | CSV | `tests/stdlib/csv.afr` |
-| yaml / html | `std/yaml` … | Formats | `tests/stdlib/yaml.afr` (+ html via API) |
-| uuid / base64 / hex / url | … | Utilitaires | `tests/stdlib/{uuid,base64,hex,url}.afr` |
-| unicode | `std/unicode` | UTF-8 | `tests/stdlib/unicode.afr` |
+| args / path / env | … | CLI / chemins / env | specs dédiées |
+| crypto / process / net | … | Hash, spawn, TCP | specs dédiées |
+| yaml / html / uuid / base64 / hex / url / unicode / email / cli / tempfile / random / bigint | … | Utilitaires | specs dédiées |
+| ui / game2d / game3d / gamestate / gamenet | … | GUI / jeux (SDL) | hors smoke headless |
 
 Suite : `./build/afrilang test --specs .` (inclut `tests/stdlib/`).
 
-**Vague modules B** : `str` / `json` / `fs` / `collections` approfondis (cas limites :
-trim vide, split/join, JSON missing keys / `[]`/`{}`, fs makeDir/listDir/fileSize,
-collections sort/reverse/contains/sum/take-drop edges). WASM CI smoke :
-`str` + `json` + `collections`.
+## Batteries — vague 2026-07
 
-**Vague modules C** : `math` / `stats` / `path` / `re` approfondis (listes vides,
-singleton stats, `gcd(n,0)`, `basename` trailing slash pathlib-like, regex pattern
-invalide fails-closed). WASM CI smoke : + `math` + `stats` + `path` + `re`.
+Approfondissement **core** (pas de nouveaux kits) :
 
-IA / ML (catalogue expérimental + paquet LLM) : voir [`STDLIB_AI.md`](STDLIB_AI.md)
-— **pas** core.
-
-- `stdlib/*.afr`, `stdlib/m/`, `stdlib/c/` — stubs de signatures, **pas** une garantie de profondeur API
-- Un module utilisateur / paquet qui **porte le même nom** qu’une entrée de catalogue n’est **pas** traité comme stdlib (origine `isStdlibInjected`)
-- Packs « ultra » (GIS, data, …) — utiles en démo ; stabilité au cas par cas
+- **http** : `httpPut` / `httpPatch` / `httpDelete` / `httpMethod`, `httpExchange` + `httpStatusOf` / `httpBodyOf`, `httpGetStatus`, `httpGetTimeout` (timeout socket 30s par défaut)
+- **orm** : `createTable` / `dropTable` / `tableExists` / `listTables` / `findWhere` / `updateRows` (+ garde identifiants SQL)
+- **csv** : `readText` / `writeText` / `readRows` / `headerRow` / `rowCount`
+- **json** : `parseFile` / `writeFile` / `writePretty`
 
 ## Politique
 
 1. Bugs et docs prioritaires sur le **core**.
 2. Un module généré n’entre dans le core qu’avec runtime réel + tests + entrée ici.
 3. Les catalogues générés peuvent évoluer sans promesse semver stricte.
+4. IA / ML catalogue : [`STDLIB_AI.md`](STDLIB_AI.md) — **pas** core.

@@ -73,3 +73,12 @@ test "getInt"
     create doc json = parse("{\"n\": 9}")
     assert getInt(doc, "n") is equal to 9
 end
+
+test "parseFile writeFile"
+    create path = "/tmp/afrilang_json_stdlib.json"
+    create doc json = makeObject("city", "Lome")
+    assert writeFile(path, doc)
+    create again json = parseFile(path)
+    assert getString(again, "city") is equal to "Lome"
+    assert writePretty(path, doc, 2)
+end

@@ -3622,7 +3622,7 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
     const std::string rt = "::afrilang::runtime::" + runtimeModuleName(moduleName) +
                            "::" + func.name;
 
-    if (func.name == "writeFile") {
+    if (func.name == "writeFile" && moduleName == "io") {
         out << rt << "(path, content);\n";
     } else if (moduleName == "json") {
         if (func.name == "parse") {
@@ -3649,6 +3649,12 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
             out << "return afrilang::runtime::json::stringifyPretty(value, indent);\n";
         } else if (func.name == "makeObject") {
             out << "return afrilang::runtime::json::makeObjectValue(key, value);\n";
+        } else if (func.name == "parseFile") {
+            out << "return afrilang::runtime::json::parseFile(path);\n";
+        } else if (func.name == "writeFile") {
+            out << "return afrilang::runtime::json::writeValueFile(path, value);\n";
+        } else if (func.name == "writePretty") {
+            out << "return afrilang::runtime::json::writePrettyFile(path, value, indent);\n";
         }
     } else if (moduleName == "yaml") {
         if (func.name == "parse") {

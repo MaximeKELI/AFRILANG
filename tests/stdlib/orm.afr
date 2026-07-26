@@ -1,0 +1,32 @@
+import "std/orm"
+use orm
+import "std/str"
+use str
+
+test "create table and exists"
+    create db = "/tmp/afrilang_orm_stdlib.db"
+    assert dropTable(db, "users")
+    assert createTable(db, "users", "id integer primary key, name text, city text")
+    assert tableExists(db, "users")
+    assert tableExists(db, "missing") is equal to false
+    assert contains(listTables(db), "users")
+end
+
+test "insert find update where"
+    create db = "/tmp/afrilang_orm_stdlib.db"
+    assert createTable(db, "users", "id integer primary key, name text, city text")
+    create id = insert(db, "users", "name|city", "Ama|Lome")
+    assert id is greater than 0
+    create all = findAll(db, "users")
+    assert contains(all, "Ama")
+    assert contains(findWhere(db, "users", "city='Lome'"), "Ama")
+    assert updateRows(db, "users", "city='Kara'", "name='Ama'")
+    assert contains(findWhere(db, "users", "city='Kara'"), "Ama")
+    assert deleteRows(db, "users", "name='Ama'")
+end
+
+test "reject bad identifiers"
+    create db = "/tmp/afrilang_orm_stdlib.db"
+    assert createTable(db, "bad-name", "id integer") is equal to false
+    assert tableExists(db, "users;drop") is equal to false
+end

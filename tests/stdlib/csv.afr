@@ -1,5 +1,7 @@
 import "std/csv"
 use csv
+import "std/str"
+use str
 
 test "csv splitLine simple"
     create fields = splitLine("a,b,c")
@@ -21,4 +23,15 @@ test "csv joinFields roundtrip"
     assert again at 0 is equal to "x"
     assert again at 1 is equal to "y,z"
     assert again at 2 is equal to "q"
+end
+
+test "csv file helpers"
+    create path = "/tmp/afrilang_csv_stdlib.csv"
+    assert writeText(path, "ville,pop\nLome,1\nKara,2")
+    assert headerRow(path) is equal to "ville,pop"
+    assert rowCount(path) is equal to 3
+    create rows = readRows(path)
+    assert length of rows is equal to 3
+    assert rows at 1 is equal to "Lome,1"
+    assert contains(readText(path), "Kara")
 end

@@ -1,7 +1,7 @@
 import "std/http"
 use http
 
-// Offline only — no network in CI. Invalid URLs must yield empty text.
+// Offline only — no network in CI. Invalid URLs must yield empty text / status 0.
 test "http rejects unsafe urls"
     assert httpGet("not-a-url") is equal to ""
     assert httpGet("ftp://example.com/") is equal to ""
@@ -9,4 +9,21 @@ test "http rejects unsafe urls"
     assert httpPost("javascript:alert(1)", "{}") is equal to ""
     assert httpPostHeaders("not-a-url", "{}", "Authorization: Bearer x") is equal to ""
     assert httpPostHeaders("ftp://example.com/", "{}", "X-Test: 1") is equal to ""
+end
+
+test "http methods reject unsafe"
+    assert httpPut("not-a-url", "{}") is equal to ""
+    assert httpPatch("ftp://x/", "{}") is equal to ""
+    assert httpDelete("not-a-url") is equal to ""
+    assert httpMethod("GET", "not-a-url", "") is equal to ""
+    assert httpGetTimeout("not-a-url", 100) is equal to ""
+    assert httpGetStatus("not-a-url") is equal to 0
+end
+
+test "http exchange helpers"
+    create ex = httpExchange("GET", "not-a-url", "", "")
+    assert httpStatusOf(ex) is equal to 0
+    assert httpBodyOf("200\n{\"ok\":true}") is equal to "{\"ok\":true}"
+    assert httpStatusOf("404\nmissing") is equal to 404
+    assert httpBodyOf("200") is equal to ""
 end
