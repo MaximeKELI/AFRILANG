@@ -100,7 +100,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                     OutlinedButton.icon(
-                      onPressed: () => wb.toggleCommandPalette(true),
+                      onPressed: () => wb.showOverlay(OverlayMode.commandPalette),
                       icon: const Icon(Icons.terminal),
                       label: const Text('Command Palette'),
                       style: OutlinedButton.styleFrom(

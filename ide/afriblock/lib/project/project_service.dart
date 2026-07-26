@@ -89,7 +89,7 @@ class ProjectService {
 
   AfrilangProject _parseToml(String root, String text) {
     String? pick(String key) {
-      final re = RegExp('^\\s*$key\\s*=\\s*\"([^\"]*)\"', multiLine: true);
+      final re = RegExp('^\\s*$key\\s*=\\s*"([^"]*)"', multiLine: true);
       return re.firstMatch(text)?.group(1);
     }
 

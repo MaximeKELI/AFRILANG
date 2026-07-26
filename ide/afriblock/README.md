@@ -6,19 +6,23 @@ Inspired by Code OSS workbench layout, Flutter-native editors (Lumide /
 flutter_ide style), and the existing [`vscode-afrilang`](../../vscode-afrilang/)
 CLI/LSP surface — without claiming VS Code parity.
 
-## v0.1 features
+## Features (phases A–F foundation)
 
-- Workbench: activity bar, explorer, editor tabs, bottom panel, status bar
-- Command palette (`Ctrl/Cmd+Shift+P`)
-- Native `.afr` editor with line numbers + keyword highlighting
-- **Run** / **Check** via local `afrilang` binary → Output + Problems
+- Workbench: activity bar, explorer, editor tabs/split, bottom panel, status bar, build toolbar
+- Command palette (`Ctrl/Cmd+Shift+P`) + Quick Open (`Ctrl/Cmd+P`)
+- Native `.afr` editor + breakpoints gutter + Outline
+- `afrilang.toml` project detection + build targets (debug/release/test/wasm)
+- Streamed **Build / Run / Check / Test / Debug** via local `afrilang`
+- LSP client (stdio), format-on-save, Problems from build + LSP
+- Git SCM, Find in Files, PTY terminal
+- Themes (dark/light/HC), settings, plugin host
 - Linux, Windows, and macOS desktop targets
 
-## Non-goals (phase 2)
+## Still deepening
 
-- Full LSP client (`afrilang lsp`)
-- Integrated PTY terminal
-- Git UI / DAP debugger
+- Full GDB/MI DAP parity with vscode-afrilang
+- Detachable tool windows, blame, multi-root workspace JSON polish
+- Public plugin marketplace (explicit non-goal until API freeze)
 
 ## Prerequisites
 

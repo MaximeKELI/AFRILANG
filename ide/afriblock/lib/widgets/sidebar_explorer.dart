@@ -316,7 +316,7 @@ class _RunPanel extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           DropdownButtonFormField<String>(
-            value: wb.activeTargetId,
+            initialValue: wb.activeTargetId,
             decoration: const InputDecoration(labelText: 'Build target', border: OutlineInputBorder()),
             items: [
               for (final t in wb.availableTargets)
@@ -410,10 +410,7 @@ class _TestPanel extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               OutlinedButton(
-                onPressed: () async {
-                  await wb.tests.discover(wb.workspaceRoot);
-                  wb.notifyListeners();
-                },
+                onPressed: wb.refreshTests,
                 child: const Text('Refresh'),
               ),
             ],

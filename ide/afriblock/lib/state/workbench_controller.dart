@@ -44,8 +44,9 @@ class WorkbenchController extends ChangeNotifier {
     SettingsStore? settings,
   })  : files = fileService ?? FileService(),
         settings = settings ?? SettingsStore() {
-    cli = AfrilangCli(resolveBinary: () => this.settings.resolveAfrilangBinary());
-    build = BuildService(resolveBinary: () => this.settings.resolveAfrilangBinary());
+    final store = this.settings;
+    cli = AfrilangCli(resolveBinary: () => store.resolveAfrilangBinary());
+    build = BuildService(resolveBinary: () => store.resolveAfrilangBinary());
     lsp = LspClient(
       onDiagnostics: (items) {
         problems
@@ -54,7 +55,7 @@ class WorkbenchController extends ChangeNotifier {
         notifyListeners();
       },
       onTrace: (line) {
-        if (settings.lspTrace) appendOutput(line, channel: 'lsp');
+        if (store.lspTrace) appendOutput(line, channel: 'lsp');
       },
     );
   }
@@ -319,6 +320,16 @@ class WorkbenchController extends ChangeNotifier {
     if (splitEditor && secondaryTabIndex == null && tabs.isNotEmpty) {
       secondaryTabIndex = activeTabIndex;
     }
+    notifyListeners();
+  }
+
+  void setSecondaryTab(int index) {
+    secondaryTabIndex = index;
+    notifyListeners();
+  }
+
+  Future<void> refreshTests() async {
+    await tests.discover(workspaceRoot);
     notifyListeners();
   }
 

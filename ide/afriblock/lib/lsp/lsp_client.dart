@@ -128,7 +128,7 @@ class LspClient {
   }
 
   void _notify(String method, Object? params) {
-    _send({'jsonrpc': '2.0', 'method': method, if (params != null) 'params': params});
+    _send({'jsonrpc': '2.0', 'method': method, 'params': ?params});
   }
 
   Future<Map<String, dynamic>> _request(String method, Object? params) {
@@ -139,7 +139,7 @@ class LspClient {
       'jsonrpc': '2.0',
       'id': id,
       'method': method,
-      if (params != null) 'params': params,
+      'params': ?params,
     });
     return c.future.timeout(const Duration(seconds: 8), onTimeout: () {
       _pending.remove(id);

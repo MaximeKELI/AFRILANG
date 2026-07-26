@@ -47,7 +47,9 @@ class WorkbenchShell extends StatelessWidget {
             () => wb.togglePanel(),
         const SingleActivator(LogicalKeyboardKey.keyJ, meta: true):
             () => wb.togglePanel(),
-        const SingleActivator(LogicalKeyboardKey.keyOemBackslash, control: true):
+        const SingleActivator(LogicalKeyboardKey.backslash, control: true):
+            () => wb.toggleSplit(),
+        const SingleActivator(LogicalKeyboardKey.backslash, meta: true):
             () => wb.toggleSplit(),
         const SingleActivator(LogicalKeyboardKey.escape): () {
           if (wb.overlay != OverlayMode.none) wb.hideOverlay();

@@ -3,7 +3,10 @@
 > Canonical architecture for the official AFRILANG desktop IDE.
 > Status: living document. Implementation maturity is per-phase (A–F), not “VS Code parity”.
 
-## 1. Vision
+## Status
+
+Phases **A–F foundations** are implemented in `ide/afriblock/` (see app README).
+Depth (full DAP MI, marketplace plugins, etc.) continues to grow against this doc.
 
 **AFRIBLOCK** is the official Flutter desktop IDE for **AFRILANG only**
 (Linux / Windows / macOS). Product goal: a world-class loop to

@@ -85,8 +85,7 @@ class _TabBar extends StatelessWidget {
             onTap: () {
               wb.selectTab(i);
               if (wb.splitEditor && groupIndex != null && groupIndex != wb.activeTabIndex) {
-                wb.secondaryTabIndex = i;
-                wb.notifyListeners();
+                wb.setSecondaryTab(i);
               }
             },
             child: Container(
