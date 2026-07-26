@@ -177,11 +177,20 @@ class WorkbenchController extends ChangeNotifier {
         run: (wb) => wb.saveActive(),
       ),
       IdeCommandDef(
+        id: 'file.newProject',
+        label: 'File: New Project…',
+        category: 'File',
+        run: (wb) async {
+          wb.statusMessage = 'Utilisez le bouton Nouveau projet (toolbar / welcome)';
+          wb.notifyListeners();
+        },
+      ),
+      IdeCommandDef(
         id: 'file.newAfr',
         label: 'File: New File…',
         category: 'File',
         run: (wb) async {
-          wb.statusMessage = 'Use Explorer ＋ or File → New File…';
+          wb.statusMessage = 'Utilisez le bouton Nouveau fichier (toolbar)';
           wb.notifyListeners();
         },
       ),
@@ -190,7 +199,7 @@ class WorkbenchController extends ChangeNotifier {
         label: 'File: New Folder…',
         category: 'File',
         run: (wb) async {
-          wb.statusMessage = 'Use Explorer ＋ or File → New Folder…';
+          wb.statusMessage = 'Utilisez le bouton Nouveau dossier (toolbar)';
           wb.notifyListeners();
         },
       ),
@@ -422,14 +431,24 @@ class WorkbenchController extends ChangeNotifier {
 
   Future<void> openFolder([String? path]) async {
     String? folder = path;
-    folder ??= await FilePicker.platform.getDirectoryPath(
-      dialogTitle: 'Open Folder — AFRIBLOCK',
-    );
+    if (folder != null && folder.isNotEmpty) {
+      final dir = Directory(folder);
+      if (!await dir.exists()) {
+        statusMessage = 'Dossier introuvable: $folder';
+        notifyListeners();
+        return;
+      }
+    } else {
+      folder = await FilePicker.platform.getDirectoryPath(
+        dialogTitle: 'Open Folder — AFRIBLOCK',
+      );
+    }
     if (folder == null) return;
 
     try {
       rootNode = await files.loadTree(folder);
       workspaceRoot = folder;
+      explorerSelection = folder;
       await settings.pushRecent(folder);
       await projects.detect(folder);
       await _indexFiles(folder);
@@ -443,7 +462,7 @@ class WorkbenchController extends ChangeNotifier {
           : 'Project ${proj.name} — ${proj.main ?? "no main"}';
       appendOutput(
         proj == null
-            ? 'Opened workspace: $folder\nNo afrilang.toml — use AFRILANG: Init or open a project root.\n'
+            ? 'Opened workspace: $folder\n'
             : 'Opened project ${proj.name} ($folder)\nmain=${proj.main} output=${proj.output}\n',
       );
       notifyListeners();
@@ -452,6 +471,59 @@ class WorkbenchController extends ChangeNotifier {
       appendOutput('Open failed: $e\n');
       notifyListeners();
     }
+  }
+
+  /// Creates `parent/name/` with afrilang.toml + src/main.afr, then opens it.
+  Future<String> createNewProject({
+    required String name,
+    required String parentDir,
+  }) async {
+    final err = PathNameRules.validateSegment(name, isFolder: true);
+    if (err != null) throw StateError(err);
+    final parent = Directory(parentDir);
+    if (!await parent.exists()) {
+      await parent.create(recursive: true);
+    }
+    final root = p.normalize(p.join(parentDir, name));
+    if (await Directory(root).exists()) {
+      throw StateError('Le dossier existe déjà: $root');
+    }
+    await Directory(p.join(root, 'src')).create(recursive: true);
+    final toml = '''
+name = "$name"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/$name"
+description = "Projet créé avec AFRIBLOCK"
+''';
+    await files.writeFile(p.join(root, 'afrilang.toml'), toml);
+    await files.writeFile(
+      p.join(root, 'src', 'main.afr'),
+      '// $name — entrée principale\nsay "Hello from $name"\n',
+    );
+    await openFolder(root);
+    statusMessage = 'Projet créé: $name';
+    notifyListeners();
+    return root;
+  }
+
+  /// In-memory buffer (not yet on disk). Save will ask to materialize.
+  void openUntitledBuffer() {
+    final path = p.join(
+      workspaceRoot ?? Directory.systemTemp.path,
+      'untitled_${DateTime.now().millisecondsSinceEpoch}.afr',
+    );
+    final tab = EditorTab(
+      path: path,
+      content: '// Untitled\nsay "Hello AFRIBLOCK"\n',
+    );
+    // Keep dirty so user must save intentionally.
+    tab.savedContent = '';
+    tab.dirty = true;
+    tabs.add(tab);
+    activeTabIndex = tabs.length - 1;
+    statusMessage = 'Fichier temporaire — enregistrez avec Ctrl+S';
+    notifyListeners();
   }
 
   Future<void> _indexFiles(String root) async {
@@ -669,6 +741,21 @@ class WorkbenchController extends ChangeNotifier {
     final tab = activeTab;
     if (tab == null) return;
     try {
+      // Materialize untitled into workspace if needed.
+      if (workspaceRoot != null &&
+          !p.isWithin(workspaceRoot!, tab.path) &&
+          tab.path.contains('untitled_')) {
+        final dest = p.join(workspaceRoot!, p.basename(tab.path));
+        await files.writeFile(dest, tab.content);
+        tab.content = await files.readFile(dest);
+        // Replace tab path by recreating entry
+        final idx = activeTabIndex!;
+        tabs[idx] = EditorTab(path: dest, content: tab.content)..markSaved();
+        await refreshExplorer();
+        statusMessage = 'Saved ${p.basename(dest)}';
+        notifyListeners();
+        return;
+      }
       if (format && tab.path.endsWith('.afr') && settings.formatOnSave) {
         await _formatTab(tab);
       }

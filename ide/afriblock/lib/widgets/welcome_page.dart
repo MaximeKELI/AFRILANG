@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../state/workbench_controller.dart';
 import '../theme/afriblock_theme.dart';
+import 'new_item_dialogs.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -74,7 +75,8 @@ class WelcomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 28),
                 Text(
-                  'Open a folder to start editing `.afr` sources. Run and Check use the local `afrilang` binary.',
+                  'Créez un projet directement dans l’IDE (dossier + main.afr), '
+                  'ou ouvrez un dossier existant.',
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 14.5,
                     height: 1.45,
@@ -87,9 +89,22 @@ class WelcomePage extends StatelessWidget {
                   runSpacing: 12,
                   children: [
                     FilledButton.icon(
-                      onPressed: () => wb.openFolder(),
-                      icon: const Icon(Icons.folder_open),
-                      label: const Text('Open Folder'),
+                      onPressed: () => promptNewProject(context),
+                      icon: const Icon(Icons.rocket_launch),
+                      label: const Text('Nouveau projet'),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: AfriblockColors.accent,
+                        foregroundColor: Colors.black,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 14,
+                        ),
+                      ),
+                    ),
+                    FilledButton.icon(
+                      onPressed: () => promptCreateFile(context),
+                      icon: const Icon(Icons.note_add_outlined),
+                      label: const Text('Nouveau fichier'),
                       style: FilledButton.styleFrom(
                         backgroundColor: AfriblockColors.primaryDeep,
                         foregroundColor: Colors.white,
@@ -99,11 +114,17 @@ class WelcomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(
-                      'Then use Explorer ＋ to create files and folders.',
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 12.5,
-                        color: AfriblockColors.textMuted,
+                    OutlinedButton.icon(
+                      onPressed: () => promptOpenFolder(context),
+                      icon: const Icon(Icons.folder_open),
+                      label: const Text('Ouvrir un dossier'),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AfriblockColors.text,
+                        side: const BorderSide(color: AfriblockColors.border),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 14,
+                        ),
                       ),
                     ),
                     OutlinedButton.icon(

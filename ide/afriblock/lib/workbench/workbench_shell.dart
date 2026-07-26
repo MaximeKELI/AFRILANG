@@ -128,15 +128,13 @@ class _TitleBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
+          const CreateActionsRow(compact: true),
+          const SizedBox(width: 8),
           _MenuBtn(label: 'File', items: [
-            _MenuAction('Open Folder…', () => wb.openFolder()),
-            _MenuAction('New File…', () {
-              // ignore: use_build_context_synchronously
-              promptCreateFile(context);
-            }),
-            _MenuAction('New Folder…', () {
-              promptCreateFolder(context);
-            }),
+            _MenuAction('Nouveau projet…', () => promptNewProject(context)),
+            _MenuAction('Nouveau fichier…', () => promptCreateFile(context)),
+            _MenuAction('Nouveau dossier…', () => promptCreateFolder(context)),
+            _MenuAction('Ouvrir un dossier…', () => promptOpenFolder(context)),
             _MenuAction('Save', () => wb.saveActive()),
             _MenuAction('Discard Changes', () => wb.discardActiveChanges()),
             _MenuAction('Close Editor', () => wb.closeActiveTab()),
@@ -209,6 +207,24 @@ class _BuildToolbar extends StatelessWidget {
                 },
               ),
             ),
+          ),
+          IconButton(
+            tooltip: 'Nouveau projet',
+            iconSize: 18,
+            onPressed: () => promptNewProject(context),
+            icon: const Icon(Icons.rocket_launch_outlined, color: AfriblockColors.accent),
+          ),
+          IconButton(
+            tooltip: 'Nouveau fichier',
+            iconSize: 18,
+            onPressed: () => promptCreateFile(context),
+            icon: const Icon(Icons.note_add_outlined),
+          ),
+          IconButton(
+            tooltip: 'Nouveau dossier',
+            iconSize: 18,
+            onPressed: () => promptCreateFolder(context),
+            icon: const Icon(Icons.create_new_folder_outlined),
           ),
           IconButton(
             tooltip: 'Build',
