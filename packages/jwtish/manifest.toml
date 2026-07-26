@@ -1,0 +1,6 @@
+name = "jwtish"
+version = "0.1.0"
+description = "JWT-shaped token split/decode helpers (no signature verify) over std/base64 + std/json"
+main = "jwtish.afr"
+license = "MIT"
+tags = ["jwt", "auth", "base64", "metier"]

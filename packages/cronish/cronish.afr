@@ -1,0 +1,56 @@
+import "std/datetime"
+use datetime
+
+module cronish
+    function everyHours(fromSeconds number, hours number) returns number
+        return addSeconds(fromSeconds, hours * 3600)
+    end
+
+    function everyDays(fromSeconds number, days number) returns number
+        return addDays(fromSeconds, days)
+    end
+
+    function isDue(nowSeconds number, nextSeconds number) returns bool
+        if nowSeconds is greater than nextSeconds then
+            return true
+        end
+        return nowSeconds is equal to nextSeconds
+    end
+
+    function nextDaily(fromSeconds number) returns number
+        return addDays(fromSeconds, 1)
+    end
+
+    function weekdayName(seconds number) returns text
+        create w = weekday(seconds)
+        if w is equal to 0 then
+            return "Sun"
+        end
+        if w is equal to 1 then
+            return "Mon"
+        end
+        if w is equal to 2 then
+            return "Tue"
+        end
+        if w is equal to 3 then
+            return "Wed"
+        end
+        if w is equal to 4 then
+            return "Thu"
+        end
+        if w is equal to 5 then
+            return "Fri"
+        end
+        return "Sat"
+    end
+
+    function describeDaily(seconds number) returns text
+        create iso text = formatIso(seconds)
+        create wd text = weekdayName(seconds)
+        return wd + " " + iso
+    end
+
+    function parseStamp(iso text) returns number
+        return parseIso(iso)
+    end
+end

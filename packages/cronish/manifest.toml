@@ -1,0 +1,6 @@
+name = "cronish"
+version = "0.1.0"
+description = "Simple schedule helpers over std/datetime (daily / hourly / due checks)"
+main = "cronish.afr"
+license = "MIT"
+tags = ["time", "schedule", "datetime", "metier"]

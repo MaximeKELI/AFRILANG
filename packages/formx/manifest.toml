@@ -1,0 +1,6 @@
+name = "formx"
+version = "0.1.0"
+description = "application/x-www-form-urlencoded helpers over std/url + std/str"
+main = "formx.afr"
+license = "MIT"
+tags = ["http", "form", "url", "metier"]

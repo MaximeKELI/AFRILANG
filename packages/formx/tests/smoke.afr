@@ -1,0 +1,16 @@
+import "pkg/formx/formx.afr"
+use formx
+
+test "encode"
+    assert encodePair("a", "1") is equal to "a=1"
+    assert contains(encodePair("q", "hello world"), "hello")
+    assert contentType() is equal to "application/x-www-form-urlencoded"
+end
+
+test "roundtrip fields"
+    create body = encodeForm2("city", "Lome", "amount", "5000")
+    assert getField(body, "city") is equal to "Lome"
+    assert getField(body, "amount") is equal to "5000"
+    assert hasField(body, "city")
+    assert hasField(body, "missing") is equal to false
+end

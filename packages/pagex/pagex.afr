@@ -1,0 +1,64 @@
+import "std/math"
+use math
+
+module pagex
+    function clampPage(page number, maxPage number) returns number
+        if page is less than 1 then
+            return 1
+        end
+        if page is greater than maxPage then
+            return maxPage
+        end
+        return page
+    end
+
+    function pageCount(total number, pageSize number) returns number
+        if pageSize is less than 1 then
+            return 0
+        end
+        if total is less than 1 then
+            return 0
+        end
+        create q = floor(total / pageSize)
+        create r = total - q * pageSize
+        if r is greater than 0 then
+            return q + 1
+        end
+        return q
+    end
+
+    function offset(page number, pageSize number) returns number
+        create p = page
+        if p is less than 1 then
+            set p = 1
+        end
+        return (p - 1) * pageSize
+    end
+
+    function hasNext(page number, total number, pageSize number) returns bool
+        create pages = pageCount(total, pageSize)
+        return page is less than pages
+    end
+
+    function hasPrev(page number) returns bool
+        return page is greater than 1
+    end
+
+    function metaJson(page number, pageSize number, total number) returns text
+        create pages = pageCount(total, pageSize)
+        create off = offset(page, pageSize)
+        return "{\"page\":{page},\"size\":{pageSize},\"total\":{total},\"pages\":{pages},\"offset\":{off}}"
+    end
+
+    function linkHeader(base text, page number, total number, pageSize number) returns text
+        create pages = pageCount(total, pageSize)
+        if hasNext(page, total, pageSize) then
+            create n = page + 1
+            return "<{base}?page={n}>; rel=\"next\""
+        end
+        if pages is equal to 0 then
+            return ""
+        end
+        return "<{base}?page={pages}>; rel=\"last\""
+    end
+end

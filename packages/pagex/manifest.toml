@@ -1,0 +1,6 @@
+name = "pagex"
+version = "0.1.0"
+description = "API pagination helpers (offset, page count, meta JSON text)"
+main = "pagex.afr"
+license = "MIT"
+tags = ["api", "pagination", "http", "metier"]

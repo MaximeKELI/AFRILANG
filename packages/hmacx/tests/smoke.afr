@@ -1,0 +1,13 @@
+import "pkg/hmacx/hmacx.afr"
+use hmacx
+
+test "hmac known vector"
+    assert signHex("key", "The quick brown fox jumps over the lazy dog") is equal to "f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8"
+    assert verify("key", "The quick brown fox jumps over the lazy dog", "f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8")
+    assert verify("key", "nope", "f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8") is equal to false
+end
+
+test "sha"
+    assert sha256Hex("abc") is equal to "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    assert contains(webhookSigHeader("k", "p"), "X-Signature:")
+end

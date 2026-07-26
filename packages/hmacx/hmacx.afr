@@ -1,0 +1,33 @@
+import "std/crypto"
+import "std/str"
+
+use crypto
+use str
+
+module hmacx
+    function signHex(key text, payload text) returns text
+        return hmacSha256(key, payload)
+    end
+
+    function verify(key text, payload text, expectedHex text) returns bool
+        create got text = hmacSha256(key, payload)
+        return got is equal to expectedHex
+    end
+
+    function contentDigest(payload text) returns text
+        return sha256(payload)
+    end
+
+    function webhookSigHeader(key text, payload text) returns text
+        create sig text = hmacSha256(key, payload)
+        return "X-Signature: " + sig + "\n"
+    end
+
+    function sha256Hex(data text) returns text
+        return sha256(data)
+    end
+
+    function sha1Hex(data text) returns text
+        return sha1(data)
+    end
+end

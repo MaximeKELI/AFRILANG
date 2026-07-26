@@ -1,0 +1,6 @@
+name = "i18nx"
+version = "0.1.0"
+description = "Tiny i18n helpers FR/EN (+ Wolof labels) for AFRILANG apps"
+main = "i18nx.afr"
+license = "MIT"
+tags = ["i18n", "locale", "africa", "metier"]

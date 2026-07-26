@@ -1,0 +1,6 @@
+name = "seedcsv"
+version = "0.1.0"
+description = "Demo CSV seed builders (users, markets, XOF tx) over std/csv + std/str"
+main = "seedcsv.afr"
+license = "MIT"
+tags = ["csv", "seed", "data", "metier"]

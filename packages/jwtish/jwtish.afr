@@ -1,0 +1,61 @@
+import "std/base64"
+import "std/json"
+import "std/str"
+
+use base64
+use json
+use str
+
+module jwtish
+    function splitPart(token text, index int) returns text
+        create parts = split(token, ".")
+        if index is less than 0 then
+            return ""
+        end
+        if index is greater than length of parts - 1 then
+            return ""
+        end
+        return parts at index
+    end
+
+    function partCount(token text) returns int
+        create parts = split(token, ".")
+        return length of parts
+    end
+
+    function decodePart(b64 text) returns text
+        return decode(b64)
+    end
+
+    function decodeHeaderJson(token text) returns text
+        create p text = splitPart(token, 0)
+        return decode(p)
+    end
+
+    function decodePayloadJson(token text) returns text
+        create p text = splitPart(token, 1)
+        return decode(p)
+    end
+
+    function claimStr(payloadJson text, key text) returns text
+        if payloadJson is equal to "" then
+            return ""
+        end
+        create doc json = parse(payloadJson)
+        return getString(doc, key)
+    end
+
+    function algOf(token text) returns text
+        create hdr text = decodeHeaderJson(token)
+        return claimStr(hdr, "alg")
+    end
+
+    function subOf(token text) returns text
+        create payload text = decodePayloadJson(token)
+        return claimStr(payload, "sub")
+    end
+
+    function looksLikeJwt(token text) returns bool
+        return partCount(token) is equal to 3
+    end
+end

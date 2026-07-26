@@ -1,0 +1,23 @@
+import "pkg/pagex/pagex.afr"
+use pagex
+
+test "pages"
+    assert pageCount(95, 20) is equal to 5
+    assert pageCount(100, 20) is equal to 5
+    assert pageCount(0, 20) is equal to 0
+    assert offset(1, 20) is equal to 0
+    assert offset(3, 20) is equal to 40
+    assert clampPage(0, 5) is equal to 1
+    assert clampPage(9, 5) is equal to 5
+end
+
+test "nav"
+    assert hasNext(4, 95, 20)
+    assert hasNext(5, 95, 20) is equal to false
+    assert hasPrev(2)
+    assert hasPrev(1) is equal to false
+end
+
+test "meta"
+    assert metaJson(2, 20, 95) is equal to "{\"page\":2,\"size\":20,\"total\":95,\"pages\":5,\"offset\":20}"
+end

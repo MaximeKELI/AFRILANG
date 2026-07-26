@@ -1,0 +1,96 @@
+import "std/str"
+use str
+
+module i18nx
+    function localeTag(lang text) returns text
+        create l text = toLower(trim(lang))
+        if l is equal to "fr" then
+            return "fr"
+        end
+        if l is equal to "en" then
+            return "en"
+        end
+        if l is equal to "wo" then
+            return "wo"
+        end
+        return "fr"
+    end
+
+    function pickLang(preferred text, available text) returns text
+        create p text = localeTag(preferred)
+        if contains(available, p) then
+            return p
+        end
+        return "fr"
+    end
+
+    function withFallback(primary text, fallback text) returns text
+        if primary is equal to "" then
+            return fallback
+        end
+        return primary
+    end
+
+    function tHello(lang text) returns text
+        create l text = localeTag(lang)
+        if l is equal to "en" then
+            return "Hello"
+        end
+        if l is equal to "wo" then
+            return "Salaam"
+        end
+        return "Bonjour"
+    end
+
+    function tThanks(lang text) returns text
+        create l text = localeTag(lang)
+        if l is equal to "en" then
+            return "Thank you"
+        end
+        if l is equal to "wo" then
+            return "Jërejëf"
+        end
+        return "Merci"
+    end
+
+    function tMarket(lang text) returns text
+        create l text = localeTag(lang)
+        if l is equal to "en" then
+            return "Market"
+        end
+        if l is equal to "wo" then
+            return "Marché"
+        end
+        return "Marché"
+    end
+
+    function tYes(lang text) returns text
+        create l text = localeTag(lang)
+        if l is equal to "en" then
+            return "Yes"
+        end
+        if l is equal to "wo" then
+            return "Waaw"
+        end
+        return "Oui"
+    end
+
+    function tNo(lang text) returns text
+        create l text = localeTag(lang)
+        if l is equal to "en" then
+            return "No"
+        end
+        if l is equal to "wo" then
+            return "Déedéet"
+        end
+        return "Non"
+    end
+
+    function labelXof(lang text) returns text
+        create l text = localeTag(lang)
+        if l is equal to "en" then
+            return "XOF"
+        end
+        return "FCFA"
+    end
+end

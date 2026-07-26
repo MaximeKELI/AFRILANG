@@ -1,0 +1,17 @@
+import "pkg/statsx/statsx.afr"
+use statsx
+
+test "descriptive"
+    create vals = list of 1, 2, 3, 4, 5
+    assert avg(vals) is equal to 3
+    assert mid(vals) is equal to 3
+    assert spread(vals) is greater than 0
+end
+
+test "linreg"
+    create xs = list of 1, 2, 3, 4
+    create ys = list of 2, 4, 6, 8
+    assert slope(xs, ys) is equal to 2
+    assert intercept(xs, ys) is equal to 0
+    assert predict(xs, ys, 5) is equal to 10
+end

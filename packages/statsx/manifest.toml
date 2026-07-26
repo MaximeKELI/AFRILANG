@@ -1,0 +1,6 @@
+name = "statsx"
+version = "0.1.0"
+description = "Lightweight stats wrappers (mean, stddev, linreg) over std/stats"
+main = "statsx.afr"
+license = "MIT"
+tags = ["stats", "ml", "data", "metier"]

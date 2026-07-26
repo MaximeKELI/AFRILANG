@@ -1,0 +1,48 @@
+import "std/url"
+import "std/str"
+
+use url
+use str
+
+module formx
+    function contentType() returns text
+        return "application/x-www-form-urlencoded"
+    end
+
+    function encodePair(key text, value text) returns text
+        create k text = encode(key)
+        create v text = encode(value)
+        return k + "=" + v
+    end
+
+    function encodeForm2(k1 text, v1 text, k2 text, v2 text) returns text
+        return encodePair(k1, v1) + "&" + encodePair(k2, v2)
+    end
+
+    function encodeForm3(k1 text, v1 text, k2 text, v2 text, k3 text, v3 text) returns text
+        return encodeForm2(k1, v1, k2, v2) + "&" + encodePair(k3, v3)
+    end
+
+    function getField(form text, key text) returns text
+        create parts = split(form, "&")
+        create i int = 0
+        create ek text = encode(key) + "="
+        while i is less than length of parts do
+            create piece text = parts at i
+            if startsWith(piece, ek) then
+                create raw text = replace(piece, ek, "")
+                return decode(raw)
+            end
+            set i = i + 1
+        end
+        return ""
+    end
+
+    function hasField(form text, key text) returns bool
+        create v text = getField(form, key)
+        if v is equal to "" then
+            return false
+        end
+        return true
+    end
+end

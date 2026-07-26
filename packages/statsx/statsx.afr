@@ -1,0 +1,32 @@
+import "std/stats"
+use stats
+
+module statsx
+    function avg(values list number) returns number
+        return mean(values)
+    end
+
+    function spread(values list number) returns number
+        return stddev(values)
+    end
+
+    function mid(values list number) returns number
+        return median(values)
+    end
+
+    function slope(xs list number, ys list number) returns number
+        return linRegSlope(xs, ys)
+    end
+
+    function intercept(xs list number, ys list number) returns number
+        return linRegIntercept(xs, ys)
+    end
+
+    function predict(xs list number, ys list number, x number) returns number
+        return linRegPredict(xs, ys, x)
+    end
+
+    function smooth(values list number, window number) returns list number
+        return movingAvg(values, window)
+    end
+end

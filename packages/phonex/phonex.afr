@@ -1,0 +1,107 @@
+import "std/str"
+import "std/unicode"
+
+use str
+use unicode
+
+module phonex
+    function digitsOnly(raw text) returns text
+        create s text = replace(raw, " ", "")
+        set s = replace(s, "-", "")
+        set s = replace(s, ".", "")
+        set s = replace(s, "(", "")
+        set s = replace(s, ")", "")
+        return s
+    end
+
+    function stripPlus(raw text) returns text
+        create s text = digitsOnly(raw)
+        if startsWith(s, "+") then
+            return slice(s, 1, 100000)
+        end
+        return s
+    end
+
+    function dropLeadingZero(s text) returns text
+        if startsWith(s, "0") then
+            return slice(s, 1, 100000)
+        end
+        return s
+    end
+
+    function toE164Sn(localOrFull text) returns text
+        create s text = stripPlus(localOrFull)
+        if startsWith(s, "221") then
+            return "+" + s
+        end
+        return "+221" + dropLeadingZero(s)
+    end
+
+    function toE164Ci(localOrFull text) returns text
+        create s text = stripPlus(localOrFull)
+        if startsWith(s, "225") then
+            return "+" + s
+        end
+        return "+225" + dropLeadingZero(s)
+    end
+
+    function toE164Tg(localOrFull text) returns text
+        create s text = stripPlus(localOrFull)
+        if startsWith(s, "228") then
+            return "+" + s
+        end
+        return "+228" + dropLeadingZero(s)
+    end
+
+    function toE164Bj(localOrFull text) returns text
+        create s text = stripPlus(localOrFull)
+        if startsWith(s, "229") then
+            return "+" + s
+        end
+        return "+229" + dropLeadingZero(s)
+    end
+
+    function countryHint(e164 text) returns text
+        create s text = digitsOnly(e164)
+        if startsWith(s, "+221") then
+            return "SN"
+        end
+        if startsWith(s, "+225") then
+            return "CI"
+        end
+        if startsWith(s, "+228") then
+            return "TG"
+        end
+        if startsWith(s, "+229") then
+            return "BJ"
+        end
+        return ""
+    end
+
+    function mask(e164 text) returns text
+        create s text = digitsOnly(e164)
+        create n number = byteLen(s)
+        if n is less than 4 then
+            return "****"
+        end
+        create start number = n - 4
+        return "****" + slice(s, start, n)
+    end
+
+    function isLikelyMobileSn(e164 text) returns bool
+        create s text = digitsOnly(e164)
+        if startsWith(s, "+22177") then
+            return true
+        end
+        if startsWith(s, "+22178") then
+            return true
+        end
+        if startsWith(s, "+22170") then
+            return true
+        end
+        if startsWith(s, "+22176") then
+            return true
+        end
+        return startsWith(s, "+22175")
+    end
+end

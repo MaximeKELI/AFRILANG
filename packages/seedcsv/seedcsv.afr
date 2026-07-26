@@ -1,0 +1,52 @@
+import "std/csv"
+import "std/str"
+
+use csv
+use str
+
+module seedcsv
+    function headerUsers() returns text
+        return "id,name,city"
+    end
+
+    function headerTx() returns text
+        return "id,msisdn,amount_xof"
+    end
+
+    function headerMarkets() returns text
+        return "id,name,city"
+    end
+
+    function row3(a text, b text, c text) returns text
+        create fields = list of a, b, c
+        return joinFields(fields)
+    end
+
+    function demoUsers() returns text
+        return headerUsers() + "\n" + row3("1", "Ama", "Lome") + "\n" + row3("2", "Ibrahima", "Dakar") + "\n" + row3("3", "Awa", "Abidjan")
+    end
+
+    function demoTxXof() returns text
+        return headerTx() + "\n" + row3("1", "+221771234567", "5000") + "\n" + row3("2", "+22890123456", "1500")
+    end
+
+    function demoMarkets() returns text
+        return headerMarkets() + "\n" + row3("1", "Grand Marche", "Lome") + "\n" + row3("2", "Sandaga", "Dakar")
+    end
+
+    function lineCount(csvText text) returns int
+        if csvText is equal to "" then
+            return 0
+        end
+        create lines = split(csvText, "\n")
+        return length of lines
+    end
+
+    function dataRows(csvText text) returns int
+        create n int = lineCount(csvText)
+        if n is less than 1 then
+            return 0
+        end
+        return n - 1
+    end
+end

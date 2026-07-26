@@ -1,0 +1,6 @@
+name = "hmacx"
+version = "0.1.0"
+description = "HMAC-SHA256 signing helpers for webhooks over std/crypto"
+main = "hmacx.afr"
+license = "MIT"
+tags = ["crypto", "hmac", "webhook", "security", "metier"]

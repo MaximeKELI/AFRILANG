@@ -1,0 +1,6 @@
+name = "phonex"
+version = "0.1.0"
+description = "West Africa phone normalize (SN/CI/TG/BJ) to E.164-ish text"
+main = "phonex.afr"
+license = "MIT"
+tags = ["phone", "mobile", "africa", "metier"]

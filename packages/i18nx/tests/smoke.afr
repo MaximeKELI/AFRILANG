@@ -1,0 +1,18 @@
+import "pkg/i18nx/i18nx.afr"
+use i18nx
+
+test "locale"
+    assert localeTag("FR") is equal to "fr"
+    assert localeTag("en") is equal to "en"
+    assert pickLang("en", "fr,en,wo") is equal to "en"
+    assert pickLang("es", "fr,en") is equal to "fr"
+    assert withFallback("", "x") is equal to "x"
+end
+
+test "phrases"
+    assert tHello("fr") is equal to "Bonjour"
+    assert tHello("en") is equal to "Hello"
+    assert tThanks("wo") is equal to "Jërejëf"
+    assert tYes("wo") is equal to "Waaw"
+    assert labelXof("fr") is equal to "FCFA"
+end
