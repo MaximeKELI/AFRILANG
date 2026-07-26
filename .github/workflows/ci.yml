@@ -226,27 +226,43 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install OpenSSL
+        run: brew install openssl@3
       - name: Configure and build
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j$(sysctl -n hw.ncpu)
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
+            -DOPENSSL_ROOT_DIR="$(brew --prefix openssl@3)"
+          cmake --build build -j$(sysctl -n hw.ncpu)
       - name: Version + conformance subset
         run: |
           ./build/afrilang version
+          ./build/afrilang run examples/hello.afr
           ./build/afrilang test --conformance
           bash scripts/check_conformance_negative.sh
 
+  # Match release.yml: MinGW UCRT64 via MSYS2 (MSVC cannot build fork-era code; we use CreateProcess).
   secondary-windows:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
     steps:
       - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-toolchain
+            mingw-w64-ucrt-x86_64-cmake
+            mingw-w64-ucrt-x86_64-openssl
       - name: Configure and build
-        shell: bash
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release -j$(nproc 2>/dev/null || echo 2)
-      - name: Version + conformance subset
-        shell: bash
         run: |
-          BIN=./build/afrilang
-          if [[ -x ./build/Release/afrilang.exe ]]; then BIN=./build/Release/afrilang.exe; fi
-          if [[ -x ./build/afrilang.exe ]]; then BIN=./build/afrilang.exe; fi
-          "$BIN" version
-          AFRILANG_BIN="$BIN" "$BIN" test --conformance
-          AFRILANG_BIN="$BIN" bash scripts/check_conformance_negative.sh
+          cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
+          cmake --build build -j$(nproc)
+      - name: Version + smoke + conformance subset
+        run: |
+          ./build/afrilang.exe version
+          ./build/afrilang.exe run examples/hello.afr
+          ./build/afrilang.exe test --conformance
+          AFRILANG_BIN=./build/afrilang.exe bash scripts/check_conformance_negative.sh

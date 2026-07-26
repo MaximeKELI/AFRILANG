@@ -1,21 +1,30 @@
 #include "afrilang/sandbox.hpp"
 #include "afrilang/security.hpp"
 
+#include <algorithm>
 #include <chrono>
-#include <climits>
 #include <cstdlib>
 #include <cstring>
-#include <errno.h>
-#include <fcntl.h>
 #include <filesystem>
 #include <fstream>
-#include <signal.h>
 #include <sstream>
+#include <string>
+#include <vector>
+
+#if defined(_WIN32)
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
+#include <process.h>
+#else
+#include <climits>
+#include <errno.h>
+#include <fcntl.h>
+#include <signal.h>
 #include <sys/resource.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#include <vector>
-
 #if defined(__linux__)
 #include <linux/audit.h>
 #include <linux/filter.h>
@@ -25,12 +34,118 @@
 #include <sys/prctl.h>
 #include <sys/syscall.h>
 #endif
+#endif
 
 namespace fs = std::filesystem;
 
 namespace afrilang {
 
 namespace {
+
+std::string readOutputCapped(const std::string& path, std::size_t maxBytes, bool& truncated) {
+    std::ifstream in(path, std::ios::binary);
+    if (!in) return {};
+    std::string data;
+    data.resize(maxBytes);
+    in.read(data.data(), static_cast<std::streamsize>(maxBytes));
+    const auto got = static_cast<std::size_t>(in.gcount());
+    data.resize(got);
+    truncated = in.peek() != std::ifstream::traits_type::eof();
+    return data;
+}
+
+#if defined(_WIN32)
+
+std::string quoteWinArg(const std::string& s) {
+    if (s.empty()) return "\"\"";
+    if (s.find_first_of(" \t\"") == std::string::npos) return s;
+    std::string out = "\"";
+    for (char c : s) {
+        if (c == '"') out += "\\\"";
+        else out += c;
+    }
+    out += '"';
+    return out;
+}
+
+std::string makeOutPath() {
+    return (fs::temp_directory_path() /
+            ("afrilang-exec-" + std::to_string(static_cast<long long>(::_getpid())) + ".out.txt"))
+        .string();
+}
+
+ExecResult winExec(const std::string& executable,
+                   const std::vector<std::string>& args,
+                   const ProcessConfig& config,
+                   const std::string& outPath) {
+    ExecResult result;
+    HANDLE hOut = INVALID_HANDLE_VALUE;
+    STARTUPINFOA si{};
+    si.cb = sizeof(si);
+
+    if (!config.interactiveConsole && !config.interactiveGui) {
+        SECURITY_ATTRIBUTES sa{};
+        sa.nLength = sizeof(sa);
+        sa.bInheritHandle = TRUE;
+        hOut = CreateFileA(outPath.c_str(), GENERIC_WRITE, FILE_SHARE_READ, &sa, CREATE_ALWAYS,
+                           FILE_ATTRIBUTE_NORMAL, nullptr);
+        if (hOut == INVALID_HANDLE_VALUE) {
+            result.output = "CreateFile failed for sandbox output";
+            return result;
+        }
+        si.dwFlags |= STARTF_USESTDHANDLES;
+        si.hStdOutput = hOut;
+        si.hStdError = hOut;
+        si.hStdInput = GetStdHandle(STD_INPUT_HANDLE);
+    } else if (config.interactiveGui) {
+        si.dwFlags |= STARTF_USESTDHANDLES;
+        si.hStdOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+        si.hStdError = GetStdHandle(STD_ERROR_HANDLE);
+        si.hStdInput = GetStdHandle(STD_INPUT_HANDLE);
+    }
+
+    std::string cmd = quoteWinArg(executable);
+    for (const auto& a : args) {
+        cmd.push_back(' ');
+        cmd += quoteWinArg(a);
+    }
+    std::vector<char> cmdline(cmd.begin(), cmd.end());
+    cmdline.push_back('\0');
+
+    PROCESS_INFORMATION pi{};
+    const BOOL ok = CreateProcessA(nullptr, cmdline.data(), nullptr, nullptr, TRUE, 0, nullptr,
+                                   nullptr, &si, &pi);
+    if (hOut != INVALID_HANDLE_VALUE) CloseHandle(hOut);
+    if (!ok) {
+        result.output = "CreateProcess failed";
+        return result;
+    }
+
+    const DWORD waitMs =
+        config.timeoutSeconds <= 0 ? INFINITE : static_cast<DWORD>(config.timeoutSeconds) * 1000U;
+    const DWORD wr = WaitForSingleObject(pi.hProcess, waitMs);
+    if (wr == WAIT_TIMEOUT) {
+        TerminateProcess(pi.hProcess, 124);
+        WaitForSingleObject(pi.hProcess, 5000);
+        result.timedOut = true;
+        result.exitCode = 124;
+    } else {
+        DWORD code = 1;
+        GetExitCodeProcess(pi.hProcess, &code);
+        result.exitCode = static_cast<int>(code);
+    }
+    CloseHandle(pi.hThread);
+    CloseHandle(pi.hProcess);
+
+    if (!config.interactiveConsole && !config.interactiveGui) {
+        result.output = readOutputCapped(outPath, config.maxOutputBytes, result.outputTruncated);
+        std::error_code ec;
+        fs::remove(outPath, ec);
+    }
+    return result;
+}
+
+#else // POSIX
 
 void closeAllFdsExcept(int keep1, int keep2) {
     const long maxFd = sysconf(_SC_OPEN_MAX);
@@ -105,20 +220,35 @@ void applyLinuxSeccompDenylist() {
 #ifdef __NR_delete_module
         __NR_delete_module,
 #endif
+#ifdef __NR_pivot_root
+        __NR_pivot_root,
+#endif
 #ifdef __NR_swapon
         __NR_swapon,
 #endif
 #ifdef __NR_swapoff
         __NR_swapoff,
 #endif
+#ifdef __NR_keyctl
+        __NR_keyctl,
+#endif
+#ifdef __NR_request_key
+        __NR_request_key,
+#endif
+#ifdef __NR_add_key
+        __NR_add_key,
+#endif
 #ifdef __NR_bpf
         __NR_bpf,
+#endif
+#ifdef __NR_userfaultfd
+        __NR_userfaultfd,
 #endif
 #ifdef __NR_perf_event_open
         __NR_perf_event_open,
 #endif
-#ifdef __NR_userfaultfd
-        __NR_userfaultfd,
+#ifdef __NR_open_by_handle_at
+        __NR_open_by_handle_at,
 #endif
     };
     for (int nr : denied) {
@@ -220,18 +350,6 @@ void applyChildLimits(const ProcessConfig& config) {
     }
 }
 
-std::string readOutputCapped(const std::string& path, std::size_t maxBytes, bool& truncated) {
-    std::ifstream in(path, std::ios::binary);
-    if (!in) return {};
-    std::string data;
-    data.resize(maxBytes);
-    in.read(data.data(), static_cast<std::streamsize>(maxBytes));
-    const auto got = static_cast<std::size_t>(in.gcount());
-    data.resize(got);
-    truncated = in.peek() != std::ifstream::traits_type::eof();
-    return data;
-}
-
 ExecResult waitAndCollect(pid_t pid, int timeoutSeconds, const std::string& outPath,
                           std::size_t maxOutputBytes) {
     ExecResult result;
@@ -308,6 +426,8 @@ pid_t spawnProcess(const std::string& executable,
     _exit(127);
 }
 
+#endif // !_WIN32
+
 } // namespace
 
 bool isPathInsideRoot(const std::string& root, const std::string& candidate) {
@@ -333,6 +453,9 @@ ExecResult execWithTimeout(const std::string& executable,
 ExecResult execSandboxed(const std::string& executable,
                          const std::vector<std::string>& args,
                          const ProcessConfig& config) {
+#if defined(_WIN32)
+    return winExec(executable, args, config, makeOutPath());
+#else
     ExecResult result;
     // Always under /tmp: Landlock grants write there; secureTempPath may use
     // XDG_RUNTIME_DIR or ~/.cache which are not always allowlisted.
@@ -346,12 +469,25 @@ ExecResult execSandboxed(const std::string& executable,
         return result;
     }
     return waitAndCollect(pid, config.timeoutSeconds, outPath, config.maxOutputBytes);
+#endif
 }
 
 int runCommand(const std::vector<std::string>& args,
                const ProcessConfig& config,
                std::string& combinedOutput) {
     if (args.empty()) return 127;
+#if defined(_WIN32)
+    ProcessConfig hostConfig = config;
+    hostConfig.applyLandlock = false;
+    hostConfig.applySeccomp = false;
+    const std::string outPath = makeOutPath();
+    const ExecResult result =
+        winExec(args[0], std::vector<std::string>(args.begin() + 1, args.end()), hostConfig,
+                outPath);
+    combinedOutput = result.output;
+    if (result.timedOut) return 124;
+    return result.exitCode;
+#else
     // Host toolchain (g++/em++) must write temp files — never Landlock the compiler.
     ProcessConfig hostConfig = config;
     hostConfig.applyLandlock = false;
@@ -364,6 +500,7 @@ int runCommand(const std::vector<std::string>& args,
     combinedOutput = result.output;
     if (result.timedOut) return 124;
     return result.exitCode;
+#endif
 }
 
 } // namespace afrilang

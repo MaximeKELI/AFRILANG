@@ -94,8 +94,8 @@ UI = {
             ),
             'feat_perf_title': 'Performance native',
             'feat_perf': (
-                'Transpilation C++17 puis <code>g++</code>. Binaires natifs, '
-                'linux-x64, linux-arm64 et wasm32.'
+                'Transpilation C++17 puis <code>g++</code>. Host <code>native</code>, '
+                'cross <code>linux-arm64</code>, sous-ensemble <code>wasm32</code>.'
             ),
             'feat_tools_title': 'Toolchain intégrée',
             'feat_tools': (
@@ -465,8 +465,8 @@ UI = {
             ),
             'feat_perf_title': 'Native performance',
             'feat_perf': (
-                'Transpilation to C++17 then <code>g++</code>. Native binaries, '
-                'linux-x64, linux-arm64 and wasm32.'
+                'Transpilation to C++17 then <code>g++</code>. Host <code>native</code>, '
+                'cross <code>linux-arm64</code>, subset <code>wasm32</code>.'
             ),
             'feat_tools_title': 'Integrated toolchain',
             'feat_tools': (

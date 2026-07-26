@@ -695,12 +695,12 @@ def tooling_page():
             ),
             h2("4. Cibles"),
             p(
-                "Par défaut vous construisez pour la machine hôte. "
-                "Passez <code>--target</code> pour cross-compiler (arm64, wasm32…). "
-                "Chaque cible a ses prérequis (Emscripten pour wasm, etc.)."
+                "Par défaut : machine hôte (<code>native</code> ; <code>linux-x64</code> "
+                "est un alias). Cross réels : <code>linux-arm64</code>, <code>wasm32</code>. "
+                "Pas de <code>--target windows|macos</code> — voir <code>docs/PLATFORM.md</code>."
             ),
             code(
-                "afrilang build --target linux-x64\n"
+                "afrilang build --target native\n"
                 "afrilang build --target linux-arm64\n"
                 "afrilang run file.afr --target wasm32 --run"
             ),
@@ -771,11 +771,12 @@ def tooling_page():
             ),
             h2("4. Targets"),
             p(
-                "Default builds for the host. Pass <code>--target</code> to cross-compile "
-                "(arm64, wasm32…). Each target has prerequisites."
+                "Default: host <code>native</code> (<code>linux-x64</code> is an alias). "
+                "Real cross targets: <code>linux-arm64</code>, <code>wasm32</code>. "
+                "No <code>--target windows|macos</code> — see <code>docs/PLATFORM.md</code>."
             ),
             code(
-                "afrilang build --target linux-x64\n"
+                "afrilang build --target native\n"
                 "afrilang build --target linux-arm64\n"
                 "afrilang run file.afr --target wasm32 --run"
             ),

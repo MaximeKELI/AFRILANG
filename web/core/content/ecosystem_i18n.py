@@ -18,7 +18,7 @@ ITEMS_EN = {
     'POO, génériques, enums, match, async': 'OOP, generics, enums, match, async',
     'Lambdas, traits, records, unions': 'Lambdas, traits, records, unions',
     'Transpilation C++17 + g++/clang++': 'C++17 transpilation + g++/clang++',
-    'Cibles: native, linux-x64, linux-arm64, wasm32': 'Targets: native, linux-x64, linux-arm64, wasm32',
+    'Cibles: native (alias linux-x64), linux-arm64, wasm32': 'Targets: native (alias linux-x64), linux-arm64, wasm32',
     'Cache, symboles debug, mode sécurisé': 'Cache, debug symbols, safe mode',
     'run, build, check, test, fmt, lint, repl': 'run, build, check, test, fmt, lint, repl',
     'pkg, debug, benchmark, serve': 'pkg, debug, benchmark, serve',

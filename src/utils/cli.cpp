@@ -35,6 +35,11 @@
 
 #if defined(__APPLE__)
 #include <mach-o/dyld.h>
+#elif defined(_WIN32)
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
 #endif
 
 namespace fs = std::filesystem;
@@ -57,6 +62,15 @@ fs::path executableDirectory() {
         return fs::weakly_canonical(fs::path(path)).parent_path();
     }
     return {};
+#elif defined(_WIN32)
+    wchar_t wpath[MAX_PATH];
+    const DWORD n = GetModuleFileNameW(nullptr, wpath, MAX_PATH);
+    if (n == 0 || n >= MAX_PATH) return {};
+    try {
+        return fs::weakly_canonical(fs::path(wpath)).parent_path();
+    } catch (...) {
+        return fs::path(wpath).parent_path();
+    }
 #else
     return {};
 #endif
@@ -182,7 +196,8 @@ static void printTokens(const std::vector<Token>& tokens) {
 static bool validateCrossTarget(const std::string& target) {
     if (isKnownCrossTarget(target)) return true;
     std::cerr << "Erreur: cible inconnue '" << target << "'.\n";
-    std::cerr << "Cibles valides: native, linux-x64, linux-arm64, wasm32\n";
+    std::cerr << "Cibles: native (alias linux-x64), linux-arm64, wasm32\n";
+    std::cerr << "  (pas de --target windows|macos — binaires host secondaires, voir docs/PLATFORM.md)\n";
     return false;
 }
 

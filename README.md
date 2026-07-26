@@ -558,7 +558,8 @@ afrilang build --target linux-arm64
 afrilang run examples/hello.afr --target wasm32
 ```
 
-Cibles : `native` (défaut), `linux-x64`, `linux-arm64`, `wasm32` (nécessite le toolchain correspondant).
+Cibles : `native` (défaut ; alias `linux-x64`), `linux-arm64`, `wasm32`.
+Pas de `--target windows|macos` — voir [`docs/PLATFORM.md`](docs/PLATFORM.md).
 
 ### Playground web
 

@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <cctype>
 #include <cstdint>
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -21,6 +22,66 @@
 namespace afrilang {
 
 namespace {
+
+namespace fs = std::filesystem;
+
+/** SDL2 include/lib search paths — Linux distro vs Homebrew (Apple Silicon / Intel). */
+void appendSdlCompileFlags(std::vector<std::string>& args) {
+    const char* includeCandidates[] = {
+#if defined(__APPLE__)
+        "/opt/homebrew/include/SDL2",
+        "/usr/local/include/SDL2",
+#endif
+        "/usr/include/SDL2",
+    };
+    bool gotInclude = false;
+    for (const char* c : includeCandidates) {
+        if (fs::exists(c)) {
+            args.push_back(std::string("-I") + c);
+            gotInclude = true;
+            break;
+        }
+    }
+    if (!gotInclude) {
+        args.push_back("-I/usr/include/SDL2");
+    }
+    args.push_back("-D_REENTRANT");
+
+#if defined(__APPLE__)
+    const char* libCandidates[] = {
+        "/opt/homebrew/lib",
+        "/usr/local/lib",
+    };
+    for (const char* c : libCandidates) {
+        if (fs::exists(c)) {
+            args.push_back(std::string("-L") + c);
+            break;
+        }
+    }
+#endif
+}
+
+void appendSdlLinkFlags(std::vector<std::string>& args, bool ui, bool game2d, bool game3d) {
+    if (ui) {
+        args.push_back("-lSDL2");
+        args.push_back("-lSDL2_ttf");
+    }
+    if (game2d) {
+        args.push_back("-lSDL2_image");
+        args.push_back("-lSDL2_mixer");
+    }
+    if (game3d) {
+        args.push_back("-lSDL2");
+        args.push_back("-lSDL2_image");
+#if defined(__APPLE__)
+        args.push_back("-framework");
+        args.push_back("OpenGL");
+#else
+        args.push_back("-lGL");
+        args.push_back("-lGLU");
+#endif
+    }
+}
 
 std::string cppTypeFromAfrName(const std::string& typeName,
                                const std::vector<std::string>& typeParams) {
@@ -3821,8 +3882,7 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         }
     }
     if ((semantic_.usesUi || semantic_.usesGame3d) && !wasmBuild) {
-        args.push_back("-I/usr/include/SDL2");
-        args.push_back("-D_REENTRANT");
+        appendSdlCompileFlags(args);
     }
     if (debugSymbols_) {
         args.push_back("-g");
@@ -3863,19 +3923,11 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
             if (!lib.empty()) args.push_back(lib);
         }
     }
-    if (semantic_.usesUi && !wasmBuild) {
-        args.push_back("-lSDL2");
-        args.push_back("-lSDL2_ttf");
-    }
-    if (semantic_.usedModules.count("game2d") > 0 && !wasmBuild) {
-        args.push_back("-lSDL2_image");
-        args.push_back("-lSDL2_mixer");
-    }
-    if (semantic_.usesGame3d && !wasmBuild) {
-        args.push_back("-lSDL2");
-        args.push_back("-lSDL2_image");
-        args.push_back("-lGL");
-        args.push_back("-lGLU");
+    if ((semantic_.usesUi || semantic_.usesGame3d ||
+         semantic_.usedModules.count("game2d") > 0) &&
+        !wasmBuild) {
+        appendSdlLinkFlags(args, semantic_.usesUi,
+                           semantic_.usedModules.count("game2d") > 0, semantic_.usesGame3d);
     }
 
     ProcessConfig config;

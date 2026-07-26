@@ -52,7 +52,7 @@ CAPABILITIES = [
     ]),
     ('compiler', 'Compilateur', 2, [
         'Transpilation C++17 + g++/clang++',
-        'Cibles: native, linux-x64, linux-arm64, wasm32',
+        'Cibles: native (alias linux-x64), linux-arm64, wasm32',
         'Cache, symboles debug, mode sécurisé',
     ]),
     ('cli', 'CLI', 3, [

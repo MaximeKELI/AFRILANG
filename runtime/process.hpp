@@ -1,13 +1,7 @@
 #pragma once
 
 // std/process — Go os/exec / Python subprocess style (no shell by default).
-// Uses posix_spawn + pipes. Avoids std::system (SECURITY.md).
-
-#include <fcntl.h>
-#include <signal.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
+// Uses posix_spawn + pipes on Apple/Linux. Stubs elsewhere (Windows / WASM).
 
 #include <cerrno>
 #include <cstdint>
@@ -16,9 +10,18 @@
 #include <string>
 #include <vector>
 
+#if !defined(_WIN32) && !defined(AFRILANG_WASM)
+#include <fcntl.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 #if defined(__APPLE__) || defined(__linux__)
 #include <spawn.h>
 extern char** environ;
+#endif
+#elif defined(_WIN32)
+#include <process.h>
 #endif
 
 namespace afrilang::runtime::process {
@@ -53,7 +56,7 @@ inline std::int64_t run(const std::string& program, const std::vector<std::strin
 #else
     (void)program;
     (void)args;
-    return -1;
+    return -1; // Windows / WASM: not implemented
 #endif
 }
 
@@ -101,9 +104,9 @@ inline std::string capture(const std::string& program, const std::vector<std::st
         out.append(buf, static_cast<std::size_t>(n));
     }
     close(outPipe[0]);
-
     int status = 0;
     waitpid(pid, &status, 0);
+    (void)status;
     return out;
 #else
     (void)program;
@@ -113,8 +116,7 @@ inline std::string capture(const std::string& program, const std::vector<std::st
 #endif
 }
 
-inline std::string captureStdout(const std::string& program,
-                                 const std::vector<std::string>& args) {
+inline std::string captureStdout(const std::string& program, const std::vector<std::string>& args) {
     return capture(program, args, false);
 }
 
@@ -128,11 +130,22 @@ inline std::string captureCombined(const std::string& program,
 inline std::int64_t runShell(const std::string& command) {
     const char* insecure = std::getenv("AFRILANG_INSECURE");
     if (!insecure || std::string(insecure) != "1") return -2; // refused
+#if defined(__APPLE__) || defined(__linux__)
     return run("/bin/sh", std::vector<std::string>{"-c", command});
+#else
+    (void)command;
+    return -1;
+#endif
 }
 
 inline std::int64_t getPid() {
+#if defined(_WIN32)
+    return static_cast<std::int64_t>(::_getpid());
+#elif defined(AFRILANG_WASM)
+    return 1;
+#else
     return static_cast<std::int64_t>(::getpid());
+#endif
 }
 
 inline void exitWith(std::int64_t code) {

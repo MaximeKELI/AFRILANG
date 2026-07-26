@@ -6,27 +6,40 @@
 
 | Host / target | Status |
 |---------------|--------|
-| Linux x86_64 `native` | **Primary** — full stdlib, CI, sandbox |
+| Linux x86_64 `native` | **Primary** — full stdlib, CI, sandbox (rlimits + seccomp + Landlock) |
 | `linux-arm64` cross (`aarch64-linux-gnu-g++`) | Supported when toolchain present |
-| `wasm32` (Emscripten) | Supported subset — see [`WASM_COMPAT.md`](WASM_COMPAT.md) |
+| `wasm32` (Emscripten) | Supported **subset** — see [`WASM_COMPAT.md`](WASM_COMPAT.md) |
 
-## Secondary
+## Secondary (host binaries)
 
 | Host | Status |
 |------|--------|
-| Windows / macOS **host binaries** | Secondary — release artifacts may ship; run as host `native` |
-| `--target windows` / `--target macos` | **Not provided** — do not claim cross OS targets |
+| Windows / macOS **host** builds | Secondary — CI smoke + release artifacts (`native` on that OS) |
+| `--target windows` / `--target macos` | **Not provided** — no cross-OS targets |
 
-Secondary hosts inherit host C++ linking conventions. Some FFI libs (`dl`, Linux `pthread`) are POSIX/Linux-shaped; see [`SECURITY.md`](../SECURITY.md) and NORMATIVE §9.
+Secondary hosts inherit host C++ linking. Process spawn, SDL paths, and sandbox differ:
+
+| Capability | Linux | macOS | Windows (MinGW) |
+|------------|-------|-------|-----------------|
+| `afrilang --run` | fork + Landlock/seccomp | fork + rlimits | `CreateProcess` (no Landlock) |
+| `std/process` | posix_spawn | posix_spawn | stub (−1) |
+| GUI / SDL | `/usr/include/SDL2` | Homebrew `/opt/homebrew` + `/usr/local` | host-dependent |
+| Root detection | `/proc/self/exe` | `_NSGetExecutablePath` | `GetModuleFileNameW` |
 
 ## CLI targets (`--target`)
 
-Allowed values today: `native`, `linux-arm64`, `wasm32`.
+| Value | Meaning |
+|-------|---------|
+| `native` | Host `g++` / `clang++` |
+| `linux-x64` | **Alias** of `native` (not a separate cross) |
+| `linux-arm64` | Cross to `aarch64-linux-gnu-g++` |
+| `wasm32` | Emscripten → Node (or web pack) |
 
 ## Recommendation
 
 - Develop and CI on **Linux native**.
-- Secondary host smokes (macOS / Windows) run `version` + a conformance subset — not stdlib/FFI parity.
-- Use WASM for sandboxed demos (no SDL/net/fs).
-- Treat Win/macOS as “binary may run”, not “stdlib/FFI parity”.
-- Linux sandbox: rlimits + seccomp deny-list + Landlock FS (best-effort); other hosts: rlimits only.
+- Secondary host smokes (macOS / Windows MSYS2) run `version` + `hello` + conformance subset — not stdlib/FFI parity.
+- Use WASM for sandboxed demos (no SDL/net/fs/threads).
+- Mobile (`mobile/afrilang`) is a **Flutter client** of the web API — not a native AFRILANG runtime.
+
+See also [`SECURITY.md`](../SECURITY.md) and NORMATIVE §9.

@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <cstdlib>
 #include <deque>
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <mutex>
@@ -21,6 +22,13 @@
 
 #if defined(__linux__)
 #include <unistd.h>
+#elif defined(__APPLE__)
+#include <mach-o/dyld.h>
+#elif defined(_WIN32)
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
 #endif
 
 namespace afrilang {
@@ -43,6 +51,21 @@ std::string executableDir() {
         std::string path(buf, static_cast<std::size_t>(n));
         const auto slash = path.find_last_of('/');
         if (slash != std::string::npos) return path.substr(0, slash);
+    }
+#elif defined(__APPLE__)
+    char path[4096];
+    uint32_t size = sizeof(path);
+    if (_NSGetExecutablePath(path, &size) == 0) {
+        std::string p(path);
+        const auto slash = p.find_last_of('/');
+        if (slash != std::string::npos) return p.substr(0, slash);
+    }
+#elif defined(_WIN32)
+    wchar_t wpath[MAX_PATH];
+    const DWORD n = GetModuleFileNameW(nullptr, wpath, MAX_PATH);
+    if (n > 0 && n < MAX_PATH) {
+        std::filesystem::path p(wpath);
+        return p.parent_path().string();
     }
 #endif
     return {};

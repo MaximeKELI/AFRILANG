@@ -667,7 +667,7 @@ PAGES['tooling'] = _page(
         h2('LSP 1.1'),
         ul(['Diagnostics, hover, go-to-definition', 'Complétion FR/EN', 'Symboles, code actions']),
         h2('Cross-compilation'),
-        code('afrilang build --target linux-x64\nafrilang build --target wasm32'),
+        code('afrilang build --target native\nafrilang build --target linux-arm64\nafrilang build --target wasm32'),
         h2('Variables d\'environnement'),
         table(['Variable', 'Effet'], [
             ['<code>AFRILANG_LOCALE=fr|en</code>', 'Langue des erreurs'],
@@ -685,7 +685,7 @@ PAGES['tooling'] = _page(
         h2('LSP 1.1'),
         ul(['Diagnostics, hover, go-to-definition', 'FR/EN completion', 'Symbols, code actions']),
         h2('Cross-compilation'),
-        code('afrilang build --target linux-x64\nafrilang build --target wasm32'),
+        code('afrilang build --target native\nafrilang build --target linux-arm64\nafrilang build --target wasm32'),
         h2('Environment variables'),
         table(['Variable', 'Effect'], [
             ['<code>AFRILANG_LOCALE=fr|en</code>', 'Error message locale'],
