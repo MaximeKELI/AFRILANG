@@ -345,12 +345,18 @@ std::vector<Token> Lexer::tokenize() {
                     if (peek() == '.') {
                         advance();
                         tokens.push_back(makeToken(TokenType::QuestionDot, "?."));
+                    } else if (peek() == '?') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::QuestionQuestion, "??"));
                     } else {
                         tokens.push_back(makeToken(TokenType::Question, "?"));
                     }
                     break;
                 case '<':
-                    if (peek() == '=') {
+                    if (peek() == '<') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::LessLess, "<<"));
+                    } else if (peek() == '=') {
                         advance();
                         tokens.push_back(makeToken(TokenType::LessEq, "<="));
                     } else {

@@ -27,6 +27,7 @@ See `docs/NORMATIVE.md`. This is **not** an ISO certification suite.
 | `while_repeat.afr` | while / repeat | runtime |
 | `macros_smoke.afr` | macros MVP | runtime |
 | `strength_reduce.afr` | Mid-IR identity folds | runtime |
+| `sugar_symbols.afr` | `+=` `&&` `\|\|` `??` `#` `<<` `!` | runtime |
 
 ## Negative (must reject)
 

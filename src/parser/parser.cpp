@@ -23,6 +23,35 @@ bool takeOrErrorSuffix(std::string& typeName) {
     return false;
 }
 
+std::unique_ptr<ExpressionNode> cloneLValue(const ExpressionNode* e) {
+    if (!e) return nullptr;
+    if (const auto* id = dynamic_cast<const IdentifierNode*>(e)) {
+        return std::make_unique<IdentifierNode>(id->name);
+    }
+    if (dynamic_cast<const ThisExpressionNode*>(e)) {
+        return std::make_unique<ThisExpressionNode>();
+    }
+    if (const auto* m = dynamic_cast<const MemberAccessNode*>(e)) {
+        auto obj = cloneLValue(m->object.get());
+        if (!obj) return nullptr;
+        return std::make_unique<MemberAccessNode>(std::move(obj), m->member);
+    }
+    if (const auto* idx = dynamic_cast<const IndexExpressionNode*>(e)) {
+        auto obj = cloneLValue(idx->object.get());
+        if (!obj) return nullptr;
+        std::unique_ptr<ExpressionNode> ix;
+        if (const auto* n = dynamic_cast<const NumberLiteralNode*>(idx->index.get())) {
+            ix = std::make_unique<NumberLiteralNode>(n->value, n->isInteger);
+        } else if (const auto* id = dynamic_cast<const IdentifierNode*>(idx->index.get())) {
+            ix = std::make_unique<IdentifierNode>(id->name);
+        } else {
+            return nullptr;
+        }
+        return std::make_unique<IndexExpressionNode>(std::move(obj), std::move(ix));
+    }
+    return nullptr;
+}
+
 } // namespace
 
 Parser::Parser(std::vector<Token> tokens) : tokens_(std::move(tokens)) {}
@@ -1127,6 +1156,16 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
     if (check(TokenType::Identifier) && checkNext(TokenType::Bang)) {
         return parseMacroCallStatement();
     }
+    // xs << item  →  add item to xs
+    if (check(TokenType::Identifier) && checkNext(TokenType::LessLess)) {
+        const Token& listTok = advance();
+        advance(); // <<
+        auto value = parseExpression();
+        auto list = std::make_unique<IdentifierNode>(listTok.lexeme);
+        auto node = std::make_unique<AddToListStatementNode>(std::move(value), std::move(list));
+        node->loc = {listTok.line, listTok.column};
+        return node;
+    }
     return parseExpressionStatement();
 }
 
@@ -1236,8 +1275,28 @@ std::unique_ptr<StatementNode> Parser::parseSetStatement() {
         } else if (match(TokenType::At)) {
             auto object = std::make_unique<IdentifierNode>(nameToken.lexeme);
             auto index = parseOperand();
-            consume(TokenType::Equals, "'=' attendu");
+            std::string compound;
+            if (match(TokenType::PlusEq)) compound = "+";
+            else if (match(TokenType::MinusEq)) compound = "-";
+            else if (match(TokenType::StarEq)) compound = "*";
+            else if (match(TokenType::SlashEq)) compound = "/";
+            else consume(TokenType::Equals, "'=' attendu");
             auto value = parseExpression();
+            if (!compound.empty()) {
+                auto objClone = std::make_unique<IdentifierNode>(nameToken.lexeme);
+                std::unique_ptr<ExpressionNode> idxClone;
+                if (const auto* n = dynamic_cast<const NumberLiteralNode*>(index.get())) {
+                    idxClone = std::make_unique<NumberLiteralNode>(n->value, n->isInteger);
+                } else if (const auto* id = dynamic_cast<const IdentifierNode*>(index.get())) {
+                    idxClone = std::make_unique<IdentifierNode>(id->name);
+                } else {
+                    error("Index trop complexe pour '+=' (utilisez un littéral ou un identifiant)");
+                    idxClone = std::make_unique<NumberLiteralNode>(0.0, true);
+                }
+                auto read = std::make_unique<IndexExpressionNode>(std::move(objClone),
+                                                                  std::move(idxClone));
+                value = std::make_unique<BinaryOpNode>(compound, std::move(read), std::move(value));
+            }
             auto node = std::make_unique<IndexAssignStatementNode>(
                 std::move(object), std::move(index), std::move(value));
             node->loc = {nameToken.line, nameToken.column};
@@ -1247,8 +1306,21 @@ std::unique_ptr<StatementNode> Parser::parseSetStatement() {
         }
     }
 
-    consume(TokenType::Equals, "'=' attendu");
+    std::string compound;
+    if (match(TokenType::PlusEq)) compound = "+";
+    else if (match(TokenType::MinusEq)) compound = "-";
+    else if (match(TokenType::StarEq)) compound = "*";
+    else if (match(TokenType::SlashEq)) compound = "/";
+    else consume(TokenType::Equals, "'=' attendu");
     auto value = parseExpression();
+    if (!compound.empty()) {
+        auto left = cloneLValue(target.get());
+        if (!left) {
+            error("Cible invalide pour l'opérateur composé");
+            left = std::make_unique<IdentifierNode>("_");
+        }
+        value = std::make_unique<BinaryOpNode>(compound, std::move(left), std::move(value));
+    }
     auto node = std::make_unique<SetStatementNode>(std::move(target), std::move(value));
     setLoc(*node);
     return node;
@@ -1773,9 +1845,19 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
         }
     }
 
-    if (match(TokenType::And)) {
+    if (match(TokenType::And) || match(TokenType::AmpAmp)) {
         auto right = parseComparison();
         return std::make_unique<BinaryOpNode>("&&", std::move(left), std::move(right));
+    }
+
+    if (match(TokenType::PipePipe)) {
+        auto right = parseComparison();
+        return std::make_unique<BinaryOpNode>("||", std::move(left), std::move(right));
+    }
+
+    if (match(TokenType::QuestionQuestion)) {
+        auto fallback = parseComparison();
+        return std::make_unique<OrElseExprNode>(std::move(left), std::move(fallback));
     }
 
     if (check(TokenType::Or)) {
@@ -1832,7 +1914,7 @@ std::unique_ptr<ExpressionNode> Parser::parseUnary() {
     if (match(TokenType::Minus)) {
         return std::make_unique<UnaryOpNode>("-", parseUnary());
     }
-    if (match(TokenType::Not)) {
+    if (match(TokenType::Not) || match(TokenType::Bang)) {
         return std::make_unique<UnaryOpNode>("!", parseUnary());
     }
     return parsePrimary();
@@ -2051,6 +2133,11 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 
     if (match(TokenType::Length)) {
         consume(TokenType::Of, "'of' attendu après 'length'");
+        auto object = parsePrimary();
+        return std::make_unique<LengthExpressionNode>(std::move(object));
+    }
+
+    if (match(TokenType::Hash)) {
         auto object = parsePrimary();
         return std::make_unique<LengthExpressionNode>(std::move(object));
     }

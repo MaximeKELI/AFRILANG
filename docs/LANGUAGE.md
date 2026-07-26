@@ -18,6 +18,19 @@ Convention : chaque bloc se ferme par `end` (ou `fin`). Comparaisons en mots
 (`is equal to`, `is greater than or equal to`, …) **ou** symboliques
 (`==`, `!=`, `<`, `<=`, `>`, `>=`). Le `=` seul reste réservé à l’affectation
 (`create` / `set`).
+
+### Raccourcis symboliques (sugar)
+
+| Symbole | Équivalent verbeux |
+|---------|-------------------|
+| `set x += 1` (aussi `-=` `*=` `/=`) | `set x = x + 1` |
+| `&&` / `\|\|` | `and` / `or` (logique) |
+| `!flag` | `not flag` |
+| `a ?? 0` | `a or else 0` |
+| `#xs` | `length of xs` |
+| `xs << item` | `add item to xs` |
+
+Toujours disponibles : `..` / `..<`, `?.`, `T?`.
 Optionnels : `T?`, `nothing`, `is defined` — pas `none` / `is some`.
 
 ---

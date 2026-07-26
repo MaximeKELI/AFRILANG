@@ -12,6 +12,9 @@ export AFRILANG_ALLOW_FFI=1
 
 # Symbolic compare smoke (language surface used by interop demos too)
 "$AFR" "$ROOT/tests/gaps/interop/compare_symbolic.afr" --run
+if [[ -f "$ROOT/tests/conformance/sugar_symbols.afr" ]]; then
+  "$AFR" run "$ROOT/tests/conformance/sugar_symbols.afr"
+fi
 
 # Specs mirror when present
 if [[ -f "$ROOT/tests/specs/ffi.afr" ]]; then

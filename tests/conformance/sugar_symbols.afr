@@ -1,0 +1,39 @@
+// Symbolic sugar: short signs for common verbose forms
+test "compound assign"
+    create n = 10
+    set n += 5
+    assert n == 15
+    set n -= 3
+    assert n == 12
+    set n *= 2
+    assert n == 24
+    set n /= 4
+    assert n == 6
+end
+
+test "logic symbols"
+    create a = true
+    create b = false
+    assert a && a
+    assert a || b
+    create c = !b
+    assert c == true
+    create d = !(a && b)
+    assert d == true
+end
+
+test "nullish and length"
+    create x number? = nothing
+    assert (x ?? 7) == 7
+    create xs = list of 1, 2, 3
+    assert #xs == 3
+    assert #xs == length of xs
+end
+
+test "list append shovel"
+    create xs = list of 1
+    xs << 2
+    xs << 3
+    assert #xs == 3
+    assert xs at 2 == 3
+end
