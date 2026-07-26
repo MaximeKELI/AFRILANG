@@ -1,0 +1,4 @@
+// Gap 8 — formatter input (intentionally messy spacing)
+create   x=1
+set x+=2
+assert x==3

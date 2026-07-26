@@ -11,7 +11,7 @@
 
 - Root **MIT LICENSE**, **SECURITY.md**, **CONTRIBUTING.md**, **CODE_OF_CONDUCT.md**, **NOTICE** (SPDX)
 - **Spec 1.0** — FFI, EBNF extract, UTF-8 identifiers, semver pkg, error codes
-- **LSP 1.0** — publishDiagnostics, hover, definition, FR/EN completion
+- **LSP subset** — publishDiagnostics, hover, definition, FR/EN completion (see `docs/TOOLING.md`)
 - **Playground hardened** — exec timeout, path traversal blocked, no shell
 - **Lint warnings** — unused modules, empty functions
 - **40+ unit tests**, Docker reproducible build, CI matrix g++/clang++

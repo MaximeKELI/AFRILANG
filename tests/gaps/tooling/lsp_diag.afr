@@ -1,0 +1,2 @@
+// Gap 8 — intentional error for publishDiagnostics
+say undeclared_for_lsp_diag_xyz

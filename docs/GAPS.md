@@ -18,7 +18,7 @@ AFRILANG_GAPS_QUICK=1 bash scripts/test_gaps.sh
 | 5 | Mémoire / sûreté | Bounds + optional/Result + null object + sandbox Linux — [`MEMORY_MODEL.md`](MEMORY_MODEL.md) | `scripts/test_gap_05_safety.sh` |
 | 6 | Concurrence | Async coroutines + `std/thread` natif — [`CONCURRENCY.md`](CONCURRENCY.md) | `scripts/test_gap_06_concurrency.sh` |
 | 7 | Interop | FFI allowlist + gate `ALLOW_FFI` — [`INTEROP.md`](INTEROP.md) | `scripts/test_gap_07_interop.sh` |
-| 8 | Tooling IDE | fmt / check / LSP smoke | `scripts/test_gap_08_tooling.sh` |
+| 8 | Tooling IDE | check / fmt / LSP subset — [`TOOLING.md`](TOOLING.md) | `scripts/test_gap_08_tooling.sh` |
 | 9 | Distribution & cloud | install / release scripts | `scripts/test_gap_09_dist.sh` |
 | 10 | Norme & confiance | Docs honesty + PLATFORM | `scripts/test_gap_10_trust.sh` |
 

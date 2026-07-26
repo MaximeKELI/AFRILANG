@@ -1,0 +1,5 @@
+create x = 1
+
+set x = x + 2
+
+assert x is equal to 3

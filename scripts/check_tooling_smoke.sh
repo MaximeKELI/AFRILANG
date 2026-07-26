@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Tooling smoke (Interaction capability): version, check, fmt, LSP initialize.
+# Prefer scripts/test_gap_08_tooling.sh for full fixture contracts.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 AFR="${AFRILANG_BIN:-$ROOT/build/afrilang}"
@@ -15,12 +16,13 @@ say "tooling"
 AFR
 "$AFR" check "$TMP/t.afr" >/dev/null
 "$AFR" fmt "$TMP/t.afr" >/dev/null
-# Minimal LSP initialize handshake
+# Minimal LSP initialize — must advertise capabilities
 INIT=$(printf '%s' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"capabilities":{},"processId":null,"rootUri":null}}')
-HDR="Content-Length: ${#INIT}\r\n\r\n"
-RESP=$(printf '%b%s' "$HDR" "$INIT" | timeout 5 "$AFR" lsp 2>/dev/null || true)
-echo "$RESP" | grep -q 'capabilities\|result\|Content-Length' || {
-  # Some LSP servers exit after one message without echoing — accept clean timeout/EOF
-  echo "lsp smoke: initialize sent (no hard fail on empty)"
+HDR=$'Content-Length: '"${#INIT}"$'\r\n\r\n'
+RESP=$(printf '%s%s' "$HDR" "$INIT" | timeout 5 "$AFR" lsp 2>/dev/null || true)
+echo "$RESP" | grep -q 'capabilities' || {
+  echo "lsp smoke: initialize missing capabilities" >&2
+  echo "$RESP" >&2
+  exit 1
 }
 echo "tooling smoke ok"

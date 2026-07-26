@@ -1,0 +1,11 @@
+// Gap 8 — LSP symbols / diagnostics target
+function double(n number) returns number
+    return n * 2
+end
+
+class Point
+    public field x number
+    function init(v number)
+        set this.x = v
+    end
+end
