@@ -169,6 +169,10 @@ void applyLinuxLandlock(const std::string& executable) {
     allowPath("/usr", readExec);
     allowPath("/etc", LANDLOCK_ACCESS_FS_READ_FILE | LANDLOCK_ACCESS_FS_READ_DIR);
     allowPath("/tmp", writeTmp);
+    // XDG runtime (secureTempPath) — needed so stdout capture / temps stay writable.
+    if (const char* xdg = std::getenv("XDG_RUNTIME_DIR")) {
+        if (xdg[0] != '\0') allowPath(xdg, writeTmp);
+    }
     // Executable location (build dir / cwd binaries)
     try {
         const fs::path exePath = fs::absolute(executable);
@@ -176,8 +180,8 @@ void applyLinuxLandlock(const std::string& executable) {
             allowPath(exePath.parent_path().c_str(), readExec);
         }
         allowPath(exePath.c_str(), readExec);
-        // Also allow current working directory (tests often run ./bin from project root).
-        allowPath(".", readExec);
+        // Project cwd: read + write so relative paths work under --run (still jailed elsewhere).
+        allowPath(".", writeTmp);
     } catch (...) {
     }
     (void)prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);
@@ -330,7 +334,12 @@ ExecResult execSandboxed(const std::string& executable,
                          const std::vector<std::string>& args,
                          const ProcessConfig& config) {
     ExecResult result;
-    const std::string outPath = executable + ".sandbox.out.txt";
+    // Always under /tmp: Landlock grants write there; secureTempPath may use
+    // XDG_RUNTIME_DIR or ~/.cache which are not always allowlisted.
+    const std::string outPath =
+        (fs::temp_directory_path() /
+         ("afrilang-exec-" + std::to_string(static_cast<long long>(::getpid())) + ".out.txt"))
+            .string();
     const pid_t pid = spawnProcess(executable, args, outPath, config);
     if (pid < 0) {
         result.output = "fork failed";

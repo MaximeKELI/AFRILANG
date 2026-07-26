@@ -68,7 +68,8 @@ inline bool writeText(const std::string& path, const std::string& content) {
     std::ofstream file(path);
     if (!file) return false;
     file << content;
-    return true;
+    file.flush();
+    return static_cast<bool>(file);
 }
 
 inline bool copyFile(const std::string& from, const std::string& to) {

@@ -341,7 +341,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         fpIn.debugSymbols = options.debugSymbols;
         fpIn.coverageMode = options.coverageMode;
         fpIn.runtimeDir = runtimeDir;
-        fpIn.stdlibStamp = "stdlib-v1";
+        fpIn.stdlibStamp = "stdlib-v2-batteries";
         const std::string fingerprint = CompileCache::buildFingerprint(fpIn);
 
         if (options.useCache) {

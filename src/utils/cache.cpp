@@ -1,5 +1,6 @@
 #include "afrilang/cache.hpp"
 
+#include <algorithm>
 #include <cstdint>
 #include <filesystem>
 #include <fstream>
@@ -51,13 +52,22 @@ std::string CompileCache::runtimeFingerprint(const std::string& runtimeDir) {
     }
     std::ostringstream acc;
     std::error_code ec;
-    for (const auto& entry : fs::directory_iterator(runtimeDir, ec)) {
-        if (!entry.is_regular_file()) continue;
+    std::vector<std::string> parts;
+    for (const auto& entry : fs::recursive_directory_iterator(
+             runtimeDir, fs::directory_options::skip_permission_denied, ec)) {
+        if (!entry.is_regular_file(ec)) continue;
         const auto ext = entry.path().extension().string();
         if (ext != ".hpp" && ext != ".h" && ext != ".inl") continue;
-        acc << entry.path().filename().string() << ':';
-        acc << entry.file_size(ec) << ':';
-        acc << entry.last_write_time(ec).time_since_epoch().count() << ';';
+        const fs::path rel = fs::relative(entry.path(), runtimeDir, ec);
+        std::ostringstream one;
+        one << (ec ? entry.path().filename().string() : rel.generic_string()) << ':';
+        one << entry.file_size(ec) << ':';
+        one << entry.last_write_time(ec).time_since_epoch().count();
+        parts.push_back(one.str());
+    }
+    std::sort(parts.begin(), parts.end());
+    for (const auto& p : parts) {
+        acc << p << ';';
     }
     return hashContent(acc.str());
 }

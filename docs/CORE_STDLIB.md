@@ -48,6 +48,11 @@ Les `.afr` à corps vide = signatures ; le codegen injecte le C++ réel au compi
 
 Suite : `./build/afrilang test --specs .` (inclut `tests/stdlib/`).
 
+**Sandbox (`afrilang --run`)** : sous Landlock (mode sécurisé), écriture autorisée
+sur `/tmp`, le cwd du processus, et `XDG_RUNTIME_DIR` le cas échéant. Réécrire un
+fichier existant nécessite `TRUNCATE` (déjà accordé). Hors de ces racines → échec
+d’ouverture.
+
 ## Batteries — vague 2026-07
 
 Approfondissement **core** (pas de nouveaux kits) :

@@ -136,8 +136,48 @@ Parseur conforme (échappements `\uXXXX` + surrogates, `\b`/`\f`/`\r`, notation 
 | `has(doc, key)` | Présence d'une clé |
 | `arrayLength(doc)` / `arrayGet(doc, i)` | Accès tableau |
 | `getPath(doc, "a.b.c")` | Navigation par chemin pointé |
+| `parseFile(path)` | Parse depuis un fichier |
+| `writeFile(path, doc)` | Écriture compacte |
+| `writePretty(path, doc, indent)` | Écriture indentée |
 
 Tests : `tests/stdlib/json.afr`
+
+## `std/http`
+
+Client HTTP natif (sockets + OpenSSL si dispo). URLs non `http(s)://` → corps vide / status `0`.
+
+| Fonction | Rôle |
+|----------|------|
+| `httpGet` / `httpPost` / `httpPut` / `httpPatch` / `httpDelete` | Verbes courants |
+| `httpMethod(method, url, body)` | Verbe libre |
+| `httpPostHeaders` / `httpExchange` | Corps + en-têtes ; échange `status\\nbody` |
+| `httpGetTimeout(url, timeoutMs)` | GET avec timeout socket |
+| `httpGetStatus(url)` | Status HTTP seul |
+| `httpStatusOf` / `httpBodyOf` | Parse d’un échange |
+
+Timeout socket par défaut : 30 s. Tests offline : `tests/stdlib/http.afr`.
+
+## `std/csv`
+
+| Fonction | Rôle |
+|----------|------|
+| `splitLine` / `joinFields` | Ligne ↔ champs (guillemets RFC-like) |
+| `readText` / `writeText` | Fichier texte brut |
+| `readRows` / `headerRow` / `rowCount` | Lignes / en-tête / compte |
+
+Tests : `tests/stdlib/csv.afr`
+
+## `std/orm`
+
+ORM-lite SQLite (`std/sql` sous le capot). Identifiants table/colonnes filtrés ; clauses `where` / `set` brutes (responsabilité de l’appelant).
+
+| Fonction | Rôle |
+|----------|------|
+| `createTable` / `dropTable` / `tableExists` / `listTables` | Schéma |
+| `insert` / `findAll` / `findWhere` | Écriture / lecture |
+| `updateRows` / `deleteRows` | Mutations filtrées |
+
+Tests : `tests/stdlib/orm.afr`
 
 ## `std/yaml`
 

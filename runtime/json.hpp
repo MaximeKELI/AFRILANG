@@ -407,7 +407,7 @@ inline bool writeValueFile(const std::string& path, const Value& value) {
     if (!file) return false;
     file << stringifyValue(value);
     file.flush();
-    return true;
+    return static_cast<bool>(file);
 }
 
 inline bool writePrettyFile(const std::string& path, const Value& value, double indent) {
@@ -415,7 +415,7 @@ inline bool writePrettyFile(const std::string& path, const Value& value, double 
     if (!file) return false;
     file << stringifyPretty(value, indent);
     file.flush();
-    return true;
+    return static_cast<bool>(file);
 }
 
 } // namespace json

@@ -63,6 +63,7 @@ inline bool writeText(const std::string& path, const std::string& content) {
     std::ofstream file(path);
     if (!file) return false;
     file << content;
+    file.flush();
     return static_cast<bool>(file);
 }
 

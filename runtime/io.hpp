@@ -21,7 +21,8 @@ inline bool writeFile(const std::string& path, const std::string& content) {
     std::ofstream file(path);
     if (!file) return false;
     file << content;
-    return true;
+    file.flush();
+    return static_cast<bool>(file);
 }
 
 inline bool fileExists(const std::string& path) {

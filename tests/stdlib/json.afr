@@ -82,3 +82,17 @@ test "parseFile writeFile"
     assert getString(again, "city") is equal to "Lome"
     assert writePretty(path, doc, 2)
 end
+
+// Landlock: rewriting an existing /tmp file needs TRUNCATE (O_TRUNC).
+test "rewrite existing tmp file"
+    create path = "/tmp/afrilang_json_rewrite.json"
+    create a json = makeObject("n", "1")
+    assert writeFile(path, a)
+    create b json = makeObject("n", "2")
+    assert writeFile(path, b)
+    create again json = parseFile(path)
+    assert getString(again, "n") is equal to "2"
+    assert writePretty(path, b, 2)
+    create pretty json = parseFile(path)
+    assert getString(pretty, "n") is equal to "2"
+end

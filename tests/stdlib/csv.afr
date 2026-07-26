@@ -35,3 +35,13 @@ test "csv file helpers"
     assert rows at 1 is equal to "Lome,1"
     assert contains(readText(path), "Kara")
 end
+
+// Landlock: second write truncates the same path.
+test "csv rewrite existing tmp file"
+    create path = "/tmp/afrilang_csv_rewrite.csv"
+    assert writeText(path, "a,b\n1,2")
+    assert writeText(path, "x,y\n9,8")
+    assert headerRow(path) is equal to "x,y"
+    assert rowCount(path) is equal to 2
+    assert contains(readText(path), "9,8")
+end
