@@ -26,6 +26,17 @@ class AfrilangProject {
       output == null ? null : p.normalize(p.join(root, output!));
 }
 
+/// Chooses which `.afr` source Run/F5 should execute.
+///
+/// Prefer the active editor file when it is AFRILANG source so editing
+/// `Hello-World.afr` runs that file — not always `afrilang.toml`'s `main`.
+String? resolveRunSource({String? activePath, String? projectMain}) {
+  if (activePath != null && activePath.toLowerCase().endsWith('.afr')) {
+    return activePath;
+  }
+  return projectMain;
+}
+
 class BuildTarget {
   const BuildTarget({
     required this.id,

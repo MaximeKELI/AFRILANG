@@ -840,7 +840,10 @@ description = "Projet créé avec AFRIBLOCK"
 
   Future<void> runActive() async {
     final tab = activeTab;
-    final main = projects.project?.mainAbsolute ?? tab?.path;
+    final main = resolveRunSource(
+      activePath: tab?.path,
+      projectMain: projects.project?.mainAbsolute,
+    );
     if (main == null) {
       statusMessage = 'No file / main to run';
       notifyListeners();
@@ -877,9 +880,12 @@ description = "Projet créé avec AFRIBLOCK"
     }
     // Auto-build before debug (Code::Blocks pattern).
     await buildActiveTarget();
-    final target = projects.project?.outputAbsolute ??
-        projects.project?.mainAbsolute ??
-        activeTab?.path;
+    // Prefer active .afr (same as Run); fall back to project main / built output.
+    final target = resolveRunSource(
+          activePath: activeTab?.path,
+          projectMain: projects.project?.mainAbsolute,
+        ) ??
+        projects.project?.outputAbsolute;
     if (target == null) {
       statusMessage = 'Nothing to debug';
       notifyListeners();
