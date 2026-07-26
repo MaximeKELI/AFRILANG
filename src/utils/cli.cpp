@@ -812,6 +812,7 @@ static int runSpecsSuite(const fs::path& root, bool coverage) {
     int passed = 0;
     for (const auto& path : files) {
         const std::string rel = fs::relative(path, root).string();
+        if (pathLooksLikeFfiTest(rel)) enableFfiOptInForTests();
         std::cout << "  " << rel << " ... ";
         std::cout.flush();
         try {

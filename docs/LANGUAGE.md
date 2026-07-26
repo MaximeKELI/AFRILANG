@@ -14,7 +14,10 @@
 5. **Async, FFI, tests** — sections dédiées plus bas  
 6. **Guide web méthodique** — [documentation site](https://github.com/MaximeKELI/AFRILANG) `/docs/` (parcours numéroté)
 
-Convention : chaque bloc se ferme par `end` (ou `fin`). Comparaisons en mots (`is equal to`, …).  
+Convention : chaque bloc se ferme par `end` (ou `fin`). Comparaisons en mots
+(`is equal to`, `is greater than or equal to`, …) **ou** symboliques
+(`==`, `!=`, `<`, `<=`, `>`, `>=`). Le `=` seul reste réservé à l’affectation
+(`create` / `set`).
 Optionnels : `T?`, `nothing`, `is defined` — pas `none` / `is some`.
 
 ---
@@ -843,7 +846,7 @@ Commandes : `:help`, `:reset`, `:show`, `:run`, `:load fichier.afr`, `:type expr
 ## Foreign Function Interface (FFI)
 
 > **Trust boundary (unsafe):** `extern` leaves the AFRILANG memory/safety contract.
-> See `docs/MEMORY_MODEL.md`, `docs/NORMATIVE.md` §9, and `docs/PLATFORM.md`.
+> See `docs/INTEROP.md`, `docs/MEMORY_MODEL.md`, `docs/NORMATIVE.md` §9, and `docs/PLATFORM.md`.
 
 ```afr
 extern from "m" function sin(x number) returns number

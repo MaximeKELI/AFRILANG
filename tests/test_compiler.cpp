@@ -307,6 +307,18 @@ static void testLintEmptyFunction() {
     expect(!result.warnings.empty(), "lint warns empty function");
 }
 
+static void testSymbolicCompareTokens() {
+    afrilang::Lexer lexer("create a = 3\nassert a >= 2\nassert a == 3\nassert a != 1\n");
+    const auto tokens = lexer.tokenize();
+    bool sawGe = false, sawEq = false, sawNe = false;
+    for (const auto& t : tokens) {
+        if (t.type == afrilang::TokenType::GreaterEq) sawGe = true;
+        if (t.type == afrilang::TokenType::EqEq) sawEq = true;
+        if (t.type == afrilang::TokenType::NotEq) sawNe = true;
+    }
+    expect(sawGe && sawEq && sawNe, "tokenize >= == !=");
+}
+
 static void testFfiAllowlist() {
     const std::string src =
         "extern from \"evil\" function hack(x number) returns number\n";
@@ -1050,6 +1062,7 @@ int main() {
     testMatchExpressionParse();
     testLintEmptyFunction();
     testFfiAllowlist();
+    testSymbolicCompareTokens();
     testCompileExample();
     testCompileOperatorsDemo();
     testCompileUnionsDemo();

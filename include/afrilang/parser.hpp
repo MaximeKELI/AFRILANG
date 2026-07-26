@@ -114,6 +114,7 @@ private:
     void consumeIntoOrEn(const std::string& message);
 
     std::vector<std::string> parseTypeParams();
+    bool aheadIsGenericCall() const;
     std::vector<TypeConstraint> parseTypeConstraints(
         const std::vector<std::string>& typeParams);
     std::string parseTypeName();

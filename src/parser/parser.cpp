@@ -699,6 +699,36 @@ std::vector<std::string> Parser::parseTypeParams() {
     return params;
 }
 
+/** True when `<...>` is a generic call (`id<T>(...)`), not a comparison (`a < b`). */
+bool Parser::aheadIsGenericCall() const {
+    if (!check(TokenType::AngleOpen)) return false;
+    std::size_t i = current_ + 1;
+    if (i >= tokens_.size()) return false;
+    const auto isTypeish = [](TokenType t) {
+        return t == TokenType::Identifier || t == TokenType::TypeNumber ||
+               t == TokenType::TypeInt || t == TokenType::TypeBigInt ||
+               t == TokenType::TypeText || t == TokenType::TypeBool ||
+               t == TokenType::TypeJson;
+    };
+    if (!isTypeish(tokens_[i].type)) return false;
+    int depth = 1;
+    ++i;
+    while (i < tokens_.size() && depth > 0) {
+        const TokenType t = tokens_[i].type;
+        if (t == TokenType::AngleOpen) {
+            ++depth;
+        } else if (t == TokenType::AngleClose) {
+            --depth;
+        } else if (t == TokenType::Eof || t == TokenType::EqEq || t == TokenType::NotEq ||
+                   t == TokenType::LessEq || t == TokenType::GreaterEq) {
+            return false;
+        }
+        ++i;
+    }
+    if (depth != 0 || i >= tokens_.size()) return false;
+    return tokens_[i].type == TokenType::LeftParen;
+}
+
 std::vector<TypeConstraint> Parser::parseTypeConstraints(
     const std::vector<std::string>& typeParams) {
     std::vector<TypeConstraint> constraints;
@@ -2142,7 +2172,7 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
             error("'with' inattendu ici (littéral de record : Type with champ valeur, ...)");
         }
 
-        if (check(TokenType::AngleOpen)) {
+        if (aheadIsGenericCall()) {
             typeArgs = parseTypeParams();
         }
 
