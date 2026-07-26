@@ -53,7 +53,13 @@ void main() {
 
   group('LocalAfrSuggest', () {
     test('completes keyword prefix', () {
-      expect(LocalAfrSuggest.suggest('sa', 2), 'y');
+      expect(LocalAfrSuggest.suggest('whi', 3), 'le');
+    });
+
+    test('snippet wins over bare keyword when prefix matches', () {
+      final s = LocalAfrSuggest.suggest('sa', 2);
+      expect(s, isNotNull);
+      expect(s!.startsWith('y'), isTrue);
     });
 
     test('expands snippet after full prefix', () {
