@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../theme/afriblock_theme.dart';
 
@@ -70,12 +71,24 @@ class AfrilangHighlighter {
   }
 }
 
+class _AcceptGhostIntent extends Intent {
+  const _AcceptGhostIntent();
+}
+
+class _RejectGhostIntent extends Intent {
+  const _RejectGhostIntent();
+}
+
 class CodeEditor extends StatefulWidget {
   const CodeEditor({
     super.key,
     required this.path,
     required this.initialContent,
     required this.onChanged,
+    this.onCaretChanged,
+    this.ghostText,
+    this.onAcceptGhost,
+    this.onRejectGhost,
     this.onToggleBreakpoint,
     this.breakpoints = const {},
   });
@@ -83,6 +96,10 @@ class CodeEditor extends StatefulWidget {
   final String path;
   final String initialContent;
   final ValueChanged<String> onChanged;
+  final ValueChanged<int>? onCaretChanged;
+  final String? ghostText;
+  final VoidCallback? onAcceptGhost;
+  final VoidCallback? onRejectGhost;
   final ValueChanged<int>? onToggleBreakpoint;
   final Set<int> breakpoints;
 
@@ -106,8 +123,16 @@ class _CodeEditorState extends State<CodeEditor> {
     _controller = TextEditingController(text: widget.initialContent);
     _textScroll = ScrollController();
     _gutterScroll = ScrollController();
-    _controller.addListener(() => setState(() {}));
+    _controller.addListener(_onControllerTick);
     _textScroll.addListener(_onTextScroll);
+  }
+
+  void _onControllerTick() {
+    setState(() {});
+    final sel = _controller.selection;
+    if (sel.isValid) {
+      widget.onCaretChanged?.call(sel.baseOffset.clamp(0, _controller.text.length));
+    }
   }
 
   void _onTextScroll() {
@@ -144,6 +169,7 @@ class _CodeEditorState extends State<CodeEditor> {
 
   @override
   void dispose() {
+    _controller.removeListener(_onControllerTick);
     _textScroll.removeListener(_onTextScroll);
     _controller.dispose();
     _textScroll.dispose();
@@ -158,6 +184,27 @@ class _CodeEditorState extends State<CodeEditor> {
     return '\n'.allMatches(t).length + 1;
   }
 
+  int get _caret {
+    final sel = _controller.selection;
+    if (!sel.isValid) return _controller.text.length;
+    return sel.baseOffset.clamp(0, _controller.text.length);
+  }
+
+  void _acceptGhost() {
+    final ghost = widget.ghostText;
+    if (ghost == null || ghost.isEmpty) return;
+    final text = _controller.text;
+    final caret = _caret;
+    final next = text.substring(0, caret) + ghost + text.substring(caret);
+    final newCaret = caret + ghost.length;
+    _controller.value = TextEditingValue(
+      text: next,
+      selection: TextSelection.collapsed(offset: newCaret),
+    );
+    widget.onChanged(next);
+    widget.onAcceptGhost?.call();
+  }
+
   @override
   Widget build(BuildContext context) {
     final isAfr = widget.path.toLowerCase().endsWith('.afr');
@@ -169,6 +216,10 @@ class _CodeEditorState extends State<CodeEditor> {
     final lineCount = _lineCount;
     final gutterWidth = 28.0 + (lineCount.toString().length * 9.0);
     final lineBox = _fontSize * _lineHeight;
+    final ghost = widget.ghostText;
+    final hasGhost = ghost != null && ghost.isNotEmpty;
+    final caret = _caret;
+    final before = _controller.text.substring(0, caret);
 
     return ColoredBox(
       color: AfriblockColors.bg,
@@ -225,39 +276,89 @@ class _CodeEditorState extends State<CodeEditor> {
             child: SingleChildScrollView(
               controller: _textScroll,
               padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-              child: Stack(
-                children: [
-                  if (isAfr)
-                    Text.rich(
-                      AfrilangHighlighter.highlightSpan(
-                        _controller.text.isEmpty ? ' ' : _controller.text,
-                        fontSize: _fontSize,
+              child: Shortcuts(
+                shortcuts: {
+                  if (hasGhost)
+                    const SingleActivator(LogicalKeyboardKey.tab):
+                        const _AcceptGhostIntent(),
+                  if (hasGhost)
+                    const SingleActivator(LogicalKeyboardKey.escape):
+                        const _RejectGhostIntent(),
+                },
+                child: Actions(
+                  actions: {
+                    _AcceptGhostIntent: CallbackAction<_AcceptGhostIntent>(
+                      onInvoke: (_) {
+                        _acceptGhost();
+                        return null;
+                      },
+                    ),
+                    _RejectGhostIntent: CallbackAction<_RejectGhostIntent>(
+                      onInvoke: (_) {
+                        widget.onRejectGhost?.call();
+                        return null;
+                      },
+                    ),
+                  },
+                  child: Stack(
+                    children: [
+                      if (isAfr)
+                        Text.rich(
+                          AfrilangHighlighter.highlightSpan(
+                            _controller.text.isEmpty ? ' ' : _controller.text,
+                            fontSize: _fontSize,
+                          ),
+                          style: afriblockMono(
+                            fontSize: _fontSize,
+                            height: _lineHeight,
+                          ),
+                        ),
+                      if (hasGhost)
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: before.isEmpty ? '' : before,
+                                style: afriblockMono(
+                                  fontSize: _fontSize,
+                                  height: _lineHeight,
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ghost,
+                                style: afriblockMono(
+                                  fontSize: _fontSize,
+                                  height: _lineHeight,
+                                  color: AfriblockColors.textMuted
+                                      .withValues(alpha: 0.55),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      TextField(
+                        controller: _controller,
+                        focusNode: _focus,
+                        maxLines: null,
+                        keyboardType: TextInputType.multiline,
+                        cursorColor: AfriblockColors.primary,
+                        style: style,
+                        strutStyle: const StrutStyle(
+                          fontSize: _fontSize,
+                          height: _lineHeight,
+                          forceStrutHeight: true,
+                        ),
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          isCollapsed: true,
+                          contentPadding: EdgeInsets.zero,
+                        ),
+                        onChanged: widget.onChanged,
                       ),
-                      style: afriblockMono(
-                        fontSize: _fontSize,
-                        height: _lineHeight,
-                      ),
-                    ),
-                  TextField(
-                    controller: _controller,
-                    focusNode: _focus,
-                    maxLines: null,
-                    keyboardType: TextInputType.multiline,
-                    cursorColor: AfriblockColors.primary,
-                    style: style,
-                    strutStyle: const StrutStyle(
-                      fontSize: _fontSize,
-                      height: _lineHeight,
-                      forceStrutHeight: true,
-                    ),
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      isCollapsed: true,
-                      contentPadding: EdgeInsets.zero,
-                    ),
-                    onChanged: widget.onChanged,
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ),

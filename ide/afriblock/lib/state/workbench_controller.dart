@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 
+import '../ai/ai_assist_service.dart';
 import '../core/command_bus.dart';
 import '../core/event_bus.dart';
 import '../debug/debug_service.dart';
@@ -38,6 +39,7 @@ enum SidebarView {
   test,
   extensions,
   afrilang,
+  ai,
 }
 
 enum BottomTab { problems, output, debugConsole, terminal, testResults }

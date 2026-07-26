@@ -12,6 +12,11 @@ class SettingsStore {
   static const _keyTheme = 'theme_mode';
   static const _keyFormat = 'format_on_save';
   static const _keyLspTrace = 'lsp_trace';
+  static const _keyAiEnabled = 'ai_enabled';
+  static const _keyAiInline = 'ai_inline';
+  static const _keyAiBaseUrl = 'ai_base_url';
+  static const _keyAiApiKey = 'ai_api_key';
+  static const _keyAiModel = 'ai_model';
 
   String? afrilangPath;
   List<String> recentFolders = [];
@@ -19,12 +24,23 @@ class SettingsStore {
   bool formatOnSave = true;
   bool lspTrace = false;
 
+  bool aiEnabled = false;
+  bool aiInlineSuggest = true;
+  String aiBaseUrl = 'http://127.0.0.1:11434/v1';
+  String aiApiKey = '';
+  String aiModel = 'llama3.2';
+
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     afrilangPath = prefs.getString(_keyAfrilang);
     recentFolders = prefs.getStringList(_keyRecent) ?? [];
     formatOnSave = prefs.getBool(_keyFormat) ?? true;
     lspTrace = prefs.getBool(_keyLspTrace) ?? false;
+    aiEnabled = prefs.getBool(_keyAiEnabled) ?? false;
+    aiInlineSuggest = prefs.getBool(_keyAiInline) ?? true;
+    aiBaseUrl = prefs.getString(_keyAiBaseUrl) ?? 'http://127.0.0.1:11434/v1';
+    aiApiKey = prefs.getString(_keyAiApiKey) ?? '';
+    aiModel = prefs.getString(_keyAiModel) ?? 'llama3.2';
     final t = prefs.getString(_keyTheme);
     themeMode = switch (t) {
       'light' => AfriThemeMode.light,
@@ -57,6 +73,15 @@ class SettingsStore {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_keyFormat, formatOnSave);
     await prefs.setBool(_keyLspTrace, lspTrace);
+  }
+
+  Future<void> saveAiSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_keyAiEnabled, aiEnabled);
+    await prefs.setBool(_keyAiInline, aiInlineSuggest);
+    await prefs.setString(_keyAiBaseUrl, aiBaseUrl);
+    await prefs.setString(_keyAiApiKey, aiApiKey);
+    await prefs.setString(_keyAiModel, aiModel);
   }
 
   Future<void> pushRecent(String folder) async {
@@ -107,6 +132,8 @@ class SettingsStore {
         'recentFolders': recentFolders,
         'themeMode': themeMode.name,
         'formatOnSave': formatOnSave,
+        'aiEnabled': aiEnabled,
+        'aiModel': aiModel,
       };
 
   @override
