@@ -561,7 +561,9 @@ end, 0)
 ## Async / await
 
 Les fonctions `async` retournent implicitement un `task T` (coroutines C++20).  
-Support complet : `returns T or error`, `await` dans les tests, I/O async.
+Surface **utile** (sleep, Result, await dans les tests, I/O offloadé sur thread pool) —
+**pas** un runtime async industriel (pas de `select`, pas d’I/O non bloquant OS).  
+Détail honnête : [`CONCURRENCY.md`](CONCURRENCY.md).
 
 ```afr
 import "std/async"
@@ -597,8 +599,9 @@ await main()
 | `async function` | Retourne `task T` ou `task (T or error)` |
 | `await` | Global, fonctions async, blocs `test` |
 | `std/async` | `sleep(ms)` — scheduler avec file de timers |
-| `std/http` | `httpGetAsync`, `httpPostAsync` — thread pool |
-| `std/io` | `readFileAsync` — lecture fichier non bloquante |
+| `std/http` | `httpGetAsync`, `httpPostAsync` — offload thread pool (bloquant sous le capot) |
+| `std/io` | `readFileAsync` — idem |
+| `std/thread` | Natif : mutex, canaux, `spawnSleep`/`join` (pas de spawn de code utilisateur) |
 | Compilation | C++20 coroutines (`-std=c++20 -fcoroutines -pthread`) |
 
 ## Interfaces graphiques

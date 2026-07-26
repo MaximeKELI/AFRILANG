@@ -1,0 +1,10 @@
+import "std/thread"
+use thread
+
+// Gap 6 — OS thread spawn/join (timer threads only; no user-code spawn yet)
+test "spawnSleep join sleepMs"
+    create id = spawnSleep(5)
+    sleepMs(1)
+    join(id)
+    assert hardwareConcurrency() is greater than 0
+end

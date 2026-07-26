@@ -1,0 +1,13 @@
+import "std/async"
+use async
+
+// Gap 6 — async/await + sleep (coroutine surface)
+async function bump(ms number) returns number
+    await sleep(ms)
+    return ms + 1
+end
+
+test "await sleep then value"
+    create r = await bump(1)
+    assert r is equal to 2
+end

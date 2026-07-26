@@ -471,7 +471,11 @@ void simplifyCfg(FunctionIR& ir) {
         };
         for (auto& in : b.instrs) {
             if (in.value) in.value = foldExpr(subst(std::move(in.value)));
-            if (in.target) in.target = foldExpr(subst(std::move(in.target)));
+            // Never const-prop into Set targets — they must stay assignable lvalues
+            // (`set x = x + 1` must not become `1 = 2`).
+            if (in.target && in.kind != InstrKind::Set) {
+                in.target = foldExpr(subst(std::move(in.target)));
+            }
             if (in.kind == InstrKind::Assign) {
                 if (asNumber(in.value.get()) || asBool(in.value.get()) || asString(in.value.get())) {
                     if (const auto* n = asNumber(in.value.get())) {

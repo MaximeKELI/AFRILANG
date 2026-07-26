@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-07-26T18:32:40Z",
+  "generated_at": "2026-07-26T18:43:38Z",
   "compiler_version": "1.0.0",
   "platform": "linux-x86_64",
   "results": [
     {
       "file": "hello.afr",
       "slug": "hello",
-      "compile_ms": 734,
-      "exec_ms": 18,
-      "total_ms": 793
+      "compile_ms": 789,
+      "exec_ms": 21,
+      "total_ms": 846
     },
     {
       "file": "loop_smoke.afr",
       "slug": "loop_smoke",
-      "compile_ms": 76,
+      "compile_ms": 79,
       "exec_ms": 18,
-      "total_ms": 135
+      "total_ms": 131
     },
     {
       "file": "fold_identity.afr",
       "slug": "fold_identity",
       "compile_ms": 78,
-      "exec_ms": 21,
-      "total_ms": 139
+      "exec_ms": 17,
+      "total_ms": 123
     },
     {
       "file": "const_prop.afr",
       "slug": "const_prop",
-      "compile_ms": 87,
-      "exec_ms": 20,
-      "total_ms": 139
+      "compile_ms": 78,
+      "exec_ms": 18,
+      "total_ms": 131
     },
     {
       "file": "loop_hot.afr",
       "slug": "loop_hot",
-      "compile_ms": 77,
+      "compile_ms": 78,
       "exec_ms": 17,
-      "total_ms": 128
+      "total_ms": 123
     },
     {
       "file": "unroll_small.afr",
       "slug": "unroll_small",
-      "compile_ms": 87,
-      "exec_ms": 19,
-      "total_ms": 150
+      "compile_ms": 75,
+      "exec_ms": 21,
+      "total_ms": 134
     }
   ],
   "comparisons": [
@@ -51,7 +51,7 @@
       "name": "hello",
       "label": "hello.afr",
       "afrilang_exec_ms": 22,
-      "python_ms": 36
+      "python_ms": 30
     }
   ],
   "is_sample": false

@@ -149,6 +149,7 @@ inline void chanSendText(int id, const std::string& value) {
     if (!ch) return;
     {
         std::lock_guard<std::mutex> lock(ch->mutex);
+        if (ch->closed) return;
         ch->queue.push_back(value);
     }
     ch->cv.notify_one();
@@ -159,6 +160,7 @@ inline void chanSendNumber(int id, double value) {
     if (!ch) return;
     {
         std::lock_guard<std::mutex> lock(ch->mutex);
+        if (ch->closed) return;
         ch->queue.push_back(value);
     }
     ch->cv.notify_one();

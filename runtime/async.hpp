@@ -360,8 +360,9 @@ inline T run(Task<T> task) {
     if (task.handle) {
         task.handle.resume();
     }
+    // Scheduler resumes on a worker thread; poll with short sleeps (no busy spin).
     while (task.handle && !task.handle.done()) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::microseconds(200));
     }
     return task.await_resume();
 }
@@ -371,7 +372,7 @@ inline void run(Task<void> task) {
         task.handle.resume();
     }
     while (task.handle && !task.handle.done()) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::microseconds(200));
     }
     task.await_resume();
 }

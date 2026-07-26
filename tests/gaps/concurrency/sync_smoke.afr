@@ -1,4 +1,30 @@
-// Gap 6 — concurrency surface sync smoke
-create x = 1
-set x = x + 1
-assert x is equal to 2
+import "std/thread"
+use thread
+
+// Gap 6 — sync primitives (mutex + channel close semantics)
+test "mutex around local"
+    create m = mutexNew()
+    mutexLock(m)
+    create x = 1
+    set x = x + 1
+    mutexUnlock(m)
+    assert x is equal to 2
+end
+
+test "chan close then empty recv"
+    create c = chanNewNumber()
+    chanSendNumber(c, 7)
+    assert chanRecvNumber(c) is equal to 7
+    chanClose(c)
+    assert chanRecvNumber(c) is equal to 0
+end
+
+test "text chan fifo then close"
+    create t = chanNewText()
+    chanSendText(t, "a")
+    chanSendText(t, "b")
+    assert chanRecvText(t) is equal to "a"
+    assert chanRecvText(t) is equal to "b"
+    chanClose(t)
+    assert chanRecvText(t) is equal to ""
+end

@@ -1,0 +1,21 @@
+import "std/async"
+use async
+
+async function delayed(ms number) returns number or error
+    if ms is less than 0 then
+        return error "negative delay"
+    end
+    await sleep(ms)
+    return ms * 2
+end
+
+test "async result ok"
+    create r = await delayed(1)
+    assert (r is error) is equal to false
+    assert r.value is equal to 2
+end
+
+test "async result error"
+    create bad = await delayed(0 - 1)
+    assert bad is error
+end

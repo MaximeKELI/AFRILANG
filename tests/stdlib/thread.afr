@@ -32,3 +32,10 @@ end
 test "hardware concurrency positive"
     assert hardwareConcurrency() is greater than 0
 end
+
+test "spawnSleep join sleepMs"
+    create id = spawnSleep(5)
+    sleepMs(1)
+    join(id)
+    assert hardwareConcurrency() is greater than 0
+end
