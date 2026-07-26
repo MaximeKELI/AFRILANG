@@ -1,0 +1,11 @@
+// Gap 5 — optional / Result / or else surface (complements conformance)
+test "optional or else"
+    create a number? = nothing
+    assert (a or else 42) is equal to 42
+end
+
+test "optional defined path"
+    create b number? = 5
+    assert b is defined
+    assert b is equal to 5
+end

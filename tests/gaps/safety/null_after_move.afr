@@ -1,0 +1,31 @@
+// Gap 5 — null object after unique_ptr move into list
+class Box
+    public field n number
+    function init(v number)
+        set this.n = v
+    end
+    function get() returns number
+        return this.n
+    end
+end
+
+test "null object after move into list"
+    create p = new Box(7)
+    create xs list of Box = list of new Box(0)
+    // Replacing via add of the named binding moves ownership (codegen std::move).
+    add p to xs
+    create caught text = ""
+    try
+        create v = p.get()
+        set caught = "nope"
+        say v
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "null object"
+end
+
+test "live instance still works"
+    create q = new Box(3)
+    assert q.get() is equal to 3
+end

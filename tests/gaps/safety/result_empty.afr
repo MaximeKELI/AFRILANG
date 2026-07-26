@@ -1,0 +1,18 @@
+// Gap 5 — empty Result message → "result is error" (NORMATIVE §5)
+function failEmpty() returns number or error
+    return error ""
+end
+
+test "empty error message defaults"
+    create bad = failEmpty()
+    assert bad is error
+    create caught text = ""
+    try
+        create v = bad.value
+        set caught = "nope"
+        say v
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "result is error"
+end
