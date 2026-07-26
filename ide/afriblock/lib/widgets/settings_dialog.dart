@@ -136,7 +136,7 @@ Future<void> showAfriblockSettings(BuildContext context) async {
                   await wb.settings.saveAiSettings();
                   wb.syncAiConfig();
                   await wb.refreshToolchain();
-                  wb.notifyListeners();
+                  wb.refresh();
                   if (ctx.mounted) Navigator.pop(ctx);
                 },
                 child: const Text('Save'),

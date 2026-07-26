@@ -620,7 +620,7 @@ class _AiChatPanelState extends State<_AiChatPanel> {
     final tab = widget.wb.activeTab;
     if (tab == null) {
       widget.wb.statusMessage = 'Open a file to explain';
-      widget.wb.notifyListeners();
+      widget.wb.refresh();
       return;
     }
     setState(() => _sending = true);
@@ -666,7 +666,7 @@ class _AiChatPanelState extends State<_AiChatPanel> {
               TextButton(
                 onPressed: () {
                   wb.ai.clearChat();
-                  wb.notifyListeners();
+                  wb.refresh();
                 },
                 child: const Text('Clear'),
               ),

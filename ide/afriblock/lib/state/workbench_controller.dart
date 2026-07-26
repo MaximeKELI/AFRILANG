@@ -429,6 +429,9 @@ class WorkbenchController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Public UI refresh for widgets (notifyListeners is protected).
+  void refresh() => notifyListeners();
+
   void setSidebarView(SidebarView view) {
     if (sidebarView == view && sidebarVisible) {
       sidebarVisible = false;
