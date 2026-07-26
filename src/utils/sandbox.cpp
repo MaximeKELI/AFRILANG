@@ -137,15 +137,17 @@ void applyLinuxSeccompDenylist() {
 void applyLinuxLandlock(const std::string& executable) {
     const __u64 readExec =
         LANDLOCK_ACCESS_FS_EXECUTE | LANDLOCK_ACCESS_FS_READ_FILE | LANDLOCK_ACCESS_FS_READ_DIR;
-    const __u64 writeTmp = LANDLOCK_ACCESS_FS_WRITE_FILE | LANDLOCK_ACCESS_FS_MAKE_REG |
-                           LANDLOCK_ACCESS_FS_REMOVE_FILE | LANDLOCK_ACCESS_FS_READ_FILE |
-                           LANDLOCK_ACCESS_FS_READ_DIR;
+    // WRITE_FILE alone is not enough when TRUNCATE is in handled_access_fs:
+    // ofstream opens with O_TRUNC, so rewriting an existing /tmp file fails otherwise.
+    __u64 writeTmp = LANDLOCK_ACCESS_FS_WRITE_FILE | LANDLOCK_ACCESS_FS_MAKE_REG |
+                     LANDLOCK_ACCESS_FS_REMOVE_FILE | LANDLOCK_ACCESS_FS_READ_FILE |
+                     LANDLOCK_ACCESS_FS_READ_DIR;
+#ifdef LANDLOCK_ACCESS_FS_TRUNCATE
+    writeTmp |= LANDLOCK_ACCESS_FS_TRUNCATE;
+#endif
 
     struct landlock_ruleset_attr attr{};
     attr.handled_access_fs = readExec | writeTmp;
-#ifdef LANDLOCK_ACCESS_FS_TRUNCATE
-    attr.handled_access_fs |= LANDLOCK_ACCESS_FS_TRUNCATE;
-#endif
 
     const int ruleset = static_cast<int>(
         syscall(__NR_landlock_create_ruleset, &attr, sizeof(attr), 0));
