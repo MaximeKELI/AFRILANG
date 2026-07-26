@@ -1,6 +1,6 @@
 # geox
 
-Distances et rayon pour **logistique / terrain** (cliniques, marchés, flottes) — s’appuie sur `std/geo` (haversine).
+Distances et rayon pour **logistique / terrain** (cliniques, marchés, flottes) — haversine via `std/math` (sans `simple_libs`).
 
 ## Usage
 

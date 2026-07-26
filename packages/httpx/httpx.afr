@@ -7,7 +7,7 @@ use json
 use str
 
 module httpx
-    function escapeJson(s text) returns text
+    function httpxEscapeJson(s text) returns text
         create step1 = replace(s, "\\", "\\\\")
         return replace(step1, "\"", "\\\"")
     end
@@ -35,7 +35,7 @@ module httpx
     end
 
     function object1(key text, value text) returns text
-        return "{\"" + escapeJson(key) + "\":\"" + escapeJson(value) + "\"}"
+        return "{\"" + httpxEscapeJson(key) + "\":\"" + httpxEscapeJson(value) + "\"}"
     end
 
     function getText(url text) returns text

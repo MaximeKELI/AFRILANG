@@ -186,6 +186,15 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
 
 void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
     for (auto& mod : source.modules) {
+        // Skip duplicate module names (e.g. std/str injected by several packages).
+        bool exists = false;
+        for (const auto& existing : target.modules) {
+            if (existing && mod && existing->name == mod->name) {
+                exists = true;
+                break;
+            }
+        }
+        if (exists) continue;
         target.modules.push_back(std::move(mod));
     }
     for (auto& iface : source.interfaces) {

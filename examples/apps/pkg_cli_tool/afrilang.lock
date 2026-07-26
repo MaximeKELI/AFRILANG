@@ -5,7 +5,7 @@ name = "bannerx"
 version = "0.1.0"
 path = "vendor/bannerx"
 source = "registry"
-sha256 = "1216479b4d303093b7c201295a99fc819b90ec5238c53662143b399140feaf5d"
+sha256 = "0f0601a4fd3314c63636fe51ae488271a82e4c55a57198ad05baf096287703b3"
 
 [[package]]
 name = "envx"

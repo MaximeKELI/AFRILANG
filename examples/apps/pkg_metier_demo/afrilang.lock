@@ -1,18 +1,11 @@
 # AFRILANG lockfile — source of truth for `pkg install`
 
 [[package]]
-name = "storex"
-version = "0.1.0"
-path = "vendor/storex"
-source = "registry"
-sha256 = "cd115a33a6684bac1d8907657e39339c97ee4bb263f3bfc2cafe383f0be3dd40"
-
-[[package]]
 name = "webapi"
 version = "0.1.0"
 path = "vendor/webapi"
 source = "registry"
-sha256 = "d003e61b5d7f65f11caa140756e91451c92cd4e18f0840c86e243f7639d23def"
+sha256 = "9f46f2cf036c4c8d74874a767505d456d064a983bf08b8cdc908935f8b221f25"
 
 [[package]]
 name = "deployx"
@@ -33,12 +26,12 @@ name = "geox"
 version = "0.1.0"
 path = "vendor/geox"
 source = "registry"
-sha256 = "764aaf1beb729d815fd61ea24811962567ed39558e952926891a180fa19573b3"
+sha256 = "6688929ebacfc356257048c0ff9cef5c4b47dd1dd4e175190ea5b403bbcf6308"
 
 [[package]]
 name = "httpx"
 version = "0.1.0"
 path = "vendor/httpx"
 source = "registry"
-sha256 = "4b64f1ec01c3b7b94ee1b395316ad8fc285b9456a42d185da783d5b3653dbf4c"
+sha256 = "463b87e63d78433eccd472230def90f8a14785e8dffff81989ef0489f727d605"
 

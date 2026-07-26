@@ -7,7 +7,7 @@ use json
 use str
 
 module webapi
-    function escapeJson(s text) returns text
+    function webapiEscapeJson(s text) returns text
         create step1 = replace(s, "\\", "\\\\")
         return replace(step1, "\"", "\\\"")
     end
@@ -17,15 +17,15 @@ module webapi
     end
 
     function jsonStatus(status text) returns text
-        return "{\"status\":\"" + escapeJson(status) + "\"}"
+        return "{\"status\":\"" + webapiEscapeJson(status) + "\"}"
     end
 
     function jsonError(message text) returns text
-        return "{\"ok\":false,\"error\":\"" + escapeJson(message) + "\"}"
+        return "{\"ok\":false,\"error\":\"" + webapiEscapeJson(message) + "\"}"
     end
 
     function jsonMessage(key text, value text) returns text
-        return "{\"" + escapeJson(key) + "\":\"" + escapeJson(value) + "\"}"
+        return "{\"" + webapiEscapeJson(key) + "\":\"" + webapiEscapeJson(value) + "\"}"
     end
 
     // Router with GET /health → {"status":"healthy"} and GET / → {"ok":true}.

@@ -1,0 +1,11 @@
+// storex alone (SQLite) — keep separate from the multi-stdlib demo.
+import "pkg/storex/storex.afr"
+use storex
+import "std/str"
+use str
+
+create db = "/tmp/afrilang_pkg_metier_storex.db"
+ensureTable(db, "demo", "id integer primary key, label text")
+put(db, "demo", cols1("label"), vals1("ok"))
+say listAll(db, "demo")
+say "storex demo OK"

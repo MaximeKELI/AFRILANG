@@ -1,6 +1,6 @@
 name = "geox"
 version = "0.1.0"
-description = "Geo helpers (haversine km, midpoint, within-radius) over std/geo"
+description = "Geo helpers (haversine km, midpoint, within-radius) over std/math"
 main = "geox.afr"
 license = "MIT"
 tags = ["geo", "distance", "logistics", "metier"]

@@ -5572,6 +5572,7 @@ CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o: /home/admin20/AFRILANG/src/u
   /usr/include/c++/15/cstddef \
   /usr/include/c++/15/cstdio \
   /usr/include/c++/15/cstdlib \
+  /usr/include/c++/15/cstring \
   /usr/include/c++/15/cwchar \
   /usr/include/c++/15/cwctype \
   /usr/include/c++/15/debug/assertions.h \
@@ -5623,6 +5624,8 @@ CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o: /home/admin20/AFRILANG/src/u
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
