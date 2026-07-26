@@ -17,7 +17,7 @@ test "strength reduce mul 2/4/8"
 end
 
 test "not not fold"
-    create flag yesno = true
+    create flag = true
     create d = not not flag
     assert d is equal to true
 end
