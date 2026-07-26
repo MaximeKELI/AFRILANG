@@ -1,0 +1,21 @@
+import "pkg/storex/storex.afr"
+use storex
+import "std/str"
+use str
+
+test "pipe helpers"
+    assert cols2("name", "city") is equal to "name|city"
+    assert vals3("A", "B", "C") is equal to "A|B|C"
+end
+
+test "sqlite roundtrip"
+    create db = "/tmp/afrilang_storex_smoke.db"
+    assert ensureTable(db, "markets", "id integer primary key, name text, city text")
+    create id = put(db, "markets", cols2("name", "city"), vals2("Grand Marche", "Lome"))
+    assert id is greater than -1
+    assert hasRows(db, "markets")
+    create n = rowCountApprox(db, "markets")
+    assert n is greater than 0
+    create all = listAll(db, "markets")
+    assert contains(all, "Lome")
+end

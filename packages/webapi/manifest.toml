@@ -1,0 +1,6 @@
+name = "webapi"
+version = "0.1.0"
+description = "JSON API router helpers (health, routes) over std/web + std/json"
+main = "webapi.afr"
+license = "MIT"
+tags = ["web", "api", "http", "json", "metier"]

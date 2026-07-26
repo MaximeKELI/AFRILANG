@@ -1,0 +1,32 @@
+import "pkg/httpx/httpx.afr"
+use httpx
+import "std/str"
+use str
+
+test "headers"
+    assert bearerHeader("") is equal to ""
+    assert bearerHeader("tok") is equal to "Authorization: Bearer tok\n"
+    assert jsonHeaders() is equal to "Content-Type: application/json\nAccept: application/json\n"
+    assert contains(jsonAuthHeaders("abc"), "Bearer abc")
+end
+
+test "withQuery"
+    assert withQuery("https://api.example/v1", "q", "lome") is equal to "https://api.example/v1?q=lome"
+    assert withQuery("https://api.example/v1?a=1", "b", "2") is equal to "https://api.example/v1?a=1&b=2"
+end
+
+test "object1 and escape"
+    assert object1("city", "Lomé") is equal to "{\"city\":\"Lomé\"}"
+    assert object1("msg", "say \"hi\"") is equal to "{\"msg\":\"say \\\"hi\\\"\"}"
+end
+
+test "looksLikeJson"
+    assert looksLikeJson("  {\"ok\":true}  ")
+    assert looksLikeJson("[1,2]")
+    assert looksLikeJson("plain") is equal to false
+end
+
+test "getStringField offline"
+    assert getStringField("{\"status\":\"ok\"}", "status") is equal to "ok"
+    assert getStringField("", "status") is equal to ""
+end

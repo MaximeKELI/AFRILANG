@@ -1,0 +1,6 @@
+name = "storex"
+version = "0.1.0"
+description = "Tiny SQLite store helpers (ensure table, insert, list) over std/sql + std/orm"
+main = "storex.afr"
+license = "MIT"
+tags = ["sql", "orm", "sqlite", "storage", "metier"]

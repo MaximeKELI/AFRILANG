@@ -670,6 +670,109 @@
       "sig": "9e009101754a2c5ffcd245129d1ece7d00d708b749f57d20e84e6850a6fd5f14565e1d3c0764c75a3b94c5f85fd9eed53cd0860dc522bae25c8e88a241cc4f01"
     },
     {
+      "name": "datax",
+      "version": "0.1.0",
+      "description": "CSV/JSON file helpers over std/csv, std/fs, std/json, std/str",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/datax",
+      "sha256": "24af240c5bafc53b83e44bb93212a58c513c5e1e5c93cd9cff321cdf5d77a384",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "csv",
+        "json",
+        "data",
+        "fs",
+        "metier"
+      ]
+    },
+    {
+      "name": "demo_http_p9",
+      "version": "0.1.0",
+      "description": "Paquet AFRILANG demo_http_p9",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/demo_http_p9",
+      "sha256": "3e7d15dcb8907fc778ae81bffe8f5a7930ba38187e5adcfec43a9fb55f5502dc",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "http",
+        "net"
+      ]
+    },
+    {
+      "name": "deployx",
+      "version": "0.1.0",
+      "description": "Deploy helpers: Procfile, health URL check, webhook POST (not a cloud SDK)",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/deployx",
+      "sha256": "e23c68b2c6cb1424ffef9b424f18999713ae300656be168e67b546257f518cab",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "deploy",
+        "ops",
+        "http",
+        "cloud",
+        "metier"
+      ]
+    },
+    {
+      "name": "geox",
+      "version": "0.1.0",
+      "description": "Geo helpers (haversine km, midpoint, within-radius) over std/geo",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/geox",
+      "sha256": "764aaf1beb729d815fd61ea24811962567ed39558e952926891a180fa19573b3",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "geo",
+        "distance",
+        "logistics",
+        "metier"
+      ]
+    },
+    {
+      "name": "httpx",
+      "version": "0.1.0",
+      "description": "HTTP + JSON client helpers (Bearer, Content-Type, GET/POST JSON) over std/http",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/httpx",
+      "sha256": "4b64f1ec01c3b7b94ee1b395316ad8fc285b9456a42d185da783d5b3653dbf4c",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "http",
+        "json",
+        "api",
+        "web",
+        "metier"
+      ]
+    },
+    {
+      "name": "llmx",
+      "version": "0.1.0",
+      "description": "OpenAI-compatible chat helpers (build body, extract text, optional HTTP)",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/llmx",
+      "sha256": "4484de1293fb328d0bfcb2c863fa27056b6ec919fe5ffa753434cbd0820ff919",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "ai",
+        "llm",
+        "http",
+        "json"
+      ]
+    },
+    {
       "name": "ma_lib",
       "version": "0.1.0",
       "description": "Paquet AFRILANG ma_lib",
@@ -684,6 +787,24 @@
       ]
     },
     {
+      "name": "storex",
+      "version": "0.1.0",
+      "description": "Tiny SQLite store helpers (ensure table, insert, list) over std/sql + std/orm",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/storex",
+      "sha256": "cd115a33a6684bac1d8907657e39339c97ee4bb263f3bfc2cafe383f0be3dd40",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "sql",
+        "orm",
+        "sqlite",
+        "storage",
+        "metier"
+      ]
+    },
+    {
       "name": "w2smoke",
       "version": "0.1.0",
       "description": "Paquet AFRILANG w2smoke",
@@ -695,6 +816,24 @@
       "license": "MIT",
       "tags": [
         "test"
+      ]
+    },
+    {
+      "name": "webapi",
+      "version": "0.1.0",
+      "description": "JSON API router helpers (health, routes) over std/web + std/json",
+      "method": "git",
+      "url": "https://github.com/MaximeKELI/AFRILANG.git",
+      "path": "packages/webapi",
+      "sha256": "d003e61b5d7f65f11caa140756e91451c92cd4e18f0840c86e243f7639d23def",
+      "blessed": false,
+      "license": "MIT",
+      "tags": [
+        "web",
+        "api",
+        "http",
+        "json",
+        "metier"
       ]
     }
   ]

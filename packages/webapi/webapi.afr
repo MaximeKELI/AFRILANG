@@ -1,0 +1,60 @@
+import "std/web"
+import "std/json"
+import "std/str"
+
+use web
+use json
+use str
+
+module webapi
+    function escapeJson(s text) returns text
+        create step1 = replace(s, "\\", "\\\\")
+        return replace(step1, "\"", "\\\"")
+    end
+
+    function jsonOk() returns text
+        return "{\"ok\":true}"
+    end
+
+    function jsonStatus(status text) returns text
+        return "{\"status\":\"" + escapeJson(status) + "\"}"
+    end
+
+    function jsonError(message text) returns text
+        return "{\"ok\":false,\"error\":\"" + escapeJson(message) + "\"}"
+    end
+
+    function jsonMessage(key text, value text) returns text
+        return "{\"" + escapeJson(key) + "\":\"" + escapeJson(value) + "\"}"
+    end
+
+    // Router with GET /health → {"status":"healthy"} and GET / → {"ok":true}.
+    function makeHealthRouter() returns int
+        create router = createRouter()
+        addRoute(router, "GET", "/", jsonOk())
+        addRoute(router, "GET", "/health", jsonStatus("healthy"))
+        return router
+    end
+
+    function addJsonGet(router int, path text, body text) returns int
+        addRoute(router, "GET", path, body)
+        return router
+    end
+
+    function addJsonPost(router int, path text, body text) returns int
+        addRoute(router, "POST", path, body)
+        return router
+    end
+
+    function get(router int, path text) returns text
+        return dispatch(router, "GET", path)
+    end
+
+    function post(router int, path text) returns text
+        return dispatch(router, "POST", path)
+    end
+
+    function serveOnce(port number, router int) returns number
+        return httpServeOnceRouted(port, router)
+    end
+end

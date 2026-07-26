@@ -1,0 +1,13 @@
+name = "pkg_metier_demo"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/pkg_metier_demo"
+description = "Demo metier packages: httpx geox datax webapi storex deployx"
+
+[dependencies]
+httpx = "0.1.0"
+geox = "0.1.0"
+datax = "0.1.0"
+webapi = "0.1.0"
+storex = "0.1.0"
+deployx = "0.1.0"

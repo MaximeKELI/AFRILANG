@@ -1,0 +1,6 @@
+name = "deployx"
+version = "0.1.0"
+description = "Deploy helpers: Procfile, health URL check, webhook POST (not a cloud SDK)"
+main = "deployx.afr"
+license = "MIT"
+tags = ["deploy", "ops", "http", "cloud", "metier"]

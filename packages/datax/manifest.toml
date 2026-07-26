@@ -1,0 +1,6 @@
+name = "datax"
+version = "0.1.0"
+description = "CSV/JSON file helpers over std/csv, std/fs, std/json, std/str"
+main = "datax.afr"
+license = "MIT"
+tags = ["csv", "json", "data", "fs", "metier"]

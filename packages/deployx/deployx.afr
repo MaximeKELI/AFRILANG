@@ -1,0 +1,54 @@
+import "std/http"
+import "std/fs"
+import "std/str"
+
+use http
+use fs
+use str
+
+module deployx
+    function procfileWeb(command text) returns text
+        return "web: " + command + "\n"
+    end
+
+    function procfileWorker(command text) returns text
+        return "worker: " + command + "\n"
+    end
+
+    function writeProcfile(path text, webCommand text) returns bool
+        return writeText(path, procfileWeb(webCommand))
+    end
+
+    function healthUrl(base text) returns text
+        if endsWith(base, "/") then
+            return base + "health"
+        end
+        return base + "/health"
+    end
+
+    function healthCheck(base text) returns text
+        return httpGet(healthUrl(base))
+    end
+
+    function healthLooksOk(body text) returns bool
+        if contains(body, "healthy") then
+            return true
+        end
+        if contains(body, "\"ok\":true") then
+            return true
+        end
+        return contains(body, "OK")
+    end
+
+    function webhookPost(url text, payload text) returns text
+        return httpPost(url, payload)
+    end
+
+    function dockerfileHint(binaryName text) returns text
+        return "FROM debian:bookworm-slim\nCOPY " + binaryName + " /app/" + binaryName + "\nCMD [\"/app/" + binaryName + "\"]\n"
+    end
+
+    function envLine(key text, value text) returns text
+        return key + "=" + value + "\n"
+    end
+end

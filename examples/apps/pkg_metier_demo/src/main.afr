@@ -1,0 +1,42 @@
+// Demo packages metier (httpx / geox / datax / webapi / storex / deployx)
+// Offline: no network calls.
+
+import "pkg/geox/geox.afr"
+use geox
+import "pkg/httpx/httpx.afr"
+use httpx
+import "pkg/datax/datax.afr"
+use datax
+import "pkg/webapi/webapi.afr"
+use webapi
+import "pkg/deployx/deployx.afr"
+use deployx
+import "pkg/storex/storex.afr"
+use storex
+
+say "=== geox ==="
+create km = distanceKm(6.1319, 1.2228, 5.6037, -0.1870)
+say "Lome->Accra ~ {km} km"
+
+say "=== httpx ==="
+create url = withQuery("https://api.example/v1/markets", "city", "Lome")
+say url
+say object1("amount", "5000")
+
+say "=== webapi ==="
+create router = makeHealthRouter()
+say get(router, "/health")
+
+say "=== deployx ==="
+say healthUrl("https://app.example")
+say procfileWeb("./server")
+
+say "=== storex ==="
+create db = "/tmp/afrilang_pkg_metier_demo.db"
+ensureTable(db, "demo", "id integer primary key, label text")
+put(db, "demo", cols1("label"), vals1("ok"))
+say listAll(db, "demo")
+
+say "=== datax ==="
+say firstField("ville,pop")
+say "metier packages demo OK"

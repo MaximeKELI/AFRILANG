@@ -1,0 +1,29 @@
+import "pkg/geox/geox.afr"
+use geox
+
+test "lome to accra roughly"
+    // Lomé ~6.13N 1.22E, Accra ~5.60N 0.19W
+    create d = distanceKm(6.1319, 1.2228, 5.6037, -0.1870)
+    assert d is greater than 100
+    assert d is less than 250
+end
+
+test "midpoint"
+    assert midpointLat(0, 10) is equal to 5
+    assert midpointLon(0, 10) is equal to 5
+end
+
+test "withinKm"
+    assert withinKm(6.13, 1.22, 6.14, 1.23, 50)
+    assert withinKm(6.13, 1.22, 5.60, -0.19, 50) is equal to false
+end
+
+test "closerThan"
+    // Accra closer to Lomé than Lagos (~6.52N 3.38E)
+    assert closerThan(6.1319, 1.2228, 5.6037, -0.1870, 6.5244, 3.3792)
+end
+
+test "distanceM"
+    create m = distanceM(0, 0, 0, 0)
+    assert m is equal to 0
+end

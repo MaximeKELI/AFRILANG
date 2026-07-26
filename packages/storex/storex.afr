@@ -1,0 +1,65 @@
+import "std/sql"
+import "std/orm"
+import "std/str"
+
+use sql
+use orm
+use str
+
+module storex
+    // Pipe-separated column / value helpers for std/orm insert.
+    function cols1(a text) returns text
+        return a
+    end
+
+    function cols2(a text, b text) returns text
+        return a + "|" + b
+    end
+
+    function cols3(a text, b text, c text) returns text
+        return a + "|" + b + "|" + c
+    end
+
+    function vals1(a text) returns text
+        return a
+    end
+
+    function vals2(a text, b text) returns text
+        return a + "|" + b
+    end
+
+    function vals3(a text, b text, c text) returns text
+        return a + "|" + b + "|" + c
+    end
+
+    function ensureTable(dbPath text, table text, columnsSql text) returns bool
+        create sqlText = "create table if not exists " + table + " (" + columnsSql + ")"
+        return exec(dbPath, sqlText)
+    end
+
+    function put(dbPath text, table text, columns text, values text) returns int
+        return insert(dbPath, table, columns, values)
+    end
+
+    function listAll(dbPath text, table text) returns text
+        return findAll(dbPath, table)
+    end
+
+    function removeWhere(dbPath text, table text, whereClause text) returns bool
+        return deleteRows(dbPath, table, whereClause)
+    end
+
+    function hasRows(dbPath text, table text) returns bool
+        create rows = findAll(dbPath, table)
+        return rows is not equal to ""
+    end
+
+    function rowCountApprox(dbPath text, table text) returns int
+        create rows = findAll(dbPath, table)
+        if rows is equal to "" then
+            return 0
+        end
+        create lines = split(rows, "\n")
+        return length of lines
+    end
+end

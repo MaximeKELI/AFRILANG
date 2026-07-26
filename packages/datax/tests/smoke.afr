@@ -1,0 +1,41 @@
+import "pkg/datax/datax.afr"
+use datax
+import "std/json"
+use json
+import "std/str"
+use str
+
+test "parseCsvLine"
+    create fields = parseCsvLine("a,b,c")
+    assert length of fields is equal to 3
+    assert fields at 0 is equal to "a"
+    assert fields at 2 is equal to "c"
+    assert fieldCount("x,y") is equal to 2
+    assert firstField("city,pop") is equal to "city"
+end
+
+test "joinCsvLine"
+    create fields = list of "a", "b,c"
+    create line = joinCsvLine(fields)
+    assert contains(line, "a")
+    assert contains(line, "\"")
+end
+
+test "lineCount"
+    assert lineCount("") is equal to 0
+    assert lineCount("one") is equal to 1
+    assert lineCount("one\ntwo\nthree") is equal to 3
+end
+
+test "csvHeaderOk"
+    assert csvHeaderOk("name,age", "name")
+    assert csvHeaderOk("id,score", "name") is equal to false
+end
+
+test "json file roundtrip"
+    create path = "/tmp/afrilang_datax_smoke.json"
+    assert saveJsonObject(path, "market", "Kara")
+    assert fileReady(path)
+    create doc = loadJsonFile(path)
+    assert getString(doc, "market") is equal to "Kara"
+end

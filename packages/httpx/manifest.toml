@@ -1,0 +1,6 @@
+name = "httpx"
+version = "0.1.0"
+description = "HTTP + JSON client helpers (Bearer, Content-Type, GET/POST JSON) over std/http"
+main = "httpx.afr"
+license = "MIT"
+tags = ["http", "json", "api", "web", "metier"]

@@ -1,0 +1,7 @@
+vendor/
+build/
+*.o
+.afrilang/
+*_bin
+*.generated.cpp
+*.debug.json

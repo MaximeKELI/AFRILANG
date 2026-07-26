@@ -1,0 +1,38 @@
+import "std/geo"
+use geo
+
+module geox
+    // Distance great-circle in kilometres (Earth radius ~6371 km).
+    function distanceKm(lat1 number, lon1 number, lat2 number, lon2 number) returns number
+        return haversineKm(lat1, lon1, lat2, lon2)
+    end
+
+    function midpointLat(lat1 number, lat2 number) returns number
+        return midLat(lat1, lat2)
+    end
+
+    // Simple average longitude (not date-line aware).
+    function midpointLon(lon1 number, lon2 number) returns number
+        return (lon1 + lon2) / 2
+    end
+
+    function withinKm(lat1 number, lon1 number, lat2 number, lon2 number, maxKm number) returns bool
+        create d = distanceKm(lat1, lon1, lat2, lon2)
+        if d is greater than maxKm then
+            return false
+        end
+        return true
+    end
+
+    // True if point B is closer to A than point C (km).
+    function closerThan(latA number, lonA number, latB number, lonB number, latC number, lonC number) returns bool
+        create dB = distanceKm(latA, lonA, latB, lonB)
+        create dC = distanceKm(latA, lonA, latC, lonC)
+        return dB is less than dC
+    end
+
+    // Rough km→m convenience (no ellipsoid).
+    function distanceM(lat1 number, lon1 number, lat2 number, lon2 number) returns number
+        return distanceKm(lat1, lon1, lat2, lon2) * 1000
+    end
+end

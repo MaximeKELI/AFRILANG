@@ -1,0 +1,77 @@
+import "std/http"
+import "std/json"
+import "std/str"
+
+use http
+use json
+use str
+
+module httpx
+    function escapeJson(s text) returns text
+        create step1 = replace(s, "\\", "\\\\")
+        return replace(step1, "\"", "\\\"")
+    end
+
+    function bearerHeader(token text) returns text
+        if token is equal to "" then
+            return ""
+        end
+        return "Authorization: Bearer " + token + "\n"
+    end
+
+    function jsonHeaders() returns text
+        return "Content-Type: application/json\nAccept: application/json\n"
+    end
+
+    function jsonAuthHeaders(token text) returns text
+        return jsonHeaders() + bearerHeader(token)
+    end
+
+    function withQuery(url text, key text, value text) returns text
+        if contains(url, "?") then
+            return url + "&" + key + "=" + value
+        end
+        return url + "?" + key + "=" + value
+    end
+
+    function object1(key text, value text) returns text
+        return "{\"" + escapeJson(key) + "\":\"" + escapeJson(value) + "\"}"
+    end
+
+    function getText(url text) returns text
+        return httpGet(url)
+    end
+
+    function getJson(url text) returns json
+        create raw = httpGet(url)
+        if raw is equal to "" then
+            return parse("{}")
+        end
+        return parse(raw)
+    end
+
+    function postJson(url text, body text) returns text
+        return httpPostHeaders(url, body, jsonHeaders())
+    end
+
+    function postJsonAuth(url text, token text, body text) returns text
+        return httpPostHeaders(url, body, jsonAuthHeaders(token))
+    end
+
+    function getStringField(responseText text, key text) returns text
+        if responseText is equal to "" then
+            return ""
+        end
+        create doc json = parse(responseText)
+        return getString(doc, key)
+    end
+
+    function looksLikeJson(text text) returns bool
+        create t = trim(text)
+        // "{{" → literal "{" (interpolation escape)
+        if startsWith(t, "{{") then
+            return true
+        end
+        return startsWith(t, "[")
+    end
+end

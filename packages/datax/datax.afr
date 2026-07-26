@@ -1,0 +1,73 @@
+import "std/csv"
+import "std/fs"
+import "std/json"
+import "std/str"
+
+use csv
+use fs
+use json
+use str
+
+module datax
+    function parseCsvLine(line text) returns list text
+        return splitLine(line)
+    end
+
+    function joinCsvLine(fields list text) returns text
+        return joinFields(fields)
+    end
+
+    function fieldCount(line text) returns int
+        create fields = splitLine(line)
+        return length of fields
+    end
+
+    function firstField(line text) returns text
+        create fields = splitLine(line)
+        if length of fields is less than 1 then
+            return ""
+        end
+        return fields at 0
+    end
+
+    function lineCount(text text) returns int
+        if text is equal to "" then
+            return 0
+        end
+        create lines = split(text, "\n")
+        return length of lines
+    end
+
+    function readTextFile(path text) returns text
+        return readText(path)
+    end
+
+    function writeTextFile(path text, content text) returns bool
+        return writeText(path, content)
+    end
+
+    function loadJsonFile(path text) returns json
+        create raw = readText(path)
+        if raw is equal to "" then
+            return parse("{}")
+        end
+        return parse(raw)
+    end
+
+    function saveJsonObject(path text, key text, value text) returns bool
+        create doc = makeObject(key, value)
+        return writeText(path, stringify(doc))
+    end
+
+    function csvHeaderOk(line text, expectedFirst text) returns bool
+        create first = firstField(line)
+        return first is equal to expectedFirst
+    end
+
+    function fileReady(path text) returns bool
+        if exists(path) then
+            return isFile(path)
+        end
+        return false
+    end
+end
