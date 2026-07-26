@@ -428,6 +428,9 @@ void simplifyCfg(FunctionIR& ir) {
                 } else {
                     env.clear();
                 }
+            } else if (in.kind == InstrKind::Opaque || in.kind == InstrKind::ExprStmt) {
+                // Loops / calls / macros may mutate — drop local facts.
+                env.clear();
             }
         }
         if (b.term.kind == TermKind::Branch && b.term.cond) {

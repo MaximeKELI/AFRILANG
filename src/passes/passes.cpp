@@ -188,21 +188,14 @@ void countStmtUses(const StatementNode* stmt, std::unordered_map<std::string, in
 }
 
 void dcePureAndUnused(std::vector<std::unique_ptr<StatementNode>>& stmts) {
-    std::unordered_map<std::string, int> uses;
-    for (const auto& st : stmts) countStmtUses(st.get(), uses);
-
+    // Only drop pure no-op expression statements. Dropping unused `create`
+    // requires a complete use analysis (incl. repeat/for/opaque) — too risky.
     std::vector<std::unique_ptr<StatementNode>> out;
     out.reserve(stmts.size());
     for (auto& stmt : stmts) {
         if (auto* ex = dynamic_cast<ExpressionStatementNode*>(stmt.get())) {
             if (isLiteralExpr(ex->expression.get()) || asIdent(ex->expression.get())) {
-                continue; // pure no-op
-            }
-        }
-        if (auto* a = dynamic_cast<AssignStatementNode*>(stmt.get())) {
-            if (a->propagate == ResultPropagation::None && isLiteralExpr(a->value.get()) &&
-                uses[a->name] == 0) {
-                continue; // unused literal binding
+                continue;
             }
         }
         out.push_back(std::move(stmt));

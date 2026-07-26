@@ -1207,6 +1207,7 @@ CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o: /home/admin20/AFRILANG/src/pass
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/c++/15/algorithm \
+  /usr/include/c++/15/array \
   /usr/include/c++/15/backward/auto_ptr.h \
   /usr/include/c++/15/backward/binders.h \
   /usr/include/c++/15/bit \
@@ -1255,6 +1256,7 @@ CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o: /home/admin20/AFRILANG/src/pass
   /usr/include/c++/15/bits/shared_ptr_base.h \
   /usr/include/c++/15/bits/specfun.h \
   /usr/include/c++/15/bits/std_abs.h \
+  /usr/include/c++/15/bits/std_function.h \
   /usr/include/c++/15/bits/stl_algo.h \
   /usr/include/c++/15/bits/stl_algobase.h \
   /usr/include/c++/15/bits/stl_bvector.h \
@@ -1284,6 +1286,7 @@ CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o: /home/admin20/AFRILANG/src/pass
   /usr/include/c++/15/cerrno \
   /usr/include/c++/15/clocale \
   /usr/include/c++/15/cmath \
+  /usr/include/c++/15/compare \
   /usr/include/c++/15/concepts \
   /usr/include/c++/15/cstddef \
   /usr/include/c++/15/cstdio \
@@ -1299,6 +1302,7 @@ CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o: /home/admin20/AFRILANG/src/pass
   /usr/include/c++/15/ext/numeric_traits.h \
   /usr/include/c++/15/ext/string_conversions.h \
   /usr/include/c++/15/ext/type_traits.h \
+  /usr/include/c++/15/functional \
   /usr/include/c++/15/initializer_list \
   /usr/include/c++/15/iosfwd \
   /usr/include/c++/15/limits \
@@ -8743,6 +8747,8 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o:
 
 /home/admin20/AFRILANG/src/utils/security.cpp:
 
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
 /usr/include/c++/15/cmath:
 
 /usr/include/c++/15/tr1/bessel_function.tcc:
@@ -8752,6 +8758,10 @@ CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o:
 /usr/include/c++/15/limits:
 
 /usr/include/x86_64-linux-gnu/asm/unistd.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
+
+/usr/include/c++/15/tr1/legendre_function.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
@@ -8798,12 +8808,6 @@ CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o:
 /usr/include/c++/15/iosfwd:
 
 /home/admin20/AFRILANG/include/afrilang/passes.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
-
-/usr/include/c++/15/tr1/legendre_function.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
 
 /home/admin20/AFRILANG/include/afrilang/js_codegen.hpp:
 
@@ -8917,9 +8921,9 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o:
 
 /usr/include/openssl/asn1err.h:
 
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
-
 /usr/include/c++/15/array:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h:
 

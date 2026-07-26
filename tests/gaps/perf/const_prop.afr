@@ -1,0 +1,8 @@
+// Gap 4 extreme — local const-prop + strength reduce
+create n number = 10
+create a = n + 1
+create b = n * 2
+create c = n - n
+assert a is equal to 11
+assert b is equal to 20
+assert c is equal to 0

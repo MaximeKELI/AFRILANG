@@ -21,16 +21,22 @@ if [[ ! -x "$AFRILANG" ]]; then
 fi
 
 if [[ "$MICRO_MODE" -eq 1 ]]; then
-  FILES=(hello.afr)
+  PATHS=(
+    "$EXAMPLES/hello.afr"
+    "$ROOT/tests/gaps/perf/loop_smoke.afr"
+    "$ROOT/tests/gaps/perf/fold_identity.afr"
+    "$ROOT/tests/gaps/perf/const_prop.afr"
+    "$ROOT/tests/gaps/perf/loop_hot.afr"
+  )
 else
-  FILES=(
-    hello.afr
-    oop.afr
-    generics.afr
-    full_demo.afr
-    stdlib_demo.afr
-    tier9_demo.afr
-    tier10_demo.afr
+  PATHS=(
+    "$EXAMPLES/hello.afr"
+    "$EXAMPLES/oop.afr"
+    "$EXAMPLES/generics.afr"
+    "$EXAMPLES/full_demo.afr"
+    "$EXAMPLES/stdlib_demo.afr"
+    "$EXAMPLES/tier9_demo.afr"
+    "$EXAMPLES/tier10_demo.afr"
   )
 fi
 
@@ -64,8 +70,8 @@ failures=0
 RESULTS_TMP=$(mktemp)
 echo "[]" > "$RESULTS_TMP"
 
-for file in "${FILES[@]}"; do
-  path="$EXAMPLES/$file"
+for path in "${PATHS[@]}"; do
+  file="$(basename "$path")"
   if [[ ! -f "$path" ]]; then
     log "SKIP $file (introuvable)"
     continue

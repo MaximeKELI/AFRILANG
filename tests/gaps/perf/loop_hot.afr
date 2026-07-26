@@ -1,0 +1,6 @@
+// Hot loop microbench for gap4 --micro
+create n = 0
+repeat 1000 times
+    set n = n + 1
+end
+assert n is equal to 1000

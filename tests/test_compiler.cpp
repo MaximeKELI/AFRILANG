@@ -959,6 +959,30 @@ static void testConstantFoldPass() {
     expect(foundYes, "surviving branch is yes");
 }
 
+static void testConstPropPass() {
+    const std::string src =
+        "create n = 10\n"
+        "create a = n + 1\n"
+        "create b = n * 2\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "cprop.afr");
+    analyzer.analyze();
+    afrilang::passes::runOptionalPasses(*program);
+    expect(program->statements.size() >= 3, "const-prop keeps assigns");
+    const auto* aAssign = dynamic_cast<const afrilang::AssignStatementNode*>(
+        program->statements[1].get());
+    expect(aAssign != nullptr, "a assign");
+    const auto* aNum = dynamic_cast<const afrilang::NumberLiteralNode*>(aAssign->value.get());
+    expect(aNum != nullptr && aNum->value == 11.0, "n+1 const-prop to 11");
+    const auto* bAssign = dynamic_cast<const afrilang::AssignStatementNode*>(
+        program->statements[2].get());
+    expect(bAssign != nullptr, "b assign");
+    const auto* bNum = dynamic_cast<const afrilang::NumberLiteralNode*>(bAssign->value.get());
+    expect(bNum != nullptr && bNum->value == 20.0, "n*2 strength+prop to 20");
+}
+
 static void testIdentityFoldPass() {
     const std::string src = "create n = 5\ncreate a = n * 1\ncreate z = 0 * n\n";
     afrilang::Lexer lexer(src);
@@ -968,12 +992,16 @@ static void testIdentityFoldPass() {
     analyzer.analyze();
     afrilang::passes::runOptionalPasses(*program);
     expect(program->statements.size() >= 3, "identity fold keeps assigns");
-    // a = n * 1 should become a = n (Identifier)
+    // a = n * 1 → n (identity) then possibly 5 (const-prop)
     const auto* aAssign = dynamic_cast<const afrilang::AssignStatementNode*>(
         program->statements[1].get());
     expect(aAssign != nullptr, "second is assign a");
-    const auto* id = dynamic_cast<const afrilang::IdentifierNode*>(aAssign->value.get());
-    expect(id != nullptr && id->name == "n", "n*1 -> n");
+    if (const auto* id = dynamic_cast<const afrilang::IdentifierNode*>(aAssign->value.get())) {
+        expect(id->name == "n", "n*1 -> n");
+    } else {
+        const auto* lit = dynamic_cast<const afrilang::NumberLiteralNode*>(aAssign->value.get());
+        expect(lit != nullptr && lit->value == 5.0, "n*1 const-prop to 5");
+    }
     const auto* zAssign = dynamic_cast<const afrilang::AssignStatementNode*>(
         program->statements[2].get());
     expect(zAssign != nullptr, "third is assign z");
@@ -1033,6 +1061,7 @@ int main() {
     testTypedExpressionAnnotation();
     testGenericConstraintRejectsText();
     testConstantFoldPass();
+    testConstPropPass();
     testIdentityFoldPass();
     testCacheFingerprintVersionInvalidates();
     testCacheMetaKeyDistinctPaths();
