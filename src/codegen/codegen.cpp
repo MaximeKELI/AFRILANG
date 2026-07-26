@@ -3596,7 +3596,8 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
                 return opSig->returnType.toCpp();
             }
         }
-        if (bin->op == ">" || bin->op == "<" || bin->op == "==" || bin->op == "!=" ||
+        if (bin->op == ">" || bin->op == "<" || bin->op == ">=" || bin->op == "<=" ||
+            bin->op == "==" || bin->op == "!=" ||
             bin->op == "&&" || bin->op == "||") {
             return "bool";
         }

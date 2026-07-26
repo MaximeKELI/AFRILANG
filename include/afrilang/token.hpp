@@ -42,6 +42,10 @@ enum class TokenType {
     DotDot, DotDotLess,
     AngleOpen, AngleClose,
     Bang,
+    EqEq,       // ==
+    NotEq,      // !=
+    LessEq,     // <=
+    GreaterEq,  // >=
 
     // Fin de fichier
     Eof
@@ -200,6 +204,10 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Slash:          return "/";
         case TokenType::Dot:            return ".";
         case TokenType::Equals:         return "=";
+        case TokenType::EqEq:           return "==";
+        case TokenType::NotEq:          return "!=";
+        case TokenType::LessEq:         return "<=";
+        case TokenType::GreaterEq:      return ">=";
         case TokenType::Comma:          return ",";
         case TokenType::LeftParen:      return "(";
         case TokenType::RightParen:     return ")";

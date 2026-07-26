@@ -566,12 +566,19 @@ void SemanticAnalyzer::registerModules() {
 
 void SemanticAnalyzer::registerExterns() {
     for (const auto& ext : program_.externs) {
+        if (!allowFfi()) {
+            errorAt(*ext,
+                    "FFI désactivé en mode sécurisé — définissez AFRILANG_ALLOW_FFI=1 "
+                    "(ou AFRILANG_INSECURE=1)",
+                    {}, ErrorCode::FfiLibraryDenied);
+            continue;
+        }
         if (!isFfiLibraryAllowed(ext->library)) {
             errorAt(*ext,
                     "Bibliothèque FFI non autorisée: '" + ext->library +
-                        "' (allowlist: m/c/pthread/dl/curl ; "
-                        "AFRILANG_ALLOW_FFI=1 requis en mode sécurisé)",
+                        "' (allowlist: m/c/pthread/dl/curl)",
                     {}, ErrorCode::FfiLibraryDenied);
+            continue;
         }
         if (result_.functions.count(ext->name)) {
             errorAt(*ext, "Fonction '" + ext->name + "' déjà déclarée");
@@ -1758,7 +1765,8 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
             }
         }
 
-        if (bin->op == ">" || bin->op == "<" || bin->op == "==" || bin->op == "!=") {
+        if (bin->op == ">" || bin->op == "<" || bin->op == ">=" || bin->op == "<=" ||
+            bin->op == "==" || bin->op == "!=") {
             return AfrType::boolType();
         }
 

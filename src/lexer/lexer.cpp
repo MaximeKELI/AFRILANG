@@ -285,7 +285,14 @@ std::vector<Token> Lexer::tokenize() {
                         tokens.push_back(makeToken(TokenType::Dot, "."));
                     }
                     break;
-                case '=': tokens.push_back(makeToken(TokenType::Equals, "=")); break;
+                case '=':
+                    if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::EqEq, "=="));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::Equals, "="));
+                    }
+                    break;
                 case ',': tokens.push_back(makeToken(TokenType::Comma, ",")); break;
                 case '(': tokens.push_back(makeToken(TokenType::LeftParen, "(")); break;
                 case ')': tokens.push_back(makeToken(TokenType::RightParen, ")")); break;
@@ -299,9 +306,30 @@ std::vector<Token> Lexer::tokenize() {
                         tokens.push_back(makeToken(TokenType::Question, "?"));
                     }
                     break;
-                case '<': tokens.push_back(makeToken(TokenType::AngleOpen, "<")); break;
-                case '>': tokens.push_back(makeToken(TokenType::AngleClose, ">")); break;
-                case '!': tokens.push_back(makeToken(TokenType::Bang, "!")); break;
+                case '<':
+                    if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::LessEq, "<="));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::AngleOpen, "<"));
+                    }
+                    break;
+                case '>':
+                    if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::GreaterEq, ">="));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::AngleClose, ">"));
+                    }
+                    break;
+                case '!':
+                    if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::NotEq, "!="));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::Bang, "!"));
+                    }
+                    break;
                 default:
                     reportLexerError(std::string("Caractère inattendu '") + c + "'",
                                      startLine, startColumn);

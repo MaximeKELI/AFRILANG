@@ -852,12 +852,28 @@ std::string Parser::parseOperatorSymbol() {
     if (match(TokenType::Minus)) return "-";
     if (match(TokenType::Star)) return "*";
     if (match(TokenType::Slash)) return "/";
+    if (match(TokenType::EqEq)) return "==";
+    if (match(TokenType::NotEq)) return "!=";
+    if (match(TokenType::LessEq)) return "<=";
+    if (match(TokenType::GreaterEq)) return ">=";
+    if (match(TokenType::AngleOpen)) return "<";
+    if (match(TokenType::AngleClose)) return ">";
     if (match(TokenType::Greater)) {
         consumeToOrThan("'than' attendu après 'greater'");
+        if (match(TokenType::Or)) {
+            consume(TokenType::Equal, "'equal' attendu après 'or'");
+            consumeToOrThan("'to' attendu après 'equal'");
+            return ">=";
+        }
         return ">";
     }
     if (match(TokenType::Less)) {
         consumeToOrThan("'than' attendu après 'less'");
+        if (match(TokenType::Or)) {
+            consume(TokenType::Equal, "'equal' attendu après 'or'");
+            consumeToOrThan("'to' attendu après 'equal'");
+            return "<=";
+        }
         return "<";
     }
     if (match(TokenType::Equal)) {
@@ -869,7 +885,7 @@ std::string Parser::parseOperatorSymbol() {
         consumeToOrThan("'to' attendu après 'equal'");
         return "!=";
     }
-    error("Symbole d'opérateur attendu (+, -, *, /, ==, !=, <, >)");
+    error("Symbole d'opérateur attendu (+, -, *, /, ==, !=, <, <=, >, >=)");
     return "+";
 }
 
@@ -1674,10 +1690,22 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
 
         if (match(TokenType::Greater)) {
             consumeToOrThan("'than' attendu après 'greater'");
-            op = ">";
+            if (match(TokenType::Or)) {
+                consume(TokenType::Equal, "'equal' attendu après 'or'");
+                consumeToOrThan("'to' attendu après 'equal'");
+                op = ">=";
+            } else {
+                op = ">";
+            }
         } else if (match(TokenType::Less)) {
             consumeToOrThan("'than' attendu après 'less'");
-            op = "<";
+            if (match(TokenType::Or)) {
+                consume(TokenType::Equal, "'equal' attendu après 'or'");
+                consumeToOrThan("'to' attendu après 'equal'");
+                op = "<=";
+            } else {
+                op = "<";
+            }
         } else if (match(TokenType::Equal)) {
             consumeToOrThan("'to' attendu après 'equal'");
             op = "==";
@@ -1686,11 +1714,33 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
             consumeToOrThan("'to' attendu après 'equal'");
             op = "!=";
         } else {
-            error("Comparateur attendu après 'is' (greater than, less than, equal to, not equal to)");
+            error("Comparateur attendu après 'is' (greater/less than [or equal to], equal to, not equal to)");
         }
 
         auto right = parseTerm();
         return std::make_unique<BinaryOpNode>(op, std::move(left), std::move(right));
+    }
+
+    // Symbolic comparisons: == != < <= > >=  (= alone remains assignment-only)
+    {
+        std::string op;
+        if (match(TokenType::EqEq)) {
+            op = "==";
+        } else if (match(TokenType::NotEq)) {
+            op = "!=";
+        } else if (match(TokenType::LessEq)) {
+            op = "<=";
+        } else if (match(TokenType::GreaterEq)) {
+            op = ">=";
+        } else if (match(TokenType::AngleOpen)) {
+            op = "<";
+        } else if (match(TokenType::AngleClose)) {
+            op = ">";
+        }
+        if (!op.empty()) {
+            auto right = parseTerm();
+            return std::make_unique<BinaryOpNode>(op, std::move(left), std::move(right));
+        }
     }
 
     if (match(TokenType::And)) {

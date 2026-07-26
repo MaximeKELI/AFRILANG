@@ -1,0 +1,3 @@
+// Gap 7 — unknown FFI library must be rejected
+extern from "not_a_real_ffi_lib_xyz" function evil() returns number
+say evil()

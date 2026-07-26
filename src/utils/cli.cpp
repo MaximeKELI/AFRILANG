@@ -48,6 +48,19 @@ namespace afrilang {
 
 namespace {
 
+/** Specs/examples that use `extern` need the FFI opt-in (NORMATIVE §9). */
+void enableFfiOptInForTests() {
+#if defined(_WIN32)
+    _putenv_s("AFRILANG_ALLOW_FFI", "1");
+#else
+    setenv("AFRILANG_ALLOW_FFI", "1", 1);
+#endif
+}
+
+bool pathLooksLikeFfiTest(const std::string& path) {
+    return path.find("ffi") != std::string::npos || path.find("FFI") != std::string::npos;
+}
+
 fs::path executableDirectory() {
 #if defined(__linux__)
     try {
@@ -650,6 +663,7 @@ static int runExampleSuite(const fs::path& root, bool coverage) {
     std::cout << "[examples]\n";
     for (const auto& ex : examples) {
         const std::string path = (root / "examples" / ex).string();
+        if (pathLooksLikeFfiTest(ex)) enableFfiOptInForTests();
         std::cout << "  " << ex << " ... ";
         std::cout.flush();
         try {
