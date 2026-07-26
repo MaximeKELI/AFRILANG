@@ -73,7 +73,7 @@ class AfrilangCli {
     );
     final out = proc.stdout as String;
     final err = proc.stderr as String;
-    final problems = parseDiagnostics(out + '\n' + err, fallbackPath: filePath);
+    final problems = parseDiagnostics('$out\n$err', fallbackPath: filePath);
     return CliResult(
       exitCode: proc.exitCode,
       stdout: out,

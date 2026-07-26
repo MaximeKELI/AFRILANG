@@ -30,6 +30,12 @@ rename/refs are text-oriented; not an incremental semantic index.
 
 `vscode-afrilang/` — LanguageClient launching `afrilang lsp`.
 
+## AFRIBLOCK (desktop IDE)
+
+`ide/afriblock/` — Flutter desktop workbench (Linux / Windows / macOS) for
+editing `.afr` and driving `afrilang run` / `check`. v0.1 is **not** an LSP
+client; see [`ide/afriblock/README.md`](../ide/afriblock/README.md).
+
 ## Tests
 
 ```bash
@@ -51,3 +57,4 @@ Fixtures: `tests/gaps/tooling/`.
 - [`GAPS.md`](GAPS.md) row 8
 - [`LANGUAGE.md`](LANGUAGE.md) — syntax tour
 - `vscode-afrilang/README.md`
+- `ide/afriblock/README.md`

@@ -19,10 +19,7 @@ class AfrilangHighlighter {
   };
 
   static TextSpan highlightSpan(String src, {double fontSize = 13.5}) {
-    return TextSpan(
-      style: afriblockMono(fontSize: fontSize, color: Colors.transparent),
-      children: _spans(src, fontSize: fontSize),
-    );
+    return TextSpan(children: _spans(src, fontSize: fontSize));
   }
 
   static List<InlineSpan> _spans(String src, {required double fontSize}) {
@@ -91,8 +88,10 @@ class CodeEditor extends StatefulWidget {
 
 class _CodeEditorState extends State<CodeEditor> {
   late final TextEditingController _controller;
-  late final ScrollController _scroll;
+  late final ScrollController _textScroll;
+  late final ScrollController _gutterScroll;
   final FocusNode _focus = FocusNode();
+  bool _syncing = false;
 
   static const _fontSize = 13.5;
   static const _lineHeight = 1.55;
@@ -101,8 +100,24 @@ class _CodeEditorState extends State<CodeEditor> {
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.initialContent);
-    _scroll = ScrollController();
+    _textScroll = ScrollController();
+    _gutterScroll = ScrollController();
     _controller.addListener(() => setState(() {}));
+    _textScroll.addListener(_onTextScroll);
+  }
+
+  void _onTextScroll() {
+    if (_syncing || !_gutterScroll.hasClients) return;
+    _syncing = true;
+    if ((_gutterScroll.offset - _textScroll.offset).abs() > 0.5) {
+      _gutterScroll.jumpTo(
+        _textScroll.offset.clamp(
+          0.0,
+          _gutterScroll.position.maxScrollExtent,
+        ),
+      );
+    }
+    _syncing = false;
   }
 
   @override
@@ -125,8 +140,10 @@ class _CodeEditorState extends State<CodeEditor> {
 
   @override
   void dispose() {
+    _textScroll.removeListener(_onTextScroll);
     _controller.dispose();
-    _scroll.dispose();
+    _textScroll.dispose();
+    _gutterScroll.dispose();
     _focus.dispose();
     super.dispose();
   }
@@ -147,6 +164,7 @@ class _CodeEditorState extends State<CodeEditor> {
     );
     final lineCount = _lineCount;
     final gutterWidth = 16.0 + (lineCount.toString().length * 9.0);
+    final lineBox = _fontSize * _lineHeight;
 
     return ColoredBox(
       color: AfriblockColors.bg,
@@ -155,35 +173,24 @@ class _CodeEditorState extends State<CodeEditor> {
         children: [
           SizedBox(
             width: gutterWidth,
-            child: AnimatedBuilder(
-              animation: _scroll,
-              builder: (context, _) {
-                return SingleChildScrollView(
-                  controller: ScrollController(
-                    initialScrollOffset: _scroll.hasClients ? _scroll.offset : 0,
-                  ),
-                  physics: const NeverScrollableScrollPhysics(),
+            child: ListView.builder(
+              controller: _gutterScroll,
+              physics: const ClampingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              itemCount: lineCount,
+              itemExtent: lineBox,
+              itemBuilder: (context, i) {
+                return Align(
+                  alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        for (var i = 1; i <= lineCount; i++)
-                          SizedBox(
-                            height: _fontSize * _lineHeight,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Text(
-                                '$i',
-                                style: afriblockMono(
-                                  fontSize: _fontSize - 1,
-                                  color: AfriblockColors.textMuted,
-                                  height: _lineHeight,
-                                ),
-                              ),
-                            ),
-                          ),
-                      ],
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(
+                      '${i + 1}',
+                      style: afriblockMono(
+                        fontSize: _fontSize - 1,
+                        color: AfriblockColors.textMuted,
+                        height: _lineHeight,
+                      ),
                     ),
                   ),
                 );
@@ -192,50 +199,43 @@ class _CodeEditorState extends State<CodeEditor> {
           ),
           Container(width: 1, color: AfriblockColors.border.withValues(alpha: 0.45)),
           Expanded(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                return SingleChildScrollView(
-                  controller: _scroll,
-                  padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(minHeight: constraints.maxHeight - 16),
-                    child: Stack(
-                      children: [
-                        if (isAfr)
-                          Text.rich(
-                            AfrilangHighlighter.highlightSpan(
-                              _controller.text.isEmpty ? ' ' : _controller.text,
-                              fontSize: _fontSize,
-                            ),
-                            style: afriblockMono(
-                              fontSize: _fontSize,
-                              height: _lineHeight,
-                            ),
-                          ),
-                        TextField(
-                          controller: _controller,
-                          focusNode: _focus,
-                          maxLines: null,
-                          keyboardType: TextInputType.multiline,
-                          cursorColor: AfriblockColors.primary,
-                          style: style,
-                          strutStyle: const StrutStyle(
-                            fontSize: _fontSize,
-                            height: _lineHeight,
-                            forceStrutHeight: true,
-                          ),
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            isCollapsed: true,
-                            contentPadding: EdgeInsets.zero,
-                          ),
-                          onChanged: widget.onChanged,
-                        ),
-                      ],
+            child: SingleChildScrollView(
+              controller: _textScroll,
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+              child: Stack(
+                children: [
+                  if (isAfr)
+                    Text.rich(
+                      AfrilangHighlighter.highlightSpan(
+                        _controller.text.isEmpty ? ' ' : _controller.text,
+                        fontSize: _fontSize,
+                      ),
+                      style: afriblockMono(
+                        fontSize: _fontSize,
+                        height: _lineHeight,
+                      ),
                     ),
+                  TextField(
+                    controller: _controller,
+                    focusNode: _focus,
+                    maxLines: null,
+                    keyboardType: TextInputType.multiline,
+                    cursorColor: AfriblockColors.primary,
+                    style: style,
+                    strutStyle: const StrutStyle(
+                      fontSize: _fontSize,
+                      height: _lineHeight,
+                      forceStrutHeight: true,
+                    ),
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      isCollapsed: true,
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                    onChanged: widget.onChanged,
                   ),
-                );
-              },
+                ],
+              ),
             ),
           ),
         ],

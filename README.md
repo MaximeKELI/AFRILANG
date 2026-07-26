@@ -477,6 +477,21 @@ Configuration (`settings.json`) :
 
 Voir `vscode-afrilang/README.md` pour le détail.
 
+### AFRIBLOCK (IDE desktop Flutter)
+
+Workbench desktop natif dans `ide/afriblock/` (Linux / Windows / macOS) :
+explorer, onglets, coloration `.afr`, Run/Check via le binaire `afrilang`,
+panneau Problems/Output, palette de commandes. Pas encore de client LSP
+(phase 2).
+
+```bash
+cd ide/afriblock
+flutter pub get
+flutter run -d linux    # ou windows / macos
+```
+
+Voir `ide/afriblock/README.md`.
+
 ### Formateur (`afrilang fmt`)
 
 Normalise l'indentation (4 espaces) et la syntaxe naturelle :

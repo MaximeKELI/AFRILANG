@@ -1,30 +1,22 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:afriblock/main.dart';
+import 'package:afriblock/app.dart';
+import 'package:afriblock/services/afrilang_cli.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('AFRIBLOCK welcome shows brand', (tester) async {
+    await tester.pumpWidget(const AfriblockApp());
+    await tester.pump(); // init async
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(find.text('AFRIBLOCK'), findsWidgets);
+    expect(find.text('Open Folder'), findsOneWidget);
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('diagnostic parser extracts path:line', () {
+    const text = 'examples/hello.afr:12:3: error: unknown name x\n';
+    final items = AfrilangCli.parseDiagnostics(text, fallbackPath: 'x.afr');
+    expect(items, isNotEmpty);
+    expect(items.first.line, 12);
+    expect(items.first.message.toLowerCase(), contains('unknown'));
   });
 }

@@ -98,11 +98,9 @@ class WorkbenchController extends ChangeNotifier {
 
   Future<void> openFolder([String? path]) async {
     String? folder = path;
-    if (folder == null) {
-      folder = await FilePicker.platform.getDirectoryPath(
-        dialogTitle: 'Open Folder — AFRIBLOCK',
-      );
-    }
+    folder ??= await FilePicker.platform.getDirectoryPath(
+      dialogTitle: 'Open Folder — AFRIBLOCK',
+    );
     if (folder == null) return;
 
     try {
