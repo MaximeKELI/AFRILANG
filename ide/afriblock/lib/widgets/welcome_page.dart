@@ -99,6 +99,13 @@ class WelcomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Text(
+                      'Then use Explorer ＋ to create files and folders.',
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 12.5,
+                        color: AfriblockColors.textMuted,
+                      ),
+                    ),
                     OutlinedButton.icon(
                       onPressed: () => wb.showOverlay(OverlayMode.commandPalette),
                       icon: const Icon(Icons.terminal),

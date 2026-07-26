@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../models/workspace_node.dart';
 import '../state/workbench_controller.dart';
 import '../theme/afriblock_theme.dart';
+import 'new_item_dialogs.dart';
 
 class SidebarExplorer extends StatelessWidget {
   const SidebarExplorer({super.key});
@@ -99,12 +100,13 @@ class _ExplorerBody extends StatelessWidget {
       );
     }
     final root = wb.rootNode!;
-    return ListView(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        const ExplorerCreateBar(),
         if (proj != null)
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
             child: Text(
               '${proj.name}  ·  ${proj.version ?? ""}',
               style: GoogleFonts.plusJakartaSans(
@@ -114,39 +116,51 @@ class _ExplorerBody extends StatelessWidget {
               ),
             ),
           ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(12, 6, 12, 8),
-          child: Text(
-            root.name.toUpperCase(),
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-              color: AfriblockColors.textMuted,
-            ),
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 6, 12, 8),
+                child: Text(
+                  root.name.toUpperCase(),
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    color: AfriblockColors.textMuted,
+                  ),
+                ),
+              ),
+              if (wb.outline.isNotEmpty) ...[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+                  child: Text(
+                    'OUTLINE',
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w700,
+                      color: AfriblockColors.textMuted,
+                    ),
+                  ),
+                ),
+                ...wb.outline.map(
+                  (s) => ListTile(
+                    dense: true,
+                    leading: const Icon(Icons.code, size: 14),
+                    title: Text(s.name, style: afriblockMono(fontSize: 12)),
+                    subtitle: Text(
+                      'L${s.line}',
+                      style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted),
+                    ),
+                    onTap: () => wb.openFile(wb.activeTab!.path, line: s.line),
+                  ),
+                ),
+                const Divider(color: AfriblockColors.border),
+              ],
+              ...root.children.map((c) => _TreeTile(node: c, depth: 0)),
+            ],
           ),
         ),
-        // Outline for active file
-        if (wb.outline.isNotEmpty) ...[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
-            child: Text('OUTLINE',
-                style: GoogleFonts.plusJakartaSans(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    color: AfriblockColors.textMuted)),
-          ),
-          ...wb.outline.map(
-            (s) => ListTile(
-              dense: true,
-              leading: const Icon(Icons.code, size: 14),
-              title: Text(s.name, style: afriblockMono(fontSize: 12)),
-              subtitle: Text('L${s.line}', style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted)),
-              onTap: () => wb.openFile(wb.activeTab!.path, line: s.line),
-            ),
-          ),
-          const Divider(color: AfriblockColors.border),
-        ],
-        ...root.children.map((c) => _TreeTile(node: c, depth: 0)),
       ],
     );
   }
@@ -157,48 +171,92 @@ class _TreeTile extends StatelessWidget {
   final WorkspaceNode node;
   final int depth;
 
+  Future<void> _showContext(BuildContext context) async {
+    final wb = context.read<WorkbenchController>();
+    wb.selectExplorerPath(node.path, isDirectory: node.isDirectory);
+    final parentForCreate = node.isDirectory ? node.path : null;
+    final box = context.findRenderObject() as RenderBox?;
+    final pos = box?.localToGlobal(Offset.zero) ?? Offset.zero;
+    final selected = await showMenu<String>(
+      context: context,
+      position: RelativeRect.fromLTRB(pos.dx + 40, pos.dy + 20, pos.dx + 40, pos.dy),
+      color: AfriblockColors.panelElevated,
+      items: [
+        if (node.isDirectory) ...[
+          const PopupMenuItem(value: 'new_file', child: Text('New File…')),
+          const PopupMenuItem(value: 'new_folder', child: Text('New Folder…')),
+        ] else ...[
+          const PopupMenuItem(value: 'new_file_here', child: Text('New File Here…')),
+          const PopupMenuItem(value: 'new_folder_here', child: Text('New Folder Here…')),
+        ],
+        const PopupMenuItem(value: 'reveal', child: Text('Select')),
+      ],
+    );
+    if (!context.mounted) return;
+    switch (selected) {
+      case 'new_file':
+        await promptCreateFile(context, parentDir: parentForCreate);
+      case 'new_folder':
+        await promptCreateFolder(context, parentDir: parentForCreate);
+      case 'new_file_here':
+        await promptCreateFile(context, parentDir: FileParent.of(node.path));
+      case 'new_folder_here':
+        await promptCreateFolder(context, parentDir: FileParent.of(node.path));
+      default:
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final wb = context.read<WorkbenchController>();
+    final wb = context.watch<WorkbenchController>();
     final active = wb.activeTab?.path == node.path;
+    final selected = wb.explorerSelection == node.path;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        InkWell(
-          onTap: () {
-            if (node.isDirectory) {
-              wb.toggleExpand(node);
-            } else {
-              wb.openFile(node.path);
-            }
-          },
-          child: Container(
-            color: active
-                ? AfriblockColors.primaryDeep.withValues(alpha: 0.25)
-                : Colors.transparent,
-            padding: EdgeInsets.only(left: 8.0 + depth * 12, right: 8, top: 3, bottom: 3),
-            child: Row(
-              children: [
-                Icon(
-                  node.isDirectory
-                      ? (node.expanded ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_right)
-                      : Icons.insert_drive_file_outlined,
-                  size: 16,
-                  color: node.isDirectory
-                      ? AfriblockColors.accent
-                      : (node.name.endsWith('.afr')
-                          ? AfriblockColors.primary
-                          : AfriblockColors.textMuted),
-                ),
-                const SizedBox(width: 6),
-                Expanded(
-                  child: Text(
-                    node.name,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.plusJakartaSans(fontSize: 13),
+        GestureDetector(
+          onSecondaryTap: () => _showContext(context),
+          onLongPress: () => _showContext(context),
+          child: InkWell(
+            onTap: () {
+              wb.selectExplorerPath(node.path, isDirectory: node.isDirectory);
+              if (node.isDirectory) {
+                wb.toggleExpand(node);
+              } else {
+                wb.openFile(node.path);
+              }
+            },
+            child: Container(
+              color: (active || selected)
+                  ? AfriblockColors.primaryDeep.withValues(alpha: 0.25)
+                  : Colors.transparent,
+              padding: EdgeInsets.only(left: 8.0 + depth * 12, right: 8, top: 3, bottom: 3),
+              child: Row(
+                children: [
+                  Icon(
+                    node.isDirectory
+                        ? (node.expanded
+                            ? Icons.keyboard_arrow_down
+                            : Icons.keyboard_arrow_right)
+                        : Icons.insert_drive_file_outlined,
+                    size: 16,
+                    color: node.isDirectory
+                        ? AfriblockColors.accent
+                        : (node.name.endsWith('.afr')
+                            ? AfriblockColors.primary
+                            : AfriblockColors.textMuted),
                   ),
-                ),
-              ],
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      node.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.plusJakartaSans(fontSize: 13),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -206,6 +264,14 @@ class _TreeTile extends StatelessWidget {
           ...node.children.map((c) => _TreeTile(node: c, depth: depth + 1)),
       ],
     );
+  }
+}
+
+class FileParent {
+  static String of(String path) {
+    final i = path.replaceAll('\\', '/').lastIndexOf('/');
+    if (i <= 0) return path;
+    return path.substring(0, i);
   }
 }
 

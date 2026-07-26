@@ -10,6 +10,7 @@ import '../widgets/bottom_panel.dart';
 import '../widgets/command_palette.dart';
 import '../widgets/editor_area.dart';
 import '../widgets/editor_overlays.dart';
+import '../widgets/new_item_dialogs.dart';
 import '../widgets/settings_dialog.dart';
 import '../widgets/sidebar_explorer.dart';
 import '../widgets/status_bar.dart';
@@ -129,7 +130,13 @@ class _TitleBar extends StatelessWidget {
           const SizedBox(width: 16),
           _MenuBtn(label: 'File', items: [
             _MenuAction('Open Folder…', () => wb.openFolder()),
-            _MenuAction('New AFRILANG File…', () => wb.createNewAfrFile()),
+            _MenuAction('New File…', () {
+              // ignore: use_build_context_synchronously
+              promptCreateFile(context);
+            }),
+            _MenuAction('New Folder…', () {
+              promptCreateFolder(context);
+            }),
             _MenuAction('Save', () => wb.saveActive()),
             _MenuAction('Discard Changes', () => wb.discardActiveChanges()),
             _MenuAction('Close Editor', () => wb.closeActiveTab()),

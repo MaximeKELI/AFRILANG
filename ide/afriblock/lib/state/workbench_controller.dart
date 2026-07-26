@@ -540,13 +540,10 @@ class WorkbenchController extends ChangeNotifier {
     if (err != null) throw StateError(err);
     final name = PathNameRules.ensureAfrExtension(rawName, forceAfr: preferAfr);
     final path = PathNameRules.joinUnder(parent, name);
-    if (!p.isWithin(root, path) && p.normalize(path) != p.normalize(root)) {
-      // allow files directly under root; reject escape
-      final normRoot = p.normalize(root);
-      final normPath = p.normalize(path);
-      if (!normPath.startsWith(normRoot + p.separator) && normPath != normRoot) {
-        throw StateError('Path outside workspace');
-      }
+    final normRoot = p.normalize(root);
+    final normPath = p.normalize(path);
+    if (!normPath.startsWith('$normRoot${p.separator}') && normPath != normRoot) {
+      throw StateError('Path outside workspace');
     }
     const starter = '// New AFRILANG file\nsay "Hello AFRIBLOCK"\n';
     final content = name.endsWith('.afr') ? starter : '';
