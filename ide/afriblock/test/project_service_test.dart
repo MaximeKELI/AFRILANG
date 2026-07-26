@@ -20,13 +20,63 @@ description = "hello"
   });
 
   test('targetsFor adds check-main when main exists', () {
-    final proj = ProjectService().parseTomlText('/w', 'name = "x"\nmain = "a.afr"\n');
+    final proj =
+        ProjectService().parseTomlText('/w', 'name = "x"\nmain = "a.afr"\n');
     final targets = ProjectService().targetsFor(proj);
     expect(targets.map((t) => t.id), contains('check-main'));
     expect(targets.map((t) => t.id), contains('wasm32'));
   });
 
   test('default targets always available', () {
-    expect(kDefaultTargets.map((t) => t.id), containsAll(['debug', 'release', 'test']));
+    expect(
+      kDefaultTargets.map((t) => t.id),
+      containsAll(['debug', 'release', 'test']),
+    );
+  });
+
+  group('resolveRunSource', () {
+    test('prefers active .afr over project main', () {
+      expect(
+        resolveRunSource(
+          activePath: '/proj/src/Hello-World.afr',
+          projectMain: '/proj/src/main.afr',
+        ),
+        '/proj/src/Hello-World.afr',
+      );
+    });
+
+    test('falls back to project main when active is not .afr', () {
+      expect(
+        resolveRunSource(
+          activePath: '/proj/src/main.generated.cpp',
+          projectMain: '/proj/src/main.afr',
+        ),
+        '/proj/src/main.afr',
+      );
+    });
+
+    test('uses project main when no active tab', () {
+      expect(
+        resolveRunSource(activePath: null, projectMain: '/proj/src/main.afr'),
+        '/proj/src/main.afr',
+      );
+    });
+
+    test('returns null when nothing runnable', () {
+      expect(
+        resolveRunSource(activePath: '/proj/README.md', projectMain: null),
+        isNull,
+      );
+    });
+
+    test('is case-insensitive for .afr extension', () {
+      expect(
+        resolveRunSource(
+          activePath: '/proj/Demo.AFR',
+          projectMain: '/proj/main.afr',
+        ),
+        '/proj/Demo.AFR',
+      );
+    });
   });
 }
