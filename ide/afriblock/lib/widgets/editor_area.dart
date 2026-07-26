@@ -29,6 +29,7 @@ class EditorArea extends StatelessWidget {
                     key: ValueKey('${tab.path}-${index ?? 0}'),
                     path: tab.path,
                     initialContent: tab.content,
+                    contentRevision: tab.contentRevision,
                     ghostText: wb.activeTab?.path == tab.path ? wb.ghostSuggestion : null,
                     onChanged: (v) {
                       if (wb.activeTab?.path == tab.path) {

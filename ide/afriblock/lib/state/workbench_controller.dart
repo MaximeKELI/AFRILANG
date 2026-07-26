@@ -833,10 +833,19 @@ description = "Projet créé avec AFRIBLOCK"
   void updateActiveContent(String content) {
     final tab = activeTab;
     if (tab == null) return;
+    final wasDirty = tab.dirty;
+    final hadGhost = ghostSuggestion != null;
     tab.applyEdit(content);
-    lsp.didChange(File(tab.path).uri.toString(), content, DateTime.now().millisecondsSinceEpoch);
-    clearGhostSuggestion(notify: false);
-    notifyListeners();
+    lsp.didChange(
+      File(tab.path).uri.toString(),
+      content,
+      DateTime.now().millisecondsSinceEpoch,
+    );
+    ghostSuggestion = null;
+    // Avoid rebuild-on-every-keystroke (was racing the TextField and wiping edits).
+    if (wasDirty != tab.dirty || hadGhost) {
+      notifyListeners();
+    }
     scheduleInlineSuggest();
   }
 
@@ -865,7 +874,7 @@ description = "Projet créé avec AFRIBLOCK"
     final next = content.substring(0, c) + ghost + content.substring(c);
     editorCaret = c + ghost.length;
     ghostSuggestion = null;
-    tab.applyEdit(next);
+    tab.applyExternalEdit(next);
     lsp.didChange(
       File(tab.path).uri.toString(),
       next,
@@ -941,7 +950,15 @@ description = "Projet créé avec AFRIBLOCK"
     final insert = code.endsWith('\n') ? code : '$code\n';
     final next = content.substring(0, c) + insert + content.substring(c);
     editorCaret = c + insert.length;
-    updateActiveContent(next);
+    tab.applyExternalEdit(next);
+    lsp.didChange(
+      File(tab.path).uri.toString(),
+      next,
+      DateTime.now().millisecondsSinceEpoch,
+    );
+    ghostSuggestion = null;
+    notifyListeners();
+    scheduleInlineSuggest();
   }
 
   Future<void> saveActive({bool format = true}) async {
@@ -954,10 +971,9 @@ description = "Projet créé avec AFRIBLOCK"
           tab.path.contains('untitled_')) {
         final dest = p.join(workspaceRoot!, p.basename(tab.path));
         await files.writeFile(dest, tab.content);
-        tab.content = await files.readFile(dest);
-        // Replace tab path by recreating entry
+        final saved = await files.readFile(dest);
         final idx = activeTabIndex!;
-        tabs[idx] = EditorTab(path: dest, content: tab.content)..markSaved();
+        tabs[idx] = EditorTab(path: dest, content: saved)..markSaved();
         await refreshExplorer();
         statusMessage = 'Saved ${p.basename(dest)}';
         notifyListeners();
@@ -979,7 +995,6 @@ description = "Projet créé avec AFRIBLOCK"
   Future<void> _formatTab(EditorTab tab) async {
     final bin = await settings.resolveAfrilangBinary();
     if (bin == null) return;
-    // Prefer CLI fmt -w for reliability.
     final tmp = tab.path;
     await files.writeFile(tmp, tab.content);
     final r = await Process.run(
@@ -989,8 +1004,10 @@ description = "Projet créé avec AFRIBLOCK"
       environment: ProcessEnv.forHostToolchain(),
     );
     if (r.exitCode == 0) {
-      tab.content = await files.readFile(tmp);
-      tab.dirty = tab.content != tab.savedContent;
+      final formatted = await files.readFile(tmp);
+      if (formatted != tab.content) {
+        tab.applyExternalEdit(formatted);
+      }
     }
   }
 
@@ -1047,7 +1064,13 @@ description = "Projet créé avec AFRIBLOCK"
       notifyListeners();
       return;
     }
-    if (tab?.dirty == true) await saveActive();
+    // Always flush the buffer of the file we run (don't trust dirty alone —
+    // a stale dirty flag used to skip save and execute the old on-disk source).
+    if (tab != null && p.equals(tab.path, main)) {
+      await saveActive(format: false);
+    } else if (tab?.dirty == true) {
+      await saveActive(format: false);
+    }
     await _streamCli(['run', main]);
   }
 
@@ -1058,7 +1081,7 @@ description = "Projet créé avec AFRIBLOCK"
       notifyListeners();
       return;
     }
-    if (tab.dirty) await saveActive();
+    await saveActive(format: false);
     await _streamCli(['check', tab.path], revealProblems: true);
   }
 
@@ -1075,6 +1098,10 @@ description = "Projet créé avec AFRIBLOCK"
       statusMessage = 'afrilang not found';
       notifyListeners();
       return;
+    }
+    final tab = activeTab;
+    if (tab != null && tab.path.toLowerCase().endsWith('.afr')) {
+      await saveActive(format: false);
     }
     // Auto-build before debug (Code::Blocks pattern).
     await buildActiveTarget();

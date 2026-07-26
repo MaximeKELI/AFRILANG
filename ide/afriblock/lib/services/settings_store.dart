@@ -24,7 +24,7 @@ class SettingsStore {
   bool formatOnSave = true;
   bool lspTrace = false;
 
-  bool aiEnabled = false;
+  bool aiEnabled = true;
   bool aiInlineSuggest = true;
   String aiBaseUrl = 'http://127.0.0.1:11434/v1';
   String aiApiKey = '';
@@ -36,11 +36,17 @@ class SettingsStore {
     recentFolders = prefs.getStringList(_keyRecent) ?? [];
     formatOnSave = prefs.getBool(_keyFormat) ?? true;
     lspTrace = prefs.getBool(_keyLspTrace) ?? false;
-    aiEnabled = prefs.getBool(_keyAiEnabled) ?? false;
+    aiEnabled = prefs.getBool(_keyAiEnabled) ?? true;
     aiInlineSuggest = prefs.getBool(_keyAiInline) ?? true;
     aiBaseUrl = prefs.getString(_keyAiBaseUrl) ?? 'http://127.0.0.1:11434/v1';
     aiApiKey = prefs.getString(_keyAiApiKey) ?? '';
     aiModel = prefs.getString(_keyAiModel) ?? 'afrilang-local';
+    // Migrate: older builds defaulted to llama3.2 and hung when Ollama was down.
+    if (aiModel.trim() == 'llama3.2' &&
+        (aiApiKey.isEmpty) &&
+        prefs.getString(_keyAiModel) == null) {
+      aiModel = 'afrilang-local';
+    }
     final t = prefs.getString(_keyTheme);
     themeMode = switch (t) {
       'light' => AfriThemeMode.light,

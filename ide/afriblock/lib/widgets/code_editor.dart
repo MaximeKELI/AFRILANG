@@ -85,6 +85,7 @@ class CodeEditor extends StatefulWidget {
     required this.path,
     required this.initialContent,
     required this.onChanged,
+    this.contentRevision = 0,
     this.onCaretChanged,
     this.ghostText,
     this.onAcceptGhost,
@@ -95,6 +96,8 @@ class CodeEditor extends StatefulWidget {
 
   final String path;
   final String initialContent;
+  /// When this changes, [initialContent] is pulled into the field (external edits).
+  final int contentRevision;
   final ValueChanged<String> onChanged;
   final ValueChanged<int>? onCaretChanged;
   final String? ghostText;
@@ -153,8 +156,18 @@ class _CodeEditorState extends State<CodeEditor> {
   void didUpdateWidget(covariant CodeEditor oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.path != widget.path) {
-      _controller.text = widget.initialContent;
-    } else if (widget.initialContent != oldWidget.initialContent &&
+      _controller.value = TextEditingValue(
+        text: widget.initialContent,
+        selection: TextSelection.collapsed(
+          offset: widget.initialContent.length,
+        ),
+      );
+      return;
+    }
+    // Only pull external buffer updates (format / discard / AI insert).
+    // Never clobber the field just because the parent rebuilt with a stale
+    // [initialContent] string — that was wiping unsaved edits on Run.
+    if (widget.contentRevision != oldWidget.contentRevision &&
         widget.initialContent != _controller.text) {
       final sel = _controller.selection;
       _controller.value = TextEditingValue(
