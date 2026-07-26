@@ -262,14 +262,57 @@ std::vector<Token> Lexer::tokenize() {
             advance();
             switch (c) {
                 case '@': tokens.push_back(makeToken(TokenType::AtSign, "@")); break;
-                case '+': tokens.push_back(makeToken(TokenType::Plus, "+")); break;
-                case '-': tokens.push_back(makeToken(TokenType::Minus, "-")); break;
-                case '*': tokens.push_back(makeToken(TokenType::Star, "*")); break;
+                case '#': tokens.push_back(makeToken(TokenType::Hash, "#")); break;
+                case '+':
+                    if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::PlusEq, "+="));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::Plus, "+"));
+                    }
+                    break;
+                case '-':
+                    if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::MinusEq, "-="));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::Minus, "-"));
+                    }
+                    break;
+                case '*':
+                    if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::StarEq, "*="));
+                    } else {
+                        tokens.push_back(makeToken(TokenType::Star, "*"));
+                    }
+                    break;
                 case '/':
                     if (peek() == '/') {
                         while (!isAtEnd() && peek() != '\n') advance();
+                    } else if (peek() == '=') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::SlashEq, "/="));
                     } else {
                         tokens.push_back(makeToken(TokenType::Slash, "/"));
+                    }
+                    break;
+                case '&':
+                    if (peek() == '&') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::AmpAmp, "&&"));
+                    } else {
+                        reportLexerError("Caractère inattendu '&' (utilisez &&)", startLine,
+                                         startColumn);
+                    }
+                    break;
+                case '|':
+                    if (peek() == '|') {
+                        advance();
+                        tokens.push_back(makeToken(TokenType::PipePipe, "||"));
+                    } else {
+                        reportLexerError("Caractère inattendu '|' (utilisez ||)", startLine,
+                                         startColumn);
                     }
                     break;
                 case '.':

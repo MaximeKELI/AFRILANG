@@ -46,6 +46,15 @@ enum class TokenType {
     NotEq,      // !=
     LessEq,     // <=
     GreaterEq,  // >=
+    PlusEq,     // +=
+    MinusEq,    // -=
+    StarEq,     // *=
+    SlashEq,    // /=
+    AmpAmp,     // &&
+    PipePipe,   // ||
+    QuestionQuestion, // ??
+    LessLess,   // <<  (append to list)
+    Hash,       // #   (length of)
 
     // Fin de fichier
     Eof
@@ -208,6 +217,15 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::NotEq:          return "!=";
         case TokenType::LessEq:         return "<=";
         case TokenType::GreaterEq:      return ">=";
+        case TokenType::PlusEq:         return "+=";
+        case TokenType::MinusEq:        return "-=";
+        case TokenType::StarEq:         return "*=";
+        case TokenType::SlashEq:        return "/=";
+        case TokenType::AmpAmp:         return "&&";
+        case TokenType::PipePipe:       return "||";
+        case TokenType::QuestionQuestion: return "??";
+        case TokenType::LessLess:       return "<<";
+        case TokenType::Hash:           return "#";
         case TokenType::Comma:          return ",";
         case TokenType::LeftParen:      return "(";
         case TokenType::RightParen:     return ")";
