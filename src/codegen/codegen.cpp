@@ -1206,11 +1206,16 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     }
 
     indent(out, indentLevel);
+    bool emitInline = false;
     for (const auto& decorator : func.decorators) {
         if (decorator == "deprecated") {
             indent(out, indentLevel);
             out << "[[deprecated]]\n";
         }
+        if (decorator == "inline") emitInline = true;
+    }
+    if (emitInline) {
+        out << "inline ";
     }
     if (func.isStatic) {
         out << "static ";
@@ -3831,7 +3836,25 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         }
     }
     args.push_back("-std=" + (usesCoroutines && !wasmBuild ? std::string("c++20") : std::string("c++17")));
-    args.push_back(usesComplexCatalog && !wasmBuild ? "-O0" : "-O2");
+    // Host opt level: AFRILANG_OPT_LEVEL overrides. Complex catalog defaults to -O1
+    // (was -O0) to keep compile memory bounded; set AFRILANG_OPT_LEVEL=0 if g++ OOMs.
+    {
+        std::string opt = "-O2";
+        if (const char* env = std::getenv("AFRILANG_OPT_LEVEL")) {
+            const std::string v = env;
+            if (v == "0" || v == "1" || v == "2" || v == "3" || v == "s" || v == "g" ||
+                v == "fast") {
+                opt = "-O" + v;
+            } else if (v.rfind("-O", 0) == 0) {
+                opt = v;
+            }
+        } else if (usesComplexCatalog && !wasmBuild) {
+            opt = "-O1";
+        } else if (wasmBuild) {
+            opt = "-O2";
+        }
+        args.push_back(opt);
+    }
     args.push_back("-Wall");
     args.push_back("-Wextra");
     // Optional host flags (e.g. CI ASan: AFRILANG_EXTRA_CXXFLAGS="-fsanitize=address -O1").
@@ -3840,6 +3863,11 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         std::string tok;
         while (iss >> tok) {
             if (!tok.empty()) args.push_back(tok);
+        }
+    }
+    if (const char* lto = std::getenv("AFRILANG_LTO")) {
+        if (!wasmBuild && (lto[0] == '1' || lto[0] == 'y' || lto[0] == 'Y')) {
+            args.push_back("-flto");
         }
     }
     if (const char* sanitize = std::getenv("AFRILANG_SANITIZE")) {

@@ -1,0 +1,8 @@
+@inline
+function addOne(x number) returns number
+    return x + 1
+end
+
+test "inline decorated helper"
+    assert addOne(41) is equal to 42
+end

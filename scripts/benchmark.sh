@@ -5,26 +5,34 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 AFRILANG="${AFRILANG:-$ROOT/build/afrilang}"
 EXAMPLES="$ROOT/examples"
 JSON_MODE=0
+MICRO_MODE=0
 
-if [[ "${1:-}" == "--json" ]]; then
-  JSON_MODE=1
-  shift
-fi
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --json) JSON_MODE=1; shift ;;
+    --micro) MICRO_MODE=1; shift ;;
+    *) shift ;;
+  esac
+done
 
 if [[ ! -x "$AFRILANG" ]]; then
   echo "Exécutable introuvable: $AFRILANG" >&2
   exit 1
 fi
 
-FILES=(
-  hello.afr
-  oop.afr
-  generics.afr
-  full_demo.afr
-  stdlib_demo.afr
-  tier9_demo.afr
-  tier10_demo.afr
-)
+if [[ "$MICRO_MODE" -eq 1 ]]; then
+  FILES=(hello.afr)
+else
+  FILES=(
+    hello.afr
+    oop.afr
+    generics.afr
+    full_demo.afr
+    stdlib_demo.afr
+    tier9_demo.afr
+    tier10_demo.afr
+  )
+fi
 
 now_ms() {
   python3 -c 'import time; print(int(time.time() * 1000))'

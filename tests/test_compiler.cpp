@@ -922,6 +922,7 @@ static void testGenericConstraintRejectsText() {
 static void testConstantFoldPass() {
     const std::string src =
         "create x = 2 + 2\n"
+        "create y = x + 0\n"
         "if false then\n"
         "    say \"no\"\n"
         "else\n"
@@ -934,24 +935,50 @@ static void testConstantFoldPass() {
     afrilang::SemanticAnalyzer analyzer(*program, nullptr, "fold.afr");
     analyzer.analyze();
     afrilang::passes::runOptionalPasses(*program);
-    expect(!program->statements.empty(), "fold keeps statements");
+    expect(program->statements.size() >= 2, "fold keeps statements");
     const auto* assign = dynamic_cast<const afrilang::AssignStatementNode*>(
         program->statements[0].get());
     expect(assign != nullptr, "first stmt is assign");
     const auto* num = dynamic_cast<const afrilang::NumberLiteralNode*>(assign->value.get());
     expect(num != nullptr && num->value == 4.0, "2+2 folded to 4");
     // Mid-IR may flatten a constant if; AST fold may keep a pruned If.
-    if (const auto* ifStmt = dynamic_cast<const afrilang::IfStatementNode*>(
-            program->statements[1].get())) {
-        expect(ifStmt->elseBody.empty(), "false branch pruned");
-        expect(!ifStmt->thenBody.empty(), "surviving branch kept");
-    } else {
-        const auto* say = dynamic_cast<const afrilang::SayStatementNode*>(
-            program->statements[1].get());
-        expect(say != nullptr, "dead if flattened to surviving say");
-        const auto* lit = dynamic_cast<const afrilang::StringLiteralNode*>(say->value.get());
-        expect(lit != nullptr && lit->value == "yes", "surviving branch is yes");
+    // Find surviving say "yes" somewhere after folds.
+    bool foundYes = false;
+    for (const auto& st : program->statements) {
+        if (const auto* ifStmt = dynamic_cast<const afrilang::IfStatementNode*>(st.get())) {
+            expect(ifStmt->elseBody.empty(), "false branch pruned");
+            expect(!ifStmt->thenBody.empty(), "surviving branch kept");
+            foundYes = true;
+        }
+        if (const auto* say = dynamic_cast<const afrilang::SayStatementNode*>(st.get())) {
+            if (const auto* lit = dynamic_cast<const afrilang::StringLiteralNode*>(say->value.get())) {
+                if (lit->value == "yes") foundYes = true;
+            }
+        }
     }
+    expect(foundYes, "surviving branch is yes");
+}
+
+static void testIdentityFoldPass() {
+    const std::string src = "create n = 5\ncreate a = n * 1\ncreate z = 0 * n\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "idfold.afr");
+    analyzer.analyze();
+    afrilang::passes::runOptionalPasses(*program);
+    expect(program->statements.size() >= 3, "identity fold keeps assigns");
+    // a = n * 1 should become a = n (Identifier)
+    const auto* aAssign = dynamic_cast<const afrilang::AssignStatementNode*>(
+        program->statements[1].get());
+    expect(aAssign != nullptr, "second is assign a");
+    const auto* id = dynamic_cast<const afrilang::IdentifierNode*>(aAssign->value.get());
+    expect(id != nullptr && id->name == "n", "n*1 -> n");
+    const auto* zAssign = dynamic_cast<const afrilang::AssignStatementNode*>(
+        program->statements[2].get());
+    expect(zAssign != nullptr, "third is assign z");
+    const auto* zero = dynamic_cast<const afrilang::NumberLiteralNode*>(zAssign->value.get());
+    expect(zero != nullptr && zero->value == 0.0, "0*n -> 0");
 }
 
 int main() {
@@ -1006,6 +1033,7 @@ int main() {
     testTypedExpressionAnnotation();
     testGenericConstraintRejectsText();
     testConstantFoldPass();
+    testIdentityFoldPass();
     testCacheFingerprintVersionInvalidates();
     testCacheMetaKeyDistinctPaths();
     testPipelineMissingFile();

@@ -1,0 +1,14 @@
+// Gap 4 — identity / annihilator folds (AST + Mid-IR)
+create n number = 7
+create a = n + 0
+create b = n * 1
+create c = 0 + n
+create d = 1 * n
+create z = n * 0
+assert a is equal to 7
+assert b is equal to 7
+assert c is equal to 7
+assert d is equal to 7
+assert z is equal to 0
+create lit = 2 + 2 * 3
+assert lit is equal to 8

@@ -1515,7 +1515,15 @@ int runCli(int argc, char* argv[]) {
             std::cerr << "Script introuvable: " << script << "\n";
             return 1;
         }
-        const std::string cmdline = "bash \"" + script.string() + "\"";
+        std::string extra;
+        for (int i = 2; i < argc; ++i) {
+            const std::string arg = argv[i];
+            if (arg == "--json" || arg == "--micro") {
+                extra += " ";
+                extra += arg;
+            }
+        }
+        const std::string cmdline = "bash \"" + script.string() + "\"" + extra;
         const int code = std::system(cmdline.c_str());
         return code != 0 ? (code > 0 ? code : 1) : 0;
     }

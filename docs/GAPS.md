@@ -13,7 +13,8 @@ AFRILANG_GAPS_QUICK=1 bash scripts/test_gaps.sh
 | 1 | Écosystème de paquets | Métier packages + `pkg` | `scripts/test_gap_01_packages.sh` |
 | 2 | Stdlib batteries | Core HTTP/ORM/JSON/CSV | `scripts/test_gap_02_stdlib.sh` |
 | 3 | Parité plateformes | Linux primary; Win/macOS host; wasm subset | `scripts/test_gap_03_platform.sh` |
-| 4 | Perf & backend | Mid-IR + g++ (pas LLVM) | `scripts/test_gap_04_perf.sh` |
+| 4 | Perf & backend | Mid-IR + g++ (pas LLVM) — voir [`PERF.md`](PERF.md) | `scripts/test_gap_04_perf.sh` |
+
 | 5 | Mémoire / sûreté | Bounds + sandbox Linux | `scripts/test_gap_05_safety.sh` |
 | 6 | Concurrence | Threads / async surface | `scripts/test_gap_06_concurrency.sh` |
 | 7 | Interop | FFI allowlist / C++ transpile | `scripts/test_gap_07_interop.sh` |
