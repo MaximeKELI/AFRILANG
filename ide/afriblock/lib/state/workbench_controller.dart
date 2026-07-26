@@ -1,32 +1,79 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 
+import '../core/command_bus.dart';
+import '../core/event_bus.dart';
+import '../debug/debug_service.dart';
+import '../git/git_service.dart';
+import '../lsp/lsp_client.dart';
 import '../models/editor_tab.dart';
 import '../models/problem_item.dart';
 import '../models/workspace_node.dart';
+import '../plugins/plugin_host.dart';
+import '../project/project_service.dart';
+import '../project/test_explorer.dart';
+import '../search/search_service.dart';
 import '../services/afrilang_cli.dart';
+import '../services/build_service.dart';
 import '../services/file_service.dart';
 import '../services/settings_store.dart';
+import '../terminal/terminal_service.dart';
+import '../theme/afriblock_theme.dart';
 
-enum SidebarView { explorer, search, run, extensions }
+enum SidebarView {
+  explorer,
+  search,
+  scm,
+  run,
+  debug,
+  test,
+  extensions,
+  afrilang,
+}
 
-enum BottomTab { problems, output }
+enum BottomTab { problems, output, debugConsole, terminal, testResults }
+
+enum OverlayMode { none, commandPalette, quickOpen }
 
 class WorkbenchController extends ChangeNotifier {
   WorkbenchController({
     FileService? fileService,
     SettingsStore? settings,
-    AfrilangCli? cli,
   })  : files = fileService ?? FileService(),
         settings = settings ?? SettingsStore() {
-    this.cli = cli ??
-        AfrilangCli(resolveBinary: () => this.settings.resolveAfrilangBinary());
+    cli = AfrilangCli(resolveBinary: () => this.settings.resolveAfrilangBinary());
+    build = BuildService(resolveBinary: () => this.settings.resolveAfrilangBinary());
+    lsp = LspClient(
+      onDiagnostics: (items) {
+        problems
+          ..clear()
+          ..addAll(items);
+        notifyListeners();
+      },
+      onTrace: (line) {
+        if (settings.lspTrace) appendOutput(line, channel: 'lsp');
+      },
+    );
   }
 
   final FileService files;
   final SettingsStore settings;
+  final EventBus events = EventBus();
+  final CommandBus commands = CommandBus();
+  final ProjectService projects = ProjectService();
+  final TestExplorerService tests = TestExplorerService();
+  final GitService git = GitService();
+  final SearchService search = SearchService();
+  final DebugService debug = DebugService();
+  final TerminalService terminals = TerminalService();
+  final PluginHost plugins = PluginHost();
+
   late final AfrilangCli cli;
+  late final BuildService build;
+  late final LspClient lsp;
 
   bool ready = false;
   String? workspaceRoot;
@@ -34,29 +81,200 @@ class WorkbenchController extends ChangeNotifier {
   final List<EditorTab> tabs = [];
   int? activeTabIndex;
 
+  /// Phase F: optional second editor group (split).
+  bool splitEditor = false;
+  int? secondaryTabIndex;
+
   SidebarView sidebarView = SidebarView.explorer;
   bool sidebarVisible = true;
-  double sidebarWidth = 260;
+  double sidebarWidth = 280;
 
   bool panelVisible = true;
-  double panelHeight = 180;
+  double panelHeight = 200;
   BottomTab bottomTab = BottomTab.output;
 
   final List<ProblemItem> problems = [];
   final StringBuffer outputLog = StringBuffer();
+  final StringBuffer lspLog = StringBuffer();
+
   bool busy = false;
   String? statusMessage;
-  bool commandPaletteOpen = false;
+  String? toolchainVersion;
+  OverlayMode overlay = OverlayMode.none;
+
+  String activeTargetId = 'debug';
+  List<BuildTarget> get availableTargets => projects.targetsFor(projects.project);
+
+  BuildTarget get activeTarget {
+    final list = availableTargets;
+    return list.firstWhere(
+      (t) => t.id == activeTargetId,
+      orElse: () => list.first,
+    );
+  }
+
+  AfriThemeMode themeMode = AfriThemeMode.dark;
+
+  List<OutlineSymbol> outline = [];
+  List<SearchHit> searchHits = [];
+  String searchQuery = '';
+
+  final List<String> workspaceFiles = [];
 
   EditorTab? get activeTab =>
       activeTabIndex == null || activeTabIndex! >= tabs.length
           ? null
           : tabs[activeTabIndex!];
 
+  String get lspState => !lsp.isRunning
+      ? 'LSP off'
+      : (lsp.ready ? 'LSP ready' : 'LSP…');
+
   Future<void> init() async {
     await settings.load();
+    themeMode = settings.themeMode;
+    _registerCommands();
+    plugins
+      ..register(BuiltinAfrilangPlugin())
+      ..register(BuiltinGitPlugin())
+      ..register(BuiltinTerminalPlugin());
+    await plugins.activateAll(PluginContext(commands: commands, workbench: this));
+    await _probeToolchain();
     statusMessage = 'Ready';
     ready = true;
+    notifyListeners();
+  }
+
+  void _registerCommands() {
+    commands.registerAll([
+      IdeCommandDef(
+        id: 'file.openFolder',
+        label: 'File: Open Folder…',
+        shortcut: 'Ctrl+K Ctrl+O',
+        category: 'File',
+        run: (wb) => wb.openFolder(),
+      ),
+      IdeCommandDef(
+        id: 'file.save',
+        label: 'File: Save',
+        shortcut: 'Ctrl+S',
+        category: 'File',
+        run: (wb) => wb.saveActive(),
+      ),
+      IdeCommandDef(
+        id: 'file.quickOpen',
+        label: 'Go to File…',
+        shortcut: 'Ctrl+P',
+        category: 'Navigation',
+        run: (wb) async => wb.showOverlay(OverlayMode.quickOpen),
+      ),
+      IdeCommandDef(
+        id: 'workbench.commandPalette',
+        label: 'Show Command Palette',
+        shortcut: 'Ctrl+Shift+P',
+        category: 'View',
+        run: (wb) async => wb.showOverlay(OverlayMode.commandPalette),
+      ),
+      IdeCommandDef(
+        id: 'afrilang.build',
+        label: 'AFRILANG: Build Active Target',
+        shortcut: 'Ctrl+Shift+B',
+        category: 'AFRILANG',
+        run: (wb) => wb.buildActiveTarget(),
+      ),
+      IdeCommandDef(
+        id: 'afrilang.run',
+        label: 'AFRILANG: Run',
+        shortcut: 'F5',
+        category: 'AFRILANG',
+        run: (wb) => wb.runActive(),
+      ),
+      IdeCommandDef(
+        id: 'afrilang.check',
+        label: 'AFRILANG: Check File',
+        category: 'AFRILANG',
+        run: (wb) => wb.checkActive(),
+      ),
+      IdeCommandDef(
+        id: 'afrilang.debug',
+        label: 'AFRILANG: Start Debugging',
+        shortcut: 'F6',
+        category: 'AFRILANG',
+        run: (wb) => wb.startDebug(),
+      ),
+      IdeCommandDef(
+        id: 'view.togglePanel',
+        label: 'View: Toggle Panel',
+        shortcut: 'Ctrl+J',
+        category: 'View',
+        run: (wb) async => wb.togglePanel(),
+      ),
+      IdeCommandDef(
+        id: 'view.splitEditor',
+        label: 'View: Split Editor',
+        category: 'View',
+        run: (wb) async => wb.toggleSplit(),
+      ),
+      IdeCommandDef(
+        id: 'view.closeEditor',
+        label: 'View: Close Editor',
+        shortcut: 'Ctrl+W',
+        category: 'View',
+        run: (wb) async => wb.closeActiveTab(),
+      ),
+      IdeCommandDef(
+        id: 'terminal.new',
+        label: 'Terminal: Create New Terminal',
+        category: 'Terminal',
+        run: (wb) async => wb.openTerminal(),
+      ),
+      IdeCommandDef(
+        id: 'theme.toggle',
+        label: 'Preferences: Toggle Color Theme',
+        category: 'Preferences',
+        run: (wb) async => wb.cycleTheme(),
+      ),
+      IdeCommandDef(
+        id: 'preferences.toolchain',
+        label: 'Preferences: AFRILANG Toolchain…',
+        category: 'Preferences',
+        run: (wb) async {
+          wb.statusMessage = 'Open Settings from the gear / toolbar';
+          wb.notifyListeners();
+        },
+      ),
+    ]);
+  }
+
+  Future<void> refreshToolchain() async {
+    await _probeToolchain();
+    notifyListeners();
+  }
+
+  Future<void> _probeToolchain() async {
+    final bin = await settings.resolveAfrilangBinary();
+    if (bin == null) {
+      toolchainVersion = null;
+      return;
+    }
+    try {
+      final r = await Process.run(bin, ['version']);
+      toolchainVersion = ((r.stdout as String) + (r.stderr as String))
+          .trim()
+          .split('\n')
+          .first;
+    } catch (_) {
+      toolchainVersion = bin;
+    }
+  }
+
+  void showOverlay(OverlayMode mode) {
+    overlay = mode;
+    notifyListeners();
+  }
+
+  void hideOverlay() {
+    overlay = OverlayMode.none;
     notifyListeners();
   }
 
@@ -71,12 +289,12 @@ class WorkbenchController extends ChangeNotifier {
   }
 
   void setSidebarWidth(double w) {
-    sidebarWidth = w.clamp(160, 480);
+    sidebarWidth = w.clamp(180, 520);
     notifyListeners();
   }
 
   void setPanelHeight(double h) {
-    panelHeight = h.clamp(100, 480);
+    panelHeight = h.clamp(120, 520);
     notifyListeners();
   }
 
@@ -91,8 +309,27 @@ class WorkbenchController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleCommandPalette([bool? open]) {
-    commandPaletteOpen = open ?? !commandPaletteOpen;
+  void setActiveTarget(String id) {
+    activeTargetId = id;
+    notifyListeners();
+  }
+
+  void toggleSplit() {
+    splitEditor = !splitEditor;
+    if (splitEditor && secondaryTabIndex == null && tabs.isNotEmpty) {
+      secondaryTabIndex = activeTabIndex;
+    }
+    notifyListeners();
+  }
+
+  void cycleTheme() {
+    themeMode = switch (themeMode) {
+      AfriThemeMode.dark => AfriThemeMode.light,
+      AfriThemeMode.light => AfriThemeMode.highContrast,
+      AfriThemeMode.highContrast => AfriThemeMode.dark,
+    };
+    settings.themeMode = themeMode;
+    settings.saveTheme();
     notifyListeners();
   }
 
@@ -107,13 +344,51 @@ class WorkbenchController extends ChangeNotifier {
       rootNode = await files.loadTree(folder);
       workspaceRoot = folder;
       await settings.pushRecent(folder);
-      statusMessage = 'Opened $folder';
-      appendOutput('Opened workspace: $folder\n');
+      await projects.detect(folder);
+      await _indexFiles(folder);
+      await tests.discover(folder);
+      await git.refresh(folder);
+      await _startLsp(folder);
+      events.emit(WorkspaceOpenedEvent(folder));
+      final proj = projects.project;
+      statusMessage = proj == null
+          ? 'Opened $folder (no afrilang.toml)'
+          : 'Project ${proj.name} — ${proj.main ?? "no main"}';
+      appendOutput(
+        proj == null
+            ? 'Opened workspace: $folder\nNo afrilang.toml — use AFRILANG: Init or open a project root.\n'
+            : 'Opened project ${proj.name} ($folder)\nmain=${proj.main} output=${proj.output}\n',
+      );
       notifyListeners();
     } catch (e) {
       statusMessage = 'Open failed: $e';
       appendOutput('Open failed: $e\n');
       notifyListeners();
+    }
+  }
+
+  Future<void> _indexFiles(String root) async {
+    workspaceFiles.clear();
+    final dir = Directory(root);
+    await for (final ent in dir.list(recursive: true, followLinks: false)) {
+      if (ent is! File) continue;
+      final path = ent.path;
+      if (path.contains('${p.separator}.git${p.separator}')) continue;
+      if (path.contains('${p.separator}build${p.separator}')) continue;
+      if (path.contains('${p.separator}.dart_tool${p.separator}')) continue;
+      workspaceFiles.add(path);
+      if (workspaceFiles.length > 8000) break;
+    }
+  }
+
+  Future<void> _startLsp(String root) async {
+    final bin = await settings.resolveAfrilangBinary();
+    if (bin == null) return;
+    try {
+      await lsp.start(bin, rootUri: Directory(root).uri.toString());
+      statusMessage = 'LSP started';
+    } catch (e) {
+      appendOutput('LSP failed to start: $e\n', channel: 'lsp');
     }
   }
 
@@ -123,37 +398,64 @@ class WorkbenchController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> openFile(String path) async {
+  Future<void> openFile(String path, {int? line}) async {
     final existing = tabs.indexWhere((t) => t.path == path);
     if (existing >= 0) {
       activeTabIndex = existing;
-      notifyListeners();
+    } else {
+      try {
+        final content = await files.readFile(path);
+        final tab = EditorTab(path: path, content: content)..markSaved();
+        tabs.add(tab);
+        activeTabIndex = tabs.length - 1;
+        await lsp.didOpen(File(path).uri.toString(), content);
+      } catch (e) {
+        statusMessage = 'Cannot open: $e';
+        notifyListeners();
+        return;
+      }
+    }
+    await refreshOutline();
+    statusMessage = line == null ? path : '$path:$line';
+    notifyListeners();
+  }
+
+  Future<void> refreshOutline() async {
+    final tab = activeTab;
+    if (tab == null) {
+      outline = [];
       return;
     }
-    try {
-      final content = await files.readFile(path);
-      final tab = EditorTab(path: path, content: content)..markSaved();
-      tabs.add(tab);
-      activeTabIndex = tabs.length - 1;
-      statusMessage = path;
-      notifyListeners();
-    } catch (e) {
-      statusMessage = 'Cannot open: $e';
-      notifyListeners();
+    final uri = File(tab.path).uri.toString();
+    final symbols = await lsp.documentSymbol(uri);
+    if (symbols.isNotEmpty) {
+      outline = symbols.map((s) {
+        final name = s['name']?.toString() ?? '?';
+        final range = (s['range'] ?? s['location']?['range']) as Map?;
+        final start = range?['start'] as Map?;
+        final line = ((start?['line'] as num?)?.toInt() ?? 0) + 1;
+        return OutlineSymbol(name: name, line: line, kind: s['kind']?.toString() ?? '');
+      }).toList();
+    } else {
+      outline = SymbolIndex.scan(tab.content);
     }
   }
 
   void selectTab(int index) {
     if (index < 0 || index >= tabs.length) return;
     activeTabIndex = index;
+    refreshOutline();
     notifyListeners();
   }
 
   void closeTab(int index) {
     if (index < 0 || index >= tabs.length) return;
+    final path = tabs[index].path;
+    lsp.didClose(File(path).uri.toString());
     tabs.removeAt(index);
     if (tabs.isEmpty) {
       activeTabIndex = null;
+      outline = [];
     } else if (activeTabIndex != null) {
       if (activeTabIndex! >= tabs.length) {
         activeTabIndex = tabs.length - 1;
@@ -172,13 +474,17 @@ class WorkbenchController extends ChangeNotifier {
     final tab = activeTab;
     if (tab == null) return;
     tab.applyEdit(content);
+    lsp.didChange(File(tab.path).uri.toString(), content, DateTime.now().millisecondsSinceEpoch);
     notifyListeners();
   }
 
-  Future<void> saveActive() async {
+  Future<void> saveActive({bool format = true}) async {
     final tab = activeTab;
     if (tab == null) return;
     try {
+      if (format && tab.path.endsWith('.afr') && settings.formatOnSave) {
+        await _formatTab(tab);
+      }
       await files.writeFile(tab.path, tab.content);
       tab.markSaved();
       statusMessage = 'Saved ${tab.name}';
@@ -189,9 +495,32 @@ class WorkbenchController extends ChangeNotifier {
     }
   }
 
-  void appendOutput(String text) {
-    outputLog.write(text);
-    if (!text.endsWith('\n')) outputLog.writeln();
+  Future<void> _formatTab(EditorTab tab) async {
+    final bin = await settings.resolveAfrilangBinary();
+    if (bin == null) return;
+    // Prefer CLI fmt -w for reliability.
+    final tmp = tab.path;
+    await files.writeFile(tmp, tab.content);
+    final r = await Process.run(bin, ['fmt', tmp, '-w'], workingDirectory: workspaceRoot);
+    if (r.exitCode == 0) {
+      tab.content = await files.readFile(tmp);
+      tab.dirty = tab.content != tab.savedContent;
+    }
+  }
+
+  void appendOutput(String text, {String channel = 'output'}) {
+    if (channel == 'lsp') {
+      lspLog.write(text);
+    } else {
+      outputLog.write(text);
+    }
+    if (!text.endsWith('\n')) {
+      if (channel == 'lsp') {
+        lspLog.writeln();
+      } else {
+        outputLog.writeln();
+      }
+    }
     notifyListeners();
   }
 
@@ -205,15 +534,32 @@ class WorkbenchController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> buildActiveTarget() async {
+    final t = activeTarget;
+    var args = List<String>.from(t.args);
+    if (t.id == 'check' && activeTab != null) {
+      args = ['check', activeTab!.path];
+    } else if (t.id == 'debug' || t.id == 'release') {
+      args = ['build'];
+      if (workspaceRoot != null &&
+          !await File(p.join(workspaceRoot!, 'afrilang.toml')).exists() &&
+          activeTab != null) {
+        args = ['check', activeTab!.path];
+      }
+    }
+    await _streamCli(args, revealProblems: true);
+  }
+
   Future<void> runActive() async {
     final tab = activeTab;
-    if (tab == null) {
-      statusMessage = 'No file open';
+    final main = projects.project?.mainAbsolute ?? tab?.path;
+    if (main == null) {
+      statusMessage = 'No file / main to run';
       notifyListeners();
       return;
     }
-    if (tab.dirty) await saveActive();
-    await _runCli((bin) => cli.runFile(tab.path, workingDirectory: workspaceRoot));
+    if (tab?.dirty == true) await saveActive();
+    await _streamCli(['run', main]);
   }
 
   Future<void> checkActive() async {
@@ -224,25 +570,78 @@ class WorkbenchController extends ChangeNotifier {
       return;
     }
     if (tab.dirty) await saveActive();
-    await _runCli((bin) => cli.checkFile(tab.path, workingDirectory: workspaceRoot));
+    await _streamCli(['check', tab.path], revealProblems: true);
   }
 
-  Future<void> _runCli(Future<CliResult> Function(AfrilangCli) action) async {
+  Future<void> runTests() async {
+    setBottomTab(BottomTab.testResults);
+    await _streamCli(['test'], revealProblems: true);
+    await tests.discover(workspaceRoot);
+    notifyListeners();
+  }
+
+  Future<void> startDebug() async {
+    final bin = await settings.resolveAfrilangBinary();
+    if (bin == null) {
+      statusMessage = 'afrilang not found';
+      notifyListeners();
+      return;
+    }
+    // Auto-build before debug (Code::Blocks pattern).
+    await buildActiveTarget();
+    final target = projects.project?.outputAbsolute ??
+        projects.project?.mainAbsolute ??
+        activeTab?.path;
+    if (target == null) {
+      statusMessage = 'Nothing to debug';
+      notifyListeners();
+      return;
+    }
+    setBottomTab(BottomTab.debugConsole);
+    sidebarView = SidebarView.debug;
+    sidebarVisible = true;
+    notifyListeners();
+    await debug.launch(
+      binary: bin,
+      programOrSource: target,
+      workingDirectory: workspaceRoot,
+      onOutput: (c) {
+        debug.console.write(c);
+        notifyListeners();
+      },
+    );
+    notifyListeners();
+  }
+
+  void toggleBreakpointAt(String path, int line) {
+    debug.toggleBreakpoint(path, line);
+    notifyListeners();
+  }
+
+  Future<void> _streamCli(List<String> args, {bool revealProblems = false}) async {
     busy = true;
-    statusMessage = 'Running…';
+    statusMessage = 'Running ${args.first}…';
     bottomTab = BottomTab.output;
     panelVisible = true;
     notifyListeners();
     try {
-      final result = await action(cli);
-      appendOutput(result.combinedOutput);
+      final result = await build.runStreaming(
+        args: args,
+        workingDirectory: workspaceRoot,
+        onChunk: (c) {
+          outputLog.write(c);
+          notifyListeners();
+        },
+      );
       problems
         ..clear()
-        ..addAll(result.problems);
-      if (result.problems.isNotEmpty) {
+        ..addAll(result.problems.where((p) => p.path.isNotEmpty || p.message.isNotEmpty));
+      if (revealProblems && problems.isNotEmpty) {
         bottomTab = BottomTab.problems;
       }
-      statusMessage = result.exitCode == 0 ? 'Done' : 'Exit ${result.exitCode}';
+      events.emit(BuildFinishedEvent(exitCode: result.exitCode, targetId: activeTargetId));
+      statusMessage =
+          result.exitCode == 0 ? 'Done' : 'Exit ${result.exitCode}';
     } catch (e) {
       appendOutput('Error: $e\n');
       statusMessage = 'Failed';
@@ -252,9 +651,52 @@ class WorkbenchController extends ChangeNotifier {
     }
   }
 
+  Future<void> runSearch(String query) async {
+    searchQuery = query;
+    if (workspaceRoot == null || query.trim().isEmpty) {
+      searchHits = [];
+      notifyListeners();
+      return;
+    }
+    searchHits = await search.findInFiles(root: workspaceRoot!, query: query);
+    notifyListeners();
+  }
+
+  Future<void> refreshGit() async {
+    await git.refresh(workspaceRoot);
+    notifyListeners();
+  }
+
+  void openTerminal() {
+    terminals.create(cwd: workspaceRoot);
+    setBottomTab(BottomTab.terminal);
+    notifyListeners();
+  }
+
+  List<String> quickOpenMatches(String query) {
+    final q = query.trim().toLowerCase();
+    final pool = workspaceFiles.isEmpty
+        ? tabs.map((t) => t.path).toList()
+        : workspaceFiles;
+    if (q.isEmpty) return pool.take(40).toList();
+    return pool
+        .where((f) => p.basename(f).toLowerCase().contains(q) || f.toLowerCase().contains(q))
+        .take(60)
+        .toList();
+  }
+
   String relativePath(String absolute) {
     final root = workspaceRoot;
     if (root == null) return absolute;
     return p.relative(absolute, from: root);
+  }
+
+  @override
+  void dispose() {
+    lsp.stop();
+    terminals.disposeAll();
+    debug.stop();
+    build.cancel();
+    super.dispose();
   }
 }

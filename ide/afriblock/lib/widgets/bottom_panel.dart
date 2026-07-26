@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:xterm/xterm.dart';
 
 import '../models/problem_item.dart';
 import '../state/workbench_controller.dart';
@@ -32,16 +33,31 @@ class BottomPanel extends StatelessWidget {
                   selected: wb.bottomTab == BottomTab.output,
                   onTap: () => wb.setBottomTab(BottomTab.output),
                 ),
+                _TabChip(
+                  label: 'DEBUG CONSOLE',
+                  selected: wb.bottomTab == BottomTab.debugConsole,
+                  onTap: () => wb.setBottomTab(BottomTab.debugConsole),
+                ),
+                _TabChip(
+                  label: 'TERMINAL',
+                  selected: wb.bottomTab == BottomTab.terminal,
+                  onTap: () {
+                    if (wb.terminals.sessions.isEmpty) wb.openTerminal();
+                    wb.setBottomTab(BottomTab.terminal);
+                  },
+                ),
+                _TabChip(
+                  label: 'TEST',
+                  selected: wb.bottomTab == BottomTab.testResults,
+                  onTap: () => wb.setBottomTab(BottomTab.testResults),
+                ),
                 const Spacer(),
                 IconButton(
                   tooltip: 'Clear',
                   iconSize: 16,
                   onPressed: () {
-                    if (wb.bottomTab == BottomTab.output) {
-                      wb.clearOutput();
-                    } else {
-                      wb.clearProblems();
-                    }
+                    if (wb.bottomTab == BottomTab.output) wb.clearOutput();
+                    if (wb.bottomTab == BottomTab.problems) wb.clearProblems();
                   },
                   icon: const Icon(Icons.delete_outline, color: AfriblockColors.textMuted),
                 ),
@@ -55,14 +71,29 @@ class BottomPanel extends StatelessWidget {
             ),
           ),
           const Divider(height: 1, color: AfriblockColors.border),
-          Expanded(
-            child: wb.bottomTab == BottomTab.problems
-                ? _ProblemsList(wb: wb)
-                : _OutputView(text: wb.outputLog.toString()),
-          ),
+          Expanded(child: _content(wb)),
         ],
       ),
     );
+  }
+
+  Widget _content(WorkbenchController wb) {
+    switch (wb.bottomTab) {
+      case BottomTab.problems:
+        return _ProblemsList(wb: wb);
+      case BottomTab.output:
+        return _OutputView(text: wb.outputLog.toString());
+      case BottomTab.debugConsole:
+        return _OutputView(text: wb.debug.console.toString());
+      case BottomTab.terminal:
+        return _TerminalView(wb: wb);
+      case BottomTab.testResults:
+        return _OutputView(
+          text: wb.tests.items.isEmpty
+              ? 'No tests discovered. Open a project and refresh Test Explorer.'
+              : wb.tests.items.map((t) => '${t.name}  ${t.path}:${t.line}').join('\n'),
+        );
+    }
   }
 }
 
@@ -84,7 +115,7 @@ class _TabChip extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           border: Border(
@@ -101,23 +132,13 @@ class _TabChip extends StatelessWidget {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                letterSpacing: 0.8,
+                letterSpacing: 0.6,
                 color: selected ? Colors.white : AfriblockColors.textMuted,
               ),
             ),
             if (badge != null && badge! > 0) ...[
               const SizedBox(width: 6),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                decoration: BoxDecoration(
-                  color: AfriblockColors.error.withValues(alpha: 0.25),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  '$badge',
-                  style: afriblockMono(fontSize: 10, color: AfriblockColors.error),
-                ),
-              ),
+              Text('$badge', style: afriblockMono(fontSize: 10, color: AfriblockColors.error)),
             ],
           ],
         ),
@@ -134,21 +155,13 @@ class _ProblemsList extends StatelessWidget {
   Widget build(BuildContext context) {
     if (wb.problems.isEmpty) {
       return Center(
-        child: Text(
-          'No problems',
-          style: GoogleFonts.plusJakartaSans(color: AfriblockColors.textMuted),
-        ),
+        child: Text('No problems', style: GoogleFonts.plusJakartaSans(color: AfriblockColors.textMuted)),
       );
     }
     return ListView.builder(
       itemCount: wb.problems.length,
       itemBuilder: (context, i) {
         final p = wb.problems[i];
-        final icon = switch (p.severity) {
-          ProblemSeverity.error => Icons.error_outline,
-          ProblemSeverity.warning => Icons.warning_amber_outlined,
-          ProblemSeverity.info => Icons.info_outline,
-        };
         final color = switch (p.severity) {
           ProblemSeverity.error => AfriblockColors.error,
           ProblemSeverity.warning => AfriblockColors.warning,
@@ -156,17 +169,16 @@ class _ProblemsList extends StatelessWidget {
         };
         return ListTile(
           dense: true,
-          leading: Icon(icon, color: color, size: 18),
+          leading: Icon(Icons.error_outline, color: color, size: 18),
           title: Text(p.message, style: afriblockMono(fontSize: 12)),
           subtitle: Text(
             [
-              wb.relativePath(p.path),
+              if (p.path.isNotEmpty) wb.relativePath(p.path),
               if (p.line != null) ':${p.line}',
-              if (p.column != null) ':${p.column}',
             ].join(),
             style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted),
           ),
-          onTap: () => wb.openFile(p.path),
+          onTap: p.path.isEmpty ? null : () => wb.openFile(p.path, line: p.line),
         );
       },
     );
@@ -181,19 +193,62 @@ class _OutputView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (text.trim().isEmpty) {
       return Center(
-        child: Text(
-          'Output appears here after Run / Check',
-          style: GoogleFonts.plusJakartaSans(color: AfriblockColors.textMuted),
-        ),
+        child: Text('Output appears after Build / Run / Check',
+            style: GoogleFonts.plusJakartaSans(color: AfriblockColors.textMuted)),
       );
     }
     return SingleChildScrollView(
       padding: const EdgeInsets.all(10),
       reverse: true,
-      child: SelectableText(
-        text,
-        style: afriblockMono(fontSize: 12, height: 1.45),
-      ),
+      child: SelectableText(text, style: afriblockMono(fontSize: 12, height: 1.45)),
+    );
+  }
+}
+
+class _TerminalView extends StatelessWidget {
+  const _TerminalView({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    final sessions = wb.terminals.sessions;
+    final active = wb.terminals.active;
+    return Column(
+      children: [
+        SizedBox(
+          height: 28,
+          child: Row(
+            children: [
+              for (final s in sessions)
+                InkWell(
+                  onTap: () => wb.terminals.select(s.id),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    color: s.id == active?.id
+                        ? AfriblockColors.panelElevated
+                        : Colors.transparent,
+                    child: Text(s.title, style: GoogleFonts.plusJakartaSans(fontSize: 12)),
+                  ),
+                ),
+              IconButton(
+                iconSize: 16,
+                onPressed: wb.openTerminal,
+                icon: const Icon(Icons.add),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: active == null
+              ? Center(
+                  child: TextButton(
+                    onPressed: wb.openTerminal,
+                    child: const Text('Create Terminal'),
+                  ),
+                )
+              : TerminalView(active.terminal),
+        ),
+      ],
     );
   }
 }

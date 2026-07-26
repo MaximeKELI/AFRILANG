@@ -13,31 +13,52 @@ class EditorArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wb = context.watch<WorkbenchController>();
-    if (wb.tabs.isEmpty) {
-      return const WelcomePage();
-    }
-    return Column(
-      children: [
-        _TabBar(wb: wb),
-        Expanded(
-          child: IndexedStack(
-            index: wb.activeTabIndex ?? 0,
-            children: [
-              for (final tab in wb.tabs)
-                CodeEditor(
-                  key: ValueKey(tab.path),
-                  path: tab.path,
-                  initialContent: tab.content,
-                  onChanged: (v) {
-                    if (wb.activeTab?.path == tab.path) {
-                      wb.updateActiveContent(v);
-                    } else {
-                      tab.applyEdit(v);
-                    }
-                  },
-                ),
-            ],
+    if (wb.tabs.isEmpty) return const WelcomePage();
+
+    Widget editorStack(int? index) {
+      final i = index ?? 0;
+      return Column(
+        children: [
+          _TabBar(wb: wb, groupIndex: index),
+          Expanded(
+            child: IndexedStack(
+              index: i.clamp(0, wb.tabs.length - 1),
+              children: [
+                for (final tab in wb.tabs)
+                  CodeEditor(
+                    key: ValueKey('${tab.path}-${index ?? 0}'),
+                    path: tab.path,
+                    initialContent: tab.content,
+                    onChanged: (v) {
+                      if (wb.activeTab?.path == tab.path) {
+                        wb.updateActiveContent(v);
+                      } else {
+                        tab.applyEdit(v);
+                      }
+                    },
+                    onToggleBreakpoint: (line) => wb.toggleBreakpointAt(tab.path, line),
+                    breakpoints: wb.debug.breakpoints
+                        .where((b) => b.path == tab.path)
+                        .map((b) => b.line)
+                        .toSet(),
+                  ),
+              ],
+            ),
           ),
+        ],
+      );
+    }
+
+    if (!wb.splitEditor) {
+      return editorStack(wb.activeTabIndex);
+    }
+
+    return Row(
+      children: [
+        Expanded(child: editorStack(wb.activeTabIndex)),
+        Container(width: 1, color: AfriblockColors.border),
+        Expanded(
+          child: editorStack(wb.secondaryTabIndex ?? wb.activeTabIndex),
         ),
       ],
     );
@@ -45,8 +66,9 @@ class EditorArea extends StatelessWidget {
 }
 
 class _TabBar extends StatelessWidget {
-  const _TabBar({required this.wb});
+  const _TabBar({required this.wb, this.groupIndex});
   final WorkbenchController wb;
+  final int? groupIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +80,15 @@ class _TabBar extends StatelessWidget {
         itemCount: wb.tabs.length,
         itemBuilder: (context, i) {
           final tab = wb.tabs[i];
-          final active = i == wb.activeTabIndex;
+          final active = i == (groupIndex ?? wb.activeTabIndex);
           return InkWell(
-            onTap: () => wb.selectTab(i),
+            onTap: () {
+              wb.selectTab(i);
+              if (wb.splitEditor && groupIndex != null && groupIndex != wb.activeTabIndex) {
+                wb.secondaryTabIndex = i;
+                wb.notifyListeners();
+              }
+            },
             child: Container(
               constraints: const BoxConstraints(minWidth: 120, maxWidth: 220),
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -76,14 +104,6 @@ class _TabBar extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Icon(
-                    tab.name.endsWith('.afr')
-                        ? Icons.code
-                        : Icons.insert_drive_file_outlined,
-                    size: 14,
-                    color: AfriblockColors.textMuted,
-                  ),
-                  const SizedBox(width: 6),
                   Expanded(
                     child: Text(
                       '${tab.dirty ? '● ' : ''}${tab.name}',
@@ -97,10 +117,7 @@ class _TabBar extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () => wb.closeTab(i),
-                    child: const Padding(
-                      padding: EdgeInsets.all(4),
-                      child: Icon(Icons.close, size: 14, color: AfriblockColors.textMuted),
-                    ),
+                    child: const Icon(Icons.close, size: 14, color: AfriblockColors.textMuted),
                   ),
                 ],
               ),

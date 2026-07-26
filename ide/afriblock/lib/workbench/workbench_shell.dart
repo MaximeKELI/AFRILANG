@@ -9,6 +9,7 @@ import '../widgets/activity_bar.dart';
 import '../widgets/bottom_panel.dart';
 import '../widgets/command_palette.dart';
 import '../widgets/editor_area.dart';
+import '../widgets/settings_dialog.dart';
 import '../widgets/sidebar_explorer.dart';
 import '../widgets/status_bar.dart';
 
@@ -21,9 +22,13 @@ class WorkbenchShell extends StatelessWidget {
     return CallbackShortcuts(
       bindings: <ShortcutActivator, VoidCallback>{
         const SingleActivator(LogicalKeyboardKey.keyP, control: true, shift: true):
-            () => wb.toggleCommandPalette(true),
+            () => wb.showOverlay(OverlayMode.commandPalette),
         const SingleActivator(LogicalKeyboardKey.keyP, meta: true, shift: true):
-            () => wb.toggleCommandPalette(true),
+            () => wb.showOverlay(OverlayMode.commandPalette),
+        const SingleActivator(LogicalKeyboardKey.keyP, control: true):
+            () => wb.showOverlay(OverlayMode.quickOpen),
+        const SingleActivator(LogicalKeyboardKey.keyP, meta: true):
+            () => wb.showOverlay(OverlayMode.quickOpen),
         const SingleActivator(LogicalKeyboardKey.keyS, control: true):
             () => wb.saveActive(),
         const SingleActivator(LogicalKeyboardKey.keyS, meta: true):
@@ -33,16 +38,19 @@ class WorkbenchShell extends StatelessWidget {
         const SingleActivator(LogicalKeyboardKey.keyW, meta: true):
             () => wb.closeActiveTab(),
         const SingleActivator(LogicalKeyboardKey.f5): () => wb.runActive(),
+        const SingleActivator(LogicalKeyboardKey.f6): () => wb.startDebug(),
         const SingleActivator(LogicalKeyboardKey.keyB, control: true, shift: true):
-            () => wb.checkActive(),
+            () => wb.buildActiveTarget(),
         const SingleActivator(LogicalKeyboardKey.keyB, meta: true, shift: true):
-            () => wb.checkActive(),
+            () => wb.buildActiveTarget(),
         const SingleActivator(LogicalKeyboardKey.keyJ, control: true):
             () => wb.togglePanel(),
         const SingleActivator(LogicalKeyboardKey.keyJ, meta: true):
             () => wb.togglePanel(),
+        const SingleActivator(LogicalKeyboardKey.keyOemBackslash, control: true):
+            () => wb.toggleSplit(),
         const SingleActivator(LogicalKeyboardKey.escape): () {
-          if (wb.commandPaletteOpen) wb.toggleCommandPalette(false);
+          if (wb.overlay != OverlayMode.none) wb.hideOverlay();
         },
       },
       child: Focus(
@@ -52,15 +60,13 @@ class WorkbenchShell extends StatelessWidget {
             Column(
               children: [
                 _TitleBar(wb: wb),
+                _BuildToolbar(wb: wb),
                 Expanded(
                   child: Row(
                     children: [
                       const ActivityBar(),
                       if (wb.sidebarVisible) ...[
-                        SizedBox(
-                          width: wb.sidebarWidth,
-                          child: const SidebarExplorer(),
-                        ),
+                        SizedBox(width: wb.sidebarWidth, child: const SidebarExplorer()),
                         _ResizeHandle(
                           horizontal: true,
                           onDrag: (dx) => wb.setSidebarWidth(wb.sidebarWidth + dx),
@@ -75,15 +81,13 @@ class WorkbenchShell extends StatelessWidget {
                     horizontal: false,
                     onDrag: (dy) => wb.setPanelHeight(wb.panelHeight - dy),
                   ),
-                  SizedBox(
-                    height: wb.panelHeight,
-                    child: const BottomPanel(),
-                  ),
+                  SizedBox(height: wb.panelHeight, child: const BottomPanel()),
                 ],
                 const StatusBar(),
               ],
             ),
-            if (wb.commandPaletteOpen) const CommandPalette(),
+            if (wb.overlay == OverlayMode.commandPalette) const CommandPalette(),
+            if (wb.overlay == OverlayMode.quickOpen) const QuickOpenOverlay(),
           ],
         ),
       ),
@@ -98,7 +102,7 @@ class _TitleBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 38,
+      height: 36,
       color: AfriblockColors.surface,
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Row(
@@ -109,7 +113,6 @@ class _TitleBar extends StatelessWidget {
               fontWeight: FontWeight.w800,
               fontSize: 13,
               letterSpacing: 0.4,
-              color: Colors.white,
             ),
           ),
           const SizedBox(width: 16),
@@ -119,20 +122,94 @@ class _TitleBar extends StatelessWidget {
             _MenuAction('Close Editor', () => wb.closeActiveTab()),
           ]),
           _MenuBtn(label: 'Run', items: [
-            _MenuAction('Run File', () => wb.runActive()),
-            _MenuAction('Check File', () => wb.checkActive()),
+            _MenuAction('Build', () => wb.buildActiveTarget()),
+            _MenuAction('Run', () => wb.runActive()),
+            _MenuAction('Check', () => wb.checkActive()),
+            _MenuAction('Debug', () => wb.startDebug()),
+            _MenuAction('Test', () => wb.runTests()),
           ]),
           _MenuBtn(label: 'View', items: [
-            _MenuAction('Command Palette…', () => wb.toggleCommandPalette(true)),
+            _MenuAction('Command Palette…', () => wb.showOverlay(OverlayMode.commandPalette)),
+            _MenuAction('Go to File…', () => wb.showOverlay(OverlayMode.quickOpen)),
             _MenuAction('Toggle Panel', () => wb.togglePanel()),
+            _MenuAction('Split Editor', () => wb.toggleSplit()),
+            _MenuAction('Toggle Theme', () => wb.cycleTheme()),
           ]),
           const Spacer(),
-          if (wb.workspaceRoot != null)
+          if (wb.projects.project != null)
             Text(
-              wb.workspaceRoot!,
-              overflow: TextOverflow.ellipsis,
-              style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted),
+              wb.projects.project!.name,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 12,
+                color: AfriblockColors.accent,
+                fontWeight: FontWeight.w600,
+              ),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+class _BuildToolbar extends StatelessWidget {
+  const _BuildToolbar({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 34,
+      color: AfriblockColors.panel,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 140,
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                isExpanded: true,
+                value: wb.availableTargets.any((t) => t.id == wb.activeTargetId)
+                    ? wb.activeTargetId
+                    : wb.availableTargets.first.id,
+                items: [
+                  for (final t in wb.availableTargets)
+                    DropdownMenuItem(value: t.id, child: Text(t.label, style: const TextStyle(fontSize: 13))),
+                ],
+                onChanged: (v) {
+                  if (v != null) wb.setActiveTarget(v);
+                },
+              ),
+            ),
+          ),
+          IconButton(
+            tooltip: 'Build',
+            iconSize: 18,
+            onPressed: wb.busy ? null : wb.buildActiveTarget,
+            icon: const Icon(Icons.handyman_outlined),
+          ),
+          IconButton(
+            tooltip: 'Run',
+            iconSize: 18,
+            onPressed: wb.busy ? null : wb.runActive,
+            icon: const Icon(Icons.play_arrow),
+          ),
+          IconButton(
+            tooltip: 'Debug',
+            iconSize: 18,
+            onPressed: wb.busy ? null : wb.startDebug,
+            icon: const Icon(Icons.bug_report_outlined),
+          ),
+          IconButton(
+            tooltip: 'Settings',
+            iconSize: 18,
+            onPressed: () => showAfriblockSettings(context),
+            icon: const Icon(Icons.settings_outlined),
+          ),
+          const Spacer(),
+          Text(
+            wb.lspState,
+            style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted),
+          ),
         ],
       ),
     );
@@ -154,22 +231,15 @@ class _MenuBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton<_MenuAction>(
       tooltip: label,
-      offset: const Offset(0, 32),
+      offset: const Offset(0, 28),
       color: AfriblockColors.panelElevated,
       onSelected: (a) => a.onTap(),
       itemBuilder: (context) => [
-        for (final a in items)
-          PopupMenuItem(value: a, child: Text(a.label)),
+        for (final a in items) PopupMenuItem(value: a, child: Text(a.label)),
       ],
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        child: Text(
-          label,
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 13,
-            color: AfriblockColors.text,
-          ),
-        ),
+        child: Text(label, style: GoogleFonts.plusJakartaSans(fontSize: 13)),
       ),
     );
   }
@@ -177,24 +247,17 @@ class _MenuBtn extends StatelessWidget {
 
 class _ResizeHandle extends StatelessWidget {
   const _ResizeHandle({required this.horizontal, required this.onDrag});
-
   final bool horizontal;
   final ValueChanged<double> onDrag;
 
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      cursor: horizontal
-          ? SystemMouseCursors.resizeColumn
-          : SystemMouseCursors.resizeRow,
+      cursor: horizontal ? SystemMouseCursors.resizeColumn : SystemMouseCursors.resizeRow,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onHorizontalDragUpdate: horizontal
-            ? (d) => onDrag(d.delta.dx)
-            : null,
-        onVerticalDragUpdate: horizontal
-            ? null
-            : (d) => onDrag(d.delta.dy),
+        onHorizontalDragUpdate: horizontal ? (d) => onDrag(d.delta.dx) : null,
+        onVerticalDragUpdate: horizontal ? null : (d) => onDrag(d.delta.dy),
         child: Container(
           width: horizontal ? 4 : null,
           height: horizontal ? null : 4,

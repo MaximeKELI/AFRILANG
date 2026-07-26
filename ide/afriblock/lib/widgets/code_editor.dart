@@ -76,11 +76,15 @@ class CodeEditor extends StatefulWidget {
     required this.path,
     required this.initialContent,
     required this.onChanged,
+    this.onToggleBreakpoint,
+    this.breakpoints = const {},
   });
 
   final String path;
   final String initialContent;
   final ValueChanged<String> onChanged;
+  final ValueChanged<int>? onToggleBreakpoint;
+  final Set<int> breakpoints;
 
   @override
   State<CodeEditor> createState() => _CodeEditorState();
@@ -163,7 +167,7 @@ class _CodeEditorState extends State<CodeEditor> {
       color: isAfr ? Colors.transparent : AfriblockColors.text,
     );
     final lineCount = _lineCount;
-    final gutterWidth = 16.0 + (lineCount.toString().length * 9.0);
+    final gutterWidth = 28.0 + (lineCount.toString().length * 9.0);
     final lineBox = _fontSize * _lineHeight;
 
     return ColoredBox(
@@ -180,18 +184,37 @@ class _CodeEditorState extends State<CodeEditor> {
               itemCount: lineCount,
               itemExtent: lineBox,
               itemBuilder: (context, i) {
-                return Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(
-                      '${i + 1}',
-                      style: afriblockMono(
-                        fontSize: _fontSize - 1,
-                        color: AfriblockColors.textMuted,
-                        height: _lineHeight,
+                final line = i + 1;
+                final hasBp = widget.breakpoints.contains(line);
+                return InkWell(
+                  onTap: widget.onToggleBreakpoint == null
+                      ? null
+                      : () => widget.onToggleBreakpoint!(line),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 12,
+                        child: hasBp
+                            ? const Icon(Icons.circle, size: 8, color: AfriblockColors.error)
+                            : null,
                       ),
-                    ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: Text(
+                              '$line',
+                              style: afriblockMono(
+                                fontSize: _fontSize - 1,
+                                color: AfriblockColors.textMuted,
+                                height: _lineHeight,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },

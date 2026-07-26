@@ -24,52 +24,46 @@ class StatusBar extends StatelessWidget {
               child: SizedBox(
                 width: 12,
                 height: 12,
-                child: CircularProgressIndicator(
-                  strokeWidth: 1.5,
-                  color: Colors.white,
-                ),
+                child: CircularProgressIndicator(strokeWidth: 1.5, color: Colors.white),
               ),
             ),
           Expanded(
             child: Text(
               wb.statusMessage ?? '',
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.plusJakartaSans(
-                fontSize: 11.5,
-                color: Colors.white,
-              ),
+              style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white),
             ),
           ),
+          if (wb.git.branch != null)
+            Padding(
+              padding: const EdgeInsets.only(right: 12),
+              child: Text(' ${wb.git.branch}',
+                  style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white70)),
+            ),
           if (wb.problems.isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(right: 12),
               child: InkWell(
                 onTap: () => wb.setBottomTab(BottomTab.problems),
-                child: Text(
-                  '${wb.problems.length} problems',
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 11.5,
-                    color: Colors.white70,
-                  ),
-                ),
+                child: Text('${wb.problems.length} problems',
+                    style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white70)),
               ),
             ),
+          Text(
+            'target:${wb.activeTarget.label}',
+            style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white70),
+          ),
+          const SizedBox(width: 12),
+          Text(
+            wb.lspState,
+            style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white70),
+          ),
+          const SizedBox(width: 12),
           Text(
             tab == null
                 ? 'AFRIBLOCK'
                 : (tab.name.endsWith('.afr') ? 'AFRILANG' : 'Plain Text'),
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11.5,
-              color: Colors.white70,
-            ),
-          ),
-          const SizedBox(width: 12),
-          Text(
-            'UTF-8',
-            style: GoogleFonts.plusJakartaSans(
-              fontSize: 11.5,
-              color: Colors.white70,
-            ),
+            style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white70),
           ),
         ],
       ),

@@ -64,15 +64,25 @@ flutter run -d linux
 World-class target architecture (AFRILANG-only):
 [`docs/AFRIBLOCK_ARCHITECTURE.md`](../../docs/AFRIBLOCK_ARCHITECTURE.md).
 
+Plugin SDK: [`docs/PLUGIN_SDK.md`](docs/PLUGIN_SDK.md).
+
+Package desktop builds: `bash scripts/package-afriblock.sh`.
+
+### Implemented phases (A–F foundation)
+
+| Phase | In tree |
+|-------|---------|
+| A | `afrilang.toml` detect, streamed build, toolchain settings, Quick Open (`Ctrl+P`) |
+| B | LSP client stdio, format-on-save, Outline |
+| C | Build targets toolbar, Test Explorer |
+| D | Debug sidebar, breakpoints gutter, `afrilang debug` launch |
+| E | PTY terminal, Git SCM, Find in Files |
+| F | Editor split, themes, plugin host + SDK doc, packaging script |
+
 ```
 lib/
-  workbench/     # shell layout (Code OSS-inspired)
-  widgets/       # explorer, editor, panel, palette, …
-  services/      # File, CLI, LSP, Git, Search, Terminal, Debug, …
-  state/         # WorkbenchController
-  project/       # afrilang.toml + targets
-  core/          # commands, plugins, event bus
-  theme/         # AFRIBLOCK identity
+  workbench/ core/ project/ lsp/ debug/ git/ search/ terminal/ plugins/
+  widgets/ services/ state/ theme/
 ```
 
 Coexists with [`vscode-afrilang`](../../vscode-afrilang/) and

@@ -12,13 +12,15 @@ class AfriblockApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => WorkbenchController()..init(),
-      child: MaterialApp(
-        title: 'AFRIBLOCK',
-        debugShowCheckedModeBanner: false,
-        theme: buildAfriblockTheme(),
-        home: const Scaffold(
-          body: WorkbenchShell(),
-        ),
+      child: Consumer<WorkbenchController>(
+        builder: (context, wb, _) {
+          return MaterialApp(
+            title: 'AFRIBLOCK',
+            debugShowCheckedModeBanner: false,
+            theme: buildAfriblockTheme(wb.themeMode),
+            home: const Scaffold(body: WorkbenchShell()),
+          );
+        },
       ),
     );
   }

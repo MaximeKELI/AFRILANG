@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:afriblock/app.dart';
+import 'package:afriblock/project/project_service.dart';
 import 'package:afriblock/services/afrilang_cli.dart';
 
 void main() {
@@ -21,5 +22,12 @@ void main() {
     expect(items, isNotEmpty);
     expect(items.first.line, 12);
     expect(items.first.message.toLowerCase(), contains('unknown'));
+  });
+
+  test('default targets include debug and wasm32', () {
+    expect(
+      kDefaultTargets.map((t) => t.id),
+      containsAll(['debug', 'test', 'wasm32']),
+    );
   });
 }

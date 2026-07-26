@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Desktop workbench palette — AFRILANG identity, slate dark (not purple/cream).
+enum AfriThemeMode { dark, light, highContrast }
+
 class AfriblockColors {
   static const primary = Color(0xFF3B82F6);
   static const primaryDeep = Color(0xFF1D4ED8);
@@ -21,39 +22,40 @@ class AfriblockColors {
   static const success = Color(0xFF4ADE80);
 }
 
-ThemeData buildAfriblockTheme() {
-  final base = GoogleFonts.plusJakartaSansTextTheme(ThemeData.dark().textTheme);
+ThemeData buildAfriblockTheme(AfriThemeMode mode) {
+  final brightness = mode == AfriThemeMode.light ? Brightness.light : Brightness.dark;
+  final hc = mode == AfriThemeMode.highContrast;
+  final bg = mode == AfriThemeMode.light
+      ? const Color(0xFFF8FAFC)
+      : (hc ? const Color(0xFF000000) : AfriblockColors.bg);
+  final surface = mode == AfriThemeMode.light
+      ? Colors.white
+      : (hc ? const Color(0xFF0A0A0A) : AfriblockColors.surface);
+  final onSurface = mode == AfriThemeMode.light
+      ? const Color(0xFF0F172A)
+      : AfriblockColors.text;
+
+  final base = GoogleFonts.plusJakartaSansTextTheme(
+    brightness == Brightness.dark ? ThemeData.dark().textTheme : ThemeData.light().textTheme,
+  );
+
   return ThemeData(
     useMaterial3: true,
-    brightness: Brightness.dark,
-    scaffoldBackgroundColor: AfriblockColors.bg,
-    colorScheme: const ColorScheme.dark(
+    brightness: brightness,
+    scaffoldBackgroundColor: bg,
+    colorScheme: ColorScheme(
+      brightness: brightness,
       primary: AfriblockColors.primary,
-      secondary: AfriblockColors.accent,
-      surface: AfriblockColors.surface,
-      error: AfriblockColors.error,
       onPrimary: Colors.white,
+      secondary: AfriblockColors.accent,
       onSecondary: Colors.black,
-      onSurface: AfriblockColors.text,
+      error: AfriblockColors.error,
       onError: Colors.black,
+      surface: surface,
+      onSurface: onSurface,
     ),
-    textTheme: base.apply(
-      bodyColor: AfriblockColors.text,
-      displayColor: Colors.white,
-    ),
-    dividerColor: AfriblockColors.border,
-    tooltipTheme: TooltipThemeData(
-      waitDuration: const Duration(milliseconds: 400),
-      decoration: BoxDecoration(
-        color: AfriblockColors.panelElevated,
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: AfriblockColors.border),
-      ),
-      textStyle: GoogleFonts.plusJakartaSans(
-        color: AfriblockColors.text,
-        fontSize: 12,
-      ),
-    ),
+    textTheme: base.apply(bodyColor: onSurface, displayColor: onSurface),
+    dividerColor: hc ? Colors.white70 : AfriblockColors.border,
   );
 }
 

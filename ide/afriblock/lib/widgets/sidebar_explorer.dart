@@ -17,30 +17,42 @@ class SidebarExplorer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _Header(
-            title: switch (wb.sidebarView) {
-              SidebarView.explorer => 'EXPLORER',
-              SidebarView.search => 'SEARCH',
-              SidebarView.run => 'RUN',
-              SidebarView.extensions => 'EXTENSIONS',
-            },
-          ),
+          _Header(title: _title(wb.sidebarView)),
           Expanded(child: _body(context, wb)),
         ],
       ),
     );
   }
 
+  String _title(SidebarView v) => switch (v) {
+        SidebarView.explorer => 'EXPLORER',
+        SidebarView.search => 'SEARCH',
+        SidebarView.scm => 'SOURCE CONTROL',
+        SidebarView.run => 'RUN',
+        SidebarView.debug => 'RUN AND DEBUG',
+        SidebarView.test => 'TEST EXPLORER',
+        SidebarView.extensions => 'EXTENSIONS',
+        SidebarView.afrilang => 'AFRILANG',
+      };
+
   Widget _body(BuildContext context, WorkbenchController wb) {
     switch (wb.sidebarView) {
       case SidebarView.explorer:
         return _ExplorerBody(wb: wb);
       case SidebarView.search:
-        return _Soon(message: 'Search — phase 2');
+        return _SearchPanel(wb: wb);
+      case SidebarView.scm:
+        return _ScmPanel(wb: wb);
       case SidebarView.run:
         return _RunPanel(wb: wb);
+      case SidebarView.debug:
+        return _DebugPanel(wb: wb);
+      case SidebarView.test:
+        return _TestPanel(wb: wb);
       case SidebarView.extensions:
-        return _Soon(message: 'Extensions — phase 2');
+        return _ExtensionsPanel(wb: wb);
+      case SidebarView.afrilang:
+        return _AfrilangHub(wb: wb);
     }
   }
 }
@@ -71,109 +83,37 @@ class _Header extends StatelessWidget {
   }
 }
 
-class _Soon extends StatelessWidget {
-  const _Soon({required this.message});
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Text(
-          message,
-          textAlign: TextAlign.center,
-          style: GoogleFonts.plusJakartaSans(
-            color: AfriblockColors.textMuted,
-            fontSize: 13,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _RunPanel extends StatelessWidget {
-  const _RunPanel({required this.wb});
-  final WorkbenchController wb;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            wb.activeTab?.name ?? 'No file open',
-            style: GoogleFonts.plusJakartaSans(
-              fontWeight: FontWeight.w600,
-              fontSize: 13,
-            ),
-          ),
-          const SizedBox(height: 12),
-          FilledButton.icon(
-            onPressed: wb.busy ? null : wb.runActive,
-            icon: const Icon(Icons.play_arrow, size: 18),
-            label: const Text('Run'),
-            style: FilledButton.styleFrom(
-              backgroundColor: AfriblockColors.primaryDeep,
-              foregroundColor: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 8),
-          OutlinedButton.icon(
-            onPressed: wb.busy ? null : wb.checkActive,
-            icon: const Icon(Icons.fact_check_outlined, size: 18),
-            label: const Text('Check'),
-            style: OutlinedButton.styleFrom(
-              foregroundColor: AfriblockColors.text,
-              side: const BorderSide(color: AfriblockColors.border),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _ExplorerBody extends StatelessWidget {
   const _ExplorerBody({required this.wb});
   final WorkbenchController wb;
 
   @override
   Widget build(BuildContext context) {
+    final proj = wb.projects.project;
     if (wb.rootNode == null) {
       return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'No folder opened',
-                style: GoogleFonts.plusJakartaSans(
-                  color: AfriblockColors.textMuted,
-                ),
-              ),
-              const SizedBox(height: 12),
-              FilledButton(
-                onPressed: () => wb.openFolder(),
-                style: FilledButton.styleFrom(
-                  backgroundColor: AfriblockColors.primaryDeep,
-                ),
-                child: const Text('Open Folder'),
-              ),
-            ],
-          ),
+        child: FilledButton(
+          onPressed: () => wb.openFolder(),
+          child: const Text('Open Folder'),
         ),
       );
     }
-
     final root = wb.rootNode!;
     return ListView(
       padding: const EdgeInsets.symmetric(vertical: 4),
       children: [
+        if (proj != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+            child: Text(
+              '${proj.name}  ·  ${proj.version ?? ""}',
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: AfriblockColors.accent,
+              ),
+            ),
+          ),
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 6, 12, 8),
           child: Text(
@@ -182,10 +122,30 @@ class _ExplorerBody extends StatelessWidget {
               fontSize: 11,
               fontWeight: FontWeight.w700,
               color: AfriblockColors.textMuted,
-              letterSpacing: 0.6,
             ),
           ),
         ),
+        // Outline for active file
+        if (wb.outline.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+            child: Text('OUTLINE',
+                style: GoogleFonts.plusJakartaSans(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w700,
+                    color: AfriblockColors.textMuted)),
+          ),
+          ...wb.outline.map(
+            (s) => ListTile(
+              dense: true,
+              leading: const Icon(Icons.code, size: 14),
+              title: Text(s.name, style: afriblockMono(fontSize: 12)),
+              subtitle: Text('L${s.line}', style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted)),
+              onTap: () => wb.openFile(wb.activeTab!.path, line: s.line),
+            ),
+          ),
+          const Divider(color: AfriblockColors.border),
+        ],
         ...root.children.map((c) => _TreeTile(node: c, depth: 0)),
       ],
     );
@@ -221,9 +181,7 @@ class _TreeTile extends StatelessWidget {
               children: [
                 Icon(
                   node.isDirectory
-                      ? (node.expanded
-                          ? Icons.keyboard_arrow_down
-                          : Icons.keyboard_arrow_right)
+                      ? (node.expanded ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_right)
                       : Icons.insert_drive_file_outlined,
                   size: 16,
                   color: node.isDirectory
@@ -237,10 +195,7 @@ class _TreeTile extends StatelessWidget {
                   child: Text(
                     node.name,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 13,
-                      color: active ? Colors.white : AfriblockColors.text,
-                    ),
+                    style: GoogleFonts.plusJakartaSans(fontSize: 13),
                   ),
                 ),
               ],
@@ -249,6 +204,295 @@ class _TreeTile extends StatelessWidget {
         ),
         if (node.isDirectory && node.expanded)
           ...node.children.map((c) => _TreeTile(node: c, depth: depth + 1)),
+      ],
+    );
+  }
+}
+
+class _SearchPanel extends StatefulWidget {
+  const _SearchPanel({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  State<_SearchPanel> createState() => _SearchPanelState();
+}
+
+class _SearchPanelState extends State<_SearchPanel> {
+  final _ctrl = TextEditingController();
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final wb = widget.wb;
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: TextField(
+            controller: _ctrl,
+            decoration: const InputDecoration(
+              hintText: 'Search in files',
+              isDense: true,
+              border: OutlineInputBorder(),
+            ),
+            onSubmitted: wb.runSearch,
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: wb.searchHits.length,
+            itemBuilder: (context, i) {
+              final h = wb.searchHits[i];
+              return ListTile(
+                dense: true,
+                title: Text(h.preview, style: afriblockMono(fontSize: 12), maxLines: 1, overflow: TextOverflow.ellipsis),
+                subtitle: Text('${wb.relativePath(h.path)}:${h.line}',
+                    style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted)),
+                onTap: () => wb.openFile(h.path, line: h.line),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ScmPanel extends StatelessWidget {
+  const _ScmPanel({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          dense: true,
+          title: Text(wb.git.branch ?? 'Not a git repo',
+              style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w600)),
+          trailing: IconButton(
+            icon: const Icon(Icons.refresh, size: 18),
+            onPressed: wb.refreshGit,
+          ),
+        ),
+        if (wb.git.lastError != null)
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(wb.git.lastError!, style: afriblockMono(fontSize: 11, color: AfriblockColors.error)),
+          ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: wb.git.entries.length,
+            itemBuilder: (context, i) {
+              final e = wb.git.entries[i];
+              return ListTile(
+                dense: true,
+                leading: Text(e.code, style: afriblockMono(fontSize: 11, color: AfriblockColors.accent)),
+                title: Text(wb.relativePath(e.path), style: afriblockMono(fontSize: 12)),
+                onTap: () => wb.openFile(e.path),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _RunPanel extends StatelessWidget {
+  const _RunPanel({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          DropdownButtonFormField<String>(
+            value: wb.activeTargetId,
+            decoration: const InputDecoration(labelText: 'Build target', border: OutlineInputBorder()),
+            items: [
+              for (final t in wb.availableTargets)
+                DropdownMenuItem(value: t.id, child: Text(t.label)),
+            ],
+            onChanged: (v) {
+              if (v != null) wb.setActiveTarget(v);
+            },
+          ),
+          const SizedBox(height: 12),
+          FilledButton.icon(
+            onPressed: wb.busy ? null : wb.buildActiveTarget,
+            icon: const Icon(Icons.handyman),
+            label: const Text('Build'),
+          ),
+          const SizedBox(height: 8),
+          FilledButton.icon(
+            onPressed: wb.busy ? null : wb.runActive,
+            icon: const Icon(Icons.play_arrow),
+            label: const Text('Run'),
+            style: FilledButton.styleFrom(backgroundColor: AfriblockColors.primaryDeep),
+          ),
+          const SizedBox(height: 8),
+          OutlinedButton.icon(
+            onPressed: wb.busy ? null : wb.checkActive,
+            icon: const Icon(Icons.fact_check_outlined),
+            label: const Text('Check'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DebugPanel extends StatelessWidget {
+  const _DebugPanel({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(12),
+      children: [
+        FilledButton.icon(
+          onPressed: wb.debug.running ? null : wb.startDebug,
+          icon: const Icon(Icons.bug_report),
+          label: const Text('Start Debugging'),
+        ),
+        const SizedBox(height: 8),
+        OutlinedButton.icon(
+          onPressed: wb.debug.running ? wb.debug.stop : null,
+          icon: const Icon(Icons.stop),
+          label: const Text('Stop'),
+        ),
+        const SizedBox(height: 12),
+        Text('Breakpoints', style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w700)),
+        ...wb.debug.breakpoints.map(
+          (b) => ListTile(
+            dense: true,
+            title: Text('${wb.relativePath(b.path)}:${b.line}', style: afriblockMono(fontSize: 12)),
+            trailing: IconButton(
+              icon: const Icon(Icons.close, size: 16),
+              onPressed: () {
+                wb.toggleBreakpointAt(b.path, b.line);
+              },
+            ),
+          ),
+        ),
+        if (wb.debug.status != null)
+          Text(wb.debug.status!, style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted)),
+      ],
+    );
+  }
+}
+
+class _TestPanel extends StatelessWidget {
+  const _TestPanel({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            children: [
+              FilledButton(
+                onPressed: wb.busy ? null : wb.runTests,
+                child: const Text('Run Tests'),
+              ),
+              const SizedBox(width: 8),
+              OutlinedButton(
+                onPressed: () async {
+                  await wb.tests.discover(wb.workspaceRoot);
+                  wb.notifyListeners();
+                },
+                child: const Text('Refresh'),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: wb.tests.items.length,
+            itemBuilder: (context, i) {
+              final t = wb.tests.items[i];
+              return ListTile(
+                dense: true,
+                leading: const Icon(Icons.science_outlined, size: 16),
+                title: Text(t.name, style: afriblockMono(fontSize: 12)),
+                subtitle: Text('${wb.relativePath(t.path)}:${t.line}',
+                    style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted)),
+                onTap: () => wb.openFile(t.path, line: t.line),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ExtensionsPanel extends StatelessWidget {
+  const _ExtensionsPanel({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        for (final p in wb.plugins.plugins)
+          ListTile(
+            leading: const Icon(Icons.extension),
+            title: Text(p.name),
+            subtitle: Text(p.description),
+            trailing: Text(p.id, style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted)),
+          ),
+      ],
+    );
+  }
+}
+
+class _AfrilangHub extends StatelessWidget {
+  const _AfrilangHub({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    final proj = wb.projects.project;
+    return ListView(
+      padding: const EdgeInsets.all(12),
+      children: [
+        Text('Project', style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w700)),
+        Text(proj == null ? 'No afrilang.toml detected' : '${proj.name}\n${proj.description ?? ""}'),
+        const SizedBox(height: 12),
+        FilledButton(
+          onPressed: () => wb.build.runStreaming(
+            args: ['pkg', 'list'],
+            workingDirectory: wb.workspaceRoot,
+            onChunk: wb.appendOutput,
+          ),
+          child: const Text('pkg list'),
+        ),
+        const SizedBox(height: 8),
+        OutlinedButton(
+          onPressed: () => wb.build.runStreaming(
+            args: ['pkg', 'sync'],
+            workingDirectory: wb.workspaceRoot,
+            onChunk: wb.appendOutput,
+          ),
+          child: const Text('pkg sync'),
+        ),
+        const SizedBox(height: 16),
+        Text('See docs/AFRIBLOCK_ARCHITECTURE.md for Hub roadmap.',
+            style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AfriblockColors.textMuted)),
       ],
     );
   }
