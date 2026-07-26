@@ -54,6 +54,7 @@ class ActivityBar extends StatelessWidget {
           item(Icons.bug_report_outlined, 'Run & Debug', SidebarView.debug),
           item(Icons.science_outlined, 'Testing', SidebarView.test),
           item(Icons.hub_outlined, 'AFRILANG', SidebarView.afrilang),
+          item(Icons.auto_awesome, 'AI Assist', SidebarView.ai),
           item(Icons.extension_outlined, 'Extensions', SidebarView.extensions),
           const Spacer(),
           Tooltip(

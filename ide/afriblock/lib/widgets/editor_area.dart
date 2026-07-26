@@ -29,11 +29,27 @@ class EditorArea extends StatelessWidget {
                     key: ValueKey('${tab.path}-${index ?? 0}'),
                     path: tab.path,
                     initialContent: tab.content,
+                    ghostText: wb.activeTab?.path == tab.path ? wb.ghostSuggestion : null,
                     onChanged: (v) {
                       if (wb.activeTab?.path == tab.path) {
                         wb.updateActiveContent(v);
                       } else {
                         tab.applyEdit(v);
+                      }
+                    },
+                    onCaretChanged: (offset) {
+                      if (wb.activeTab?.path == tab.path) {
+                        wb.onEditorCaretChanged(offset);
+                      }
+                    },
+                    onAcceptGhost: () {
+                      if (wb.activeTab?.path == tab.path) {
+                        wb.onGhostAcceptedFromEditor();
+                      }
+                    },
+                    onRejectGhost: () {
+                      if (wb.activeTab?.path == tab.path) {
+                        wb.rejectGhostSuggestion();
                       }
                     },
                     onToggleBreakpoint: (line) => wb.toggleBreakpointAt(tab.path, line),

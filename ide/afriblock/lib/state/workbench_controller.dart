@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -79,10 +80,16 @@ class WorkbenchController extends ChangeNotifier {
   final DebugService debug = DebugService();
   final TerminalService terminals = TerminalService();
   final PluginHost plugins = PluginHost();
+  final AiAssistService ai = AiAssistService();
 
   late final AfrilangCli cli;
   late final BuildService build;
   late final LspClient lsp;
+
+  String? ghostSuggestion;
+  int editorCaret = 0;
+  Timer? _aiDebounce;
+  int _aiSuggestGen = 0;
 
   bool ready = false;
   String? workspaceRoot;
@@ -149,9 +156,17 @@ class WorkbenchController extends ChangeNotifier {
       ? 'LSP off'
       : (lsp.ready ? 'LSP ready' : 'LSP…');
 
+  String get aiStatusLabel {
+    if (!settings.aiEnabled) return 'AI off';
+    if (ai.lastError != null) return 'AI err';
+    if (ai.busy) return 'AI…';
+    return 'AI on';
+  }
+
   Future<void> init() async {
     await settings.load();
     themeMode = settings.themeMode;
+    syncAiConfig();
     _registerCommands();
     plugins
       ..register(BuiltinAfrilangPlugin())
@@ -162,6 +177,16 @@ class WorkbenchController extends ChangeNotifier {
     statusMessage = 'Ready';
     ready = true;
     notifyListeners();
+  }
+
+  void syncAiConfig() {
+    ai.updateConfig(AiAssistConfig(
+      enabled: settings.aiEnabled,
+      inlineSuggest: settings.aiInlineSuggest,
+      baseUrl: settings.aiBaseUrl,
+      apiKey: settings.aiApiKey,
+      model: settings.aiModel,
+    ));
   }
 
   void _registerCommands() {
@@ -338,6 +363,32 @@ class WorkbenchController extends ChangeNotifier {
           wb.statusMessage = 'Open Settings from the gear / toolbar';
           wb.notifyListeners();
         },
+      ),
+      IdeCommandDef(
+        id: 'ai.triggerSuggest',
+        label: 'AI: Trigger Inline Suggest',
+        category: 'AI',
+        run: (wb) async => wb.triggerInlineSuggest(immediate: true),
+      ),
+      IdeCommandDef(
+        id: 'ai.accept',
+        label: 'AI: Accept Suggestion',
+        shortcut: 'Tab',
+        category: 'AI',
+        run: (wb) async => wb.acceptGhostSuggestion(),
+      ),
+      IdeCommandDef(
+        id: 'ai.reject',
+        label: 'AI: Reject Suggestion',
+        shortcut: 'Esc',
+        category: 'AI',
+        run: (wb) async => wb.rejectGhostSuggestion(),
+      ),
+      IdeCommandDef(
+        id: 'ai.toggleChat',
+        label: 'AI: Toggle Chat',
+        category: 'AI',
+        run: (wb) async => wb.toggleAiChat(),
       ),
     ]);
   }
@@ -781,7 +832,113 @@ description = "Projet créé avec AFRIBLOCK"
     if (tab == null) return;
     tab.applyEdit(content);
     lsp.didChange(File(tab.path).uri.toString(), content, DateTime.now().millisecondsSinceEpoch);
+    clearGhostSuggestion(notify: false);
     notifyListeners();
+    scheduleInlineSuggest();
+  }
+
+  void onEditorCaretChanged(int offset) {
+    editorCaret = offset;
+    scheduleInlineSuggest();
+  }
+
+  void clearGhostSuggestion({bool notify = true}) {
+    if (ghostSuggestion == null) return;
+    ghostSuggestion = null;
+    if (notify) notifyListeners();
+  }
+
+  void rejectGhostSuggestion() {
+    clearGhostSuggestion();
+  }
+
+  /// Accept ghost when triggered from command palette (editor Tab handles insert itself).
+  void acceptGhostSuggestion() {
+    final ghost = ghostSuggestion;
+    final tab = activeTab;
+    if (ghost == null || ghost.isEmpty || tab == null) return;
+    final content = tab.content;
+    final c = editorCaret.clamp(0, content.length);
+    final next = content.substring(0, c) + ghost + content.substring(c);
+    editorCaret = c + ghost.length;
+    ghostSuggestion = null;
+    tab.applyEdit(next);
+    lsp.didChange(
+      File(tab.path).uri.toString(),
+      next,
+      DateTime.now().millisecondsSinceEpoch,
+    );
+    notifyListeners();
+    scheduleInlineSuggest();
+  }
+
+  void onGhostAcceptedFromEditor() {
+    clearGhostSuggestion();
+  }
+
+  void toggleAiChat() {
+    if (sidebarView == SidebarView.ai && sidebarVisible) {
+      sidebarVisible = false;
+    } else {
+      sidebarView = SidebarView.ai;
+      sidebarVisible = true;
+    }
+    notifyListeners();
+  }
+
+  void scheduleInlineSuggest({bool immediate = false}) {
+    _aiDebounce?.cancel();
+    if (!settings.aiEnabled || !settings.aiInlineSuggest) {
+      clearGhostSuggestion();
+      return;
+    }
+    final delay = immediate ? Duration.zero : const Duration(milliseconds: 400);
+    _aiDebounce = Timer(delay, () => unawaited(triggerInlineSuggest()));
+  }
+
+  Future<void> triggerInlineSuggest({bool immediate = false}) async {
+    if (immediate) {
+      _aiDebounce?.cancel();
+    }
+    final tab = activeTab;
+    if (tab == null || !settings.aiEnabled || !settings.aiInlineSuggest) {
+      clearGhostSuggestion();
+      return;
+    }
+    final gen = ++_aiSuggestGen;
+    final path = tab.path;
+    final content = tab.content;
+    final caret = editorCaret.clamp(0, content.length);
+    final suggestion = await ai.propose(path: path, content: content, caret: caret);
+    if (gen != _aiSuggestGen) return;
+    if (activeTab?.path != path) return;
+    ghostSuggestion = (suggestion == null || suggestion.isEmpty) ? null : suggestion;
+    notifyListeners();
+  }
+
+  Future<void> sendAiChat(String message, {bool includeFile = false}) async {
+    final tab = activeTab;
+    final ctx = includeFile && tab != null
+        ? 'File: ${tab.path}\n${tab.content}'
+        : null;
+    try {
+      await ai.chat(message, fileContext: ctx);
+      statusMessage = 'AI reply ready';
+    } catch (e) {
+      statusMessage = 'AI: $e';
+    }
+    notifyListeners();
+  }
+
+  void insertAiCodeIntoEditor(String code) {
+    final tab = activeTab;
+    if (tab == null) return;
+    final content = tab.content;
+    final c = editorCaret.clamp(0, content.length);
+    final insert = code.endsWith('\n') ? code : '$code\n';
+    final next = content.substring(0, c) + insert + content.substring(c);
+    editorCaret = c + insert.length;
+    updateActiveContent(next);
   }
 
   Future<void> saveActive({bool format = true}) async {
@@ -1144,6 +1301,8 @@ description = "Projet créé avec AFRIBLOCK"
 
   @override
   void dispose() {
+    _aiDebounce?.cancel();
+    ai.updateConfig(const AiAssistConfig());
     lsp.stop();
     terminals.disposeAll();
     debug.stop();

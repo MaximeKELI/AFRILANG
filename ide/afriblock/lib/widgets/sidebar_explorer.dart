@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../ai/ai_assist_service.dart';
 import '../models/workspace_node.dart';
 import '../state/workbench_controller.dart';
 import '../theme/afriblock_theme.dart';
@@ -34,6 +35,7 @@ class SidebarExplorer extends StatelessWidget {
         SidebarView.test => 'TEST EXPLORER',
         SidebarView.extensions => 'EXTENSIONS',
         SidebarView.afrilang => 'AFRILANG',
+        SidebarView.ai => 'AI ASSIST',
       };
 
   Widget _body(BuildContext context, WorkbenchController wb) {
@@ -54,6 +56,8 @@ class SidebarExplorer extends StatelessWidget {
         return _ExtensionsPanel(wb: wb);
       case SidebarView.afrilang:
         return _AfrilangHub(wb: wb);
+      case SidebarView.ai:
+        return _AiChatPanel(wb: wb);
     }
   }
 }
@@ -581,3 +585,192 @@ class _AfrilangHub extends StatelessWidget {
     );
   }
 }
+
+class _AiChatPanel extends StatefulWidget {
+  const _AiChatPanel({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  State<_AiChatPanel> createState() => _AiChatPanelState();
+}
+
+class _AiChatPanelState extends State<_AiChatPanel> {
+  final _input = TextEditingController();
+  bool _sending = false;
+
+  @override
+  void dispose() {
+    _input.dispose();
+    super.dispose();
+  }
+
+  Future<void> _send({bool includeFile = false}) async {
+    final text = _input.text.trim();
+    if (text.isEmpty || _sending) return;
+    setState(() => _sending = true);
+    _input.clear();
+    try {
+      await widget.wb.sendAiChat(text, includeFile: includeFile);
+    } finally {
+      if (mounted) setState(() => _sending = false);
+    }
+  }
+
+  Future<void> _explainFile() async {
+    final tab = widget.wb.activeTab;
+    if (tab == null) {
+      widget.wb.statusMessage = 'Open a file to explain';
+      widget.wb.notifyListeners();
+      return;
+    }
+    setState(() => _sending = true);
+    try {
+      await widget.wb.sendAiChat(
+        'Explain this AFRILANG file briefly. Highlight structure and any issues.',
+        includeFile: true,
+      );
+    } finally {
+      if (mounted) setState(() => _sending = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final wb = widget.wb;
+    final messages = wb.ai.chatLog.where((m) => m.role != 'system').toList();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+          child: Text(
+            wb.settings.aiEnabled
+                ? 'Model: ${wb.settings.aiModel}'
+                : 'AI disabled — enable in Settings',
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 11,
+              color: AfriblockColors.textMuted,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Wrap(
+            spacing: 6,
+            runSpacing: 4,
+            children: [
+              OutlinedButton(
+                onPressed: _sending ? null : _explainFile,
+                child: const Text('Expliquer le fichier'),
+              ),
+              TextButton(
+                onPressed: () {
+                  wb.ai.clearChat();
+                  wb.notifyListeners();
+                },
+                child: const Text('Clear'),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            padding: const EdgeInsets.all(10),
+            itemCount: messages.length,
+            itemBuilder: (context, i) {
+              final m = messages[i];
+              final isUser = m.role == 'user';
+              final code = !isUser ? AiAssistService.extractCodeBlock(m.content) : null;
+              return Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: isUser
+                      ? AfriblockColors.panelElevated
+                      : AfriblockColors.surface,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: AfriblockColors.border),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      isUser ? 'You' : 'Assistant',
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w700,
+                        color: AfriblockColors.accent,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    SelectableText(
+                      m.content,
+                      style: afriblockMono(fontSize: 11.5),
+                    ),
+                    if (code != null && code.isNotEmpty) ...[
+                      const SizedBox(height: 8),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: FilledButton.tonal(
+                          onPressed: () => wb.insertAiCodeIntoEditor(code),
+                          child: const Text('Insert code'),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+        if (wb.ai.lastError != null)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Text(
+              wb.ai.lastError!,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 11,
+                color: AfriblockColors.error,
+              ),
+            ),
+          ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(8, 4, 8, 10),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: _input,
+                  minLines: 1,
+                  maxLines: 4,
+                  enabled: !_sending && wb.settings.aiEnabled,
+                  decoration: const InputDecoration(
+                    hintText: 'Ask about AFRILANG…',
+                    border: OutlineInputBorder(),
+                    isDense: true,
+                  ),
+                  style: afriblockMono(fontSize: 12),
+                  onSubmitted: (_) => _send(includeFile: true),
+                ),
+              ),
+              const SizedBox(width: 6),
+              IconButton.filled(
+                onPressed: (_sending || !wb.settings.aiEnabled)
+                    ? null
+                    : () => _send(includeFile: true),
+                icon: _sending
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Icon(Icons.send, size: 18),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+

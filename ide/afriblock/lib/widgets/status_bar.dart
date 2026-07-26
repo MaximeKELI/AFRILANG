@@ -59,6 +59,19 @@ class StatusBar extends StatelessWidget {
             style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white70),
           ),
           const SizedBox(width: 12),
+          InkWell(
+            onTap: () => wb.toggleAiChat(),
+            child: Text(
+              wb.aiStatusLabel,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 11.5,
+                color: wb.ai.lastError != null
+                    ? const Color(0xFFFCA5A5)
+                    : (wb.settings.aiEnabled ? Colors.white : Colors.white70),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
           Text(
             tab == null
                 ? 'AFRIBLOCK'
