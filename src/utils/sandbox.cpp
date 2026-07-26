@@ -42,6 +42,54 @@ namespace afrilang {
 
 namespace {
 
+#if !defined(_WIN32)
+// Flutter snap prepends /snap/flutter/.../usr/bin with binutils too old for
+// g++ --gdwarf-5. Strip those entries and prefer host /usr/bin for assembles.
+std::string sanitizeHostToolchainPath(const char* pathEnv) {
+    std::string cleaned;
+    const std::string prefer[] = {"/usr/bin", "/bin", "/usr/local/bin"};
+    auto appendUnique = [&](const std::string& part) {
+        if (part.empty()) return;
+        if (!cleaned.empty()) {
+            // Already present?
+            std::string needle = ":" + part + ":";
+            if ((":" + cleaned + ":").find(needle) != std::string::npos) return;
+        } else if (cleaned == part) {
+            return;
+        }
+        if (!cleaned.empty()) cleaned += ':';
+        cleaned += part;
+    };
+    for (const auto& p : prefer) appendUnique(p);
+    if (pathEnv == nullptr || pathEnv[0] == '\0') return cleaned;
+
+    std::string cur;
+    for (const char* p = pathEnv;; ++p) {
+        if (*p == ':' || *p == '\0') {
+            if (!cur.empty()) {
+                const bool snapFlutter =
+                    cur.find("/snap/flutter/") != std::string::npos ||
+                    cur.find("/snap/dart-sdk/") != std::string::npos;
+                if (!snapFlutter) appendUnique(cur);
+            }
+            cur.clear();
+            if (*p == '\0') break;
+        } else {
+            cur += *p;
+        }
+    }
+    return cleaned;
+}
+
+void ensureHostToolchainPath() {
+    const char* path = std::getenv("PATH");
+    const std::string clean = sanitizeHostToolchainPath(path);
+    if (!clean.empty()) {
+        ::setenv("PATH", clean.c_str(), 1);
+    }
+}
+#endif
+
 std::string readOutputCapped(const std::string& path, std::size_t maxBytes, bool& truncated) {
     std::ifstream in(path, std::ios::binary);
     if (!in) return {};
@@ -488,6 +536,8 @@ int runCommand(const std::vector<std::string>& args,
     if (result.timedOut) return 124;
     return result.exitCode;
 #else
+    // Prefer host binutils over Flutter-snap copies inherited via PATH.
+    ensureHostToolchainPath();
     // Host toolchain (g++/em++) must write temp files — never Landlock the compiler.
     ProcessConfig hostConfig = config;
     hostConfig.applyLandlock = false;

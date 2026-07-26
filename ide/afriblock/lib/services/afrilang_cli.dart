@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import '../models/problem_item.dart';
+import 'process_env.dart';
 
 class CliResult {
   CliResult({
@@ -68,6 +69,7 @@ class AfrilangCli {
       bin,
       args,
       workingDirectory: workingDirectory,
+      environment: ProcessEnv.forHostToolchain(),
       stdoutEncoding: utf8,
       stderrEncoding: utf8,
     );

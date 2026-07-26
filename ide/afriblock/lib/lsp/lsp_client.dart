@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import '../models/problem_item.dart';
+import '../services/process_env.dart';
 
 /// Minimal JSON-RPC LSP client over `afrilang lsp` stdio (Phase B).
 class LspClient {
@@ -21,7 +22,11 @@ class LspClient {
 
   Future<void> start(String binary, {String? rootUri}) async {
     await stop();
-    _proc = await Process.start(binary, ['lsp']);
+    _proc = await Process.start(
+      binary,
+      ['lsp'],
+      environment: ProcessEnv.forHostToolchain(),
+    );
     _proc!.stdout.listen(_onData);
     _proc!.stderr.listen((d) {
       onTrace?.call(utf8.decode(d, allowMalformed: true));

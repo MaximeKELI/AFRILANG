@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import '../services/process_env.dart';
+
 class DebugBreakpoint {
   DebugBreakpoint({required this.path, required this.line, this.enabled = true});
   final String path;
@@ -47,6 +49,7 @@ class DebugService {
         binary,
         args,
         workingDirectory: workingDirectory,
+        environment: ProcessEnv.forHostToolchain(),
       );
       void pipe(Stream<List<int>> s) {
         s.listen((d) {

@@ -4,6 +4,7 @@ import 'dart:io';
 
 import '../models/problem_item.dart';
 import 'afrilang_cli.dart';
+import 'process_env.dart';
 
 class StreamedCliResult {
   StreamedCliResult({
@@ -64,6 +65,7 @@ class BuildService {
       bin,
       args,
       workingDirectory: workingDirectory,
+      environment: ProcessEnv.forHostToolchain(),
       runInShell: false,
     );
     _active = proc;

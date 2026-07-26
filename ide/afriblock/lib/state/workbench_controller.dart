@@ -23,6 +23,7 @@ import '../search/search_service.dart';
 import '../services/afrilang_cli.dart';
 import '../services/build_service.dart';
 import '../services/file_service.dart';
+import '../services/process_env.dart';
 import '../services/settings_store.dart';
 import '../terminal/terminal_service.dart';
 import '../theme/afriblock_theme.dart';
@@ -344,7 +345,11 @@ class WorkbenchController extends ChangeNotifier {
       return;
     }
     try {
-      final r = await Process.run(bin, ['version']);
+      final r = await Process.run(
+        bin,
+        ['version'],
+        environment: ProcessEnv.forHostToolchain(),
+      );
       toolchainVersion = ((r.stdout as String) + (r.stderr as String))
           .trim()
           .split('\n')
@@ -779,7 +784,12 @@ description = "Projet créé avec AFRIBLOCK"
     // Prefer CLI fmt -w for reliability.
     final tmp = tab.path;
     await files.writeFile(tmp, tab.content);
-    final r = await Process.run(bin, ['fmt', tmp, '-w'], workingDirectory: workspaceRoot);
+    final r = await Process.run(
+      bin,
+      ['fmt', tmp, '-w'],
+      workingDirectory: workspaceRoot,
+      environment: ProcessEnv.forHostToolchain(),
+    );
     if (r.exitCode == 0) {
       tab.content = await files.readFile(tmp);
       tab.dirty = tab.content != tab.savedContent;

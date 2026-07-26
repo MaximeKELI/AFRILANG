@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_pty/flutter_pty.dart';
 import 'package:xterm/xterm.dart';
 
+import '../services/process_env.dart';
+
 class TerminalSession {
   TerminalSession({required this.id, required this.title})
       : terminal = Terminal(maxLines: 10000);
@@ -43,7 +45,7 @@ class TerminalService extends ChangeNotifier {
       final pty = Pty.start(
         shell,
         workingDirectory: cwd,
-        environment: Platform.environment,
+        environment: ProcessEnv.forHostToolchain(),
       );
       session.pty = pty;
       pty.output
