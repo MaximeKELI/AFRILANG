@@ -1,0 +1,28 @@
+import "pkg/places/places.afr"
+use places
+import "std/str"
+use str
+
+test "url builders"
+    create u = searchUrl("Lome", "tg")
+    assert contains(u, "nominatim.openstreetmap.org")
+    assert contains(u, "countrycodes=tg")
+    assert contains(u, "format=json")
+    assert contains(searchUrl("Kara", ""), "q=")
+    assert contains(reverseUrl("6.13", "1.22"), "reverse")
+    assert nominatimBase() is equal to "https://nominatim.openstreetmap.org"
+end
+
+test "search parse"
+    create raw = "[{\"display_name\":\"Lomé, Togo\",\"lat\":\"6.1319\",\"lon\":\"1.2228\"}]"
+    assert firstDisplayName(raw) is equal to "Lomé, Togo"
+    assert firstLat(raw) is equal to "6.1319"
+    assert firstLon(raw) is equal to "1.2228"
+    assert firstDisplayName("") is equal to ""
+    assert firstDisplayName("[]") is equal to ""
+end
+
+test "reverse parse"
+    assert reverseDisplayName("{\"display_name\":\"Accra, Ghana\"}") is equal to "Accra, Ghana"
+    assert reverseDisplayName("") is equal to ""
+end

@@ -1,0 +1,26 @@
+import "pkg/geox/geox.afr"
+use geox
+
+test "zero distance"
+    assert distanceKm(6.13, 1.22, 6.13, 1.22) is equal to 0
+    assert distanceM(0, 0, 0, 0) is equal to 0
+end
+
+test "lome accra band"
+    create d = distanceKm(6.1319, 1.2228, 5.6037, -0.1870)
+    assert d is greater than 140
+    assert d is less than 200
+end
+
+test "midpoint and radius"
+    assert midpointLat(0, 10) is equal to 5
+    assert midpointLon(-2, 2) is equal to 0
+    assert withinKm(6.13, 1.22, 6.14, 1.23, 50)
+    assert withinKm(6.13, 1.22, 5.60, -0.19, 50) is equal to false
+end
+
+test "closer and bbox"
+    assert closerThan(6.1319, 1.2228, 5.6037, -0.1870, 6.5244, 3.3792)
+    assert boundingBoxOk(6.13, 1.22, 5.0, 0.0, 7.0, 2.0)
+    assert boundingBoxOk(9.0, 1.22, 5.0, 0.0, 7.0, 2.0) is equal to false
+end

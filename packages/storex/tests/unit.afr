@@ -1,0 +1,24 @@
+import "pkg/storex/storex.afr"
+use storex
+import "std/str"
+use str
+
+test "pipe helpers"
+    assert cols1("name") is equal to "name"
+    assert cols2("name", "city") is equal to "name|city"
+    assert cols3("a", "b", "c") is equal to "a|b|c"
+    assert vals2("x", "y") is equal to "x|y"
+    assert vals3("1", "2", "3") is equal to "1|2|3"
+end
+
+test "sqlite unit"
+    create db = "/tmp/afrilang_storex_unit.db"
+    assert ensureTable(db, "items", "id integer primary key, label text, city text")
+    create id = put(db, "items", cols2("label", "city"), vals2("seed", "Lome"))
+    assert id is greater than -1
+    assert hasRows(db, "items")
+    assert rowCountApprox(db, "items") is greater than 0
+    create all = listAll(db, "items")
+    assert contains(all, "Lome")
+    assert contains(all, "seed")
+end

@@ -1,0 +1,22 @@
+import "pkg/cronish/cronish.afr"
+use cronish
+import "std/str"
+use str
+
+test "due and intervals"
+    create t = parseStamp("2026-01-01T00:00:00Z")
+    create next = everyHours(t, 2)
+    assert isDue(next, next)
+    assert isDue(t, next) is equal to false
+    create day = nextDaily(t)
+    assert isDue(day, day)
+    create later = everyDays(t, 3)
+    assert isDue(later, later)
+end
+
+test "weekday describe"
+    create t = parseStamp("2026-01-01T00:00:00Z")
+    assert weekdayName(t) is equal to "Thu"
+    assert contains(describeDaily(t), "Thu")
+    assert contains(describeDaily(t), "2026")
+end

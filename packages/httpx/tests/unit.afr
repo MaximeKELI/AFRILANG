@@ -1,0 +1,32 @@
+import "pkg/httpx/httpx.afr"
+use httpx
+import "std/str"
+use str
+
+test "bearer and headers"
+    assert bearerHeader("") is equal to ""
+    assert bearerHeader("tok") is equal to "Authorization: Bearer tok\n"
+    assert contains(jsonHeaders(), "application/json")
+    assert contains(jsonAuthHeaders("x"), "Bearer x")
+end
+
+test "query builder"
+    assert withQuery("https://a", "q", "1") is equal to "https://a?q=1"
+    assert withQuery("https://a?x=1", "y", "2") is equal to "https://a?x=1&y=2"
+end
+
+test "json objects"
+    assert object1("k", "v") is equal to "{\"k\":\"v\"}"
+    assert object2("a", "1", "b", "2") is equal to "{\"a\":\"1\",\"b\":\"2\"}"
+    assert object1("q", "say \"hi\"") is equal to "{\"q\":\"say \\\"hi\\\"\"}"
+end
+
+test "field parsers"
+    assert getStringField("{\"status\":\"ok\"}", "status") is equal to "ok"
+    assert getStringField("", "status") is equal to ""
+    assert getBoolField("{\"ok\":true}", "ok")
+    assert getBoolField("{\"ok\":false}", "ok") is equal to false
+    assert looksLikeJson("{\"a\":1}")
+    assert looksLikeJson("[1]")
+    assert looksLikeJson("no") is equal to false
+end

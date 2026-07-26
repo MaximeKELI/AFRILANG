@@ -1,0 +1,26 @@
+import "pkg/jwtish/jwtish.afr"
+use jwtish
+import "std/base64"
+use base64
+
+test "parts"
+    create hdr = encode("{\"alg\":\"none\",\"typ\":\"JWT\"}")
+    create payload = encode("{\"sub\":\"ama\",\"role\":\"user\"}")
+    create token = hdr + "." + payload + ".sig"
+    assert looksLikeJwt(token)
+    assert partCount(token) is equal to 3
+    assert splitPart(token, 0) is equal to hdr
+    assert splitPart(token, 2) is equal to "sig"
+    assert splitPart(token, 9) is equal to ""
+end
+
+test "claims"
+    create hdr = encode("{\"alg\":\"none\",\"typ\":\"JWT\"}")
+    create payload = encode("{\"sub\":\"ama\",\"role\":\"user\"}")
+    create token = hdr + "." + payload + ".sig"
+    assert algOf(token) is equal to "none"
+    assert subOf(token) is equal to "ama"
+    assert claimStr(decodePayloadJson(token), "role") is equal to "user"
+    assert claimStr(decodeHeaderJson(token), "typ") is equal to "JWT"
+    assert looksLikeJwt("a.b") is equal to false
+end

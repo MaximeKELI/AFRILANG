@@ -1,0 +1,30 @@
+import "pkg/pagex/pagex.afr"
+use pagex
+import "std/str"
+use str
+
+test "page math"
+    assert pageCount(95, 20) is equal to 5
+    assert pageCount(100, 20) is equal to 5
+    assert pageCount(101, 20) is equal to 6
+    assert pageCount(0, 20) is equal to 0
+    assert pageCount(10, 0) is equal to 0
+    assert offset(1, 20) is equal to 0
+    assert offset(3, 20) is equal to 40
+    assert offset(0, 20) is equal to 0
+    assert clampPage(0, 5) is equal to 1
+    assert clampPage(9, 5) is equal to 5
+    assert clampPage(3, 5) is equal to 3
+end
+
+test "navigation"
+    assert hasNext(4, 95, 20)
+    assert hasNext(5, 95, 20) is equal to false
+    assert hasPrev(2)
+    assert hasPrev(1) is equal to false
+end
+
+test "meta and links"
+    assert metaJson(2, 20, 95) is equal to "{\"page\":2,\"size\":20,\"total\":95,\"pages\":5,\"offset\":20}"
+    assert contains(linkHeader("https://api/items", 1, 95, 20), "rel=\"next\"")
+end

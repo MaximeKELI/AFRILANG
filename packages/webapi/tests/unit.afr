@@ -1,0 +1,28 @@
+import "pkg/webapi/webapi.afr"
+use webapi
+import "std/str"
+use str
+
+test "json bodies"
+    assert jsonOk() is equal to "{\"ok\":true}"
+    assert jsonStatus("healthy") is equal to "{\"status\":\"healthy\"}"
+    assert jsonError("boom") is equal to "{\"ok\":false,\"error\":\"boom\"}"
+    assert jsonMessage("city", "Lome") is equal to "{\"city\":\"Lome\"}"
+    assert notFoundJson() is equal to "{\"ok\":false,\"error\":\"not_found\"}"
+    assert contains(corsHeaders(), "Access-Control-Allow-Origin")
+end
+
+test "router defaults"
+    create router = makeHealthRouter()
+    assert get(router, "/") is equal to "{\"ok\":true}"
+    assert get(router, "/health") is equal to "{\"status\":\"healthy\"}"
+    assert get(router, "/ready") is equal to "{\"status\":\"ready\"}"
+end
+
+test "custom routes"
+    create router = makeHealthRouter()
+    set router = addJsonGet(router, "/api/ping", jsonMessage("pong", "1"))
+    set router = addJsonPost(router, "/api/echo", jsonOk())
+    assert get(router, "/api/ping") is equal to "{\"pong\":\"1\"}"
+    assert post(router, "/api/echo") is equal to "{\"ok\":true}"
+end

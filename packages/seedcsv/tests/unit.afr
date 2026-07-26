@@ -1,0 +1,24 @@
+import "pkg/seedcsv/seedcsv.afr"
+use seedcsv
+import "std/str"
+use str
+
+test "headers"
+    assert headerUsers() is equal to "id,name,city"
+    assert headerTx() is equal to "id,msisdn,amount_xof"
+    assert headerMarkets() is equal to "id,name,city"
+    assert row3("1", "a", "b") is equal to "1,a,b"
+end
+
+test "demo datasets"
+    create u = demoUsers()
+    assert startsWith(u, "id,name,city")
+    assert contains(u, "Lome")
+    assert contains(u, "Dakar")
+    assert dataRows(u) is equal to 3
+    assert lineCount(u) is equal to 4
+    assert dataRows(demoTxXof()) is equal to 2
+    assert contains(demoTxXof(), "+221")
+    assert contains(demoMarkets(), "Sandaga")
+    assert contains(demoMarkets(), "Grand Marche")
+end

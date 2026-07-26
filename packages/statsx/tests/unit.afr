@@ -1,0 +1,31 @@
+import "pkg/statsx/statsx.afr"
+use statsx
+
+test "descriptive"
+    create vals = list of 1, 2, 3, 4, 5
+    assert avg(vals) is equal to 3
+    assert mid(vals) is equal to 3
+    assert spread(vals) is greater than 0
+end
+
+test "even median"
+    create vals = list of 1, 2, 3, 4
+    create m = mid(vals)
+    assert m is greater than 2
+    assert m is less than 3.1
+end
+
+test "linreg exact"
+    create xs = list of 1, 2, 3, 4
+    create ys = list of 2, 4, 6, 8
+    assert slope(xs, ys) is equal to 2
+    assert intercept(xs, ys) is equal to 0
+    assert predict(xs, ys, 5) is equal to 10
+    assert predict(xs, ys, 0) is equal to 0
+end
+
+test "smooth length"
+    create vals = list of 1, 2, 3, 4, 5
+    create s = smooth(vals, 3)
+    assert length of s is greater than 0
+end

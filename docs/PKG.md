@@ -196,9 +196,15 @@ plages, log textuel). Lister : `afrilang pkg list --blessed`.
 | IA / LLM | `llmx` | `ai`, `llm` |
 | Lib / util | `resultx`, `optionx`, `uuid`, `semverx`, `backoff` | `lib`, `util` |
 
-Paquets **métier** : wrappers AFRILANG sur stdlib réelle (HTTP, CSV/JSON, web, SQL,
-crypto HMAC, datetime, stats, téléphonie AO). Démos :
-`examples/apps/pkg_metier_demo` (`main`, `metier2`, `metier3`, `storex_demo`).
+Paquets **métier** (liste canonique : `packages/metier.json`) : wrappers sur stdlib réelle.
+Tests : chaque paquet a `tests/smoke.afr` + `tests/unit.afr`.
+
+```bash
+bash scripts/check_metier_quality.sh
+bash scripts/test_metier_packages.sh
+```
+
+Démos : `examples/apps/pkg_metier_demo` (`main`, `metier2`, `metier3`, `storex_demo`).
 
 Les manifests portent `license = "MIT"` et `tags = [...]` ; `afrilang pkg reindex`
 propage ces champs dans `packages/index.json` et `site/packages.json`.

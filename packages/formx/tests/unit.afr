@@ -1,0 +1,24 @@
+import "pkg/formx/formx.afr"
+use formx
+import "std/str"
+use str
+
+test "content type"
+    assert contentType() is equal to "application/x-www-form-urlencoded"
+end
+
+test "encode pairs"
+    assert encodePair("a", "1") is equal to "a=1"
+    assert contains(encodePair("q", "hello world"), "=")
+    create body = encodeForm2("city", "Lome", "amount", "5000")
+    assert getField(body, "city") is equal to "Lome"
+    assert getField(body, "amount") is equal to "5000"
+    assert hasField(body, "city")
+    assert hasField(body, "missing") is equal to false
+end
+
+test "encode3"
+    create body = encodeForm3("a", "1", "b", "2", "c", "3")
+    assert getField(body, "a") is equal to "1"
+    assert getField(body, "c") is equal to "3"
+end

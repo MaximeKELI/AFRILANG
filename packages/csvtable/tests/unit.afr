@@ -1,0 +1,25 @@
+import "pkg/csvtable/csvtable.afr"
+use csvtable
+
+test "structure"
+    create csv = "ville,pop\nLome,2000000\nKara,100000"
+    assert rowCount(csv) is equal to 3
+    assert dataRowCount(csv) is equal to 2
+    assert headerLine(csv) is equal to "ville,pop"
+    assert hasHeader(csv, "ville,pop")
+    assert hasHeader(csv, "nope") is equal to false
+end
+
+test "cells"
+    create csv = "ville,pop\nLome,2000000\nKara,100000"
+    assert cell(csv, 1, 0) is equal to "Lome"
+    assert cell(csv, 2, 1) is equal to "100000"
+    assert fieldAt("a,b,c", 0) is equal to "a"
+    assert fieldAt("a,b,c", 2) is equal to "c"
+    assert fieldAt("a,b", 5) is equal to ""
+    assert rowAt(csv, 0) is equal to "ville,pop"
+end
+
+test "join"
+    assert joinRow3("a", "b", "c") is equal to "a,b,c"
+end

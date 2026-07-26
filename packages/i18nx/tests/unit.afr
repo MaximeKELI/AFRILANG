@@ -1,0 +1,27 @@
+import "pkg/i18nx/i18nx.afr"
+use i18nx
+
+test "locale picking"
+    assert localeTag("FR") is equal to "fr"
+    assert localeTag("en") is equal to "en"
+    assert localeTag("wo") is equal to "wo"
+    assert localeTag("es") is equal to "fr"
+    assert pickLang("en", "fr,en,wo") is equal to "en"
+    assert pickLang("es", "fr,en") is equal to "fr"
+    assert withFallback("", "x") is equal to "x"
+    assert withFallback("y", "x") is equal to "y"
+end
+
+test "phrases fr en wo"
+    assert tHello("fr") is equal to "Bonjour"
+    assert tHello("en") is equal to "Hello"
+    assert tHello("wo") is equal to "Salaam"
+    assert tThanks("fr") is equal to "Merci"
+    assert tThanks("en") is equal to "Thank you"
+    assert tThanks("wo") is equal to "Jërejëf"
+    assert tYes("wo") is equal to "Waaw"
+    assert tNo("wo") is equal to "Déedéet"
+    assert tMarket("en") is equal to "Market"
+    assert labelXof("fr") is equal to "FCFA"
+    assert labelXof("en") is equal to "XOF"
+end

@@ -1,0 +1,29 @@
+import "pkg/phonex/phonex.afr"
+use phonex
+
+test "senegal variants"
+    assert toE164Sn("77 123 45 67") is equal to "+221771234567"
+    assert toE164Sn("+221771234567") is equal to "+221771234567"
+    assert toE164Sn("0771234567") is equal to "+221771234567"
+    assert toE164Sn("221771234567") is equal to "+221771234567"
+    assert countryHint("+221771234567") is equal to "SN"
+    assert isLikelyMobileSn("+221771234567")
+    assert isLikelyMobileSn("+221781234567")
+    assert isLikelyMobileSn("+221701234567")
+end
+
+test "neighbors"
+    assert toE164Ci("0700000000") is equal to "+225700000000"
+    assert toE164Ci("2250700000000") is equal to "+2250700000000"
+    assert toE164Tg("90123456") is equal to "+22890123456"
+    assert toE164Bj("97000000") is equal to "+22997000000"
+    assert countryHint("+22890123456") is equal to "TG"
+    assert countryHint("+225700000000") is equal to "CI"
+    assert countryHint("+22997000000") is equal to "BJ"
+    assert countryHint("+33") is equal to ""
+end
+
+test "mask"
+    assert mask("+221771234567") is equal to "****4567"
+    assert mask("12") is equal to "****"
+end

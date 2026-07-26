@@ -1,0 +1,29 @@
+import "pkg/deployx/deployx.afr"
+use deployx
+import "std/str"
+use str
+
+test "procfile texts"
+    assert contains(procfileWeb("./server"), "web:")
+    assert contains(procfileWorker("./worker"), "worker:")
+end
+
+test "health urls"
+    assert healthUrl("https://app.example") is equal to "https://app.example/health"
+    assert healthUrl("https://app.example/") is equal to "https://app.example/health"
+    assert healthLooksOk("healthy")
+    assert healthLooksOk("fail") is equal to false
+end
+
+test "ops hints"
+    assert contains(dockerfileHint("api"), "FROM")
+    assert contains(envLine("PORT", "8080"), "PORT=")
+    assert contains(composeService("api", "img", "8080"), "services:")
+    assert contains(nginxProxyHint("app.example", "8080"), "proxy_pass")
+    assert contains(signedWebhookHeaders("abc"), "X-Signature:")
+end
+
+test "write procfile file"
+    create path = "/tmp/afrilang_deployx_unit_Procfile"
+    assert writeProcfile(path, "./api")
+end
