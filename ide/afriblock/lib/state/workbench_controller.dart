@@ -21,7 +21,9 @@ import '../models/problem_item.dart';
 import '../models/workspace_node.dart';
 import '../plugins/plugin_host.dart';
 import '../project/project_service.dart';
+import '../project/project_templates.dart';
 import '../project/test_explorer.dart';
+import '../project/workspace_model.dart';
 import '../search/search_service.dart';
 import '../services/afrilang_cli.dart';
 import '../services/build_service.dart';
@@ -83,6 +85,7 @@ class WorkbenchController extends ChangeNotifier {
   final TerminalService terminals = TerminalService();
   final PluginHost plugins = PluginHost();
   final AiAssistService ai = AiAssistService();
+  final WorkspaceModel workspace = WorkspaceModel();
 
   late final AfrilangCli cli;
   late final BuildService build;
@@ -96,6 +99,12 @@ class WorkbenchController extends ChangeNotifier {
   bool ready = false;
   String? workspaceRoot;
   WorkspaceNode? rootNode;
+  List<WorkspaceNode> folderRoots = [];
+  bool blameEnabled = false;
+  List<GitBlameLine> blameLines = [];
+  Set<int> dirtyLines = {};
+  List<SearchHit> referenceHits = [];
+  String? gitCommitMessage;
   /// Last clicked explorer path (file or folder) — used as create target.
   String? explorerSelection;
   final List<EditorTab> tabs = [];
@@ -170,6 +179,9 @@ class WorkbenchController extends ChangeNotifier {
   }
 
   Future<void> init() async {
+    debug.onChanged = () {
+      notifyListeners();
+    };
     await settings.load();
     themeMode = settings.themeMode;
     syncAiConfig();
@@ -348,11 +360,93 @@ class WorkbenchController extends ChangeNotifier {
         run: (wb) => wb.startDebug(),
       ),
       IdeCommandDef(
+        id: 'debug.continue',
+        label: 'Debug: Continue',
+        shortcut: 'F5',
+        category: 'Debug',
+        run: (wb) => wb.debugContinue(),
+      ),
+      IdeCommandDef(
+        id: 'debug.stepOver',
+        label: 'Debug: Step Over',
+        shortcut: 'F10',
+        category: 'Debug',
+        run: (wb) => wb.debugStepOver(),
+      ),
+      IdeCommandDef(
+        id: 'debug.stepInto',
+        label: 'Debug: Step Into',
+        shortcut: 'F11',
+        category: 'Debug',
+        run: (wb) => wb.debugStepInto(),
+      ),
+      IdeCommandDef(
+        id: 'debug.stepOut',
+        label: 'Debug: Step Out',
+        shortcut: 'Shift+F11',
+        category: 'Debug',
+        run: (wb) => wb.debugStepOut(),
+      ),
+      IdeCommandDef(
+        id: 'debug.stop',
+        label: 'Debug: Stop',
+        category: 'Debug',
+        run: (wb) => wb.stopDebug(),
+      ),
+      IdeCommandDef(
         id: 'editor.gotoDefinition',
         label: 'Go to Definition',
         shortcut: 'F12',
         category: 'Navigation',
         run: (wb) => wb.goToDefinitionAtCaret(),
+      ),
+      IdeCommandDef(
+        id: 'editor.renameSymbol',
+        label: 'Rename Symbol…',
+        shortcut: 'F2',
+        category: 'Edit',
+        run: (wb) async {
+          wb.statusMessage = 'Utilisez F2 / Edit → Rename Symbol';
+          wb.notifyListeners();
+        },
+      ),
+      IdeCommandDef(
+        id: 'editor.findReferences',
+        label: 'Find References',
+        category: 'Navigation',
+        run: (wb) => wb.findReferencesAtCaret(),
+      ),
+      IdeCommandDef(
+        id: 'git.commit',
+        label: 'Git: Commit',
+        category: 'Git',
+        run: (wb) async {
+          final msg = wb.gitCommitMessage?.trim() ?? '';
+          if (msg.isEmpty) {
+            wb.statusMessage = 'Entrez un message de commit dans Source Control';
+            wb.notifyListeners();
+            return;
+          }
+          await wb.commitWithMessage(msg);
+        },
+      ),
+      IdeCommandDef(
+        id: 'git.showDiff',
+        label: 'Git: Show Diff',
+        category: 'Git',
+        run: (wb) => wb.showActiveDiff(),
+      ),
+      IdeCommandDef(
+        id: 'git.toggleBlame',
+        label: 'Git: Toggle Blame',
+        category: 'Git',
+        run: (wb) => wb.toggleBlame(),
+      ),
+      IdeCommandDef(
+        id: 'file.addFolderToWorkspace',
+        label: 'File: Add Folder to Workspace…',
+        category: 'File',
+        run: (wb) => wb.addFolderToWorkspace(),
       ),
       IdeCommandDef(
         id: 'editor.showHover',
@@ -555,28 +649,39 @@ class WorkbenchController extends ChangeNotifier {
     final portal = isDocumentPortalPath(picked) || isDocumentPortalPath(folder);
 
     try {
-      rootNode = await files.loadTree(folder);
-      workspaceRoot = folder;
-      explorerSelection = folder;
-      await projects.detect(folder);
+      final loaded = await WorkspaceModel.loadBeside(folder);
+      if (loaded != null && loaded.folders.isNotEmpty) {
+        workspace.folders
+          ..clear()
+          ..addAll(loaded.folders);
+        workspace.activeIndex = loaded.activeIndex.clamp(0, loaded.folders.length - 1);
+      } else {
+        workspace.replaceAll([folder]);
+      }
+      await _reloadFolderRoots();
+      workspaceRoot = workspace.primaryPath;
+      explorerSelection = workspaceRoot;
+      final primary = workspaceRoot!;
+      await projects.detect(primary);
       try {
-        await settings.pushRecent(folder);
+        await settings.pushRecent(primary);
       } catch (_) {
         // SharedPreferences unavailable in some test / headless contexts.
       }
-      await _indexFiles(folder);
-      await tests.discover(folder);
-      await git.refresh(folder);
-      await _startLsp(folder);
-      events.emit(WorkspaceOpenedEvent(folder));
+      await _indexAllFolders();
+      await tests.discover(primary);
+      await git.refresh(primary);
+      await _startLsp(primary);
+      await workspace.save();
+      events.emit(WorkspaceOpenedEvent(primary));
       final proj = projects.project;
       statusMessage = proj == null
-          ? 'Opened $folder (no afrilang.toml)'
+          ? 'Opened $primary (no afrilang.toml)'
           : 'Project ${proj.name} — ${proj.main ?? "no main"}';
       appendOutput(
         proj == null
-            ? 'Opened workspace: $folder\n'
-            : 'Opened project ${proj.name} ($folder)\nmain=${proj.main} output=${proj.output}\n',
+            ? 'Opened workspace: $primary\n'
+            : 'Opened project ${proj.name} ($primary)\nmain=${proj.main} output=${proj.output}\n',
       );
       if (portal) {
         final examples = suggestAfrilangExamplesDir(
@@ -598,6 +703,57 @@ class WorkbenchController extends ChangeNotifier {
     }
   }
 
+  Future<void> _reloadFolderRoots() async {
+    final trees = <WorkspaceNode>[];
+    for (final f in workspace.folders) {
+      try {
+        trees.add(await files.loadTree(f.path));
+      } catch (_) {}
+    }
+    folderRoots = trees;
+    rootNode = trees.isEmpty ? null : trees.first;
+    workspaceRoot = workspace.primaryPath;
+  }
+
+  Future<void> _indexAllFolders() async {
+    workspaceFiles.clear();
+    for (final f in workspace.folders) {
+      await _indexFiles(f.path, append: true);
+    }
+  }
+
+  Future<void> addFolderToWorkspace([String? path]) async {
+    String? folder = path;
+    if (folder == null || folder.isEmpty) {
+      folder = await FilePicker.platform.getDirectoryPath(
+        dialogTitle: 'Add Folder to Workspace — AFRIBLOCK',
+      );
+    }
+    if (folder == null) return;
+    folder = await resolveWorkspacePath(folder);
+    if (!await Directory(folder).exists()) {
+      statusMessage = 'Dossier introuvable: $folder';
+      notifyListeners();
+      return;
+    }
+    if (workspace.isEmpty) {
+      await openFolder(folder);
+      return;
+    }
+    workspace.addFolder(folder);
+    await _reloadFolderRoots();
+    await _indexAllFolders();
+    await workspace.save();
+    statusMessage = 'Added folder ${p.basename(folder)}';
+    notifyListeners();
+  }
+
+  Future<void> saveWorkspace() async {
+    await workspace.save();
+    statusMessage = 'Workspace saved';
+    notifyListeners();
+  }
+
   /// Opens the toolchain `examples/` directory (real path, not portal).
   Future<void> openAfrilangExamples() async {
     final bin = await settings.resolveAfrilangBinary();
@@ -615,6 +771,7 @@ class WorkbenchController extends ChangeNotifier {
   Future<String> createNewProject({
     required String name,
     required String parentDir,
+    String templateId = 'app',
   }) async {
     final err = PathNameRules.validateSegment(name, isFolder: true);
     if (err != null) throw StateError(err);
@@ -627,20 +784,28 @@ class WorkbenchController extends ChangeNotifier {
       throw StateError('Le dossier existe déjà: $root');
     }
     await Directory(p.join(root, 'src')).create(recursive: true);
+    final tmpl = projectTemplateById(templateId);
     final toml = '''
 name = "$name"
 version = "0.1.0"
 main = "src/main.afr"
 output = "build/$name"
 description = "Projet créé avec AFRIBLOCK"
-''';
+${tmpl.tomlExtra}''';
     await files.writeFile(p.join(root, 'afrilang.toml'), toml);
     await files.writeFile(
       p.join(root, 'src', 'main.afr'),
-      '// $name — entrée principale\nsay "Hello from $name"\n',
+      expandProjectTemplate(tmpl.mainSource, name),
     );
+    if (tmpl.id == 'test') {
+      await Directory(p.join(root, 'tests')).create(recursive: true);
+      await files.writeFile(
+        p.join(root, 'tests', 'smoke.afr'),
+        '// smoke\nsay add(1, 1)\n',
+      );
+    }
     await openFolder(root);
-    statusMessage = 'Projet créé: $name';
+    statusMessage = 'Projet créé: $name (${tmpl.label})';
     notifyListeners();
     return root;
   }
@@ -664,8 +829,8 @@ description = "Projet créé avec AFRIBLOCK"
     notifyListeners();
   }
 
-  Future<void> _indexFiles(String root) async {
-    workspaceFiles.clear();
+  Future<void> _indexFiles(String root, {bool append = false}) async {
+    if (!append) workspaceFiles.clear();
     final dir = Directory(root);
     await for (final ent in dir.list(recursive: true, followLinks: false)) {
       if (ent is! File) continue;
@@ -713,8 +878,11 @@ description = "Projet créé avec AFRIBLOCK"
   }
 
   Future<void> refreshExplorer() async {
-    final root = workspaceRoot;
-    if (root == null) return;
+    if (workspace.folders.isEmpty) {
+      final root = workspaceRoot;
+      if (root == null) return;
+      workspace.replaceAll([root]);
+    }
     final expanded = <String>{};
     void collect(WorkspaceNode? n) {
       if (n == null) return;
@@ -724,8 +892,11 @@ description = "Projet créé avec AFRIBLOCK"
       }
     }
 
+    for (final r in folderRoots) {
+      collect(r);
+    }
     collect(rootNode);
-    rootNode = await files.loadTree(root);
+    await _reloadFolderRoots();
     void restore(WorkspaceNode n) {
       if (expanded.contains(n.path)) n.expanded = true;
       for (final c in n.children) {
@@ -733,8 +904,10 @@ description = "Projet créé avec AFRIBLOCK"
       }
     }
 
-    if (rootNode != null) restore(rootNode!);
-    await _indexFiles(root);
+    for (final r in folderRoots) {
+      restore(r);
+    }
+    await _indexAllFolders();
     notifyListeners();
   }
 
@@ -1280,6 +1453,15 @@ description = "Projet créé avec AFRIBLOCK"
     setBottomTab(BottomTab.debugConsole);
     sidebarView = SidebarView.debug;
     sidebarVisible = true;
+    debug.onChanged = () {
+      notifyListeners();
+      if (debug.paused && debug.frames.isNotEmpty) {
+        final top = debug.frames.first;
+        if (top.file.isNotEmpty) {
+          openFile(top.file, line: top.line);
+        }
+      }
+    };
     notifyListeners();
     await debug.launch(
       binary: bin,
@@ -1293,8 +1475,224 @@ description = "Projet créé avec AFRIBLOCK"
     notifyListeners();
   }
 
+  Future<void> debugContinue() async {
+    await debug.continueExec();
+    notifyListeners();
+    await _openTopDebugFrameIfPaused();
+  }
+
+  Future<void> debugStepOver() async {
+    await debug.stepOver();
+    notifyListeners();
+    await _openTopDebugFrameIfPaused();
+  }
+
+  Future<void> debugStepInto() async {
+    await debug.stepInto();
+    notifyListeners();
+    await _openTopDebugFrameIfPaused();
+  }
+
+  Future<void> debugStepOut() async {
+    await debug.stepOut();
+    notifyListeners();
+    await _openTopDebugFrameIfPaused();
+  }
+
+  Future<void> stopDebug() async {
+    await debug.stop();
+    notifyListeners();
+  }
+
+  Future<void> _openTopDebugFrameIfPaused() async {
+    if (!debug.paused || debug.frames.isEmpty) return;
+    final top = debug.frames.first;
+    if (top.file.isEmpty) return;
+    await openFile(top.file, line: top.line);
+  }
+
   void toggleBreakpointAt(String path, int line) {
     debug.toggleBreakpoint(path, line);
+    notifyListeners();
+  }
+
+  Future<void> showActiveDiff() async {
+    final root = workspaceRoot;
+    if (root == null) {
+      statusMessage = 'No workspace';
+      notifyListeners();
+      return;
+    }
+    final file = activeTab?.path;
+    final text = await git.diff(root, file: file);
+    setBottomTab(BottomTab.output);
+    appendOutput(text.isEmpty ? '(no diff)\n' : '$text\n');
+    statusMessage = file == null ? 'Diff (workspace)' : 'Diff ${relativePath(file)}';
+    notifyListeners();
+  }
+
+  Future<void> commitWithMessage(String msg) async {
+    final root = workspaceRoot;
+    if (root == null) {
+      statusMessage = 'No workspace';
+      notifyListeners();
+      return;
+    }
+    final trimmed = msg.trim();
+    if (trimmed.isEmpty) {
+      statusMessage = 'Empty commit message';
+      notifyListeners();
+      return;
+    }
+    gitCommitMessage = trimmed;
+    final code = await git.commit(root, trimmed);
+    await git.refresh(root);
+    statusMessage = code == 0 ? 'Committed' : 'Commit failed (exit $code)';
+    if (code == 0) gitCommitMessage = null;
+    notifyListeners();
+  }
+
+  Future<void> stagePath(String path) async {
+    final root = workspaceRoot;
+    if (root == null) return;
+    await git.stage(root, path);
+    await git.refresh(root);
+    statusMessage = 'Staged ${relativePath(path)}';
+    notifyListeners();
+  }
+
+  Future<void> toggleBlame() async {
+    blameEnabled = !blameEnabled;
+    if (blameEnabled) {
+      await refreshBlameForActive();
+    } else {
+      blameLines = [];
+      notifyListeners();
+    }
+  }
+
+  Future<void> refreshBlameForActive() async {
+    final root = workspaceRoot;
+    final tab = activeTab;
+    if (!blameEnabled || root == null || tab == null) {
+      blameLines = [];
+      notifyListeners();
+      return;
+    }
+    blameLines = await git.blame(root, tab.path);
+    notifyListeners();
+  }
+
+  Future<void> refreshDirtyLinesForActive() async {
+    final root = workspaceRoot;
+    final tab = activeTab;
+    if (root == null || tab == null) {
+      dirtyLines = {};
+      notifyListeners();
+      return;
+    }
+    dirtyLines = await git.changedLines(root, tab.path);
+    notifyListeners();
+  }
+
+  Future<void> renameSymbolAtCaret(String newName) async {
+    final tab = activeTab;
+    final name = newName.trim();
+    if (tab == null || name.isEmpty) return;
+    if (!lsp.ready) {
+      statusMessage = 'LSP not ready for rename';
+      notifyListeners();
+      return;
+    }
+    final pos = TextOps.lineColAt(tab.content, editorCaret);
+    final edit = await lsp.rename(
+      File(tab.path).uri.toString(),
+      pos.line,
+      pos.character,
+      name,
+    );
+    if (edit == null || edit.changes.isEmpty) {
+      statusMessage =
+          'Rename failed${lsp.lastError != null ? ": ${lsp.lastError}" : ""}';
+      notifyListeners();
+      return;
+    }
+    for (final entry in edit.changes.entries) {
+      final path = entry.key.startsWith('file://')
+          ? Uri.parse(entry.key).toFilePath()
+          : entry.key;
+      final openIdx = tabs.indexWhere((t) => p.equals(t.path, path));
+      if (openIdx >= 0) {
+        final t = tabs[openIdx];
+        final next = _applyLspEdits(t.content, entry.value);
+        t.applyExternalEdit(next);
+        await files.writeFile(t.path, t.content);
+        t.markSaved();
+        await lsp.didChange(File(t.path).uri.toString(), t.content, t.contentRevision);
+      } else if (await File(path).exists()) {
+        final content = await files.readFile(path);
+        final next = _applyLspEdits(content, entry.value);
+        await files.writeFile(path, next);
+      }
+    }
+    statusMessage = 'Renamed → $name';
+    notifyListeners();
+  }
+
+  static String _applyLspEdits(String content, List<LspTextEdit> edits) {
+    final sorted = List<LspTextEdit>.from(edits)
+      ..sort((a, b) {
+        final byLine = b.endLine.compareTo(a.endLine);
+        if (byLine != 0) return byLine;
+        return b.endCharacter.compareTo(a.endCharacter);
+      });
+    var out = content;
+    for (final e in sorted) {
+      final start = TextOps.offsetAtLine(out, e.startLine, column: e.startCharacter);
+      final end = TextOps.offsetAtLine(out, e.endLine, column: e.endCharacter);
+      final s = start.clamp(0, out.length);
+      final en = end.clamp(s, out.length);
+      out = out.substring(0, s) + e.newText + out.substring(en);
+    }
+    return out;
+  }
+
+  Future<void> findReferencesAtCaret() async {
+    final tab = activeTab;
+    if (tab == null) return;
+    final pos = TextOps.lineColAt(tab.content, editorCaret);
+    final locs = lsp.ready
+        ? await lsp.references(
+            File(tab.path).uri.toString(),
+            pos.line,
+            pos.character,
+          )
+        : <LspLocation>[];
+    final hits = <SearchHit>[];
+    for (final loc in locs) {
+      final path = loc.uri.startsWith('file://')
+          ? Uri.parse(loc.uri).toFilePath()
+          : loc.uri;
+      hits.add(SearchHit(
+        path: path,
+        line: loc.line,
+        column: loc.column ?? 1,
+        preview: '${p.basename(path)}:${loc.line}',
+      ));
+    }
+    if (hits.isEmpty) {
+      final word = TextOps.wordAt(tab.content, editorCaret);
+      statusMessage = word.isEmpty ? 'No references' : 'No references for "$word"';
+      referenceHits = [];
+      notifyListeners();
+      return;
+    }
+    referenceHits = hits;
+    searchHits = hits;
+    searchQuery = TextOps.wordAt(tab.content, editorCaret);
+    sidebarView = SidebarView.search;
+    sidebarVisible = true;
+    statusMessage = '${hits.length} reference(s)';
     notifyListeners();
   }
 
@@ -1377,6 +1775,14 @@ description = "Projet créé avec AFRIBLOCK"
   }
 
   String relativePath(String absolute) {
+    final normAbs = p.normalize(absolute);
+    for (final f in workspace.folders) {
+      final normRoot = p.normalize(f.path);
+      if (normAbs == normRoot ||
+          normAbs.startsWith('$normRoot${p.separator}')) {
+        return p.relative(absolute, from: f.path);
+      }
+    }
     final root = workspaceRoot;
     if (root == null) return absolute;
     return p.relative(absolute, from: root);

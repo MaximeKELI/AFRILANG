@@ -50,6 +50,8 @@ class LspClient {
           'references': {},
           'documentSymbol': {},
           'formatting': {},
+          'rename': {},
+          'references': {},
         },
       },
     });
@@ -160,6 +162,78 @@ class LspClient {
       lastError = '$e';
       return null;
     }
+  }
+
+  Future<List<LspLocation>> references(String uri, int line, int character) async {
+    if (!ready) return [];
+    try {
+      final res = await _request('textDocument/references', {
+        'textDocument': {'uri': uri},
+        'position': {'line': line, 'character': character},
+        'context': {'includeDeclaration': true},
+      });
+      final result = res['result'];
+      if (result is! List) return [];
+      final out = <LspLocation>[];
+      for (final e in result) {
+        if (e is Map) {
+          final loc = parseDefinitionResult(e);
+          if (loc != null) out.add(loc);
+        }
+      }
+      return out;
+    } catch (e) {
+      lastError = '$e';
+      return [];
+    }
+  }
+
+  Future<LspWorkspaceEdit?> rename(
+    String uri,
+    int line,
+    int character,
+    String newName,
+  ) async {
+    if (!ready) return null;
+    try {
+      final res = await _request('textDocument/rename', {
+        'textDocument': {'uri': uri},
+        'position': {'line': line, 'character': character},
+        'newName': newName,
+      });
+      return parseWorkspaceEdit(res['result']);
+    } catch (e) {
+      lastError = '$e';
+      return null;
+    }
+  }
+
+  static LspWorkspaceEdit? parseWorkspaceEdit(Object? result) {
+    if (result is! Map) return null;
+    final changes = <String, List<LspTextEdit>>{};
+    final rawChanges = result['changes'];
+    if (rawChanges is Map) {
+      rawChanges.forEach((uri, edits) {
+        if (edits is! List) return;
+        final list = <LspTextEdit>[];
+        for (final e in edits) {
+          if (e is! Map) continue;
+          final range = e['range'] as Map?;
+          final start = range?['start'] as Map?;
+          final end = range?['end'] as Map?;
+          list.add(LspTextEdit(
+            startLine: ((start?['line'] as num?)?.toInt() ?? 0) + 1,
+            startCharacter: ((start?['character'] as num?)?.toInt() ?? 0) + 1,
+            endLine: ((end?['line'] as num?)?.toInt() ?? 0) + 1,
+            endCharacter: ((end?['character'] as num?)?.toInt() ?? 0) + 1,
+            newText: e['newText']?.toString() ?? '',
+          ));
+        }
+        changes[uri.toString()] = list;
+      });
+    }
+    if (changes.isEmpty) return null;
+    return LspWorkspaceEdit(changes: changes);
   }
 
   /// Extract markdown/plaintext from a Hover result.
@@ -323,6 +397,26 @@ class LspLocation {
   final String uri;
   final int line;
   final int? column;
+}
+
+class LspTextEdit {
+  LspTextEdit({
+    required this.startLine,
+    required this.startCharacter,
+    required this.endLine,
+    required this.endCharacter,
+    required this.newText,
+  });
+  final int startLine;
+  final int startCharacter;
+  final int endLine;
+  final int endCharacter;
+  final String newText;
+}
+
+class LspWorkspaceEdit {
+  LspWorkspaceEdit({required this.changes});
+  final Map<String, List<LspTextEdit>> changes;
 }
 
 /// Local outline fallback when LSP symbols are empty.
