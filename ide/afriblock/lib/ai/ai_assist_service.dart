@@ -108,11 +108,20 @@ class AiAssistService {
     }
   }
 
-  Future<String> chat(String userMessage, {String? fileContext}) async {
+  Future<String> chat(
+    String userMessage, {
+    String? fileContext,
+    String? projectContext,
+  }) async {
     if (!config.enabled) {
       throw StateError('AI disabled — enable it in Settings');
     }
     final remote = _remote();
+    final contextBlob = [
+      if (projectContext != null && projectContext.isNotEmpty) projectContext,
+      if (fileContext != null && fileContext.isNotEmpty) fileContext,
+    ].join('\n\n');
+
     if (remote == null) {
       busy = true;
       lastError = null;
@@ -124,13 +133,13 @@ class AiAssistService {
           ));
         }
         final buf = StringBuffer(userMessage);
-        if (fileContext != null && fileContext.isNotEmpty) {
-          buf.writeln('\n\n--- Current file ---\n$fileContext');
+        if (contextBlob.isNotEmpty) {
+          buf.writeln('\n\n--- Context ---\n$contextBlob');
         }
         chatLog.add(AiChatMessage(role: 'user', content: buf.toString()));
         final reply = LocalAfrSuggest.chatReply(
           userMessage,
-          fileContext: fileContext,
+          fileContext: contextBlob.isEmpty ? fileContext : contextBlob,
         );
         chatLog.add(AiChatMessage(role: 'assistant', content: reply));
         return reply;
@@ -146,23 +155,24 @@ class AiAssistService {
           role: 'system',
           content:
               'You are AFRIBLOCK AI for AFRILANG. Be concise. Prefer AFRILANG code. '
-              'When proposing code, use fenced ```afrilang blocks.',
+              'When proposing code, use fenced ```afrilang blocks. '
+              'For fixes, return the FULL corrected file in one ```afrilang block when possible. '
+              'You may receive afrilang.toml, open editors, and diagnostics as context.',
         ));
       }
       final buf = StringBuffer(userMessage);
-      if (fileContext != null && fileContext.isNotEmpty) {
-        buf.writeln('\n\n--- Current file ---\n$fileContext');
+      if (contextBlob.isNotEmpty) {
+        buf.writeln('\n\n--- Context ---\n$contextBlob');
       }
       chatLog.add(AiChatMessage(role: 'user', content: buf.toString()));
-      final reply = await remote.chat(List.of(chatLog), maxTokens: 900);
+      final reply = await remote.chat(List.of(chatLog), maxTokens: 1200);
       chatLog.add(AiChatMessage(role: 'assistant', content: reply));
       return reply;
     } catch (e) {
       lastError = e.toString();
-      // Offline fallback for chat
       final reply = LocalAfrSuggest.chatReply(
         userMessage,
-        fileContext: fileContext,
+        fileContext: contextBlob.isEmpty ? fileContext : contextBlob,
       );
       chatLog.add(AiChatMessage(
         role: 'assistant',
@@ -176,7 +186,7 @@ class AiAssistService {
 
   void clearChat() => chatLog.clear();
 
-  /// Extract first fenced code block from assistant reply (for Insert).
+  /// Extract first fenced code block from assistant reply (for Insert / Replace).
   static String? extractCodeBlock(String reply) {
     final m = RegExp(
       r'```(?:afrilang|afr)?\s*\n([\s\S]*?)\n```',
@@ -185,5 +195,18 @@ class AiAssistService {
     if (m != null) return m.group(1);
     final any = RegExp(r'```\w*\s*\n([\s\S]*?)\n```').firstMatch(reply);
     return any?.group(1);
+  }
+
+  /// True when the block looks like a whole-file replacement.
+  static bool looksLikeFullFile(String code, String? current) {
+    final c = code.trim();
+    if (c.isEmpty) return false;
+    if (current == null || current.trim().isEmpty) return c.contains('\n');
+    // Heuristic: similar size or contains multiple top-level constructs.
+    if (c.length >= (current.length * 0.5) && c.contains('\n')) return true;
+    final opens = RegExp(r'\b(function|fonction|class|classe|create)\b', caseSensitive: false)
+        .allMatches(c)
+        .length;
+    return opens >= 1 && c.split('\n').length >= 3;
   }
 }

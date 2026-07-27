@@ -48,3 +48,6 @@ See [`lib/plugins/plugin_host.dart`](../lib/plugins/plugin_host.dart).
 - `contributeMenus` / `contributeViews` typed registries
 - Problem matcher packs
 - Freeze API → optional isolate-based sandbox for community plugins
+- **Marketplace preview** in Extensions sidebar (catalog stubs; install deferred)
+
+Public marketplace remains an **explicit non-goal** until the plugin API is frozen.

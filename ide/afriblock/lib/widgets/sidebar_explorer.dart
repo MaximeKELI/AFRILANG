@@ -662,16 +662,85 @@ class _ExtensionsPanel extends StatelessWidget {
   const _ExtensionsPanel({required this.wb});
   final WorkbenchController wb;
 
+  static const _catalog = <({String id, String name, String blurb, String status})>[
+    (
+      id: 'afrilang.snippets-pack',
+      name: 'AFRILANG Snippets Pack',
+      blurb: 'Extra snippets FR/EN',
+      status: 'soon',
+    ),
+    (
+      id: 'afrilang.theme-pack',
+      name: 'Theme Pack',
+      blurb: 'Additional color themes',
+      status: 'soon',
+    ),
+    (
+      id: 'community.linters',
+      name: 'Community Linters',
+      blurb: 'Problem matchers & lint rules',
+      status: 'planned',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 4),
+          child: Text(
+            'Installed',
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+              color: AfriblockColors.textMuted,
+            ),
+          ),
+        ),
         for (final p in wb.plugins.plugins)
           ListTile(
             leading: const Icon(Icons.extension),
             title: Text(p.name),
             subtitle: Text(p.description),
             trailing: Text(p.id, style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted)),
+          ),
+        const Divider(),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+          child: Text(
+            'Marketplace (preview)',
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+              color: AfriblockColors.textMuted,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+          child: Text(
+            'Catalog local — publication publique après gel de l’API plugin.',
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 12,
+              color: AfriblockColors.textMuted,
+            ),
+          ),
+        ),
+        for (final e in _catalog)
+          ListTile(
+            leading: const Icon(Icons.storefront_outlined),
+            title: Text(e.name),
+            subtitle: Text(e.blurb),
+            trailing: Text(
+              e.status,
+              style: afriblockMono(fontSize: 10, color: AfriblockColors.accent),
+            ),
+            onTap: () {
+              wb.statusMessage =
+                  'Marketplace: « ${e.name} » — pas encore installable (${e.status})';
+              wb.refresh();
+            },
           ),
       ],
     );
@@ -806,6 +875,28 @@ class _AiChatPanelState extends State<_AiChatPanel> {
                 onPressed: _sending ? null : _explainFile,
                 child: const Text('Expliquer le fichier'),
               ),
+              OutlinedButton(
+                onPressed: () {
+                  wb.enableLocalLlm(
+                    baseUrl: 'http://127.0.0.1:11434/v1',
+                    model: 'llama3.2',
+                  );
+                },
+                child: const Text('Ollama'),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  wb.enableLocalLlm(
+                    baseUrl: 'http://127.0.0.1:1234/v1',
+                    model: 'local-model',
+                  );
+                },
+                child: const Text('LM Studio'),
+              ),
+              TextButton(
+                onPressed: () => wb.toggleDetachedAiChat(),
+                child: Text(wb.detachedAiOpen ? 'Attacher' : 'Détacher'),
+              ),
               TextButton(
                 onPressed: () {
                   wb.ai.clearChat();
@@ -852,12 +943,22 @@ class _AiChatPanelState extends State<_AiChatPanel> {
                     ),
                     if (code != null && code.isNotEmpty) ...[
                       const SizedBox(height: 8),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: FilledButton.tonal(
-                          onPressed: () => wb.insertAiCodeIntoEditor(code),
-                          child: const Text('Insert code'),
-                        ),
+                      Wrap(
+                        spacing: 6,
+                        children: [
+                          FilledButton.tonal(
+                            onPressed: () => wb.insertAiCodeIntoEditor(code),
+                            child: const Text('Insert code'),
+                          ),
+                          if (AiAssistService.looksLikeFullFile(
+                            code,
+                            wb.activeTab?.content,
+                          ))
+                            FilledButton(
+                              onPressed: () => wb.replaceActiveFileWithAiCode(code),
+                              child: const Text('Apply fix'),
+                            ),
+                        ],
                       ),
                     ],
                   ],

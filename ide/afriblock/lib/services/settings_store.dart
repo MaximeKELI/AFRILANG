@@ -41,8 +41,11 @@ class SettingsStore {
     aiBaseUrl = prefs.getString(_keyAiBaseUrl) ?? 'http://127.0.0.1:11434/v1';
     aiApiKey = prefs.getString(_keyAiApiKey) ?? '';
     aiModel = prefs.getString(_keyAiModel) ?? 'afrilang-local';
-    // Prefer offline engine when no API key (avoids hanging on dead Ollama).
+    // Old default: llama3.2 without a reachable server → prefer offline engine.
+    // Keep llama* when Base URL points at Ollama / LM Studio (local OpenAI API).
+    final localServer = aiBaseUrl.contains('11434') || aiBaseUrl.contains('1234');
     if (aiApiKey.isEmpty &&
+        !localServer &&
         (aiModel == 'llama3.2' || aiModel == 'llama3' || aiModel == 'llama3.1')) {
       aiModel = 'afrilang-local';
     }

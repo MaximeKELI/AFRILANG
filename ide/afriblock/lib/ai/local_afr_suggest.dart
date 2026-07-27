@@ -105,7 +105,21 @@ class LocalAfrSuggest {
     final code = _extractCode(fileContext);
 
     if (q.contains('expliq') || q.contains('explain') || q.contains('analys')) {
+      if (q.contains('error') ||
+          q.contains('erreur') ||
+          q.contains('diagnostic') ||
+          q.contains('problem')) {
+        return explainError(userMessage, fileContext: code);
+      }
       return explainFile(code);
+    }
+    if (q.contains('fix') ||
+        q.contains('corrige') ||
+        q.contains('patch') ||
+        q.contains('répare') ||
+        q.contains('repare')) {
+      final fix = suggestFix(userMessage, code);
+      if (fix != null) return fix;
     }
     if (q.contains('fonction') || q.contains('function') || q.contains('squelette')) {
       return 'Voici un squelette AFRILANG :\n\n'
@@ -207,6 +221,129 @@ class LocalAfrSuggest {
         ..writeln('Blocs potentiellement ouverts : ${open.join(" → ")}');
     }
     return buf.toString();
+  }
+
+  /// Explain a compiler/LSP diagnostic (offline heuristics).
+  static String explainError(String userMessage, {String? fileContext}) {
+    final msg = userMessage.toLowerCase();
+    final code = fileContext ?? '';
+    final buf = StringBuffer()
+      ..writeln('## Explication (moteur local)')
+      ..writeln();
+
+    if (msg.contains('expected') && (msg.contains('do') || msg.contains('then'))) {
+      buf.writeln(
+        'Le parseur attend souvent `do` ou `then` après une condition '
+        '(`if` / `while` / `for`). Exemple :',
+      );
+      buf.writeln();
+      buf.writeln('```afrilang\nif x greater than 0 then\n    say x\nend\n```');
+    } else if (msg.contains('end') || msg.contains('fin') || msg.contains('unclosed')) {
+      buf.writeln(
+        'Un bloc (`function`, `if`, `for`, `class`, `match`) semble sans `end`/`fin`. '
+        'Compte les ouvertures et fermetures.',
+      );
+    } else if (msg.contains('undefined') || msg.contains('not found') || msg.contains('inconnu')) {
+      buf.writeln(
+        'Symbole inconnu : vérifie l’orthographe, un `create` manquant, '
+        'ou un `import` / `use` oublié.',
+      );
+    } else if (msg.contains('type') || msg.contains('mismatch')) {
+      buf.writeln(
+        'Incompatibilité de type probable. AFRILANG distingue notamment '
+        '`text`, `number`, `bool`, `list`, `map`.',
+      );
+    } else if (msg.contains('syntax') || msg.contains('parse') || msg.contains('unexpected')) {
+      buf.writeln(
+        'Erreur de syntaxe. Points fréquents : guillemets non fermés, '
+        '`:` manquant sur un type, ou mot-clé FR/EN mélangé incorrectement.',
+      );
+    } else {
+      buf.writeln(
+        'Diagnostic reçu. Relis la ligne indiquée, puis la précédente '
+        '(souvent l’erreur est un `end` / `do` manquant plus haut).',
+      );
+    }
+
+    final open = _unclosedBlocks(code);
+    if (open.isNotEmpty) {
+      buf
+        ..writeln()
+        ..writeln('Blocs ouverts détectés dans le fichier : **${open.join(" → ")}**');
+    }
+    buf
+      ..writeln()
+      ..writeln('_Pour un correctif automatique, utilise « Fix with AI » sur le problème._');
+    return buf.toString();
+  }
+
+  /// Propose a fenced AFRILANG fix when heuristics can rewrite the file.
+  static String? suggestFix(String diagnostic, String fileContent, {int? line}) {
+    if (fileContent.trim().isEmpty) return null;
+    final msg = diagnostic.toLowerCase();
+    var lines = fileContent.split('\n');
+    final idx = (line ?? 1) - 1;
+    var changed = false;
+
+    // Missing then/do after if/while/for on the reported line.
+    if (idx >= 0 &&
+        idx < lines.length &&
+        (msg.contains('do') || msg.contains('then') || msg.contains('expected'))) {
+      final raw = lines[idx];
+      final trim = raw.trimRight();
+      final lower = trim.toLowerCase();
+      if ((lower.startsWith('if ') ||
+              lower.startsWith('si ') ||
+              lower.startsWith('while ') ||
+              lower.startsWith('tant ') ||
+              lower.startsWith('for ') ||
+              lower.startsWith('pour ')) &&
+          !lower.contains(' then') &&
+          !lower.endsWith(' then') &&
+          !lower.contains(' do') &&
+          !lower.endsWith(' do') &&
+          !lower.endsWith(' alors')) {
+        final indent = raw.substring(0, raw.length - raw.trimLeft().length);
+        if (lower.startsWith('si ') || lower.startsWith('tant ') || lower.startsWith('pour ')) {
+          lines[idx] = '$indent${trim.trimLeft()} alors';
+        } else {
+          lines[idx] = '$indent${trim.trimLeft()} then';
+        }
+        changed = true;
+      }
+    }
+
+    // Unclosed blocks → append end
+    final open = _unclosedBlocks(fileContent);
+    if (!changed && open.isNotEmpty && (msg.contains('end') || msg.contains('fin') || msg.contains('eof') || msg.contains('unexpected'))) {
+      lines = [...lines, 'end'];
+      changed = true;
+    }
+
+    // Bare say without quotes for a single token that's not an ident already
+    if (!changed && idx >= 0 && idx < lines.length && msg.contains('syntax')) {
+      final m = RegExp(r'^(\s*say\s+)([^"\n]+)$', caseSensitive: false)
+          .firstMatch(lines[idx]);
+      if (m != null) {
+        final rest = m.group(2)!.trim();
+        if (rest.isNotEmpty && !rest.contains('"') && !RegExp(r'^[A-Za-z_]').hasMatch(rest)) {
+          lines[idx] = '${m.group(1)}"$rest"';
+          changed = true;
+        }
+      }
+    }
+
+    if (!changed) {
+      // Generic tip with no rewrite
+      return 'Je n’ai pas de patch automatique sûr pour cette erreur.\n\n'
+          '${explainError(diagnostic, fileContext: fileContent)}\n';
+    }
+
+    final fixed = lines.join('\n');
+    return 'Proposition de correctif (remplace le fichier) :\n\n'
+        '```afrilang\n'
+        '$fixed\n'
+        '```\n';
   }
 
   static Set<String> harvestIdentifiers(String content) {

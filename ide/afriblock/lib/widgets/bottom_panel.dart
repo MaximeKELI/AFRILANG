@@ -189,6 +189,23 @@ class _ProblemsList extends StatelessWidget {
             ].join(),
             style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted),
           ),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                tooltip: 'Explain with AI',
+                iconSize: 18,
+                onPressed: () => wb.explainProblem(p),
+                icon: const Icon(Icons.auto_awesome, size: 18),
+              ),
+              IconButton(
+                tooltip: 'Fix with AI',
+                iconSize: 18,
+                onPressed: () => wb.fixProblemWithAi(p),
+                icon: const Icon(Icons.auto_fix_high, size: 18),
+              ),
+            ],
+          ),
           onTap: p.path.isEmpty
               ? null
               : () => wb.openFile(p.path, line: p.line, column: p.column),

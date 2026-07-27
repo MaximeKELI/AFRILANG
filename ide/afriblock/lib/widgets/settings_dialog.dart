@@ -88,18 +88,52 @@ Future<void> showAfriblockSettings(BuildContext context) async {
                       decoration: const InputDecoration(
                         labelText: 'Base URL',
                         hintText: 'http://127.0.0.1:11434/v1',
+                        helperText: 'Ollama :11434/v1 · LM Studio :1234/v1',
                         border: OutlineInputBorder(),
                       ),
                       style: afriblockMono(fontSize: 12),
+                    ),
+                    const SizedBox(height: 6),
+                    Wrap(
+                      spacing: 6,
+                      runSpacing: 4,
+                      children: [
+                        OutlinedButton(
+                          onPressed: () => setLocal(() {
+                            aiBaseCtrl.text = 'http://127.0.0.1:11434/v1';
+                            if (aiModelCtrl.text.trim().isEmpty ||
+                                aiModelCtrl.text == 'afrilang-local') {
+                              aiModelCtrl.text = 'llama3.2';
+                            }
+                          }),
+                          child: const Text('Ollama'),
+                        ),
+                        OutlinedButton(
+                          onPressed: () => setLocal(() {
+                            aiBaseCtrl.text = 'http://127.0.0.1:1234/v1';
+                            if (aiModelCtrl.text.trim().isEmpty ||
+                                aiModelCtrl.text == 'afrilang-local') {
+                              aiModelCtrl.text = 'local-model';
+                            }
+                          }),
+                          child: const Text('LM Studio'),
+                        ),
+                        OutlinedButton(
+                          onPressed: () => setLocal(() {
+                            aiModelCtrl.text = 'afrilang-local';
+                          }),
+                          child: const Text('Heuristique'),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 8),
                     TextField(
                       controller: aiModelCtrl,
                       decoration: const InputDecoration(
                         labelText: 'Model',
-                        hintText: 'afrilang-local  |  llama3.2',
+                        hintText: 'afrilang-local  |  llama3.2  |  local-model',
                         helperText:
-                            'afrilang-local = IA interne offline ; sinon API OpenAI-compatible',
+                            'afrilang-local = offline ; sinon OpenAI-compatible (Ollama/LM Studio)',
                         border: OutlineInputBorder(),
                       ),
                       style: afriblockMono(fontSize: 12),

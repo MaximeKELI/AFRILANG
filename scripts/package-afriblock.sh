@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Package AFRIBLOCK desktop release (Phase F helper).
 set -euo pipefail
-ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP="$ROOT/ide/afriblock"
 OUT="${1:-$ROOT/dist/afriblock}"
 PLATFORM="${2:-linux}"
@@ -13,6 +13,14 @@ case "$PLATFORM" in
   linux)
     flutter build linux --release
     cp -a build/linux/*/release/bundle "$OUT/afriblock-linux"
+    # Convenience launcher
+    cat > "$OUT/afriblock-linux/run-afriblock.sh" <<'EOF'
+#!/usr/bin/env bash
+DIR="$(cd "$(dirname "$0")" && pwd)"
+export AFRIBLOCK_AFRILANG="${AFRIBLOCK_AFRILANG:-}"
+exec "$DIR/afriblock" "$@"
+EOF
+    chmod +x "$OUT/afriblock-linux/run-afriblock.sh"
     ;;
   windows)
     flutter build windows --release
@@ -29,3 +37,4 @@ case "$PLATFORM" in
 esac
 echo "Packaged → $OUT"
 echo "Set AFRIBLOCK_AFRILANG to the afrilang binary on end-user machines."
+echo "Optional AppImage: bash scripts/package-afriblock-appimage.sh"

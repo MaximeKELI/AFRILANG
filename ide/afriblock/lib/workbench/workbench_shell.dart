@@ -114,7 +114,69 @@ class WorkbenchShell extends StatelessWidget {
             if (wb.overlay == OverlayMode.findReplace) const FindReplaceOverlay(),
             if (wb.overlay == OverlayMode.goToLine) const GoToLineOverlay(),
             if (wb.overlay == OverlayMode.snippets) const SnippetsOverlay(),
+            if (wb.detachedAiOpen) const _DetachedAiChat(),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Lightweight floating AI chat (detachable panel MVP — not a real OS window).
+class _DetachedAiChat extends StatelessWidget {
+  const _DetachedAiChat();
+
+  @override
+  Widget build(BuildContext context) {
+    final wb = context.watch<WorkbenchController>();
+    final h = MediaQuery.sizeOf(context).height * 0.78;
+    // Ensure AI view is active for the embedded explorer body.
+    if (wb.sidebarView != SidebarView.ai) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        wb.sidebarView = SidebarView.ai;
+        wb.refresh();
+      });
+    }
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 48, 16, 48),
+        child: Material(
+          elevation: 12,
+          color: AfriblockColors.panelElevated,
+          borderRadius: BorderRadius.circular(12),
+          child: SizedBox(
+            width: 400,
+            height: h,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  height: 40,
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(color: AfriblockColors.border)),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'AI Assist (détaché)',
+                        style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w700),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        tooltip: 'Close',
+                        iconSize: 18,
+                        onPressed: wb.toggleDetachedAiChat,
+                        icon: const Icon(Icons.close),
+                      ),
+                    ],
+                  ),
+                ),
+                const Expanded(child: SidebarExplorer()),
+              ],
+            ),
+          ),
         ),
       ),
     );

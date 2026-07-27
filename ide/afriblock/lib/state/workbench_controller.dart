@@ -6,7 +6,9 @@ import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 
 import '../ai/ai_assist_service.dart';
+import '../ai/ai_project_context.dart';
 import '../ai/local_afr_suggest.dart';
+import '../ai/openai_compatible_client.dart';
 import '../core/command_bus.dart';
 import '../core/event_bus.dart';
 import '../debug/debug_service.dart';
@@ -216,6 +218,115 @@ class WorkbenchController extends ChangeNotifier {
     statusMessage = 'IA locale afrilang-local activée';
     notifyListeners();
     scheduleInlineSuggest(immediate: true);
+  }
+
+  /// Point AI at a local OpenAI-compatible server (Ollama / LM Studio).
+  Future<void> enableLocalLlm({
+    required String baseUrl,
+    required String model,
+  }) async {
+    settings.aiEnabled = true;
+    settings.aiInlineSuggest = true;
+    settings.aiBaseUrl = baseUrl;
+    settings.aiModel = model;
+    // Local servers usually need no key.
+    await settings.saveAiSettings();
+    syncAiConfig();
+    statusMessage = 'IA → $model @ $baseUrl';
+    notifyListeners();
+  }
+
+  String buildAiProjectContext({ProblemItem? focus}) {
+    String? toml;
+    final root = workspaceRoot;
+    if (root != null) {
+      final f = File(p.join(root, 'afrilang.toml'));
+      if (f.existsSync()) {
+        try {
+          toml = f.readAsStringSync();
+        } catch (_) {}
+      }
+    }
+    return AiProjectContext.build(
+      project: projects.project,
+      tomlSnippet: toml,
+      openTabs: tabs,
+      activePath: activeTab?.path,
+      problems: problems,
+      focusProblem: focus,
+    );
+  }
+
+  Future<void> explainProblem(ProblemItem problem) async {
+    if (problem.path.isNotEmpty) {
+      await openFile(problem.path, line: problem.line, column: problem.column);
+    }
+    sidebarView = SidebarView.ai;
+    sidebarVisible = true;
+    panelVisible = true;
+    notifyListeners();
+    final loc = [
+      if (problem.path.isNotEmpty) problem.path,
+      if (problem.line != null) '${problem.line}',
+      if (problem.column != null) '${problem.column}',
+    ].join(':');
+    await sendAiChat(
+      'Explain this AFRILANG error/diagnostic in French if possible.\n'
+      'Severity: ${problem.severity.name}\n'
+      'Location: $loc\n'
+      'Message: ${problem.message}',
+      includeProject: true,
+      focusProblem: problem,
+    );
+  }
+
+  Future<void> fixProblemWithAi(ProblemItem problem) async {
+    if (problem.path.isNotEmpty) {
+      await openFile(problem.path, line: problem.line, column: problem.column);
+    }
+    sidebarView = SidebarView.ai;
+    sidebarVisible = true;
+    panelVisible = true;
+    notifyListeners();
+
+    // Fast local heuristic path when no remote LLM.
+    if (!ai.config.hasRemote) {
+      final tab = activeTab;
+      final content = tab?.content ?? '';
+      final reply = LocalAfrSuggest.suggestFix(
+            problem.message,
+            content,
+            line: problem.line,
+          ) ??
+          LocalAfrSuggest.explainError(problem.message, fileContext: content);
+      if (ai.chatLog.isEmpty) {
+        ai.chatLog.add(AiChatMessage(
+          role: 'system',
+          content: 'Local AFRILANG assist (${LocalAfrSuggest.modelId}).',
+        ));
+      }
+      ai.chatLog.add(AiChatMessage(
+        role: 'user',
+        content: 'Fix diagnostic: ${problem.message}',
+      ));
+      ai.chatLog.add(AiChatMessage(role: 'assistant', content: reply));
+      statusMessage = 'Fix suggestion ready';
+      notifyListeners();
+      return;
+    }
+
+    final loc = [
+      if (problem.path.isNotEmpty) problem.path,
+      if (problem.line != null) '${problem.line}',
+    ].join(':');
+    await sendAiChat(
+      'Fix this AFRILANG syntax/semantic error. '
+      'Return the FULL corrected file in one ```afrilang code block.\n'
+      'Location: $loc\n'
+      'Message: ${problem.message}',
+      includeProject: true,
+      focusProblem: problem,
+    );
   }
 
   void _registerCommands() {
@@ -520,6 +631,30 @@ class WorkbenchController extends ChangeNotifier {
         label: 'AI: Toggle Chat',
         category: 'AI',
         run: (wb) async => wb.toggleAiChat(),
+      ),
+      IdeCommandDef(
+        id: 'ai.detachChat',
+        label: 'AI: Detach Chat Window',
+        category: 'AI',
+        run: (wb) async => wb.toggleDetachedAiChat(),
+      ),
+      IdeCommandDef(
+        id: 'ai.useOllama',
+        label: 'AI: Use Ollama (localhost:11434)',
+        category: 'AI',
+        run: (wb) => wb.enableLocalLlm(
+          baseUrl: 'http://127.0.0.1:11434/v1',
+          model: 'llama3.2',
+        ),
+      ),
+      IdeCommandDef(
+        id: 'ai.useLmStudio',
+        label: 'AI: Use LM Studio (localhost:1234)',
+        category: 'AI',
+        run: (wb) => wb.enableLocalLlm(
+          baseUrl: 'http://127.0.0.1:1234/v1',
+          model: 'local-model',
+        ),
       ),
     ]);
   }
@@ -1259,13 +1394,27 @@ ${tmpl.tomlExtra}''';
     notifyListeners();
   }
 
-  Future<void> sendAiChat(String message, {bool includeFile = false}) async {
+  Future<void> sendAiChat(
+    String message, {
+    bool includeFile = false,
+    bool includeProject = true,
+    ProblemItem? focusProblem,
+  }) async {
     final tab = activeTab;
-    final ctx = includeFile && tab != null
+    final fileCtx = includeFile && tab != null
         ? 'File: ${tab.path}\n${tab.content}'
         : null;
+    final projectCtx = includeProject
+        ? buildAiProjectContext(focus: focusProblem)
+        : (focusProblem != null
+            ? buildAiProjectContext(focus: focusProblem)
+            : null);
     try {
-      await ai.chat(message, fileContext: ctx);
+      await ai.chat(
+        message,
+        fileContext: fileCtx,
+        projectContext: projectCtx,
+      );
       statusMessage = 'AI reply ready';
     } catch (e) {
       statusMessage = 'AI: $e';
@@ -1290,6 +1439,35 @@ ${tmpl.tomlExtra}''';
     ghostSuggestion = null;
     notifyListeners();
     scheduleInlineSuggest();
+  }
+
+  /// Replace the active editor buffer with [code] (AI fix apply).
+  void replaceActiveFileWithAiCode(String code) {
+    final tab = activeTab;
+    if (tab == null) return;
+    final next = code.endsWith('\n') ? code : '$code\n';
+    tab.applyExternalEdit(next);
+    editorCaret = next.length.clamp(0, next.length);
+    lsp.didChange(
+      File(tab.path).uri.toString(),
+      next,
+      DateTime.now().millisecondsSinceEpoch,
+    );
+    ghostSuggestion = null;
+    statusMessage = 'AI fix applied to ${tab.name}';
+    notifyListeners();
+  }
+
+  /// Floating AI chat dialog (lightweight “detachable” panel).
+  bool detachedAiOpen = false;
+
+  void toggleDetachedAiChat() {
+    detachedAiOpen = !detachedAiOpen;
+    if (detachedAiOpen) {
+      sidebarView = SidebarView.ai;
+      sidebarVisible = true;
+    }
+    notifyListeners();
   }
 
   Future<void> saveActive({bool format = true}) async {
