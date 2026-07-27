@@ -129,6 +129,9 @@ class WorkbenchController extends ChangeNotifier {
   final OutputBuffer lspLog = OutputBuffer();
 
   bool busy = false;
+  /// Last Build/Run/Check exited non-zero (colors Output in red).
+  bool lastRunFailed = false;
+  int? lastExitCode;
   /// Hover markdown/plaintext from LSP (shown above the editor).
   String? hoverInfo;
   Timer? _hoverDebounce;
@@ -1551,6 +1554,38 @@ ${tmpl.tomlExtra}''';
     notifyListeners();
   }
 
+  /// 1-based error lines for [path] (syntax / LSP errors).
+  Set<int> errorLinesFor(String path) =>
+      _diagnosticLinesFor(path, errorsOnly: true);
+
+  Set<int> warningLinesFor(String path) =>
+      _diagnosticLinesFor(path, errorsOnly: false);
+
+  Set<int> _diagnosticLinesFor(String path, {required bool errorsOnly}) {
+    final out = <int>{};
+    for (final p in problems) {
+      if (p.line == null || p.line! < 1) continue;
+      if (errorsOnly) {
+        if (p.severity != ProblemSeverity.error) continue;
+      } else {
+        if (p.severity != ProblemSeverity.warning) continue;
+      }
+      if (!_problemPathMatches(p.path, path)) continue;
+      out.add(p.line!);
+    }
+    return out;
+  }
+
+  static bool _problemPathMatches(String problemPath, String editorPath) {
+    if (problemPath.isEmpty) return false;
+    if (p.equals(problemPath, editorPath)) return true;
+    // Relative diagnostic vs absolute editor path
+    if (editorPath.endsWith(problemPath) || problemPath.endsWith(p.basename(editorPath))) {
+      return p.basename(problemPath) == p.basename(editorPath);
+    }
+    return p.basename(problemPath) == p.basename(editorPath);
+  }
+
   Future<void> buildActiveTarget() async {
     final t = activeTarget;
     var args = List<String>.from(t.args);
@@ -1883,6 +1918,7 @@ ${tmpl.tomlExtra}''';
       return;
     }
     busy = true;
+    lastRunFailed = false;
     statusMessage = 'Running ${args.first}…';
     bottomTab = BottomTab.output;
     panelVisible = true;
@@ -1899,8 +1935,13 @@ ${tmpl.tomlExtra}''';
       problems
         ..clear()
         ..addAll(result.problems.where((p) => p.path.isNotEmpty || p.message.isNotEmpty));
+      lastExitCode = result.exitCode;
+      lastRunFailed = result.exitCode != 0 && result.exitCode != -1;
       if (revealProblems && problems.isNotEmpty) {
         bottomTab = BottomTab.problems;
+      } else if (lastRunFailed && problems.isNotEmpty) {
+        // Keep Output visible (red) but surface problems for line highlights.
+        bottomTab = BottomTab.output;
       }
       events.emit(BuildFinishedEvent(exitCode: result.exitCode, targetId: activeTargetId));
       statusMessage = result.exitCode == -1
@@ -1910,6 +1951,8 @@ ${tmpl.tomlExtra}''';
               : 'Exit ${result.exitCode}';
     } catch (e) {
       appendOutput('Error: $e\n');
+      lastRunFailed = true;
+      lastExitCode = 1;
       statusMessage = 'Failed';
     } finally {
       busy = false;

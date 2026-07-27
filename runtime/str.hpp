@@ -20,6 +20,7 @@ inline std::string toString(double value) {
 }
 
 inline std::string toString(long long value) { return std::to_string(value); }
+inline std::string toString(long value) { return std::to_string(value); }
 inline std::string toString(int value) { return std::to_string(value); }
 
 inline std::string toString(bool value) { return value ? "true" : "false"; }

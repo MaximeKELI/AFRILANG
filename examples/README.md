@@ -1,5 +1,18 @@
 # Exemples AFRILANG
 
+
+## Field ops (vitrine A+B)
+
+| App | Contenu |
+|-----|---------|
+| `apps/field_ops` | Règles métier lisibles + offline Afrique (`moneyx`/`phonex`/`geox`/`storex`) |
+
+```bash
+cd examples/apps/field_ops
+afrilang pkg install
+afrilang run src/main.afr
+```
+
 Programmes de référence. Suite : `afrilang test` (section exemples).
 
 ## Jeux (2D / 3D)

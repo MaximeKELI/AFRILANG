@@ -1,6 +1,8 @@
 # Roadmap AFRILANG
 
-Objectif : rapprocher AFRILANG d’un produit langage de type **Nim / Crystal** (haut niveau → natif + écosystème paquets), sans prétendre cloner 15 ans d’adoption d’un coup.
+Objectif produit : **A + B** — règles métier lisibles → binaire natif (**A**), prouvées sur un vertical offline-first Afrique (**B** : money / phone / geo / store). Voir [README — Problème résolu](../README.md#problème-résolu).
+
+Objectif technique : rapprocher AFRILANG d’un produit langage de type **Nim / Crystal** (haut niveau → natif + écosystème paquets), sans prétendre cloner 15 ans d’adoption d’un coup.
 
 ## Vague 1 — Parité écosystème (livrée)
 
@@ -103,4 +105,14 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] Specs `tests/stdlib/ml_*.afr` + `nlp_levenshtein.afr` ; docs `STDLIB_AI.md`
 - [x] `httpPostHeaders` + paquet `llmx` (chat OpenAI-compatible, smoke offline)
 - [x] Score ISO inchangé (~16.6) — pas de claim « libs ML »
+
+## Vague Field & métier — A + B (en cours)
+
+Preuve produit du positionnement [Problème résolu](../README.md#problème-résolu) :
+
+- [x] Pitch figé dans le README (P0)
+- [x] App vitrine `examples/apps/field_ops` — règles lisibles + offline Afrique (P1)
+- [x] Smoke / tests vertical `moneyx` · `phonex` · `geox` · `storex` (P2)
+- [ ] Bloc site « Why AFRILANG » + showcase (P3)
+- [ ] Note deploy monobinaire / cross-target (P4)
 

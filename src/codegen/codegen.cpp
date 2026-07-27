@@ -331,44 +331,45 @@ bool expressionUsesNaturalListOps(const ExpressionNode& expr) {
     if (dynamic_cast<const ReduceExpressionNode*>(&expr)) return true;
 
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
-        return expressionUsesNaturalListOps(*bin->left) ||
-               expressionUsesNaturalListOps(*bin->right);
+        if (bin->left && expressionUsesNaturalListOps(*bin->left)) return true;
+        if (bin->right && expressionUsesNaturalListOps(*bin->right)) return true;
+        return false;
     }
     if (const auto* unary = dynamic_cast<const UnaryOpNode*>(&expr)) {
-        return expressionUsesNaturalListOps(*unary->operand);
+        return unary->operand && expressionUsesNaturalListOps(*unary->operand);
     }
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
-        if (expressionUsesNaturalListOps(*call->callee)) return true;
+        if (call->callee && expressionUsesNaturalListOps(*call->callee)) return true;
         for (const auto& arg : call->arguments) {
-            if (expressionUsesNaturalListOps(*arg)) return true;
+            if (arg && expressionUsesNaturalListOps(*arg)) return true;
         }
     }
     if (const auto* member = dynamic_cast<const MemberAccessNode*>(&expr)) {
-        return expressionUsesNaturalListOps(*member->object);
+        return member->object && expressionUsesNaturalListOps(*member->object);
     }
     if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
-        return expressionUsesNaturalListOps(*index->object) ||
-               expressionUsesNaturalListOps(*index->index);
+        if (index->object && expressionUsesNaturalListOps(*index->object)) return true;
+        return index->index && expressionUsesNaturalListOps(*index->index);
     }
     if (const auto* length = dynamic_cast<const LengthExpressionNode*>(&expr)) {
-        return expressionUsesNaturalListOps(*length->object);
+        return length->object && expressionUsesNaturalListOps(*length->object);
     }
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
         for (const auto& elem : list->elements) {
-            if (expressionUsesNaturalListOps(*elem)) return true;
+            if (elem && expressionUsesNaturalListOps(*elem)) return true;
         }
     }
     if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
         for (const auto& pair : mapLit->pairs) {
-            if (expressionUsesNaturalListOps(*pair.key) ||
-                expressionUsesNaturalListOps(*pair.value)) {
+            if ((pair.key && expressionUsesNaturalListOps(*pair.key)) ||
+                (pair.value && expressionUsesNaturalListOps(*pair.value))) {
                 return true;
             }
         }
     }
     if (const auto* interp = dynamic_cast<const InterpolatedStringNode*>(&expr)) {
         for (const auto& part : interp->parts) {
-            if (expressionUsesNaturalListOps(*part)) return true;
+            if (part && expressionUsesNaturalListOps(*part)) return true;
         }
     }
     if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
@@ -2554,6 +2555,10 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
+        if (!bin->left || !bin->right) {
+            out << "0";
+            return;
+        }
         if (bin->op == "+") {
             const AfrType leftType = inferExpressionAfrType(*bin->left);
             const AfrType rightType = inferExpressionAfrType(*bin->right);
@@ -3580,20 +3585,22 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
 
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
         if (bin->op == "+") {
-            if (dynamic_cast<const StringLiteralNode*>(bin->left.get()) ||
-                dynamic_cast<const StringLiteralNode*>(bin->right.get())) {
+            if ((bin->left && dynamic_cast<const StringLiteralNode*>(bin->left.get())) ||
+                (bin->right && dynamic_cast<const StringLiteralNode*>(bin->right.get()))) {
                 return "std::string";
             }
         }
-        const AfrType leftType = expressionOperandType(*bin->left, semantic_);
-        if (leftType.kind == TypeKind::Class) {
-            if (const MethodSignature* opSig =
-                    findClassOperator(semantic_, leftType.className, bin->op)) {
-                if (opSig->returnType.kind == TypeKind::Class ||
-                    opSig->returnType.kind == TypeKind::Interface) {
-                    return classStorageCpp(opSig->returnType);
+        if (bin->left) {
+            const AfrType leftType = expressionOperandType(*bin->left, semantic_);
+            if (leftType.kind == TypeKind::Class) {
+                if (const MethodSignature* opSig =
+                        findClassOperator(semantic_, leftType.className, bin->op)) {
+                    if (opSig->returnType.kind == TypeKind::Class ||
+                        opSig->returnType.kind == TypeKind::Interface) {
+                        return classStorageCpp(opSig->returnType);
+                    }
+                    return opSig->returnType.toCpp();
                 }
-                return opSig->returnType.toCpp();
             }
         }
         if (bin->op == ">" || bin->op == "<" || bin->op == ">=" || bin->op == "<=" ||

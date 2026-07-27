@@ -6,6 +6,24 @@
 
 Compilateur pour **AFRILANG**, un langage orienté objet à syntaxe naturelle qui transpile vers C++17.
 
+## Problème résolu
+
+AFRILANG ne rivalise pas avec Rust (mémoire), Go (services distribués) ou Java (JVM).
+Il attaque un autre écart : **l’intention métier lisible** → **outil natif déployable**.
+
+| | Analogie | AFRILANG |
+|---|---|---|
+| **A — Promesse** | Procédure claire sur le papier, code opaque en prod | Règles métier en syntaxe proche du langage humain, compilées en **binaire natif** (via C++) — sans runtime lourd à installer |
+| **B — Preuve** | Apps terrain / fintech légère dépendantes du cloud | Vertical **offline-first Afrique** : mobile money (`moneyx`), téléphones (`phonex`), geo (`geox`), store local (`storex`) |
+
+En une phrase :
+
+> *Règles métier lisibles qui deviennent des binaires natifs, conçus pour tourner sur le terrain — y compris hors ligne en Afrique.*
+
+Accessibilité et contribution africaine restent des piliers ; le différenciateur technique, c’est **A + B**.
+
+Preuve exécutable : [`examples/apps/field_ops`](examples/apps/field_ops) — règles métier + `moneyx` / `phonex` / `geox` / `storex`.
+
 ## Architecture
 
 ```

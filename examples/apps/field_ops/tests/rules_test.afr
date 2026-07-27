@@ -1,0 +1,44 @@
+// Tests des regles metier field_ops (A) sur moneyx/phonex/geox (B).
+import "../src/rules.afr"
+import "std/str"
+use str
+
+test "accept near clinic"
+    create r = reviewFieldPayment("77 123 45 67", 10000, 6.20, 1.30)
+    assert startsWith(r, "OK:")
+    assert contains(r, "+221771234567")
+    assert contains(r, "10175 XOF")
+end
+
+test "reject outside zone"
+    create r = reviewFieldPayment("77 123 45 67", 5000, 5.60, -0.19)
+    assert r is equal to "REJECT:Hors zone d intervention"
+end
+
+test "reject over ceiling"
+    create r = reviewFieldPayment("77 999 88 77", 75000, 6.13, 1.22)
+    assert r is equal to "REJECT:Plafond mobile money depasse"
+end
+
+test "reject bad phone"
+    create r = reviewFieldPayment("33 123 45 67", 2000, 6.13, 1.22)
+    assert r is equal to "REJECT:Telephone mobile SN invalide"
+end
+
+test "fee helpers"
+    assert paymentCeilingXof() is equal to 50000
+    assert isUnderCeiling(10000)
+    assert isUnderCeiling(50000)
+    assert isUnderCeiling(50001) is equal to false
+    assert isUnderCeiling(0) is equal to false
+    assert paymentTotal(10000) is equal to 10175
+    assert paymentFee(10000) is equal to 175
+end
+
+test "phone and zone helpers"
+    assert isValidAgentPhone("77 123 45 67")
+    assert isValidAgentPhone("33 123 45 67") is equal to false
+    assert agentPhoneE164("77 123 45 67") is equal to "+221771234567"
+    assert isInServiceArea(6.20, 1.30)
+    assert isInServiceArea(5.60, -0.19) is equal to false
+end

@@ -71,6 +71,8 @@ class EditorArea extends StatelessWidget {
                         .where((b) => b.path == tab.path)
                         .map((b) => b.line)
                         .toSet(),
+                    errorLines: wb.errorLinesFor(tab.path),
+                    warningLines: wb.warningLinesFor(tab.path),
                   ),
               ],
             ),

@@ -1,0 +1,11 @@
+name = "field_ops"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/field_ops"
+description = "Vitrine A+B: regles metier lisibles + offline Afrique (money/phone/geo/store)"
+
+[dependencies]
+moneyx = { path = "../../../packages/moneyx" }
+phonex = { path = "../../../packages/phonex" }
+geox = { path = "../../../packages/geox" }
+storex = { path = "../../../packages/storex" }

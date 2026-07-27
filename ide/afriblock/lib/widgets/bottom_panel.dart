@@ -32,6 +32,7 @@ class BottomPanel extends StatelessWidget {
                   label: 'OUTPUT',
                   selected: wb.bottomTab == BottomTab.output,
                   onTap: () => wb.setBottomTab(BottomTab.output),
+                  errorTint: wb.lastRunFailed,
                 ),
                 _TabChip(
                   label: 'DEBUG CONSOLE',
@@ -94,7 +95,12 @@ class BottomPanel extends StatelessWidget {
       case BottomTab.output:
         return _OutputPane(wb: wb);
       case BottomTab.debugConsole:
-        return _OutputView(text: wb.debug.console.toString());
+        return _OutputView(
+          text: wb.debug.console.toString(),
+          emphasizeError: wb.debug.status?.toLowerCase().contains('fail') == true ||
+              (wb.debug.status?.startsWith('Exited') == true &&
+                  wb.debug.status != 'Exited 0'),
+        );
       case BottomTab.terminal:
         return _TerminalView(wb: wb);
       case BottomTab.testResults:
@@ -113,15 +119,20 @@ class _TabChip extends StatelessWidget {
     required this.selected,
     required this.onTap,
     this.badge,
+    this.errorTint = false,
   });
 
   final String label;
   final bool selected;
   final VoidCallback onTap;
   final int? badge;
+  final bool errorTint;
 
   @override
   Widget build(BuildContext context) {
+    final color = errorTint
+        ? AfriblockColors.error
+        : (selected ? Colors.white : AfriblockColors.textMuted);
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -130,7 +141,9 @@ class _TabChip extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: selected ? AfriblockColors.primary : Colors.transparent,
+              color: selected
+                  ? (errorTint ? AfriblockColors.error : AfriblockColors.primary)
+                  : Colors.transparent,
               width: 2,
             ),
           ),
@@ -143,7 +156,7 @@ class _TabChip extends StatelessWidget {
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.6,
-                color: selected ? Colors.white : AfriblockColors.textMuted,
+                color: color,
               ),
             ),
             if (badge != null && badge! > 0) ...[
@@ -224,7 +237,21 @@ class _OutputPane extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Expanded(child: _OutputView(text: wb.outputLog.toString())),
+        if (wb.lastRunFailed)
+          Container(
+            color: AfriblockColors.error.withValues(alpha: 0.15),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            child: Text(
+              'Exécution en échec${wb.lastExitCode != null ? ' (exit ${wb.lastExitCode})' : ''}',
+              style: afriblockMono(fontSize: 11, color: AfriblockColors.error),
+            ),
+          ),
+        Expanded(
+          child: _OutputView(
+            text: wb.outputLog.toString(),
+            emphasizeError: wb.lastRunFailed,
+          ),
+        ),
         if (wb.cliRunning) const _StdinBar(),
       ],
     );
@@ -296,8 +323,9 @@ class _StdinBarState extends State<_StdinBar> {
 }
 
 class _OutputView extends StatelessWidget {
-  const _OutputView({required this.text});
+  const _OutputView({required this.text, this.emphasizeError = false});
   final String text;
+  final bool emphasizeError;
 
   @override
   Widget build(BuildContext context) {
@@ -307,10 +335,20 @@ class _OutputView extends StatelessWidget {
             style: GoogleFonts.plusJakartaSans(color: AfriblockColors.textMuted)),
       );
     }
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(10),
-      reverse: true,
-      child: SelectableText(text, style: afriblockMono(fontSize: 12, height: 1.45)),
+    final style = afriblockMono(
+      fontSize: 12,
+      height: 1.45,
+      color: emphasizeError ? AfriblockColors.error : AfriblockColors.text,
+    );
+    return ColoredBox(
+      color: emphasizeError
+          ? AfriblockColors.error.withValues(alpha: 0.06)
+          : Colors.transparent,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(10),
+        reverse: true,
+        child: SelectableText(text, style: style),
+      ),
     );
   }
 }
@@ -356,7 +394,12 @@ class _TerminalView extends StatelessWidget {
                     child: const Text('Create Terminal'),
                   ),
                 )
-              : TerminalView(active.terminal),
+              : ColoredBox(
+                  color: wb.lastRunFailed
+                      ? AfriblockColors.error.withValues(alpha: 0.06)
+                      : Colors.transparent,
+                  child: TerminalView(active.terminal),
+                ),
         ),
       ],
     );

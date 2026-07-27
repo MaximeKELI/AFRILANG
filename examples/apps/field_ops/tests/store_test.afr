@@ -1,0 +1,18 @@
+// Persistance offline storex — preuve verticale B.
+import "pkg/storex/storex.afr"
+use storex
+import "std/str"
+use str
+
+test "field payment offline roundtrip"
+    create db = "build/field_ops_test.db"
+    assert ensureTable(db, "payments", "id integer primary key, phone text, amount_xof text, total_xof text, status text")
+    create id = put(db, "payments", cols3("phone", "amount_xof", "total_xof") + "|status", vals3("+221771234567", "10000", "10175 XOF") + "|accepted")
+    assert id is greater than -1
+    assert hasRows(db, "payments")
+    create all = listAll(db, "payments")
+    assert contains(all, "+221771234567")
+    assert contains(all, "accepted")
+    create n = rowCountApprox(db, "payments")
+    assert n is greater than 0
+end

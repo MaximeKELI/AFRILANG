@@ -1702,12 +1702,23 @@ int PkgRegistry::cmdTest(const std::string& packageDir, const std::string& afril
     }
 
     // Install into local registry so `import "pkg/<name>/..."` resolves (Nimble-style).
+    // Skip when the package already lives at packages/<name> (in-tree monorepo).
     const fs::path registryDst = fs::path(afrilangRoot) / "packages" / info.name;
-    copyDirectory(src, registryDst);
-    // Also vendor under package root for path-style layouts
+    const fs::path srcCanon = fs::weakly_canonical(src);
+    const fs::path regCanon =
+        fs::exists(registryDst) ? fs::weakly_canonical(registryDst) : registryDst;
+    if (srcCanon != regCanon) {
+        copyDirectory(src, registryDst);
+    }
+    // Also vendor under package root for path-style layouts (skip self-copy).
     std::string relPrefix;
     const fs::path vendorRoot = vendorRootFor(src.string(), relPrefix);
-    copyDirectory(src, vendorRoot / info.name);
+    const fs::path vendorDst = vendorRoot / info.name;
+    const fs::path vendorCanon =
+        fs::exists(vendorDst) ? fs::weakly_canonical(vendorDst) : vendorDst;
+    if (srcCanon != vendorCanon) {
+        copyDirectory(src, vendorDst);
+    }
     std::cout << "Self-install: packages/" << info.name << " (+ vendor)\n";
 
     const fs::path testsDir = src / "tests";

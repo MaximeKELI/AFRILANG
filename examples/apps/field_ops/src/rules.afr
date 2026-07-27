@@ -1,0 +1,78 @@
+// Regles metier terrain — lisibles comme une procedure.
+import "pkg/moneyx/moneyx.afr"
+use moneyx
+import "pkg/phonex/phonex.afr"
+use phonex
+import "pkg/geox/geox.afr"
+use geox
+
+function clinicLat() returns number
+    return 6.13
+end
+
+function clinicLon() returns number
+    return 1.22
+end
+
+function maxRadiusKm() returns number
+    return 30
+end
+
+function paymentCeilingXof() returns number
+    return 50000
+end
+
+function feeFlatXof() returns number
+    return 25
+end
+
+function feePercent() returns number
+    return 1.5
+end
+
+function isInServiceArea(lat number, lon number) returns bool
+    return withinKm(lat, lon, clinicLat(), clinicLon(), maxRadiusKm())
+end
+
+function isValidAgentPhone(rawPhone text) returns bool
+    create e164 = toE164Sn(rawPhone)
+    return isLikelyMobileSn(e164)
+end
+
+function agentPhoneE164(rawPhone text) returns text
+    return toE164Sn(rawPhone)
+end
+
+function isUnderCeiling(amount number) returns bool
+    if amount is less than 1 then
+        return false
+    end
+    if amount is greater than paymentCeilingXof() then
+        return false
+    end
+    return true
+end
+
+function paymentTotal(amount number) returns number
+    return totalWithFee(amount, feeFlatXof(), feePercent())
+end
+
+function paymentFee(amount number) returns number
+    return feeAmount(amount, feeFlatXof(), feePercent())
+end
+
+function reviewFieldPayment(rawPhone text, amount number, lat number, lon number) returns text
+    if not isInServiceArea(lat, lon) then
+        return "REJECT:Hors zone d intervention"
+    end
+    if not isValidAgentPhone(rawPhone) then
+        return "REJECT:Telephone mobile SN invalide"
+    end
+    if not isUnderCeiling(amount) then
+        return "REJECT:Plafond mobile money depasse"
+    end
+    create phone = agentPhoneE164(rawPhone)
+    create total = paymentTotal(amount)
+    create fee = paymentFee(amount)
+    return "OK:" + phone + "|" + formatXof(total) + "|fee=" + formatXof(fee)
+end

@@ -1,0 +1,50 @@
+// field_ops — vitrine A+B
+// A : regles metier lisibles (rules.afr)
+// B : moneyx + phonex + geox + storex (SQLite offline)
+
+import "rules.afr"
+import "pkg/storex/storex.afr"
+use storex
+import "pkg/moneyx/moneyx.afr"
+use moneyx
+import "pkg/geox/geox.afr"
+use geox
+import "std/str"
+use str
+
+say "=== AFRILANG field_ops ==="
+say "Regles metier lisibles -> binaire natif (offline Afrique)"
+say ""
+
+create db = "build/field_ops.db"
+ensureTable(db, "payments", "id integer primary key, phone text, amount_xof text, total_xof text, status text")
+
+say "--- Cas 1 : acceptation ---"
+create ok = reviewFieldPayment("77 123 45 67", 10000, 6.20, 1.30)
+say ok
+if startsWith(ok, "OK:") then
+    create dist = distanceKm(6.20, 1.30, clinicLat(), clinicLon())
+    say "Distance clinique: {dist} km"
+    put(db, "payments", cols3("phone", "amount_xof", "total_xof") + "|status", vals3("+221771234567", "10000", formatXof(paymentTotal(10000))) + "|accepted")
+end
+
+say ""
+say "--- Cas 2 : hors zone ---"
+say reviewFieldPayment("77 123 45 67", 5000, 5.60, -0.19)
+
+say ""
+say "--- Cas 3 : plafond ---"
+say reviewFieldPayment("77 999 88 77", 75000, 6.13, 1.22)
+
+say ""
+say "--- Cas 4 : telephone ---"
+say reviewFieldPayment("33 123 45 67", 2000, 6.13, 1.22)
+
+say ""
+say "--- Store offline (SQLite) ---"
+say listAll(db, "payments")
+create n = rowCountApprox(db, "payments")
+create nNum number = n
+say "Lignes approx: {nNum}"
+say ""
+say "field_ops OK"

@@ -23,3 +23,9 @@ test "split and fx"
     assert fromXof(0, 0) is equal to 0
     assert fromXof(200, 100) is equal to 2
 end
+
+test "field_ops fees"
+    // 10000 + 1.5% + 25 flat → fee = 25+150 = 175, total = 10175
+    assert feeAmount(10000, 25, 1.5) is equal to 175
+    assert totalWithFee(10000, 25, 1.5) is equal to 10175
+end

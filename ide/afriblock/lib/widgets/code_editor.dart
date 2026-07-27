@@ -20,53 +20,58 @@ class AfrilangHighlighter {
     'text', 'number', 'bool', 'list', 'map', 'void', 'any', 'int', 'float',
   };
 
-  static TextSpan highlightSpan(String src, {double fontSize = 13.5}) {
-    return TextSpan(children: _spans(src, fontSize: fontSize));
+  static TextSpan highlightSpan(
+    String src, {
+    double fontSize = 13.5,
+    Set<int> errorLines = const {},
+  }) {
+    return TextSpan(children: _spans(src, fontSize: fontSize, errorLines: errorLines));
   }
 
-  static List<InlineSpan> _spans(String src, {required double fontSize}) {
+  static List<InlineSpan> _spans(
+    String src, {
+    required double fontSize,
+    Set<int> errorLines = const {},
+  }) {
     final out = <InlineSpan>[];
     final re = RegExp(
       r'("(?:\\.|[^"\\])*")|(//[^\n]*)|(\b[A-Za-z_][A-Za-z0-9_]*\b)|(\d+\.?\d*)|(\S)|(\s+)',
       multiLine: true,
     );
+    var line = 1;
     for (final m in re.allMatches(src)) {
       final s = m.group(0)!;
+      final onError = errorLines.contains(line);
+      Color base;
+      var weight = FontWeight.w400;
       if (m.group(1) != null) {
-        out.add(TextSpan(
-          text: s,
-          style: afriblockMono(fontSize: fontSize, color: const Color(0xFF86EFAC)),
-        ));
+        base = const Color(0xFF86EFAC);
       } else if (m.group(2) != null) {
-        out.add(TextSpan(
-          text: s,
-          style: afriblockMono(fontSize: fontSize, color: const Color(0xFF64748B)),
-        ));
+        base = const Color(0xFF64748B);
       } else if (m.group(3) != null) {
         final w = s.toLowerCase();
-        Color c = AfriblockColors.text;
-        var weight = FontWeight.w400;
+        base = AfriblockColors.text;
         if (keywords.contains(w)) {
-          c = const Color(0xFF93C5FD);
+          base = const Color(0xFF93C5FD);
           weight = FontWeight.w600;
         } else if (types.contains(w)) {
-          c = const Color(0xFFFCD34D);
+          base = const Color(0xFFFCD34D);
         }
-        out.add(TextSpan(
-          text: s,
-          style: afriblockMono(fontSize: fontSize, color: c, weight: weight),
-        ));
       } else if (m.group(4) != null) {
-        out.add(TextSpan(
-          text: s,
-          style: afriblockMono(fontSize: fontSize, color: const Color(0xFFFDBA74)),
-        ));
+        base = const Color(0xFFFDBA74);
       } else {
-        out.add(TextSpan(
-          text: s,
-          style: afriblockMono(fontSize: fontSize),
-        ));
+        base = AfriblockColors.text;
       }
+      if (onError && m.group(6) == null) {
+        // Keep whitespace styling subtle; emphasize tokens on error lines.
+        base = AfriblockColors.error;
+        weight = FontWeight.w600;
+      }
+      out.add(TextSpan(
+        text: s,
+        style: afriblockMono(fontSize: fontSize, color: base, weight: weight),
+      ));
+      line += '\n'.allMatches(s).length;
     }
     return out;
   }
@@ -103,6 +108,8 @@ class CodeEditor extends StatefulWidget {
     this.hoverInfo,
     this.onGoToDefinition,
     this.onDismissHover,
+    this.errorLines = const {},
+    this.warningLines = const {},
   });
 
   final String path;
@@ -122,6 +129,10 @@ class CodeEditor extends StatefulWidget {
   final String? hoverInfo;
   final VoidCallback? onGoToDefinition;
   final VoidCallback? onDismissHover;
+  /// 1-based lines with error diagnostics (red gutter + highlight).
+  final Set<int> errorLines;
+  /// 1-based lines with warnings (amber gutter).
+  final Set<int> warningLines;
 
   @override
   State<CodeEditor> createState() => _CodeEditorState();
@@ -335,35 +346,52 @@ class _CodeEditorState extends State<CodeEditor> {
                     itemBuilder: (context, i) {
                       final line = i + 1;
                       final hasBp = widget.breakpoints.contains(line);
+                      final isError = widget.errorLines.contains(line);
+                      final isWarn = !isError && widget.warningLines.contains(line);
+                      final numColor = isError
+                          ? AfriblockColors.error
+                          : isWarn
+                              ? AfriblockColors.warning
+                              : AfriblockColors.textMuted;
                       return InkWell(
                         onTap: widget.onToggleBreakpoint == null
                             ? null
                             : () => widget.onToggleBreakpoint!(line),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 12,
-                              child: hasBp
-                                  ? const Icon(Icons.circle, size: 8, color: AfriblockColors.error)
-                                  : null,
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 8),
-                                  child: Text(
-                                    '$line',
-                                    style: afriblockMono(
-                                      fontSize: _fontSize - 1,
-                                      color: AfriblockColors.textMuted,
-                                      height: _lineHeight,
+                        child: ColoredBox(
+                          color: isError
+                              ? AfriblockColors.error.withValues(alpha: 0.18)
+                              : isWarn
+                                  ? AfriblockColors.warning.withValues(alpha: 0.12)
+                                  : Colors.transparent,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 12,
+                                child: hasBp
+                                    ? const Icon(Icons.circle, size: 8, color: AfriblockColors.error)
+                                    : (isError
+                                        ? const Icon(Icons.circle, size: 6, color: AfriblockColors.error)
+                                        : null),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 8),
+                                    child: Text(
+                                      '$line',
+                                      style: afriblockMono(
+                                        fontSize: _fontSize - 1,
+                                        color: numColor,
+                                        height: _lineHeight,
+                                        weight: isError ? FontWeight.w700 : FontWeight.w400,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -417,11 +445,27 @@ class _CodeEditorState extends State<CodeEditor> {
                           },
                           child: Stack(
                             children: [
+                              // Error / warning line backgrounds
+                              if (widget.errorLines.isNotEmpty ||
+                                  widget.warningLines.isNotEmpty)
+                                Positioned.fill(
+                                  child: IgnorePointer(
+                                    child: CustomPaint(
+                                      painter: _DiagnosticLinePainter(
+                                        errorLines: widget.errorLines,
+                                        warningLines: widget.warningLines,
+                                        lineHeight: lineBox,
+                                        lineCount: lineCount,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               if (isAfr)
                                 Text.rich(
                                   AfrilangHighlighter.highlightSpan(
                                     _controller.text.isEmpty ? ' ' : _controller.text,
                                     fontSize: _fontSize,
+                                    errorLines: widget.errorLines,
                                   ),
                                   style: afriblockMono(
                                     fontSize: _fontSize,
@@ -484,5 +528,57 @@ class _CodeEditorState extends State<CodeEditor> {
         ],
       ),
     );
+  }
+}
+
+class _DiagnosticLinePainter extends CustomPainter {
+  _DiagnosticLinePainter({
+    required this.errorLines,
+    required this.warningLines,
+    required this.lineHeight,
+    required this.lineCount,
+  });
+
+  final Set<int> errorLines;
+  final Set<int> warningLines;
+  final double lineHeight;
+  final int lineCount;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final errorPaint = Paint()..color = AfriblockColors.error.withValues(alpha: 0.16);
+    final warnPaint = Paint()..color = AfriblockColors.warning.withValues(alpha: 0.10);
+    final underline = Paint()
+      ..color = AfriblockColors.error
+      ..strokeWidth = 1.5
+      ..style = PaintingStyle.stroke;
+
+    for (var line = 1; line <= lineCount; line++) {
+      final top = (line - 1) * lineHeight;
+      if (errorLines.contains(line)) {
+        canvas.drawRect(Rect.fromLTWH(0, top, size.width, lineHeight), errorPaint);
+        final y = top + lineHeight - 2;
+        // Wavy underline
+        final path = Path()..moveTo(0, y);
+        var x = 0.0;
+        var up = true;
+        while (x < size.width) {
+          path.lineTo(x + 3, y + (up ? -1.5 : 1.5));
+          x += 3;
+          up = !up;
+        }
+        canvas.drawPath(path, underline);
+      } else if (warningLines.contains(line)) {
+        canvas.drawRect(Rect.fromLTWH(0, top, size.width, lineHeight), warnPaint);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _DiagnosticLinePainter oldDelegate) {
+    return oldDelegate.errorLines != errorLines ||
+        oldDelegate.warningLines != warningLines ||
+        oldDelegate.lineHeight != lineHeight ||
+        oldDelegate.lineCount != lineCount;
   }
 }

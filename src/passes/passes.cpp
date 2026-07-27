@@ -393,26 +393,29 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
         if (factor && base && *base) {
             const int k = static_cast<int>(factor->value + 0.5);
             auto x = std::move(*base);
-            if (k == 2) {
-                auto a = cloneExpr(x.get());
+            auto a = cloneExpr(x.get());
+            if (!a) {
+                *base = std::move(x);
+            } else if (k == 2) {
                 return foldExpr(
                     std::make_unique<BinaryOpNode>("+", std::move(x), std::move(a)));
-            }
-            if (k == 4) {
-                auto a = cloneExpr(x.get());
+            } else if (k == 4) {
                 auto s2 = std::make_unique<BinaryOpNode>("+", std::move(x), std::move(a));
                 auto b = cloneExpr(s2.get());
+                if (!b) return foldExpr(std::move(s2));
                 return foldExpr(
                     std::make_unique<BinaryOpNode>("+", std::move(s2), std::move(b)));
-            }
-            if (k == 8) {
-                auto a = cloneExpr(x.get());
+            } else if (k == 8) {
                 auto s2 = std::make_unique<BinaryOpNode>("+", std::move(x), std::move(a));
                 auto b = cloneExpr(s2.get());
+                if (!b) return foldExpr(std::move(s2));
                 auto s4 = std::make_unique<BinaryOpNode>("+", std::move(s2), std::move(b));
                 auto c = cloneExpr(s4.get());
+                if (!c) return foldExpr(std::move(s4));
                 return foldExpr(
                     std::make_unique<BinaryOpNode>("+", std::move(s4), std::move(c)));
+            } else {
+                *base = std::move(x);
             }
         }
     }
