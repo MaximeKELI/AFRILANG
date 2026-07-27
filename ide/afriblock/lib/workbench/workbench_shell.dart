@@ -40,7 +40,9 @@ class WorkbenchShell extends StatelessWidget {
         const SingleActivator(LogicalKeyboardKey.keyW, meta: true):
             () => wb.closeActiveTab(),
         const SingleActivator(LogicalKeyboardKey.f5): () {
-          if (wb.cliRunning || wb.busy) {
+          if (wb.debug.paused) {
+            wb.debugContinue();
+          } else if (wb.cliRunning || wb.busy) {
             wb.stopCli();
           } else {
             wb.runActive();
@@ -48,6 +50,10 @@ class WorkbenchShell extends StatelessWidget {
         },
         const SingleActivator(LogicalKeyboardKey.f5, shift: true): () => wb.stopCli(),
         const SingleActivator(LogicalKeyboardKey.f6): () => wb.startDebug(),
+        const SingleActivator(LogicalKeyboardKey.f10): () => wb.debugStepOver(),
+        const SingleActivator(LogicalKeyboardKey.f11): () => wb.debugStepInto(),
+        const SingleActivator(LogicalKeyboardKey.f11, shift: true): () => wb.debugStepOut(),
+        const SingleActivator(LogicalKeyboardKey.f2): () => promptRenameSymbol(context),
         const SingleActivator(LogicalKeyboardKey.f12): () => wb.goToDefinitionAtCaret(),
         const SingleActivator(LogicalKeyboardKey.keyB, control: true, shift: true):
             () => wb.buildActiveTarget(),

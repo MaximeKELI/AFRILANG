@@ -124,11 +124,23 @@ class _ExplorerBody extends StatelessWidget {
         ),
       );
     }
-    final root = wb.rootNode!;
+    final multi = wb.folderRoots.length > 1;
+    final roots = multi ? wb.folderRoots : [wb.rootNode!];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const ExplorerCreateBar(),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 4),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              onPressed: () => wb.addFolderToWorkspace(),
+              icon: const Icon(Icons.create_new_folder_outlined, size: 16),
+              label: const Text('Add Folder'),
+            ),
+          ),
+        ),
         if (proj != null)
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
@@ -145,18 +157,22 @@ class _ExplorerBody extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.symmetric(vertical: 4),
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12, 6, 12, 8),
-                child: Text(
-                  root.name.toUpperCase(),
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    color: AfriblockColors.textMuted,
+              for (final root in roots) ...[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 6, 12, 8),
+                  child: Text(
+                    root.name.toUpperCase(),
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      color: AfriblockColors.textMuted,
+                    ),
                   ),
                 ),
-              ),
-              if (wb.outline.isNotEmpty) ...[
+                ...root.children.map((c) => _TreeTile(node: c, depth: 0)),
+                if (multi) const Divider(color: AfriblockColors.border),
+              ],
+              if (!multi && wb.outline.isNotEmpty) ...[
                 Padding(
                   padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
                   child: Text(
@@ -182,7 +198,6 @@ class _ExplorerBody extends StatelessWidget {
                 ),
                 const Divider(color: AfriblockColors.border),
               ],
-              ...root.children.map((c) => _TreeTile(node: c, depth: 0)),
             ],
           ),
         ),
@@ -354,12 +369,32 @@ class _SearchPanelState extends State<_SearchPanel> {
   }
 }
 
-class _ScmPanel extends StatelessWidget {
+class _ScmPanel extends StatefulWidget {
   const _ScmPanel({required this.wb});
   final WorkbenchController wb;
 
   @override
+  State<_ScmPanel> createState() => _ScmPanelState();
+}
+
+class _ScmPanelState extends State<_ScmPanel> {
+  late final TextEditingController _msg;
+
+  @override
+  void initState() {
+    super.initState();
+    _msg = TextEditingController(text: widget.wb.gitCommitMessage ?? '');
+  }
+
+  @override
+  void dispose() {
+    _msg.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final wb = widget.wb;
     return Column(
       children: [
         ListTile(
@@ -369,6 +404,36 @@ class _ScmPanel extends StatelessWidget {
           trailing: IconButton(
             icon: const Icon(Icons.refresh, size: 18),
             onPressed: wb.refreshGit,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 4),
+          child: TextField(
+            controller: _msg,
+            decoration: const InputDecoration(
+              hintText: 'Commit message',
+              isDense: true,
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (v) => wb.gitCommitMessage = v,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: FilledButton(
+                  onPressed: () => wb.commitWithMessage(_msg.text),
+                  child: const Text('Commit'),
+                ),
+              ),
+              const SizedBox(width: 8),
+              OutlinedButton(
+                onPressed: wb.showActiveDiff,
+                child: const Text('Show Diff'),
+              ),
+            ],
           ),
         ),
         if (wb.git.lastError != null)
@@ -385,7 +450,13 @@ class _ScmPanel extends StatelessWidget {
                 dense: true,
                 leading: Text(e.code, style: afriblockMono(fontSize: 11, color: AfriblockColors.accent)),
                 title: Text(wb.relativePath(e.path), style: afriblockMono(fontSize: 12)),
+                trailing: IconButton(
+                  tooltip: 'Stage',
+                  icon: const Icon(Icons.add, size: 16),
+                  onPressed: () => wb.stagePath(e.path),
+                ),
                 onTap: () => wb.openFile(e.path),
+                onLongPress: () => wb.stagePath(e.path),
               );
             },
           ),
@@ -452,23 +523,78 @@ class _DebugPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dbg = wb.debug;
     return ListView(
       padding: const EdgeInsets.all(12),
       children: [
         FilledButton.icon(
-          onPressed: wb.debug.running ? null : wb.startDebug,
+          onPressed: dbg.running ? null : wb.startDebug,
           icon: const Icon(Icons.bug_report),
           label: const Text('Start Debugging'),
         ),
         const SizedBox(height: 8),
-        OutlinedButton.icon(
-          onPressed: wb.debug.running ? wb.debug.stop : null,
-          icon: const Icon(Icons.stop),
-          label: const Text('Stop'),
+        Wrap(
+          spacing: 6,
+          runSpacing: 6,
+          children: [
+            OutlinedButton(
+              onPressed: dbg.running && dbg.paused ? wb.debugContinue : null,
+              child: const Text('Continue'),
+            ),
+            OutlinedButton(
+              onPressed: dbg.running ? wb.debugStepOver : null,
+              child: const Text('Step Over'),
+            ),
+            OutlinedButton(
+              onPressed: dbg.running ? wb.debugStepInto : null,
+              child: const Text('Step Into'),
+            ),
+            OutlinedButton(
+              onPressed: dbg.running ? wb.debugStepOut : null,
+              child: const Text('Step Out'),
+            ),
+            OutlinedButton(
+              onPressed: dbg.running ? wb.stopDebug : null,
+              child: const Text('Stop'),
+            ),
+          ],
         ),
         const SizedBox(height: 12),
+        Text('Call Stack', style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w700)),
+        if (dbg.frames.isEmpty)
+          Text('(empty)', style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted)),
+        ...dbg.frames.map(
+          (f) => ListTile(
+            dense: true,
+            selected: f.id == dbg.selectedFrameId,
+            title: Text(f.function, style: afriblockMono(fontSize: 12)),
+            subtitle: Text(
+              '${f.file}:${f.line}',
+              style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted),
+            ),
+            onTap: () {
+              if (f.file.isNotEmpty) wb.openFile(f.file, line: f.line);
+              dbg.selectFrame(f.id);
+            },
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text('Variables', style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w700)),
+        if (dbg.variables.isEmpty)
+          Text('(empty)', style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted)),
+        ...dbg.variables.map(
+          (v) => ListTile(
+            dense: true,
+            title: Text(v.name, style: afriblockMono(fontSize: 12)),
+            subtitle: Text(
+              v.type == null ? v.value : '${v.value}  (${v.type})',
+              style: afriblockMono(fontSize: 10, color: AfriblockColors.textMuted),
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
         Text('Breakpoints', style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w700)),
-        ...wb.debug.breakpoints.map(
+        ...dbg.breakpoints.map(
           (b) => ListTile(
             dense: true,
             title: Text('${wb.relativePath(b.path)}:${b.line}', style: afriblockMono(fontSize: 12)),
@@ -480,8 +606,8 @@ class _DebugPanel extends StatelessWidget {
             ),
           ),
         ),
-        if (wb.debug.status != null)
-          Text(wb.debug.status!, style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted)),
+        if (dbg.status != null)
+          Text(dbg.status!, style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted)),
       ],
     );
   }

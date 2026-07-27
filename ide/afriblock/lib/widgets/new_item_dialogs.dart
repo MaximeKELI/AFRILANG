@@ -11,6 +11,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../editor/path_name_rules.dart';
+import '../editor/text_ops.dart';
+import '../project/project_templates.dart';
 import '../state/workbench_controller.dart';
 import '../theme/afriblock_theme.dart';
 
@@ -49,6 +51,7 @@ Future<void> promptNewProject([BuildContext? context]) async {
   final projectsRoot = await defaultProjectsRoot();
   final nameCtrl = TextEditingController(text: 'mon_projet');
   final parentCtrl = TextEditingController(text: projectsRoot);
+  String templateId = 'app';
   String? error;
 
   final dialogCtx = _navContext ?? ctx;
@@ -82,6 +85,24 @@ Future<void> promptNewProject([BuildContext? context]) async {
                       errorText: error,
                       border: const OutlineInputBorder(),
                     ),
+                  ),
+                  const SizedBox(height: 12),
+                  DropdownButtonFormField<String>(
+                    initialValue: templateId,
+                    decoration: const InputDecoration(
+                      labelText: 'Template',
+                      border: OutlineInputBorder(),
+                    ),
+                    items: [
+                      for (final t in kProjectTemplates)
+                        DropdownMenuItem(
+                          value: t.id,
+                          child: Text('${t.label} — ${t.description}'),
+                        ),
+                    ],
+                    onChanged: (v) {
+                      if (v != null) setLocal(() => templateId = v);
+                    },
                   ),
                   const SizedBox(height: 12),
                   TextField(
@@ -145,6 +166,7 @@ Future<void> promptNewProject([BuildContext? context]) async {
     final root = await wb.createNewProject(
       name: nameCtrl.text.trim(),
       parentDir: parentCtrl.text.trim(),
+      templateId: templateId,
     );
     _toast('Projet créé : $root');
   } catch (e) {
@@ -153,6 +175,52 @@ Future<void> promptNewProject([BuildContext? context]) async {
     nameCtrl.dispose();
     parentCtrl.dispose();
   }
+}
+
+Future<void> promptRenameSymbol(BuildContext context) async {
+  final wb = context.read<WorkbenchController>();
+  final ctx = _navContext ?? context;
+  final tab = wb.activeTab;
+  if (tab == null) {
+    _toast('Aucun fichier ouvert');
+    return;
+  }
+  final current = TextOps.wordAt(tab.content, wb.editorCaret);
+  final ctrl = TextEditingController(text: current);
+  final ok = await showDialog<bool>(
+    context: ctx,
+    builder: (dCtx) => AlertDialog(
+      backgroundColor: AfriblockColors.panelElevated,
+      title: const Text('Rename Symbol'),
+      content: TextField(
+        controller: ctrl,
+        autofocus: true,
+        decoration: const InputDecoration(
+          labelText: 'New name',
+          border: OutlineInputBorder(),
+        ),
+        onSubmitted: (_) => Navigator.pop(dCtx, true),
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(dCtx, false), child: const Text('Annuler')),
+        FilledButton(
+          onPressed: () => Navigator.pop(dCtx, true),
+          child: const Text('Rename'),
+        ),
+      ],
+    ),
+  );
+  final name = ctrl.text.trim();
+  ctrl.dispose();
+  if (ok != true || name.isEmpty) return;
+  await wb.renameSymbolAtCaret(name);
+}
+
+Future<void> promptAddFolderToWorkspace([BuildContext? context]) async {
+  final ctx = _navContext ?? context;
+  if (ctx == null) return;
+  final wb = Provider.of<WorkbenchController>(ctx, listen: false);
+  await wb.addFolderToWorkspace();
 }
 
 Future<void> promptCreateFile(BuildContext context, {String? parentDir}) async {
