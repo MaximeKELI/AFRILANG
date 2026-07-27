@@ -37,3 +37,12 @@ afrilang test
 bash scripts/check_field_ops.sh
 ```
 
+## Deploy (monobinaire)
+
+Voir [`DEPLOY.md`](DEPLOY.md) — build natif, cross `linux-arm64`, deps `libsqlite3`, conteneur optionnel.
+
+```bash
+afrilang build
+bash ../../../scripts/check_field_ops_deploy.sh
+```
+

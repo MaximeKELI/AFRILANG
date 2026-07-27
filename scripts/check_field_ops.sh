@@ -33,3 +33,8 @@ grep -q "field_ops OK" /tmp/field_ops_smoke.out
 grep -q "REJECT:Hors zone" /tmp/field_ops_smoke.out
 grep -q "REJECT:Plafond" /tmp/field_ops_smoke.out
 echo "field_ops vertical OK"
+
+echo ""
+echo "=== deploy smoke (optionnel détaillé) ==="
+echo "bash scripts/check_field_ops_deploy.sh"
+

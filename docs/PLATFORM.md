@@ -56,4 +56,10 @@ These tags are what GitHub Releases and `install.sh` use — distinct from CLI `
 - Mobile (`mobile/afrilang`) is a **Flutter client** of the web API — not a native AFRILANG runtime.
 - Gap tests: `bash scripts/test_gaps.sh 3` — see [`GAPS.md`](GAPS.md).
 
+## Apps utilisateur (ex. field_ops)
+
+Un projet `afrilang build` produit **un binaire applicatif** (pas de runtime AFRILANG
+à embarquer). Les dépendances dynamiques (ex. `libsqlite3` pour `storex`) restent
+requises — détail : [`examples/apps/field_ops/DEPLOY.md`](../examples/apps/field_ops/DEPLOY.md).
+
 See also [`SECURITY.md`](../SECURITY.md), [`WASM_COMPAT.md`](WASM_COMPAT.md), [`GAPS.md`](GAPS.md).

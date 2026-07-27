@@ -10,33 +10,90 @@
 </div>
 
 <section class="mb-5">
-  <h2 class="h3 fw-bold mb-4">Philosophie</h2>
+  <h2 class="h3 fw-bold mb-4">{% if current_lang == 'en' %}Problem solved{% else %}Problème résolu{% endif %}</h2>
   <div class="row g-4">
     <div class="col-md-4">
       <div class="afr-feature-plain">
-        <h3 class="h6 fw-bold">Lisibilité d'abord</h3>
+        <h3 class="h6 fw-bold">A — {% if current_lang == 'en' %}Promise{% else %}Promesse{% endif %}</h3>
         <p class="small text-secondary-custom mb-0">
-          Les conditions et boucles utilisent des mots : <em>is greater than</em>, <em>repeat N times</em>,
-          <em>for each item in list do</em>. Le code se lit à voix haute.
+          {% if current_lang == 'en' %}
+          Business rules in near-human syntax, compiled to a native binary via C++17 — no heavy runtime.
+          {% else %}
+          Règles métier en syntaxe proche du langage humain, compilées en binaire natif via C++17 — sans runtime lourd.
+          {% endif %}
         </p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="afr-feature-plain">
-        <h3 class="h6 fw-bold">Bilingue FR / EN</h3>
+        <h3 class="h6 fw-bold">B — {% if current_lang == 'en' %}Proof{% else %}Preuve{% endif %}</h3>
         <p class="small text-secondary-custom mb-0">
+          {% if current_lang == 'en' %}
+          Africa offline-first vertical: <code>moneyx</code>, <code>phonex</code>, <code>geox</code>, <code>storex</code>.
+          {% else %}
+          Vertical offline-first Afrique : <code>moneyx</code>, <code>phonex</code>, <code>geox</code>, <code>storex</code>.
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="afr-feature-plain">
+        <h3 class="h6 fw-bold">field_ops</h3>
+        <p class="small text-secondary-custom mb-0">
+          {% if current_lang == 'en' %}
+          Showcase app: clinic mobile-money intake with readable reject/accept rules.
+          {% else %}
+          App vitrine : encaissement mobile money près d’une clinique, règles accept/rejet lisibles.
+          {% endif %}
+          <a href="https://github.com/MaximeKELI/AFRILANG/tree/main/examples/apps/field_ops" target="_blank" rel="noopener noreferrer">GitHub →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-4">{% if current_lang == 'en' %}Philosophy{% else %}Philosophie{% endif %}</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="afr-feature-plain">
+        <h3 class="h6 fw-bold">{% if current_lang == 'en' %}Readability first{% else %}Lisibilité d'abord{% endif %}</h3>
+        <p class="small text-secondary-custom mb-0">
+          {% if current_lang == 'en' %}
+          Conditions and loops use words: <em>is greater than</em>, <em>repeat N times</em>,
+          <em>for each item in list do</em>. Code reads out loud.
+          {% else %}
+          Les conditions et boucles utilisent des mots : <em>is greater than</em>, <em>repeat N times</em>,
+          <em>for each item in list do</em>. Le code se lit à voix haute.
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="afr-feature-plain">
+        <h3 class="h6 fw-bold">{% if current_lang == 'en' %}Bilingual FR / EN{% else %}Bilingue FR / EN{% endif %}</h3>
+        <p class="small text-secondary-custom mb-0">
+          {% if current_lang == 'en' %}
+          Same program with <code>dire</code> or <code>say</code>, <code>si</code> or <code>if</code>.
+          Errors via <code>AFRILANG_LOCALE=fr|en</code>.
+          {% else %}
           Même programme en <code>dire</code> ou <code>say</code>, <code>si</code> ou <code>if</code>,
           <code>nombre</code> ou <code>number</code>. Messages d'erreur localisables via
           <code>AFRILANG_LOCALE=fr|en</code>.
+          {% endif %}
         </p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="afr-feature-plain">
-        <h3 class="h6 fw-bold">Performance réelle</h3>
+        <h3 class="h6 fw-bold">{% if current_lang == 'en' %}Real performance{% else %}Performance réelle{% endif %}</h3>
         <p class="small text-secondary-custom mb-0">
+          {% if current_lang == 'en' %}
+          No VM: transpile + <code>g++</code>. C++20 coroutines for <code>async/await</code>.
+          {% else %}
           Pas de VM ni d'interpréteur : transpilation + <code>g++</code>. Coroutines C++20 pour
           <code>async/await</code>. Debug avec mapping <code>#line</code> vers les sources <code>.afr</code>.
+          {% endif %}
         </p>
       </div>
     </div>

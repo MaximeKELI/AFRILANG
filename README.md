@@ -22,7 +22,7 @@ En une phrase :
 
 Accessibilité et contribution africaine restent des piliers ; le différenciateur technique, c’est **A + B**.
 
-Preuve exécutable : [`examples/apps/field_ops`](examples/apps/field_ops) — règles métier + `moneyx` / `phonex` / `geox` / `storex`.
+Preuve exécutable : [`examples/apps/field_ops`](examples/apps/field_ops) — règles métier + `moneyx` / `phonex` / `geox` / `storex`. Deploy : [`DEPLOY.md`](examples/apps/field_ops/DEPLOY.md).
 
 ## Architecture
 

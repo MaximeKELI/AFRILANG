@@ -58,3 +58,10 @@ bash scripts/test_gap_09_dist.sh
 ## Related
 
 - [`PLATFORM.md`](PLATFORM.md) · [`GAPS.md`](GAPS.md) · [`TRUST.md`](TRUST.md)
+
+## Apps métier (monobinaire)
+
+Le compilateur se distribue via Releases ; **vos** programmes `.afr` se déploient
+comme un exécutable host (`afrilang build`). Exemple terrain A+B :
+[`examples/apps/field_ops/DEPLOY.md`](../examples/apps/field_ops/DEPLOY.md).
+

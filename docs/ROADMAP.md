@@ -106,13 +106,13 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] `httpPostHeaders` + paquet `llmx` (chat OpenAI-compatible, smoke offline)
 - [x] Score ISO inchangé (~16.6) — pas de claim « libs ML »
 
-## Vague Field & métier — A + B (en cours)
+## Vague Field & métier — A + B (livrée)
 
 Preuve produit du positionnement [Problème résolu](../README.md#problème-résolu) :
 
 - [x] Pitch figé dans le README (P0)
 - [x] App vitrine `examples/apps/field_ops` — règles lisibles + offline Afrique (P1)
 - [x] Smoke / tests vertical `moneyx` · `phonex` · `geox` · `storex` (P2)
-- [ ] Bloc site « Why AFRILANG » + showcase (P3)
-- [ ] Note deploy monobinaire / cross-target (P4)
+- [x] Bloc site « Why AFRILANG » + showcase (P3)
+- [x] Note deploy monobinaire / cross-target (P4)
 

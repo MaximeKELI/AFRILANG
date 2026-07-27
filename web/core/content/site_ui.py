@@ -59,8 +59,8 @@ UI = {
         ),
         'privacy_gate_version_label': 'Version de la politique',
         'meta_default': (
-            'AFRILANG — langage orienté objet à syntaxe naturelle, transpile vers C++17, '
-            'bibliothèque standard riche, outils LSP et playground.'
+            'AFRILANG — règles métier lisibles → binaire natif (A), '
+            'preuve offline Afrique money/phone/geo/store (B).'
         ),
         'home': {
             'title': 'AFRILANG — Codez en phrases, déployez en natif',
@@ -70,8 +70,8 @@ UI = {
             'hero_h1_b': 'langage naturel',
             'hero_h1_c': 'compilez en natif.',
             'hero_lead': (
-                'Langage orienté objet à syntaxe lisible : transpile vers C++17, '
-                'compile en binaire natif. Français et anglais.'
+                'Règles métier lisibles → binaire natif (via C++17). '
+                'Preuve terrain : offline Afrique (mobile money, téléphone, geo, store).'
             ),
             'hero_compat': 'LSP · REPL · WASM · cross-compilation',
             'btn_start': 'Commencer',
@@ -82,30 +82,49 @@ UI = {
             'stat_packages': 'Paquets certifiés',
             'stat_targets': 'Cibles (x64, ARM, WASM)',
             'why_label': 'Pourquoi AFRILANG',
-            'why_title': 'Lisible comme une phrase, performant comme du C++',
+            'why_title': 'A + B — intention lisible, preuve terrain',
             'why_desc': (
-                "Syntaxe naturelle, erreurs explicites, toolchain moderne "
-                'et écosystème open source.'
+                'Java = portabilité · Go = services légers · Rust = mémoire. '
+                'AFRILANG = règles métier lisibles qui deviennent des binaires natifs, '
+                'conçus pour tourner hors ligne en Afrique.'
             ),
-            'feat_natural_title': 'Syntaxe naturelle',
+            'feat_a_title': 'A — Promesse',
+            'feat_a': (
+                'Procédures métier en syntaxe proche du langage humain, '
+                'compilées en <strong>binaire natif</strong> (transpilation C++17) — '
+                'sans runtime lourd à installer.'
+            ),
+            'feat_b_title': 'B — Preuve',
+            'feat_b': (
+                'Vertical offline-first Afrique : <code>moneyx</code> (XOF), '
+                '<code>phonex</code> (E.164), <code>geox</code> (rayon), '
+                '<code>storex</code> (SQLite local).'
+            ),
+            'feat_proof_title': 'Vitrine',
+            'feat_proof': (
+                'App <code>field_ops</code> : encaissement mobile money près d’une clinique — '
+                'acceptation, hors zone, plafond, téléphone.'
+            ),
+            'why_cta': 'Voir field_ops sur GitHub',
+            'why_showcase': 'Showcase',
+            # compat aliases (anciens templates / mobile)
+            'feat_natural_title': 'A — Promesse',
             'feat_natural': (
-                '<code>if age is greater than 18 then</code> — mots-clés en français '
-                '(<code>dire</code>, <code>si</code>, <code>fin</code>) ou en anglais.'
+                'Procédures métier en syntaxe proche du langage humain, compilées en binaire natif.'
             ),
-            'feat_perf_title': 'Performance native',
+            'feat_perf_title': 'B — Preuve',
             'feat_perf': (
-                'Transpilation C++17 puis <code>g++</code>. Host <code>native</code>, '
-                'cross <code>linux-arm64</code>, sous-ensemble <code>wasm32</code>.'
+                'Offline Afrique : moneyx, phonex, geox, storex.'
             ),
-            'feat_tools_title': 'Toolchain intégrée',
+            'feat_tools_title': 'Vitrine',
             'feat_tools': (
-                'CLI, LSP, REPL, debug, extension VS Code/Cursor et playground web.'
+                'App field_ops — règles lisibles + persistance SQLite.'
             ),
-            'example_label': 'Exemple rapide',
-            'example_title': 'De la phrase au binaire en une commande',
+            'example_label': 'Preuve A+B',
+            'example_title': 'field_ops — de la règle au binaire',
             'example_desc': (
-                'Installez le compilateur, écrivez un fichier <code>.afr</code>, exécutez-le. '
-                'Le pipeline transpile vers C++ puis invoque <code>g++</code> automatiquement.'
+                'Les règles se lisent comme une procédure ; '
+                '<code>afrilang build</code> produit un exécutable natif offline.'
             ),
             'packages_label': 'Écosystème',
             'packages_title': 'Paquets certifiés',
@@ -141,13 +160,16 @@ UI = {
         },
         'language_page': {
             'title': 'Le langage AFRILANG',
-            'meta': 'Présentation d\'AFRILANG : syntaxe naturelle bilingue, transpilation C++, POO, génériques, async.',
+            'meta': (
+                'AFRILANG : règles métier lisibles → binaire natif (A), '
+                'preuve offline Afrique money/phone/geo/store (B).'
+            ),
             'label': 'AFRILANG {version}',
             'h1': 'Un langage qui se lit, un compilateur qui livre',
             'lead': (
-                'AFRILANG combine la lisibilité du langage naturel avec la rigueur d\'un compilateur moderne. '
-                'Vous écrivez des programmes qui ressemblent à des phrases ; le compilateur les transforme '
-                'en C++17 optimisé, puis en exécutables natifs.'
+                'AFRILANG attaque le fossé entre intention métier et outil déployable : '
+                'syntaxe proche du langage humain, exécutable natif via C++17, '
+                'vertical terrain Afrique (offline).'
             ),
         },
         'download': {
@@ -340,7 +362,7 @@ UI = {
             'title': 'Showcase AFRILANG',
             'label': 'Projets',
             'h1': 'Projets & dépôts',
-            'lead': 'Compilateur, outils, site web, paquets et démos — l\'écosystème AFRILANG sur GitHub.',
+            'lead': 'Compilateur, outils, site, paquets et vitrine field_ops (A+B) — l\'écosystème sur GitHub.',
             'featured': 'Projets phares',
             'try_btn': 'Playground',
             'submit_title': 'Votre projet en AFRILANG ?',
@@ -430,8 +452,8 @@ UI = {
         ),
         'privacy_gate_version_label': 'Policy version',
         'meta_default': (
-            'AFRILANG — natural-syntax OOP language transpiling to C++17, '
-            'rich standard library, LSP tooling and web playground.'
+            'AFRILANG — readable business rules → native binary (A), '
+            'Africa offline proof money/phone/geo/store (B).'
         ),
         'home': {
             'title': 'AFRILANG — Code in sentences, ship native binaries',
@@ -441,8 +463,8 @@ UI = {
             'hero_h1_b': 'natural language',
             'hero_h1_c': 'compile to native.',
             'hero_lead': (
-                'Readable object-oriented language: transpiles to C++17, '
-                'compiles to native binaries. French and English keywords.'
+                'Readable business rules → native binary (via C++17). '
+                'Field proof: Africa offline stack (mobile money, phone, geo, store).'
             ),
             'hero_compat': 'LSP · REPL · WASM · cross-compilation',
             'btn_start': 'Get started',
@@ -453,30 +475,47 @@ UI = {
             'stat_packages': 'Certified packages',
             'stat_targets': 'Targets (x64, ARM, WASM)',
             'why_label': 'Why AFRILANG',
-            'why_title': 'Readable like prose, fast like C++',
+            'why_title': 'A + B — readable intent, field proof',
             'why_desc': (
-                'Natural syntax, clear errors, modern tooling '
-                'and an open-source ecosystem.'
+                'Java = portability · Go = lean services · Rust = memory safety. '
+                'AFRILANG = readable business rules that become native binaries, '
+                'built to run offline in Africa.'
             ),
-            'feat_natural_title': 'Natural syntax',
+            'feat_a_title': 'A — Promise',
+            'feat_a': (
+                'Business procedures in near-human syntax, compiled to a '
+                '<strong>native binary</strong> (C++17 transpile) — no heavy runtime to install.'
+            ),
+            'feat_b_title': 'B — Proof',
+            'feat_b': (
+                'Africa offline-first vertical: <code>moneyx</code> (XOF), '
+                '<code>phonex</code> (E.164), <code>geox</code> (radius), '
+                '<code>storex</code> (local SQLite).'
+            ),
+            'feat_proof_title': 'Showcase app',
+            'feat_proof': (
+                '<code>field_ops</code>: mobile-money intake near a clinic — '
+                'accept, out of zone, ceiling, phone checks.'
+            ),
+            'why_cta': 'View field_ops on GitHub',
+            'why_showcase': 'Showcase',
+            'feat_natural_title': 'A — Promise',
             'feat_natural': (
-                '<code>if age is greater than 18 then</code> — French keywords '
-                '(<code>dire</code>, <code>si</code>, <code>fin</code>) or English.'
+                'Business procedures in near-human syntax, compiled to a native binary.'
             ),
-            'feat_perf_title': 'Native performance',
+            'feat_perf_title': 'B — Proof',
             'feat_perf': (
-                'Transpilation to C++17 then <code>g++</code>. Host <code>native</code>, '
-                'cross <code>linux-arm64</code>, subset <code>wasm32</code>.'
+                'Africa offline: moneyx, phonex, geox, storex.'
             ),
-            'feat_tools_title': 'Integrated toolchain',
+            'feat_tools_title': 'Showcase app',
             'feat_tools': (
-                'CLI, LSP, REPL, debug, VS Code/Cursor extension and web playground.'
+                'field_ops — readable rules + SQLite persistence.'
             ),
-            'example_label': 'Quick example',
-            'example_title': 'From sentence to binary in one command',
+            'example_label': 'A+B proof',
+            'example_title': 'field_ops — from rule to binary',
             'example_desc': (
-                'Install the compiler, write a <code>.afr</code> file, run it. '
-                'The pipeline transpiles to C++ and invokes <code>g++</code> automatically.'
+                'Rules read like a procedure; '
+                '<code>afrilang build</code> ships a native offline executable.'
             ),
             'packages_label': 'Ecosystem',
             'packages_title': 'Certified packages',
@@ -512,13 +551,16 @@ UI = {
         },
         'language_page': {
             'title': 'The AFRILANG language',
-            'meta': 'AFRILANG overview: bilingual natural syntax, C++ transpilation, OOP, generics, async.',
+            'meta': (
+                'AFRILANG: readable business rules → native binary (A), '
+                'Africa offline proof money/phone/geo/store (B).'
+            ),
             'label': 'AFRILANG {version}',
             'h1': 'A language you can read, a compiler that delivers',
             'lead': (
-                'AFRILANG combines natural-language readability with a modern compiler. '
-                'You write programs that read like sentences; the compiler transforms them '
-                'into optimized C++17, then native executables.'
+                'AFRILANG bridges human intent and a shippable tool: '
+                'near-human syntax, native executables via C++17, '
+                'Africa field vertical (offline).'
             ),
         },
         'download': {
@@ -711,7 +753,7 @@ UI = {
             'title': 'AFRILANG Showcase',
             'label': 'Projects',
             'h1': 'Projects & repositories',
-            'lead': 'Compiler, tools, website, packages and demos — the AFRILANG ecosystem on GitHub.',
+            'lead': 'Compiler, tools, site, packages and field_ops showcase (A+B) — the ecosystem on GitHub.',
             'featured': 'Featured projects',
             'try_btn': 'Playground',
             'submit_title': 'Built something with AFRILANG?',

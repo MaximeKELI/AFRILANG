@@ -113,6 +113,29 @@ PROJECTS = [
         },
     },
     {
+        'slug': 'field-ops',
+        'category': 'demos',
+        'github': 'https://github.com/MaximeKELI/AFRILANG/tree/main/examples/apps/field_ops',
+        'featured': True,
+        'tags': ['A+B', 'offline', 'Afrique', 'métier'],
+        'fr': {
+            'title': 'field_ops — vitrine A+B',
+            'summary': (
+                'Règles métier lisibles (plafond, téléphone SN, rayon clinique) '
+                'compilées en binaire natif avec moneyx, phonex, geox et storex.'
+            ),
+            'highlights': ['Offline SQLite', 'Mobile money XOF', 'afrilang test vert'],
+        },
+        'en': {
+            'title': 'field_ops — A+B showcase',
+            'summary': (
+                'Readable business rules (ceiling, SN phone, clinic radius) '
+                'compiled to a native binary with moneyx, phonex, geox and storex.'
+            ),
+            'highlights': ['Offline SQLite', 'XOF mobile money', 'Green afrilang test'],
+        },
+    },
+    {
         'slug': 'gui-demo',
         'category': 'demos',
         'github': 'https://github.com/MaximeKELI/AFRILANG/blob/main/examples/gui_demo.afr',

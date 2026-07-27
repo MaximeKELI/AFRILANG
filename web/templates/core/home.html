@@ -73,29 +73,33 @@ end</pre>
       </div>
     </div>
 
-    <div class="mb-4">
+    <div class="mb-4" id="why">
       <div class="section-label">{{ ui.home.why_label }}</div>
       <h2 class="fw-bold">{{ ui.home.why_title }}</h2>
       <p class="text-secondary-custom" style="max-width:42rem">{{ ui.home.why_desc }}</p>
+      <div class="d-flex flex-wrap gap-2 mt-3">
+        <a class="btn btn-afr-outline btn-sm" href="https://github.com/MaximeKELI/AFRILANG/tree/main/examples/apps/field_ops" target="_blank" rel="noopener noreferrer">{{ ui.home.why_cta }}</a>
+        <a class="btn btn-afr-outline btn-sm" href="{% url 'showcase' %}">{{ ui.home.why_showcase }}</a>
+      </div>
     </div>
 
     <div class="row g-4 g-lg-5">
       <div class="col-md-4">
         <div class="afr-feature-plain">
-          <h3 class="h5 fw-bold">{{ ui.home.feat_natural_title }}</h3>
-          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_natural|safe }}</p>
+          <h3 class="h5 fw-bold">{{ ui.home.feat_a_title }}</h3>
+          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_a|safe }}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="afr-feature-plain">
-          <h3 class="h5 fw-bold">{{ ui.home.feat_perf_title }}</h3>
-          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_perf|safe }}</p>
+          <h3 class="h5 fw-bold">{{ ui.home.feat_b_title }}</h3>
+          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_b|safe }}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="afr-feature-plain">
-          <h3 class="h5 fw-bold">{{ ui.home.feat_tools_title }}</h3>
-          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_tools|safe }}</p>
+          <h3 class="h5 fw-bold">{{ ui.home.feat_proof_title }}</h3>
+          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_proof|safe }}</p>
         </div>
       </div>
     </div>
@@ -111,32 +115,27 @@ end</pre>
         <p class="text-secondary-custom">{{ ui.home.example_desc|safe }}</p>
         <div class="code-panel mt-3">
           <div class="code-panel-header"><span>Terminal</span></div>
-          <pre>git clone https://github.com/MaximeKELI/AFRILANG
-cd AFRILANG/build && cmake .. && cmake --build .
-./afrilang run examples/hello.afr</pre>
+          <pre>cd examples/apps/field_ops
+afrilang pkg install
+afrilang run src/main.afr
+# ou : afrilang build &amp;&amp; ./build/field_ops</pre>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="code-panel">
-          <div class="code-panel-header"><span>examples/oop.afr</span></div>
-          <pre>class Animal
-    function speak()
-        say "..."
+          <div class="code-panel-header"><span>field_ops/src/rules.afr</span></div>
+          <pre>function reviewFieldPayment(rawPhone text, amount number, lat number, lon number) returns text
+    if not isInServiceArea(lat, lon) then
+        return "REJECT:Hors zone d intervention"
     end
-end
-
-class Dog extends Animal
-    public field name text
-    function init(aName text)
-        set this.name = aName
+    if not isValidAgentPhone(rawPhone) then
+        return "REJECT:Telephone mobile SN invalide"
     end
-    function speak()
-        say name + " says Woof!"
+    if not isUnderCeiling(amount) then
+        return "REJECT:Plafond mobile money depasse"
     end
-end
-
-create rex = new Dog("Rex")
-rex.speak()</pre>
+    return "OK:" + agentPhoneE164(rawPhone)
+end</pre>
         </div>
       </div>
     </div>
