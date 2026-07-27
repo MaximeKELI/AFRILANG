@@ -994,6 +994,8 @@ ${tmpl.tomlExtra}''';
       goToColumnRequest = column;
     }
     statusMessage = line == null ? resolved : '$resolved:$line';
+    await refreshDirtyLinesForActive();
+    if (blameEnabled) await refreshBlameForActive();
     notifyListeners();
   }
 

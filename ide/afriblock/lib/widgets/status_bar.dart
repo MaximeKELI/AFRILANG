@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../editor/text_ops.dart';
 import '../state/workbench_controller.dart';
 import '../theme/afriblock_theme.dart';
 
@@ -12,6 +13,17 @@ class StatusBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final wb = context.watch<WorkbenchController>();
     final tab = wb.activeTab;
+    String? blameLabel;
+    if (wb.blameEnabled && tab != null && wb.blameLines.isNotEmpty) {
+      final line = TextOps.lineColAt(tab.content, wb.editorCaret).line + 1;
+      for (final b in wb.blameLines) {
+        if (b.line == line) {
+          final hash = b.hash.length > 7 ? b.hash.substring(0, 7) : b.hash;
+          blameLabel = '${b.author} $hash';
+          break;
+        }
+      }
+    }
     return Container(
       height: 24,
       color: AfriblockColors.primaryDeep,
@@ -34,6 +46,14 @@ class StatusBar extends StatelessWidget {
               style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white),
             ),
           ),
+          if (blameLabel != null)
+            Padding(
+              padding: const EdgeInsets.only(right: 12),
+              child: Text(
+                blameLabel,
+                style: GoogleFonts.plusJakartaSans(fontSize: 11.5, color: Colors.white70),
+              ),
+            ),
           if (wb.git.branch != null)
             Padding(
               padding: const EdgeInsets.only(right: 12),
