@@ -52,12 +52,22 @@ class BottomPanel extends StatelessWidget {
                   onTap: () => wb.setBottomTab(BottomTab.testResults),
                 ),
                 const Spacer(),
+                if (wb.cliRunning || wb.busy)
+                  IconButton(
+                    tooltip: 'Stop (Shift+F5)',
+                    iconSize: 16,
+                    onPressed: wb.stopCli,
+                    icon: const Icon(Icons.stop, color: AfriblockColors.error),
+                  ),
                 IconButton(
                   tooltip: 'Clear',
                   iconSize: 16,
                   onPressed: () {
                     if (wb.bottomTab == BottomTab.output) wb.clearOutput();
                     if (wb.bottomTab == BottomTab.problems) wb.clearProblems();
+                    if (wb.bottomTab == BottomTab.debugConsole) {
+                      wb.clearDebugConsole();
+                    }
                   },
                   icon: const Icon(Icons.delete_outline, color: AfriblockColors.textMuted),
                 ),
@@ -82,7 +92,7 @@ class BottomPanel extends StatelessWidget {
       case BottomTab.problems:
         return _ProblemsList(wb: wb);
       case BottomTab.output:
-        return _OutputView(text: wb.outputLog.toString());
+        return _OutputPane(wb: wb);
       case BottomTab.debugConsole:
         return _OutputView(text: wb.debug.console.toString());
       case BottomTab.terminal:
@@ -175,12 +185,95 @@ class _ProblemsList extends StatelessWidget {
             [
               if (p.path.isNotEmpty) wb.relativePath(p.path),
               if (p.line != null) ':${p.line}',
+              if (p.column != null) ':${p.column}',
             ].join(),
             style: afriblockMono(fontSize: 11, color: AfriblockColors.textMuted),
           ),
-          onTap: p.path.isEmpty ? null : () => wb.openFile(p.path, line: p.line),
+          onTap: p.path.isEmpty
+              ? null
+              : () => wb.openFile(p.path, line: p.line, column: p.column),
         );
       },
+    );
+  }
+}
+
+class _OutputPane extends StatelessWidget {
+  const _OutputPane({required this.wb});
+  final WorkbenchController wb;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(child: _OutputView(text: wb.outputLog.toString())),
+        if (wb.cliRunning) const _StdinBar(),
+      ],
+    );
+  }
+}
+
+class _StdinBar extends StatefulWidget {
+  const _StdinBar();
+
+  @override
+  State<_StdinBar> createState() => _StdinBarState();
+}
+
+class _StdinBarState extends State<_StdinBar> {
+  final _ctrl = TextEditingController();
+  final _focus = FocusNode();
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    _focus.dispose();
+    super.dispose();
+  }
+
+  void _submit(WorkbenchController wb) {
+    final line = _ctrl.text;
+    wb.writeCliStdin(line);
+    _ctrl.clear();
+    _focus.requestFocus();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final wb = context.read<WorkbenchController>();
+    return Container(
+      height: 36,
+      decoration: const BoxDecoration(
+        border: Border(top: BorderSide(color: AfriblockColors.border)),
+        color: AfriblockColors.panelElevated,
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        children: [
+          Text('stdin ›', style: afriblockMono(fontSize: 11, color: AfriblockColors.accent)),
+          const SizedBox(width: 8),
+          Expanded(
+            child: TextField(
+              controller: _ctrl,
+              focusNode: _focus,
+              style: afriblockMono(fontSize: 12),
+              decoration: const InputDecoration(
+                hintText: 'Send input to running program…',
+                isDense: true,
+                border: InputBorder.none,
+              ),
+              onSubmitted: (_) => _submit(wb),
+            ),
+          ),
+          IconButton(
+            tooltip: 'Send',
+            iconSize: 16,
+            onPressed: () => _submit(wb),
+            icon: const Icon(Icons.send, size: 16),
+          ),
+        ],
+      ),
     );
   }
 }

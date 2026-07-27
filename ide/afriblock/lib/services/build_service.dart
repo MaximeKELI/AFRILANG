@@ -26,12 +26,37 @@ class BuildService {
 
   final Future<String?> Function() resolveBinary;
   Process? _active;
+  bool _cancelled = false;
 
   bool get isRunning => _active != null;
 
+  /// Write a line to the active process stdin (Run / Build interactive input).
+  bool writeStdin(String line) {
+    final proc = _active;
+    if (proc == null) return false;
+    try {
+      proc.stdin.writeln(line);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   Future<void> cancel() async {
-    _active?.kill(ProcessSignal.sigterm);
-    _active = null;
+    final proc = _active;
+    if (proc == null) return;
+    _cancelled = true;
+    try {
+      proc.kill(ProcessSignal.sigterm);
+    } catch (_) {}
+    // Escalate if still alive shortly after.
+    Future<void>.delayed(const Duration(milliseconds: 800), () {
+      if (_active == proc) {
+        try {
+          proc.kill(ProcessSignal.sigkill);
+        } catch (_) {}
+      }
+    });
   }
 
   Future<StreamedCliResult> runStreaming({
@@ -59,6 +84,7 @@ class BuildService {
       );
     }
 
+    _cancelled = false;
     onChunk('\$ $cmdLine\n');
     final sw = Stopwatch()..start();
     final proc = await Process.start(
@@ -82,16 +108,22 @@ class BuildService {
     final code = await proc.exitCode;
     await subOut.cancel();
     await subErr.cancel();
-    _active = null;
+    if (identical(_active, proc)) {
+      _active = null;
+    }
     sw.stop();
-    onChunk('\n[exit $code — ${sw.elapsedMilliseconds} ms]\n');
+    if (_cancelled) {
+      onChunk('\n[stopped — ${sw.elapsedMilliseconds} ms]\n');
+    } else {
+      onChunk('\n[exit $code — ${sw.elapsedMilliseconds} ms]\n');
+    }
 
     final combined = buf.toString();
     final fallback = args.length > 1 ? args.last : (workingDirectory ?? '');
     final problems =
         AfrilangCli.parseDiagnostics(combined, fallbackPath: fallback);
     return StreamedCliResult(
-      exitCode: code,
+      exitCode: _cancelled ? -1 : code,
       combined: combined,
       problems: problems,
       commandLine: cmdLine,

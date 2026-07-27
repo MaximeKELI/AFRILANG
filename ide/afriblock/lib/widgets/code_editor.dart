@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../editor/text_ops.dart';
 import '../theme/afriblock_theme.dart';
 
 /// Tokenizes AFRILANG source for syntax highlighting (mirrors mobile highlighter).
@@ -79,6 +80,10 @@ class _RejectGhostIntent extends Intent {
   const _RejectGhostIntent();
 }
 
+class _GoToDefinitionIntent extends Intent {
+  const _GoToDefinitionIntent();
+}
+
 class CodeEditor extends StatefulWidget {
   const CodeEditor({
     super.key,
@@ -92,6 +97,12 @@ class CodeEditor extends StatefulWidget {
     this.onRejectGhost,
     this.onToggleBreakpoint,
     this.breakpoints = const {},
+    this.goToLine,
+    this.goToColumn,
+    this.onGoToLineHandled,
+    this.hoverInfo,
+    this.onGoToDefinition,
+    this.onDismissHover,
   });
 
   final String path;
@@ -105,6 +116,12 @@ class CodeEditor extends StatefulWidget {
   final VoidCallback? onRejectGhost;
   final ValueChanged<int>? onToggleBreakpoint;
   final Set<int> breakpoints;
+  final int? goToLine;
+  final int? goToColumn;
+  final VoidCallback? onGoToLineHandled;
+  final String? hoverInfo;
+  final VoidCallback? onGoToDefinition;
+  final VoidCallback? onDismissHover;
 
   @override
   State<CodeEditor> createState() => _CodeEditorState();
@@ -128,6 +145,13 @@ class _CodeEditorState extends State<CodeEditor> {
     _gutterScroll = ScrollController();
     _controller.addListener(_onControllerTick);
     _textScroll.addListener(_onTextScroll);
+    if (widget.goToLine != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted || widget.goToLine == null) return;
+        _jumpToLine(widget.goToLine!, column: widget.goToColumn);
+        widget.onGoToLineHandled?.call();
+      });
+    }
   }
 
   void _onControllerTick() {
@@ -162,13 +186,11 @@ class _CodeEditorState extends State<CodeEditor> {
           offset: widget.initialContent.length,
         ),
       );
-      return;
-    }
-    // Only pull external buffer updates (format / discard / AI insert).
-    // Never clobber the field just because the parent rebuilt with a stale
-    // [initialContent] string — that was wiping unsaved edits on Run.
-    if (widget.contentRevision != oldWidget.contentRevision &&
+    } else if (widget.contentRevision != oldWidget.contentRevision &&
         widget.initialContent != _controller.text) {
+      // Only pull external buffer updates (format / discard / AI insert).
+      // Never clobber the field just because the parent rebuilt with a stale
+      // [initialContent] string — that was wiping unsaved edits on Run.
       final sel = _controller.selection;
       _controller.value = TextEditingValue(
         text: widget.initialContent,
@@ -178,6 +200,31 @@ class _CodeEditorState extends State<CodeEditor> {
         ),
       );
     }
+    if (widget.goToLine != null &&
+        (widget.goToLine != oldWidget.goToLine ||
+            widget.goToColumn != oldWidget.goToColumn)) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        _jumpToLine(widget.goToLine!, column: widget.goToColumn);
+        widget.onGoToLineHandled?.call();
+      });
+    }
+  }
+
+  void _jumpToLine(int line, {int? column}) {
+    final text = _controller.text;
+    final offset = TextOps.offsetAtLine(text, line, column: column ?? 1);
+    _controller.selection = TextSelection.collapsed(offset: offset);
+    widget.onCaretChanged?.call(offset);
+    final lineBox = _fontSize * _lineHeight;
+    final target = ((line - 1) * lineBox).clamp(0.0, double.infinity);
+    if (_textScroll.hasClients) {
+      _textScroll.jumpTo(
+        target.clamp(0.0, _textScroll.position.maxScrollExtent),
+      );
+    }
+    _focus.requestFocus();
+    setState(() {});
   }
 
   @override
@@ -233,146 +280,205 @@ class _CodeEditorState extends State<CodeEditor> {
     final hasGhost = ghost != null && ghost.isNotEmpty;
     final caret = _caret;
     final before = _controller.text.substring(0, caret);
+    final hover = widget.hoverInfo;
 
     return ColoredBox(
       color: AfriblockColors.bg,
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(
-            width: gutterWidth,
-            child: ListView.builder(
-              controller: _gutterScroll,
-              physics: const ClampingScrollPhysics(),
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              itemCount: lineCount,
-              itemExtent: lineBox,
-              itemBuilder: (context, i) {
-                final line = i + 1;
-                final hasBp = widget.breakpoints.contains(line);
-                return InkWell(
-                  onTap: widget.onToggleBreakpoint == null
-                      ? null
-                      : () => widget.onToggleBreakpoint!(line),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 12,
-                        child: hasBp
-                            ? const Icon(Icons.circle, size: 8, color: AfriblockColors.error)
-                            : null,
+          if (hover != null && hover.isNotEmpty)
+            Material(
+              color: AfriblockColors.panelElevated,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                child: Row(
+                  children: [
+                    const Icon(Icons.info_outline, size: 14, color: AfriblockColors.primary),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        hover.replaceAll(RegExp(r'\*\*'), ''),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: afriblockMono(fontSize: 11.5, color: AfriblockColors.text),
                       ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: Text(
-                              '$line',
-                              style: afriblockMono(
-                                fontSize: _fontSize - 1,
-                                color: AfriblockColors.textMuted,
-                                height: _lineHeight,
+                    ),
+                    IconButton(
+                      tooltip: 'Go to Definition (F12)',
+                      iconSize: 16,
+                      onPressed: widget.onGoToDefinition,
+                      icon: const Icon(Icons.subdirectory_arrow_right),
+                    ),
+                    IconButton(
+                      tooltip: 'Dismiss',
+                      iconSize: 16,
+                      onPressed: widget.onDismissHover,
+                      icon: const Icon(Icons.close, size: 14),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  width: gutterWidth,
+                  child: ListView.builder(
+                    controller: _gutterScroll,
+                    physics: const ClampingScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    itemCount: lineCount,
+                    itemExtent: lineBox,
+                    itemBuilder: (context, i) {
+                      final line = i + 1;
+                      final hasBp = widget.breakpoints.contains(line);
+                      return InkWell(
+                        onTap: widget.onToggleBreakpoint == null
+                            ? null
+                            : () => widget.onToggleBreakpoint!(line),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 12,
+                              child: hasBp
+                                  ? const Icon(Icons.circle, size: 8, color: AfriblockColors.error)
+                                  : null,
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: Text(
+                                    '$line',
+                                    style: afriblockMono(
+                                      fontSize: _fontSize - 1,
+                                      color: AfriblockColors.textMuted,
+                                      height: _lineHeight,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ),
-                    ],
+                      );
+                    },
                   ),
-                );
-              },
-            ),
-          ),
-          Container(width: 1, color: AfriblockColors.border.withValues(alpha: 0.45)),
-          Expanded(
-            child: SingleChildScrollView(
-              controller: _textScroll,
-              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-              child: Shortcuts(
-                shortcuts: {
-                  if (hasGhost)
-                    const SingleActivator(LogicalKeyboardKey.tab):
-                        const _AcceptGhostIntent(),
-                  if (hasGhost)
-                    const SingleActivator(LogicalKeyboardKey.escape):
-                        const _RejectGhostIntent(),
-                },
-                child: Actions(
-                  actions: {
-                    _AcceptGhostIntent: CallbackAction<_AcceptGhostIntent>(
-                      onInvoke: (_) {
-                        _acceptGhost();
-                        return null;
+                ),
+                Container(width: 1, color: AfriblockColors.border.withValues(alpha: 0.45)),
+                Expanded(
+                  child: SingleChildScrollView(
+                    controller: _textScroll,
+                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+                    child: Shortcuts(
+                      shortcuts: {
+                        if (hasGhost)
+                          const SingleActivator(LogicalKeyboardKey.tab):
+                              const _AcceptGhostIntent(),
+                        if (hasGhost)
+                          const SingleActivator(LogicalKeyboardKey.escape):
+                              const _RejectGhostIntent(),
+                        const SingleActivator(LogicalKeyboardKey.f12):
+                            const _GoToDefinitionIntent(),
                       },
-                    ),
-                    _RejectGhostIntent: CallbackAction<_RejectGhostIntent>(
-                      onInvoke: (_) {
-                        widget.onRejectGhost?.call();
-                        return null;
-                      },
-                    ),
-                  },
-                  child: Stack(
-                    children: [
-                      if (isAfr)
-                        Text.rich(
-                          AfrilangHighlighter.highlightSpan(
-                            _controller.text.isEmpty ? ' ' : _controller.text,
-                            fontSize: _fontSize,
+                      child: Actions(
+                        actions: {
+                          _AcceptGhostIntent: CallbackAction<_AcceptGhostIntent>(
+                            onInvoke: (_) {
+                              _acceptGhost();
+                              return null;
+                            },
                           ),
-                          style: afriblockMono(
-                            fontSize: _fontSize,
-                            height: _lineHeight,
+                          _RejectGhostIntent: CallbackAction<_RejectGhostIntent>(
+                            onInvoke: (_) {
+                              widget.onRejectGhost?.call();
+                              return null;
+                            },
                           ),
-                        ),
-                      if (hasGhost)
-                        Text.rich(
-                          TextSpan(
+                          _GoToDefinitionIntent: CallbackAction<_GoToDefinitionIntent>(
+                            onInvoke: (_) {
+                              widget.onGoToDefinition?.call();
+                              return null;
+                            },
+                          ),
+                        },
+                        child: Listener(
+                          onPointerDown: (e) {
+                            final keys = HardwareKeyboard.instance;
+                            if (keys.isControlPressed || keys.isMetaPressed) {
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
+                                widget.onGoToDefinition?.call();
+                              });
+                            }
+                          },
+                          child: Stack(
                             children: [
-                              TextSpan(
-                                text: before.isEmpty ? '' : before,
-                                style: afriblockMono(
+                              if (isAfr)
+                                Text.rich(
+                                  AfrilangHighlighter.highlightSpan(
+                                    _controller.text.isEmpty ? ' ' : _controller.text,
+                                    fontSize: _fontSize,
+                                  ),
+                                  style: afriblockMono(
+                                    fontSize: _fontSize,
+                                    height: _lineHeight,
+                                  ),
+                                ),
+                              if (hasGhost)
+                                Text.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: before.isEmpty ? '' : before,
+                                        style: afriblockMono(
+                                          fontSize: _fontSize,
+                                          height: _lineHeight,
+                                          color: Colors.transparent,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: ghost,
+                                        style: afriblockMono(
+                                          fontSize: _fontSize,
+                                          height: _lineHeight,
+                                          color: AfriblockColors.textMuted
+                                              .withValues(alpha: 0.55),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              TextField(
+                                controller: _controller,
+                                focusNode: _focus,
+                                maxLines: null,
+                                keyboardType: TextInputType.multiline,
+                                cursorColor: AfriblockColors.primary,
+                                style: style,
+                                strutStyle: const StrutStyle(
                                   fontSize: _fontSize,
                                   height: _lineHeight,
-                                  color: Colors.transparent,
+                                  forceStrutHeight: true,
                                 ),
-                              ),
-                              TextSpan(
-                                text: ghost,
-                                style: afriblockMono(
-                                  fontSize: _fontSize,
-                                  height: _lineHeight,
-                                  color: AfriblockColors.textMuted
-                                      .withValues(alpha: 0.55),
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  isCollapsed: true,
+                                  contentPadding: EdgeInsets.zero,
                                 ),
+                                onChanged: widget.onChanged,
                               ),
                             ],
                           ),
                         ),
-                      TextField(
-                        controller: _controller,
-                        focusNode: _focus,
-                        maxLines: null,
-                        keyboardType: TextInputType.multiline,
-                        cursorColor: AfriblockColors.primary,
-                        style: style,
-                        strutStyle: const StrutStyle(
-                          fontSize: _fontSize,
-                          height: _lineHeight,
-                          forceStrutHeight: true,
-                        ),
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          isCollapsed: true,
-                          contentPadding: EdgeInsets.zero,
-                        ),
-                        onChanged: widget.onChanged,
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ),
         ],

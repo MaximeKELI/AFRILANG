@@ -132,6 +132,95 @@ class LspClient {
     return null;
   }
 
+  /// [line] / [character] are 0-based (LSP).
+  Future<String?> hover(String uri, int line, int character) async {
+    if (!ready) return null;
+    try {
+      final res = await _request('textDocument/hover', {
+        'textDocument': {'uri': uri},
+        'position': {'line': line, 'character': character},
+      });
+      return parseHoverContents(res['result']);
+    } catch (e) {
+      lastError = '$e';
+      return null;
+    }
+  }
+
+  /// [line] / [character] are 0-based (LSP).
+  Future<LspLocation?> definition(String uri, int line, int character) async {
+    if (!ready) return null;
+    try {
+      final res = await _request('textDocument/definition', {
+        'textDocument': {'uri': uri},
+        'position': {'line': line, 'character': character},
+      });
+      return parseDefinitionResult(res['result']);
+    } catch (e) {
+      lastError = '$e';
+      return null;
+    }
+  }
+
+  /// Extract markdown/plaintext from a Hover result.
+  static String? parseHoverContents(Object? result) {
+    if (result == null) return null;
+    if (result is String) return result.trim().isEmpty ? null : result.trim();
+    if (result is! Map) return null;
+    final contents = result['contents'];
+    if (contents is String) {
+      return contents.trim().isEmpty ? null : contents.trim();
+    }
+    if (contents is Map) {
+      final v = contents['value']?.toString() ?? contents['language']?.toString();
+      if (v == null || v.trim().isEmpty) return null;
+      return v.trim();
+    }
+    if (contents is List) {
+      final parts = <String>[];
+      for (final c in contents) {
+        if (c is String && c.trim().isNotEmpty) {
+          parts.add(c.trim());
+        } else if (c is Map) {
+          final v = c['value']?.toString();
+          if (v != null && v.trim().isNotEmpty) parts.add(v.trim());
+        }
+      }
+      if (parts.isEmpty) return null;
+      return parts.join('\n\n');
+    }
+    return null;
+  }
+
+  static LspLocation? parseDefinitionResult(Object? result) {
+    if (result == null) return null;
+    if (result is Map) {
+      return _locationFromMap(Map<String, dynamic>.from(result));
+    }
+    if (result is List && result.isNotEmpty) {
+      final first = result.first;
+      if (first is Map) {
+        return _locationFromMap(Map<String, dynamic>.from(first));
+      }
+    }
+    return null;
+  }
+
+  static LspLocation? _locationFromMap(Map<String, dynamic> m) {
+    // LocationLink uses targetUri / targetRange; Location uses uri / range.
+    final uri = (m['uri'] ?? m['targetUri'])?.toString();
+    if (uri == null || uri.isEmpty) return null;
+    final range = (m['range'] ?? m['targetSelectionRange'] ?? m['targetRange']) as Map?;
+    final start = range?['start'] as Map?;
+    final line = (start?['line'] as num?)?.toInt();
+    final col = (start?['character'] as num?)?.toInt();
+    return LspLocation(
+      uri: uri,
+      line: line == null ? 1 : line + 1,
+      column: col == null ? 1 : col + 1,
+    );
+  }
+
   void _notify(String method, Object? params) {
     _send({'jsonrpc': '2.0', 'method': method, 'params': ?params});
   }
@@ -227,6 +316,13 @@ class LspClient {
       _pending.remove(id)!.complete(msg);
     }
   }
+}
+
+class LspLocation {
+  LspLocation({required this.uri, required this.line, this.column});
+  final String uri;
+  final int line;
+  final int? column;
 }
 
 /// Local outline fallback when LSP symbols are empty.

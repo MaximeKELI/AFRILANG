@@ -31,6 +31,19 @@ class EditorArea extends StatelessWidget {
                     initialContent: tab.content,
                     contentRevision: tab.contentRevision,
                     ghostText: wb.activeTab?.path == tab.path ? wb.ghostSuggestion : null,
+                    hoverInfo: wb.activeTab?.path == tab.path ? wb.hoverInfo : null,
+                    goToLine: wb.activeTab?.path == tab.path ? wb.goToLineRequest : null,
+                    goToColumn: wb.activeTab?.path == tab.path ? wb.goToColumnRequest : null,
+                    onGoToLineHandled: wb.clearGoToLineRequest,
+                    onGoToDefinition: () {
+                      if (wb.activeTab?.path == tab.path) {
+                        wb.goToDefinitionAtCaret();
+                      }
+                    },
+                    onDismissHover: () {
+                      wb.hoverInfo = null;
+                      wb.refresh();
+                    },
                     onChanged: (v) {
                       if (wb.activeTab?.path == tab.path) {
                         wb.updateActiveContent(v);

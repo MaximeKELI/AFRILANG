@@ -26,6 +26,7 @@ import '../search/search_service.dart';
 import '../services/afrilang_cli.dart';
 import '../services/build_service.dart';
 import '../services/file_service.dart';
+import '../services/output_buffer.dart';
 import '../services/process_env.dart';
 import '../services/settings_store.dart';
 import '../services/workspace_paths.dart';
@@ -113,10 +114,13 @@ class WorkbenchController extends ChangeNotifier {
   BottomTab bottomTab = BottomTab.output;
 
   final List<ProblemItem> problems = [];
-  final StringBuffer outputLog = StringBuffer();
-  final StringBuffer lspLog = StringBuffer();
+  final OutputBuffer outputLog = OutputBuffer();
+  final OutputBuffer lspLog = OutputBuffer();
 
   bool busy = false;
+  /// Hover markdown/plaintext from LSP (shown above the editor).
+  String? hoverInfo;
+  Timer? _hoverDebounce;
   String? statusMessage;
   String? toolchainVersion;
   OverlayMode overlay = OverlayMode.none;
@@ -144,6 +148,7 @@ class WorkbenchController extends ChangeNotifier {
   List<FindMatch> findMatches = [];
   int findIndex = 0;
   int? goToLineRequest;
+  int? goToColumnRequest;
 
   final List<String> workspaceFiles = [];
   final List<String> recentFiles = [];
@@ -323,6 +328,13 @@ class WorkbenchController extends ChangeNotifier {
         run: (wb) => wb.runActive(),
       ),
       IdeCommandDef(
+        id: 'afrilang.stop',
+        label: 'AFRILANG: Stop',
+        shortcut: 'Shift+F5',
+        category: 'AFRILANG',
+        run: (wb) => wb.stopCli(),
+      ),
+      IdeCommandDef(
         id: 'afrilang.check',
         label: 'AFRILANG: Check File',
         category: 'AFRILANG',
@@ -334,6 +346,19 @@ class WorkbenchController extends ChangeNotifier {
         shortcut: 'F6',
         category: 'AFRILANG',
         run: (wb) => wb.startDebug(),
+      ),
+      IdeCommandDef(
+        id: 'editor.gotoDefinition',
+        label: 'Go to Definition',
+        shortcut: 'F12',
+        category: 'Navigation',
+        run: (wb) => wb.goToDefinitionAtCaret(),
+      ),
+      IdeCommandDef(
+        id: 'editor.showHover',
+        label: 'Show Hover Info',
+        category: 'Navigation',
+        run: (wb) async => wb.refreshHoverAtCaret(immediate: true),
       ),
       IdeCommandDef(
         id: 'view.togglePanel',
@@ -763,17 +788,21 @@ description = "Projet créé avec AFRIBLOCK"
     await createFileInWorkspace('untitled.afr');
   }
 
-  Future<void> openFile(String path, {int? line}) async {
-    final existing = tabs.indexWhere((t) => t.path == path);
+  Future<void> openFile(String path, {int? line, int? column}) async {
+    var resolved = path;
+    if (!p.isAbsolute(resolved) && workspaceRoot != null) {
+      resolved = p.normalize(p.join(workspaceRoot!, resolved));
+    }
+    final existing = tabs.indexWhere((t) => t.path == resolved);
     if (existing >= 0) {
       activeTabIndex = existing;
     } else {
       try {
-        final content = await files.readFile(path);
-        final tab = EditorTab(path: path, content: content)..markSaved();
+        final content = await files.readFile(resolved);
+        final tab = EditorTab(path: resolved, content: content)..markSaved();
         tabs.add(tab);
         activeTabIndex = tabs.length - 1;
-        await lsp.didOpen(File(path).uri.toString(), content);
+        await lsp.didOpen(File(resolved).uri.toString(), content);
       } catch (e) {
         statusMessage = 'Cannot open: $e';
         notifyListeners();
@@ -782,13 +811,16 @@ description = "Projet créé avec AFRIBLOCK"
     }
     await refreshOutline();
     recentFiles
-      ..remove(path)
-      ..insert(0, path);
+      ..remove(resolved)
+      ..insert(0, resolved);
     if (recentFiles.length > 20) {
       recentFiles.removeRange(20, recentFiles.length);
     }
-    if (line != null) goToLineRequest = line;
-    statusMessage = line == null ? path : '$path:$line';
+    if (line != null) {
+      goToLineRequest = line;
+      goToColumnRequest = column;
+    }
+    statusMessage = line == null ? resolved : '$resolved:$line';
     notifyListeners();
   }
 
@@ -868,6 +900,114 @@ description = "Projet créé avec AFRIBLOCK"
   void onEditorCaretChanged(int offset) {
     editorCaret = offset;
     scheduleInlineSuggest();
+    refreshHoverAtCaret();
+  }
+
+  void refreshHoverAtCaret({bool immediate = false}) {
+    _hoverDebounce?.cancel();
+    void run() async {
+      final tab = activeTab;
+      if (tab == null || !tab.path.toLowerCase().endsWith('.afr')) {
+        if (hoverInfo != null) {
+          hoverInfo = null;
+          notifyListeners();
+        }
+        return;
+      }
+      final pos = TextOps.lineColAt(tab.content, editorCaret);
+      String? text;
+      if (lsp.ready) {
+        text = await lsp.hover(
+          File(tab.path).uri.toString(),
+          pos.line,
+          pos.character,
+        );
+      }
+      if (text == null || text.isEmpty) {
+        final word = TextOps.wordAt(tab.content, editorCaret);
+        if (word.isNotEmpty) {
+          final local = SymbolIndex.scan(tab.content)
+              .where((s) => s.name == word)
+              .toList();
+          if (local.isNotEmpty) {
+            text = '**${local.first.name}** — ${local.first.kind.trim()} (line ${local.first.line})';
+          }
+        }
+      }
+      if (hoverInfo != text) {
+        hoverInfo = text;
+        notifyListeners();
+      }
+    }
+
+    if (immediate) {
+      run();
+    } else {
+      _hoverDebounce = Timer(const Duration(milliseconds: 350), run);
+    }
+  }
+
+  Future<void> goToDefinitionAtCaret() async {
+    final tab = activeTab;
+    if (tab == null) return;
+    final pos = TextOps.lineColAt(tab.content, editorCaret);
+    LspLocation? loc;
+    if (lsp.ready) {
+      loc = await lsp.definition(
+        File(tab.path).uri.toString(),
+        pos.line,
+        pos.character,
+      );
+    }
+    if (loc != null) {
+      final path = loc.uri.startsWith('file://')
+          ? Uri.parse(loc.uri).toFilePath()
+          : loc.uri;
+      await openFile(path, line: loc.line, column: loc.column);
+      statusMessage = 'Definition → ${relativePath(path)}:${loc.line}';
+      notifyListeners();
+      return;
+    }
+    final word = TextOps.wordAt(tab.content, editorCaret);
+    if (word.isEmpty) {
+      statusMessage = 'No definition';
+      notifyListeners();
+      return;
+    }
+    await refreshOutline();
+    final hit = outline.where((s) => s.name == word).toList();
+    if (hit.isEmpty) {
+      statusMessage = 'No definition for "$word"';
+      notifyListeners();
+      return;
+    }
+    requestGoToLine(hit.first.line);
+    statusMessage = 'Definition → ${hit.first.name}:${hit.first.line}';
+    notifyListeners();
+  }
+
+  bool get cliRunning => build.isRunning;
+
+  Future<void> stopCli() async {
+    if (!build.isRunning && !busy) {
+      statusMessage = 'Nothing to stop';
+      notifyListeners();
+      return;
+    }
+    statusMessage = 'Stopping…';
+    notifyListeners();
+    await build.cancel();
+  }
+
+  /// Send a line to the active Run/Build process stdin.
+  void writeCliStdin(String line) {
+    if (!build.writeStdin(line)) {
+      statusMessage = 'No running process for stdin';
+      notifyListeners();
+      return;
+    }
+    outputLog.writeln('← $line');
+    notifyListeners();
   }
 
   void clearGhostSuggestion({bool notify = true}) {
@@ -1048,6 +1188,11 @@ description = "Projet créé avec AFRIBLOCK"
     notifyListeners();
   }
 
+  void clearDebugConsole() {
+    debug.console.clear();
+    notifyListeners();
+  }
+
   void clearProblems() {
     problems.clear();
     notifyListeners();
@@ -1154,6 +1299,11 @@ description = "Projet créé avec AFRIBLOCK"
   }
 
   Future<void> _streamCli(List<String> args, {bool revealProblems = false}) async {
+    if (build.isRunning) {
+      statusMessage = 'Already running — Stop first (Shift+F5)';
+      notifyListeners();
+      return;
+    }
     busy = true;
     statusMessage = 'Running ${args.first}…';
     bottomTab = BottomTab.output;
@@ -1175,8 +1325,11 @@ description = "Projet créé avec AFRIBLOCK"
         bottomTab = BottomTab.problems;
       }
       events.emit(BuildFinishedEvent(exitCode: result.exitCode, targetId: activeTargetId));
-      statusMessage =
-          result.exitCode == 0 ? 'Done' : 'Exit ${result.exitCode}';
+      statusMessage = result.exitCode == -1
+          ? 'Stopped'
+          : result.exitCode == 0
+              ? 'Done'
+              : 'Exit ${result.exitCode}';
     } catch (e) {
       appendOutput('Error: $e\n');
       statusMessage = 'Failed';
@@ -1282,14 +1435,16 @@ description = "Projet créé avec AFRIBLOCK"
     updateFindQuery(findQuery);
   }
 
-  void requestGoToLine(int line) {
+  void requestGoToLine(int line, {int? column}) {
     goToLineRequest = line;
+    goToColumnRequest = column;
     hideOverlay();
     notifyListeners();
   }
 
   void clearGoToLineRequest() {
     goToLineRequest = null;
+    goToColumnRequest = null;
   }
 
   void insertSnippet(AfrilangSnippet snippet) {
@@ -1354,6 +1509,7 @@ description = "Projet créé avec AFRIBLOCK"
   @override
   void dispose() {
     _aiDebounce?.cancel();
+    _hoverDebounce?.cancel();
     ai.updateConfig(const AiAssistConfig());
     lsp.stop();
     terminals.disposeAll();

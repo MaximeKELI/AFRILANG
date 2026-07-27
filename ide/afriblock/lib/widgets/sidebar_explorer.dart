@@ -425,10 +425,14 @@ class _RunPanel extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           FilledButton.icon(
-            onPressed: wb.busy ? null : wb.runActive,
-            icon: const Icon(Icons.play_arrow),
-            label: const Text('Run'),
-            style: FilledButton.styleFrom(backgroundColor: AfriblockColors.primaryDeep),
+            onPressed: wb.cliRunning || wb.busy ? wb.stopCli : wb.runActive,
+            icon: Icon(wb.cliRunning || wb.busy ? Icons.stop : Icons.play_arrow),
+            label: Text(wb.cliRunning || wb.busy ? 'Stop' : 'Run'),
+            style: FilledButton.styleFrom(
+              backgroundColor: wb.cliRunning || wb.busy
+                  ? AfriblockColors.error
+                  : AfriblockColors.primaryDeep,
+            ),
           ),
           const SizedBox(height: 8),
           OutlinedButton.icon(

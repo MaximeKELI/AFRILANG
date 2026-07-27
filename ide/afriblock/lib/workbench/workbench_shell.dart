@@ -39,8 +39,16 @@ class WorkbenchShell extends StatelessWidget {
             () => wb.closeActiveTab(),
         const SingleActivator(LogicalKeyboardKey.keyW, meta: true):
             () => wb.closeActiveTab(),
-        const SingleActivator(LogicalKeyboardKey.f5): () => wb.runActive(),
+        const SingleActivator(LogicalKeyboardKey.f5): () {
+          if (wb.cliRunning || wb.busy) {
+            wb.stopCli();
+          } else {
+            wb.runActive();
+          }
+        },
+        const SingleActivator(LogicalKeyboardKey.f5, shift: true): () => wb.stopCli(),
         const SingleActivator(LogicalKeyboardKey.f6): () => wb.startDebug(),
+        const SingleActivator(LogicalKeyboardKey.f12): () => wb.goToDefinitionAtCaret(),
         const SingleActivator(LogicalKeyboardKey.keyB, control: true, shift: true):
             () => wb.buildActiveTarget(),
         const SingleActivator(LogicalKeyboardKey.keyB, meta: true, shift: true):
@@ -150,6 +158,7 @@ class _TitleBar extends StatelessWidget {
           _MenuBtn(label: 'Run', items: [
             _MenuAction('Build', () => wb.buildActiveTarget()),
             _MenuAction('Run', () => wb.runActive()),
+            _MenuAction('Stop', () => wb.stopCli()),
             _MenuAction('Check', () => wb.checkActive()),
             _MenuAction('Lint', () => wb.lintWorkspace()),
             _MenuAction('Debug', () => wb.startDebug()),
@@ -158,6 +167,7 @@ class _TitleBar extends StatelessWidget {
           _MenuBtn(label: 'View', items: [
             _MenuAction('Command Palette…', () => wb.showOverlay(OverlayMode.commandPalette)),
             _MenuAction('Go to File…', () => wb.showOverlay(OverlayMode.quickOpen)),
+            _MenuAction('Go to Definition', () => wb.goToDefinitionAtCaret()),
             _MenuAction('Toggle Panel', () => wb.togglePanel()),
             _MenuAction('Split Editor', () => wb.toggleSplit()),
             _MenuAction('Toggle Theme', () => wb.cycleTheme()),
@@ -233,10 +243,13 @@ class _BuildToolbar extends StatelessWidget {
             icon: const Icon(Icons.handyman_outlined),
           ),
           IconButton(
-            tooltip: 'Run',
+            tooltip: wb.cliRunning || wb.busy ? 'Stop (Shift+F5)' : 'Run (F5)',
             iconSize: 18,
-            onPressed: wb.busy ? null : wb.runActive,
-            icon: const Icon(Icons.play_arrow),
+            onPressed: wb.cliRunning || wb.busy ? wb.stopCli : wb.runActive,
+            icon: Icon(
+              wb.cliRunning || wb.busy ? Icons.stop : Icons.play_arrow,
+              color: wb.cliRunning || wb.busy ? AfriblockColors.error : null,
+            ),
           ),
           IconButton(
             tooltip: 'Debug',
