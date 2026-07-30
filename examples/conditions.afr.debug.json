@@ -1,5 +1,5 @@
 {
-  "source": "/home/admin20/AFRILANG/examples/conditions.afr",
+  "source": "/run/user/1000/doc/d43be2d9/examples/conditions.afr",
   "variables": [
     {"name":"y","type":"number","scope":"global"},
     {"name":"x","type":"number","scope":"global"},

@@ -4,3 +4,4 @@ say "Le compilateur fonctionne."
 repeat 3 times
     say "Hello"
 end
+
