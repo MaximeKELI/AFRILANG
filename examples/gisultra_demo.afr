@@ -18,3 +18,8 @@ create aspect list number = list of 0, 90, 180, 270
 create hs = hillshadeRaster(slope, aspect)
 say "Hillshade[0]={hs at 0} Hillshade[1]={hs at 1} Hillshade[2]={hs at 2} Hillshade[3]={hs at 3}"
 
+
+
+
+
+
