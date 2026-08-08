@@ -33,3 +33,4 @@ create runTwice = function(fn function number to number, x number) returns numbe
 end
 
 say runTwice(doubleIt, 2)
+
