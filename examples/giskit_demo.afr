@@ -25,3 +25,4 @@ say "Distance km: {distKm}"
 say "Cap: {bearing} deg"
 say "NDVI demo: {ndviVal}"
 say "GSD m: {gsd}"
+
