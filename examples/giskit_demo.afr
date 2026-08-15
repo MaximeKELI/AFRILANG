@@ -27,3 +27,4 @@ say "NDVI demo: {ndviVal}"
 say "GSD m: {gsd}"
 
 
+
